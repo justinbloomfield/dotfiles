@@ -1,0 +1,132 @@
+## wm-independent hotkeys
+
+# reload sxhkd
+super + Escape
+	pkill -USR1 -x sxhkd
+
+super + space
+  urxvt
+
+alt + f
+  compfocus
+
+super + Return
+  rofilauncher
+
+super + b
+  qutebrowser
+
+# media keys things
+XF86AudioRaiseVolume
+  amixer sset Master 5%+ unmute
+
+XF86AudioLowerVolume
+  amixer sset Master 5%- unmute
+
+XF86AudioMute
+  amixer sset Master toggle
+
+XF86MonBrightnessUp
+  xbacklight -inc 10%
+
+XF86MonBrightnessDown
+  xbacklight -dec 10%
+
+XF86AudioPlay
+  mpc toggle
+
+XF86AudioStop
+  mpc stop
+
+XF86AudioNext
+  mpc next
+
+XF86AudioPrev
+  mpc prev
+
+#  _________________
+# < Here be dragons >
+#  -----------------
+#       \                    / \  //\
+#        \    |\___/|      /   \//  \\
+#             /0  0  \__  /    //  | \ \
+#            /     /  \/_/    //   |  \  \
+#            @_^_@'/   \/_   //    |   \   \
+#            //_^_/     \/_ //     |    \    \
+#         ( //) |        \///      |     \     \
+#       ( / /) _|_ /   )  //       |      \     _\
+#     ( // /) '/,_ _ _/  ( ; -.    |    _ _\.-~        .-~~~^-.
+#   (( / / )) ,-{        _      `-.|.-~-.           .~         `.
+#  (( // / ))  '/\      /                 ~-. _ .-~      .-~^-.  \
+#  (( /// ))      `.   {            }                   /      \  \
+#   (( / ))     .----~-.\        \-'                 .~         \  `. \^-.
+#              ///.----..>        \             _ -~             `.  ^-`  ^-_
+#                ///-._ _ _ _ _ _ _}^ - - - - ~                     ~-- ,.-~
+#                                                                   /.-~
+
+# exit X session
+super + ctrl + q
+  pkill xwait
+
+# close window
+super + q
+  killw  $(pfw)
+
+# fullscreens window
+super + w
+  fullscreenw $(pfw)
+
+# focus window
+super + {h,j,k,l}
+  focusw $(closestw {h, j, k, l})
+
+# focus next window
+super + Tab
+  focusw $(closestw next)
+
+# move window
+alt + {h,j,k,l}
+  wmv {-10 0, 0 10, 0 -10, 10 0} $(pfw)
+
+# move window at warp speed
+alt + shift + {h,j,k,l}
+  wmv {-40 0, 0 40, 0 -40, 40 0} $(pfw)
+
+# resize window
+super + {r,s,f,t}
+  wrs {-10 0, 0 10, 0 -10, 10 0} $(pfw)
+
+super + shift + {r,s,f,t}
+  wrs {-40 0, 0 40, 0 -40, 40 0} $(pfw)
+
+# toggle group
+super + {1,2,3,4,5,6}
+  groaw -t {1,2,3,4,5,6}
+
+# add to group
+super + shift + {1,2,3,4,5,6}
+  groaw -a {1,2,3,4,5,6}
+
+# remove from group
+super + ctrl + {1,2,3,4,5,6}
+  groaw -d {1,2,3,4,5,6}
+
+
+# remove from all groups
+super + alt + shift + Return
+  groaw -d all
+
+
+# snap window to corner/middle of the screen
+super + {z,x,c,v,m}
+  cornerw {tl,tr, bl, br, md} $(pfw)
+
+# tile windows
+super + ctrl + t
+  tilew
+
+alt + @button2
+  focusw $(windowat $(wmp))
+
+ctrl + !button2
+  chwso -r $(pfw); wmv -a %i %i $(pfw)

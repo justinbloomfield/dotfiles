@@ -1,0 +1,11 @@
+#displays album art for currently playing song
+SHOWN=0
+while true; do
+if [ "$(cat /home/j/etc/crrmsc)" != "$SHOWN" ]; then
+pkill feh;
+feh -g 200x200+50+500 -Z -^ art "$(cat /home/j/etc/crrmsc)" &
+SHOWN=$(cat /home/j/etc/crrmsc)
+fi
+sleep 5s;
+done
+

@@ -1,0 +1,7 @@
+source /home/j/.mkshrc
+export NTFY_FIFO_PATH=/tmp/ntfy.fifo
+#export NTFY_COUNT_PATH=/tmp/ntfy.cnt
+#export PP_W=150
+#export PP_H=40
+amixer sset Master 15
+clear

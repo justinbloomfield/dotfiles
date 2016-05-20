@@ -1,0 +1,47 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+
+usage () {
+    cat <<EOF
+usage: $(basename $0) [-hptu]
+    -h : print help
+    -p : percentage of memory used (default)
+    -t : total available memory
+    -u : memory used
+EOF
+}
+
+# display the total of available memory in human readable format
+memtotal () {
+    grep MemTotal /proc/meminfo | awk '{print $2}'
+}
+
+# display the memory used
+memused () {
+    t=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+    f=$(grep MemFree  /proc/meminfo | awk '{print $2}')
+    b=$(grep ^Buffers /proc/meminfo | awk '{print $2}')
+    c=$(grep ^Cached  /proc/meminfo | awk '{print $2}')
+
+    echo "($t - $f - $c - $b) * 1000" | bc
+}
+
+# display the memory used in percentage
+memperc () {
+    t=$(grep MemTotal /proc/meminfo | awk '{print $2}')
+    f=$(grep MemFree  /proc/meminfo | awk '{print $2}')
+    b=$(grep ^Buffers /proc/meminfo | awk '{print $2}')
+    c=$(grep ^Cached  /proc/meminfo | awk '{print $2}')
+
+    mem=`echo "100 * ($t - $f - $c - $b) / $t" | bc`
+    echo "${mem}%"
+}
+
+
+case $1 in
+    -h) usage;;
+    -t) memtotal;;
+    -u) memused;;
+     *) memperc;;
+ esac

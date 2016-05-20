@@ -1,0 +1,44 @@
+#!/bin/sh
+# notification daemon, ripped from tudorom and z3bra
+
+NTFY_FIFO_PATH=${NTFY_FIFO_PATH:-/tmp/ntfy.fifo}
+NTFY_COUNT_PATH=${NTFY_COUNT_PATH:-/tmp/ntfy.cnt}
+
+# birth the fifo
+
+test -p /tmp/ntfy.fifo || mkfifo /tmp/ntfy.fifo
+
+# screen params
+SCR_X="$(wattr x `lsw -r`)"
+SCR_Y="$(wattr y `lsw -r`)"
+SCR_W="$(wattr w `lsw -r`)"
+SCR_H="$(wattr h `lsw -r`)"
+
+# notification params
+GAP="40"
+PP_W="${PP_W:-150}"
+PP_H="${PP_H:-40}"
+PP_X="$(( SCR_X - SCR_W - GAP ))"
+PP_MEMES="${PP_MEMES:-2}"
+PP_Y=40
+
+# count
+cnt=0
+echo "$cnt" > "$NTFY_COUNT_PATH"
+
+# watch fifo
+tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
+    # increase counter
+    cnt="$(cat "$NTFY_COUNT_PATH")"
+    cnt="$(( cnt + 1 ))"
+    echo "$cnt" > "$NTFY_COUNT_PATH"
+
+# the business end, prints the message
+
+{
+	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "#FFFFFF" -f metis -B "#010101" #"$msg"
+    cnt="$(cat "$NTFY_COUNT_PATH")"
+    cnt="$(( cnt - 1 ))"
+    echo "$cnt" > "$NTFY_COUNT_PATH"
+  } &
+done

@@ -1,0 +1,6 @@
+super + Return
+	rofilauncher
+super + space 
+	urxvt
+super + b
+	qutebrowser

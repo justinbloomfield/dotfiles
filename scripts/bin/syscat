@@ -1,0 +1,73 @@
+#!/bin/sh
+#
+# syscat - system info
+#
+
+## CONFIGURATION
+
+COLOR=${COLOR:-15}
+
+## FUNCTIONS
+
+c() { tput setaf $COLOR; }
+d() { tput sgr0; }
+
+system() {
+    crux
+}
+
+cpuinfo() {
+    sed -n "/model\ name/s/^.*:\ //p" /proc/cpuinfo | sed 1q
+}
+
+mydate() {
+    date
+}
+
+wmname() {
+    echo "none"
+}
+
+fontname() {
+    echo "metis"
+}
+
+## EXECUTE
+
+# SYSTEM
+
+cat <<EOF
+
+$(c)SYSTEM    $(d)$(system)
+$(c)KERNEL    $(d)$(uname -r)
+$(c)HOSTNAME  $(d)$(hostname)
+$(c)WMNAME    $(d)$(wmname)
+$(c)TERMINAL  $(d)$TERM
+$(c)SHELL     $(d)$SHELL
+$(c)FONT      $(d)$(fontname)
+$(c)PROC      $(d)$(~/bin/cpu -p)
+$(c)MEMORY    $(d)$(~/bin/memory -u | xargs human)
+$(c)DATE      $(d)$(mydate)
+
+EOF
+
+# COLORS
+
+for col in 0 1 2 3 4 5 6 7; do
+  tput setaf $col
+  printf %s '>>> '
+done
+echo
+for col in 8 9 10 11 12 13 14 15; do
+  tput setaf $col
+  printf %s '<<< '
+done
+tput sgr0
+echo
+echo
+
+# FLAGS
+
+case $1 in
+  -s) maim sys.png ;;
+esac

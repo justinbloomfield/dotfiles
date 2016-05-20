@@ -1,0 +1,140 @@
+Received: from HK2PR06MB0612.apcprd06.prod.outlook.com (10.161.188.27) by
+ SIXPR06MB0624.apcprd06.prod.outlook.com (10.160.240.27) with Microsoft SMTP
+ Server (TLS) id 15.1.453.26 via Mailbox Transport; Fri, 15 Apr 2016 18:16:37
+ +0000
+Received: from SG2PR06CA0052.apcprd06.prod.outlook.com (10.167.73.148) by
+ HK2PR06MB0612.apcprd06.prod.outlook.com (10.161.188.27) with Microsoft SMTP
+ Server (TLS) id 15.1.466.19; Fri, 15 Apr 2016 18:16:36 +0000
+Received: from PU1APC01FT056.eop-APC01.prod.protection.outlook.com
+ (2a01:111:f400:7ebd::208) by SG2PR06CA0052.outlook.office365.com
+ (2603:1096:1:4::20) with Microsoft SMTP Server (TLS) id 15.1.466.19 via
+ Frontend Transport; Fri, 15 Apr 2016 18:16:36 +0000
+Received: from BAY004-MC1F28.hotmail.com (10.152.252.60) by
+ PU1APC01FT056.mail.protection.outlook.com (10.152.253.98) with Microsoft SMTP
+ Server (TLS) id 15.1.453.6 via Frontend Transport; Fri, 15 Apr 2016 18:16:35
+ +0000
+Received: from o3.email.bandcamp.com ([198.21.0.215]) by BAY004-MC1F28.hotmail.com over TLS secured channel with Microsoft SMTPSVC(7.5.7601.23143);
+	 Fri, 15 Apr 2016 11:16:32 -0700
+DKIM-Signature: v=1; a=rsa-sha1; c=relaxed; d=email.bandcamp.com; 
+	h=from:to:subject:reply-to:mime-version:content-type; s=smtpapi; 
+	bh=Z6m8DoOX3sKIOF8K98ioewObC3c=; b=kufXe6PxzQSiBWmbewReVEzbplkw0
+	f2EkHn8AqSX0o4YtWQAmCObiM7iu/667kHhntESmu5LMnKDSaqYc1obGdYi7rvpi
+	ESG9iBCoI+J54FNIsCTG5zx1JrQgifIRYiD/eHh4QojeG6+WOCnkxuCV/jKhG0uP
+	JIMz+4tPykjYuc=
+Received: by filter0057p1las1.sendgrid.net with SMTP id filter0057p1las1.24469.57112FFCA
+        2016-04-15 18:16:28.14680384 +0000 UTC
+Received: from bandcamp.com (ee.27.7e4b.ip4.static.sl-reverse.com [75.126.39.238])
+	by ismtpd0012p1las1.sendgrid.net (SG) with ESMTP id WZssk5uSQBGmHNeWR9cOMg
+	for <jbloomfield@live.com>; Fri, 15 Apr 2016 18:16:27.825 +0000 (UTC)
+From: Bandcamp <noreply@bandcamp.com>
+To: jbloomfield@live.com
+Subject: New release from Sea Bastard
+Reply-To: <noreply@bandcamp.com>
+Content-Type: multipart/alternative;
+ boundary="this_internet_stuff_is_wild"
+Message-ID: <WZssk5uSQBGmHNeWR9cOMg@ismtpd0012p1las1.sendgrid.net>
+Date: Fri, 15 Apr 2016 18:16:28 +0000
+X-SG-EID: IJWGrp4rHRqxbNCQwDSSJBqdRJbLPM30UgpXIUnDwg17/+8SI+9Cv6SgllD7tanM4VpJeKJ1C44V+/
+ xq6UhzfQfKSPz0egGo/FA9fWkLhXqPunmLAKNA3fhWtKja48RVokJ/L2RccLI59I9O9JXesD9YOae7
+ 2DBuy+m3v1QDZid6MsmZKdJdTnQ5GJJtcqJGm3MbNNg0zbOy261cd0wtIA==
+Return-Path: bounces+715912-73ad-jbloomfield=live.com@email.bandcamp.com
+X-OriginalArrivalTime: 15 Apr 2016 18:16:32.0852 (UTC) FILETIME=[F0788140:01D19742]
+X-MS-Exchange-Organization-Network-Message-Id: 79940bfd-cab1-49a2-de36-08d3655a1535
+X-EOPAttributedMessage: 0
+X-EOPTenantAttributedMessage: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa:0
+X-MS-Exchange-Organization-MessageDirectionality: Incoming
+CMM-sender-ip: 198.21.0.215
+CMM-sending-ip: 198.21.0.215
+CMM-Authentication-Results: hotmail.com; spf=pass (sender IP is 198.21.0.215)
+ smtp.mailfrom=bounces+715912-73ad-jbloomfield=live.com@email.bandcamp.com;
+ dkim=pass header.d=email.bandcamp.com; x-hmca=pass
+ header.id=noreply@bandcamp.com
+CMM-X-SID-PRA: noreply@bandcamp.com
+CMM-X-AUTH-Result: PASS
+CMM-X-SID-Result: PASS
+CMM-X-Message-Status: n:n
+CMM-X-Message-Delivery: Vj0xLjE7dXM9MDtsPTE7YT0xO0Q9MTtHRD0xO1NDTD0w
+CMM-X-Message-Info: NhFq/7gR1vTLx4yMieWo5paAB2G1Iz0+/zLJHaXTf8Hu6we7hde0ZBpqy8Ee/1/nj7KhLBfCod40BuEgYXUBH1oPuhE+yI/uSFxBMD2FpesypvSg9Ro5k7/N+4lFJQZMSn0YsY+32jzQxuvADi9Q3hbUgj1kAjPzRHx181jTh/Khbo215DFyIPCnM1z6EEY6JTv89ODXKi0sUWCswH14syYCrwvgMUg3QCGW774td/EW+P/YjV8h4Q==
+X-MS-Exchange-Organization-PCL: 2
+X-Forefront-Antispam-Report: EFV:NLI;SFV:NSPM;SFS:(98900003);DIR:INB;SFP:;SCL:1;SRVR:HK2PR06MB0612;H:BAY004-MC1F28.hotmail.com;FPR:;SPF:None;MLV:ovr;LANG:en;
+X-MS-Office365-Filtering-Correlation-Id: 79940bfd-cab1-49a2-de36-08d3655a1535
+X-Microsoft-Exchange-Diagnostics: 1;HK2PR06MB0612;2:GazxFPAuwipUrNTJJ61RNU4o2LGWWHOnDfX+95fO9nra8oncngag1h38BHpj8m6xgezuUJmZDor+1OH5n4ayKaNmNWjo2YL4CCbXmq5WAquC23acA8+gkRWOpHC/E214TDIXGHFfoS02ohN/izAPijQpt1P3tQPtacoEkZqnqwGM51wEpmzczBD+8xn/eCDW1OFBhKzRTJfLTce0qzkPBg==;3:hVu4eNNVQy9QI/U+Wx2tNf/rWZ3xZ536IfbYtiXvC+lUV9qgU7rmMEUxp6i7g4EznbCoVppQaLNTY11tYcvQsyxJMirJeAruu1ymi/e8gnUoJ65TZ/hHYxFqIZPqmOoR6pEZ8qIJhCg0R6El4zevoxFikkejtxPmM/gdqbSkmqo=;25:vb6PR8pY9tcvdhL6fUXK+HpWwMbHES7YXubsA/RumrRWqzw6h+PiyNuvvDGHoQQPOzR3+PJnCHkG+BlhJ175x9WhArkNen94n1Sagfhg0ZAee8hmuAmeN/YvJ+BFe6z3qfM2k0KXa6h0bXpfJeLpYEbg2H5skMX+T0gNVdPz5c08Vc4Z1n/q2ceh5WqqSicqOE3C8S7OgB+6cOeXnRkBNct8vOuZAhQRVVTu/Exxut+ttBSlqlfEjmxCUx3+CbiLgJ/zIMEc1ZeYswSO7QR1MDcb4AL4O5GRjvUSeD3p9pZywx+BvUDfDn8D0W03w4M5
+X-Microsoft-Antispam: BCL:0;PCL:0;RULEID:(8291501002);SRVR:HK2PR06MB0612;
+X-MS-Exchange-Organization-AVStamp-Service: 1.0
+X-Exchange-Antispam-Report-CFA-Test: BCL:0;PCL:0;RULEID:(82015046);SRVR:HK2PR06MB0612;BCL:0;PCL:0;RULEID:;SRVR:HK2PR06MB0612;
+X-Microsoft-Exchange-Diagnostics: 1;HK2PR06MB0612;4:AeNYT2YgeieZSUt8QvLCEBN/mlOUrYqZR+G+zcFFT89Gx1b0MOBzpXywYAjjRidvZ2/vBva7rXfoW2rXSbIXvkLcC6eCGbFoCXJF+xPghUkG/CYlsxY66KGEMpD2nT5S/z9Sjgfb3m55nlM5qfs1ss3Dj8D2TSrn7Q/QcBUrXIGC/IFyUI6wRQHFhBJUgtPVMs6DnJF4ku5yRHKsK1GQeuiCsq3qXRAKplz+iYoHeLEFJO3omYh1KCqx1q34tBWwuhf4yqToTSiv+CwGiktMCw==;23:QAw/uHJjTymg5TpLJN6JPi4iJNmVQphe8/yHtpGLXRcY3w9N+PWriQED2NGLTeJHf0w1hP+4fcju4pSWgwie+OV/Ogfon+0N1JTjC3PqPG4lsCiwlDCTKQs8KrahYjvZPql8DUzfjlOHVV55MeumHTLSSlvp4/e/apPTSuMHn43FBdbXYPkzEfH3jdLWvbL0;5:CmW2+1RDS2M5q6BK+m4CIVjENyQtwUkI7ApLKqvejsfpgx/aWhv34woqDm7nHr7exwGBnk3XolFWTNY6BS9XpFHjLaGQi/1lO9gFfOtF+KsUaUXefQsW4onThZceyTc6ErPG5eT1GbnbBHp9w5bM1RngHZwceNPygAvZfVw9bUHTJSv5YjV35AW0Ia2A0/8J;24:F7HCxJtufgZDHRizZ16X8JK6QTBnpCsEmqYFQphtR85is39NncdUyKCP2woAUPW5LNms6GGWCTpVgnmmsqSt+BUrLvpCYygPeMv+t+wiw8c=
+X-MS-Exchange-Organization-SCL: 1
+SpamDiagnosticOutput: 1:23
+SpamDiagnosticMetadata: NSPM
+X-Microsoft-Exchange-Diagnostics: 1;HK2PR06MB0612;7:V77ZJUQtfehOAXCOYDbMIly75z8GE/qLCPu6TP0JMz213fhX4wv/W3LCLM90zYoFnvMhA84tpMBdMID6+jemQe60TgLAbLvNjmaHc3g76erynEswXLY4TPPo5sx1XQOs5qg0yx5SoX9haSSB7gqyDe0yliMPpuHGnvf582dMGNv7LuFsqhwda5v9FiROxoRJwPc9iSiZBn8GK4fPUnFpvFtsUSqg0jIM+8t2+SBLIVg=
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Apr 2016 18:16:35.1060
+ (UTC)
+X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-FromEntityHeader: Internet
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: HK2PR06MB0612
+X-MS-Exchange-Organization-AuthSource: PU1APC01FT056.eop-APC01.prod.protection.outlook.com
+X-MS-Exchange-Organization-AuthAs: Anonymous
+X-MS-Exchange-Transport-EndToEndLatency: 00:00:02.8577265
+MIME-Version: 1.0
+
+--this_internet_stuff_is_wild
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Greetings jbloomfield@live.com,=0D
+Sea Bastard just released "The Hermit", check it out at:=0D
+http://seabastard.bandcamp.com/album/the-hermit-2?from=3Dfanpub_nfnb=0D
+=0D
+Enjoy!=0D
+Unsubscribe from Sea Bastard by visiting:=0D
+http://seabastard.bandcamp.com/fan_unsubscribe?band_id=3D4096559586&email=
+=3Djbloomfield%40live.com&sig=3D85476acd7ffb64be48aaaa0ed2fd0335=0D
+
+
+--this_internet_stuff_is_wild
+Content-Type: multipart/related;
+ boundary="greetings_from_sunny_sea_ranch"
+
+--greetings_from_sunny_sea_ranch
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Dutf-8"><d=
+iv id=3D"msg" style=3D"color:#595959;font-family: 'Helvetica Neue',arial,ve=
+rdana,sans-serif;line-height:150%;padding:0;font-size:14px">=0D
+=0D
+<div style=3D"width:210px;min-height:210px;margin-bottom: 20px;">=0D
+    <a href=3D"http://seabastard.bandcamp.com/album/the-hermit-2?from=3Dfan=
+pub_nfnb">=0D
+        <img style=3D"width:210px;min-height:210px;" src=3D"http://f0.bcbit=
+s.com/img/a0923807461_9.jpg" alt=3D"The Hermit Cover Art">=0D
+    </a>=0D
+</div>=0D
+=0D
+Greetings jbloomfield@live.com,=0D
+<br>=0D
+Sea Bastard just released <span style=3D"font-style: italic;">The Hermit</s=
+pan>, <a href=3D"http://seabastard.bandcamp.com/album/the-hermit-2?from=3Df=
+anpub_nfnb" style=3D"color:#0687f5;text-decoration:none;">check it out here=
+</a>.=0D
+=0D
+=0D
+<br><br>=0D
+Enjoy!=0D
+<br><br>=0D
+<a href=3D"http://bandcamp.com"><img src=3D"http://bandcamp.com/img/email/b=
+c-logo-small-2.gif" width=3D"105" height=3D"19" border=3D"0" alt=3D"bandcam=
+p logo"></a><br>=0D
+<br>=0D
+<span style=3D"font-size:11px;border-top:1px dotted #ccc;width:95%;display:=
+block;padding:1em 0;margin:1em 0 0;"><a style=3D"color:#999;text-decoration=
+:none;font-size:11px;" href=3D"http://seabastard.bandcamp.com/fan_unsubscri=
+be?band_id=3D4096559586&amp;email=3Djbloomfield%40live.com&amp;sig=3D85476a=
+cd7ffb64be48aaaa0ed2fd0335">Unsubscribe from Sea Bastard</a></span>=0D
+<br>&nbsp;=0D
+</div>=0D
+
+
+--greetings_from_sunny_sea_ranch--
+
+--this_internet_stuff_is_wild--

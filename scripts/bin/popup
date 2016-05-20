@@ -1,0 +1,4 @@
+#!/bin/sh
+
+MSG=${1:-"oi you dumb cunt write something"}
+echo $MSG > $NTFY_FIFO_PATH
