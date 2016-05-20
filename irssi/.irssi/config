@@ -3,7 +3,7 @@ servers = (
     address = "irc.freenode.net";
     chatnet = "fn";
     port = "6667";
-    password = "dankm3m3s";
+    password = "d4nkm3m3s";
     use_ssl = "no";
     ssl_verify = "no";
   },
