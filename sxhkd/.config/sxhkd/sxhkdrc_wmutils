@@ -4,7 +4,7 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + space
+super + d
   urxvt
 
 alt + f
