@@ -3,7 +3,7 @@ set smtp_authenticators = "login"
 set my_name="Justin Bloomfield"
 mailboxes = +INBOX
 set smtp_url = "smtp://jbloomfield@live.com@smtp-mail.outlook.com:587/"
-set smtp_pass = "dankm3m3s"
+set smtp_pass = "cogandballs:D"
 set from = "jbloomfield@live.com"
 set ssl_force_tls = yes
 set spoolfile = "imaps://jbloomfield@live.com:dankm3m3s@imap-mail.outlook.com/INBOX"
@@ -19,6 +19,6 @@ set ssl_starttls = yes
 
 
 set imap_user = jbloomfield@live.com
-set imap_pass = dankm3m3s
+set imap_pass = cogandballs:D
 set folder = "imap://imap-mail.outlook.com:993/"
 
