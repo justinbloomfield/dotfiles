@@ -3,34 +3,11 @@ alias vim='vi'
 export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
 alias mutt='env TERM=vt220 mutt'
 alias nausea='nausea ~/etc/audio.fifo'
-#export LANG=en_AU.UTF-8
 export NTFY_FIFO_PATH=/tmp/ntfy.fifo
-#BASE16_SHELL="/home/j/.config/base16-shell/base16-atelierlakeside-custom.dark.sh"
-#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-export PS1="-_-_- "
+export PS1="// "
 export BROWSER="firefox"
-export EDITOR="nvim"
 export CHOME=/home/j/usr
 export NOTIFY_FIFO_PATH=/tmp/popup.fifo
-if [ "$TERM" = "linux" ]; then
-    echo -en "\e]P020242C"
-    echo -en "\e]P1570B0B"
-    echo -en "\e]P22E8B57"
-    echo -en "\e]P3A0AF39"
-    echo -en "\e]P42F4748"
-    echo -en "\e]P5185282"
-    echo -en "\e]P6737373"
-    echo -en "\e]P7P5P5P5"
-    echo -en "\e]P8273C24"
-    echo -en "\e]P9570B0B"
-    echo -en "\e]PA2E8B57"
-    echo -en "\e]PBA0AF39"
-    echo -en "\e]PC2F4748"
-    echo -en "\e]PD185282"
-    echo -en "\e]PE737373"
-    echo -en "\e]PFE4FCB8"
-    clear
-fi
 rmdir ~/Desktop
 alias nausea='nausea ~/etc/audio.fifo'
 clear
