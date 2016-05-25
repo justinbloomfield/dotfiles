@@ -1,0 +1,34 @@
+mpd_host	"127.0.0.1"
+mpd_port	"6600"
+mpd_music_dir	"~/usr/msc"
+
+header_visibility = "no"
+titles_visibility = "no"
+autocenter_mode = "yes"
+discard_colors_if_item_is_selected="no"
+now_playing_prefix = "> "
+now_playing_suffix = "$/b"
+selected_item_prefix = "$3"
+selected_item_suffix = "$9"
+
+# Progressbar look
+progressbar_look = "..."
+progressbar_color = "black"
+progressbar_elapsed_color = "white"
+progressbar_boldness = "no"
+
+# Misc
+display_bitrate = "no"
+enable_window_title = "no"
+ 
+#For Visualiser
+mpd_host = "localhost"
+visualizer_fifo_path = "/home/j/etc/audio.fifo"
+visualizer_output_name = "Pipe"
+visualizer_sync_interval = "15"
+visualizer_type = "ellipse"
+visualizer_look = "||"
+statusbar_visibility = "no"
+visualizer_in_stereo= "yes"
+#execute_on_song_change="echo $(echo /home/j/usr/msc/$(mpc current -f %file%) | sed 's_\(.*\)/\(.*\)/\(.*\)_\1/\2/_') > /home/j/etc/crrmsc ; echo $(mpc current) > /tmp/ntfy.fifo"  
+execute_on_song_change="echo $(mpc current) > /tmp/ntfy.fifo"

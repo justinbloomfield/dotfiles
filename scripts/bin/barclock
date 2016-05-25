@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")" 
+	sleep 1 
+done | lemonbar -g 200x25+960+1045 -d -f "-*-metis-*-*-*-*-11-*-*-*-*-*-*-*" -F "#ffffff" -B "#000000"

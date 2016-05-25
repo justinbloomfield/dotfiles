@@ -1,0 +1,5 @@
+#!/bin/sh
+echo -n "prt: "
+read nama
+ports -l | grep $nama
+

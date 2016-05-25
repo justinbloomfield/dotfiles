@@ -1,0 +1,8 @@
+#! /bin/dash
+# dummy script
+# (c) every stupid idiot who knows bash 2016 - wtfpl
+#
+
+while true; do
+  sleep 1
+done

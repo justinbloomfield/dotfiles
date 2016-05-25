@@ -1,0 +1,131 @@
+# mod1 = Alt_L
+# mod2 = Alt_R
+# mod3 = Hyper_L
+# mod4 = Super_L
+
+super + Return
+    rofilauncher
+
+super + b
+    qutebrowser
+
+super + space 
+    urxvt
+
+# reloading
+mod1 + shift + e
+    pkill eventually.sh | eventually.sh &
+mod1 + shift + r
+    pkill -USR1 -x sxhkd
+
+# movement scripts
+mod1 + Tab
+    focus.sh prev
+mod4 + Tab
+    focus.sh next
+mod4 + {h,j,k,l}
+    closest.sh {h,j,k,l}
+mod1 + {h,j,k,l}
+    snap.sh {h,j,k,l}
+mod4 + shift + {h,j,k,l}
+    move.sh {left,down,up,right}
+mod1 + shift + {h,j,k,l}
+    move.sh {left,down,up,right}
+
+# resize window
+mod4 + {w,a,s,d}
+    size.sh {su,sl,gd,gr} $(pfw)
+
+# window stacking order
+mod1 + u
+    chwso -l $(pfw); closest.sh h
+mod1 + i
+    chwso -l $(pfw); closest.sh l
+mod1 + y
+    hover.sh $(pfw)
+mod1 + o
+    ign.sh $(pfw)
+mod1 + p
+    hover.sh $(pfw)
+
+# manual window management
+mod1 + g
+    snap.sh md $(pfw)
+mod1 + {a,r,s,t,z,x,c}
+    position.sh {lft,quar,rht,full,res,ext,vid} $(pfw)
+mod4 + f
+    fullscreen.sh $(pfw)
+
+# groups
+mod1 + {1,2,3,4,5,6,7,8,9,0}
+    windows.sh -T {1,2,3,4,5,6,7,8,9,0}
+mod4 + {1,2,3,4,5,6,7,8,9,0}
+    windows.sh -z {1,2,3,4,5,6,7,8,9,0}
+mod1 + shift + {1,2,3,4,5,6,7,8,9,0}
+    windows.sh -a $(pfw) {1,2,3,4,5,6,7,8,9,0}
+mod4 + shift + {1,2,3,4,5,6,7,8,9,0}
+    windows.sh -m {1,2,3,4,5,6,7,8,9,0}
+mod1 + c
+    windows.sh -c $(pfw)
+mod1 + shift + c
+    windows.sh --reset
+
+# layouts
+mod2 + {1,2,3,4,5,6,7,8,9,0}
+    layouts.sh -o {1,2,3,4,5,6,7,8,9,0}
+mod2 + shift + {1,2,3,4,5,6,7,8,9,0}
+    layouts.sh -s {1,2,3,4,5,6,7,8,9,0}
+
+
+
+Print
+    shot
+shift + Print
+    shot; notify -D -m $(echo "Uploading Screenshot"); ioup ~/shot.png | \
+    xsel -i; xsel -o | xsel -bi; rm ~/shot.png
+
+# it's a killin' time!
+mod4 + q
+    winkill.sh $(pfw)
+
+
+# system
+mod4 + e
+    power.sh -l
+mod4 + shift + {q,f,p}
+    power.sh -{r,e,p}
+
+# mouse
+mod4 + @button1
+    focus.sh $(underneath.sh) "disable" -q; xmmv $(underneath.sh)
+button2
+    focus.sh $(underneath.sh) "disable" -q
+mod4 + !button3
+    wrs -a %i %i $(pfw)
+mod4 + z
+    mouse.sh toggle
+button8
+    xte 'keydown Control_L' 'key w' 'keyup Control_L'
+button9
+    xte 'keydown Control_L' 'keydown Shift_L' 'key t' 'keyup Shift_L' \
+        'keyup Control_L'
+
+
+# speed
+mod2 + q
+    mpvc -x -0.05 -q
+mod2 + w
+    mpvc -x 0.05 -q
+mod2 + e
+    mpvc -X 1.00 -q
+
+# volume
+mod2 + o
+    mpvc -v -5 -q
+mod2 + p
+    mpvc -v 5 -q
+
+{XF86AudioLowerVolume, XF86AudioRaiseVolume}
+    amixer -c 0 set Master 2db{-,+} unmute
+XF86AudioMute
+    amixer -c 0 set Master togglemute

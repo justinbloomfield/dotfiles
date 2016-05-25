@@ -1,0 +1,81 @@
+#!/bin/sh
+#
+# z3bra - (c) wtfpl 2014
+# Create a Pkgfile from simple templates and user input
+
+PKGFILE=$CHOME/ports/templates/Pkgfile
+PORTDIR=$CHOME/ports/crux
+EDITOR=${EDITOR:-vi}
+
+daddy="z3bra <willy at mailoo dot org>"
+
+echo_color () {
+    tput bold
+    tput setaf $1
+    shift
+
+    echo "$@"
+
+    tput sgr0
+}
+test -n "$1" && name=$1 || read -p 'Name : ' name
+read -p 'Description : ' description
+read -p 'Version : ' version
+read -p 'URL : ' url
+read -p 'Source : ' sources
+read -p 'Depends on : ' depends
+
+PORTDIR=$PORTDIR/$name
+
+if test "$version" = "git"; then
+
+    git_url=$sources
+    sources=''
+
+    read -p 'Git commit : ' sversion
+
+    version=git-$(echo $sversion | cut -c-7)
+
+    PKGFILE=${PKGFILE}-git
+else
+    sources=$(echo $sources | sed "s/$name/\$name/")
+    sources=$(echo $sources | sed "s/$version/\$version/")
+fi
+
+echo -n "creating port $name .. "
+mkdir $PORTDIR
+
+if cd $PORTDIR; then
+    echo_color 2 OK
+else
+    echo_color 1 FAIL
+    exit 1
+fi
+
+echo -n "copying Pkgfile .. "
+cp $PKGFILE Pkgfile
+
+if test -f $PORTDIR/Pkgfile; then
+    echo_color 2 OK
+else
+    echo_color 1 FAIL
+    exit 1
+fi
+
+echo -n "filling Pkgfile .. "
+sed \
+    -e "s__DESCRIPTION__$description" \
+    -e "s__URL__$url" \
+    -e "s__MAINTAINER__$daddy" \
+    -e "s__DEPENDENCIES__$depends" \
+    -e "s__NAME__$name" \
+    -e "s__VERSION__$version" \
+    -e "s__SOURCE__$sources" \
+    -e "s__GIT_URL__$git_url" \
+    -e "s__GIT_HASH__$sversion" \
+    -i $PORTDIR/Pkgfile
+echo_color 2 OK
+
+echo -n "opening Pkgfile for fixes .. "
+$EDITOR Pkgfile
+echo_color 2 OK

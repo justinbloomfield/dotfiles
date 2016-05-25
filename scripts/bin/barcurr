@@ -1,0 +1,6 @@
+#!/bin/sh
+while true; do
+	echo "%{r}$(audtousd)"
+	sleep 60
+done | lemonbar -g 1880x20+20+5 -f hack -F "#006e75"
+#done | lemonbar -g 220x20+1700+5 -f hack -F "#006e75" -B "#88161b1d"

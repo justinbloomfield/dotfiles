@@ -1,0 +1,7 @@
+source /home/j/.mkshrc
+export NTFY_FIFO_PATH=/tmp/ntfy.fifo
+export PS1="// "
+export NTFY_COUNT_PATH=/tmp/ntfy.cnt
+test -f $HOME/bin/panelsrc && . $HOME/bin/panelsrc
+mixer vol 45
+clear

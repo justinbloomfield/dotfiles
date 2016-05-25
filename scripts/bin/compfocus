@@ -1,0 +1,11 @@
+#!/bin/sh
+if [ -e /home/j/etc/notfocus ]
+then
+  killall compton
+  rm /home/j/etc/notfocus
+  compton
+else
+  killall compton
+  touch /home/j/etc/notfocus
+  compton --config /home/j/.config/comptonfocus
+fi

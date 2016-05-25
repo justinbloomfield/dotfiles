@@ -1,0 +1,15 @@
+#!/bin/mksh
+export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
+alias mutt='env TERM=vt220 mutt'
+alias nausea='nausea ~/etc/audio.fifo'
+#export LANG=en_AU.UTF-8
+export NTFY_FIFO_PATH=/tmp/ntfy.fifo
+#BASE16_SHELL="/home/j/.config/base16-shell/base16-atelierlakeside-custom.dark.sh"
+#[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+export PS1="// "
+export BROWSER="firefox"
+export CHOME=/home/j/usr
+export NOTIFY_FIFO_PATH=/tmp/popup.fifo
+rmdir ~/Desktop
+alias nausea='nausea ~/etc/audio.fifo'
+clear
