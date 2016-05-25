@@ -1,7 +1,8 @@
 source /home/j/.mkshrc
 export NTFY_FIFO_PATH=/tmp/ntfy.fifo
-#export NTFY_COUNT_PATH=/tmp/ntfy.cnt
-#export PP_W=150
-#export PP_H=40
+export NTFY_FIFO_CNT=/tmp/ntfy.cnt
 amixer sset Master 15
+export PS1="// "
+export NTFY_COUNT_PATH=/tmp/ntfy.cnt
+test -f $HOME/bin/panelsrc && . $HOME/bin/panelsrc
 clear

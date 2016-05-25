@@ -1,6 +1,5 @@
 #!/bin/sh
 while true; do
-	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")" #%{r}$(mpc current)  "
+	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")" 
 	sleep 1 
 done | lemonbar -g 300x25+10+10 -d -f metis -F "#ffffff" -B "#000000"
-#220x20+850+5 -f metis 

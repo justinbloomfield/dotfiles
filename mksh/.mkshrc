@@ -4,6 +4,9 @@ export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
 alias mutt='env TERM=vt220 mutt'
 alias nausea='nausea ~/etc/audio.fifo'
 export NTFY_FIFO_PATH=/tmp/ntfy.fifo
+alias mutt='env TERM=vt220 mutt'
+alias nausea='nausea ~/etc/audio.fifo'
+export NTFY_FIFO_PATH=/tmp/ntfy.fifo
 export PS1="// "
 export BROWSER="firefox"
 export CHOME=/home/j/usr

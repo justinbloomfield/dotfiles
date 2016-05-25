@@ -1,0 +1,99 @@
+fontname "metis"
+# borderwidth
+borderwidth 2
+# colors
+color activeborder 	'#FFFFFF'
+color inactiveborder 	'#1A1A1A'
+color font		'#FFFFFF'
+color menubg		'#000000'
+color menufg		'#FFFFFF'
+color groupborder	'#333333'
+color ungroupborder	'#BBBBBB'
+
+# autogroups
+autogroup 2 Firefox
+autogroup 3 mpv
+
+moveamount 5
+bigmoveamount 50
+sticky no
+
+#menu
+command term /usr/bin/urxvt
+command firefox /usr/local/bin/firefox
+
+
+# resize
+bind 4M-h resizeleft
+bind 4M-j resizedown
+bind 4M-k resizeup
+bind 4M-l resizeright
+
+# big resize
+bind 4SM-h bigresizeleft
+bind 4SM-j bigresizedown
+bind 4SM-k bigresizeup
+bind 4SM-l bigresizeright
+
+# move
+bind 4-h moveleft
+bind 4-j movedown
+bind 4-k moveup
+bind 4-l moveright
+
+# big move
+bind 4S-h bigmoveleft
+bind 4S-j bigmovedown
+bind 4S-k bigmoveup
+bind 4S-l bigmoveright
+
+# groups
+bind 4-1 group1
+bind 4-2 group2
+bind 4-3 group3
+bind 4-4 group4
+bind 4-5 group5
+bind 4-6 group6
+bind 4-7 group7
+bind 4-8 group8
+bind 4-9 group9
+
+bind 4M-1 grouponly1
+bind 4M-2 grouponly2
+bind 4M-3 grouponly3
+bind 4M-4 grouponly4
+bind 4M-5 grouponly5
+bind 4M-6 grouponly6
+bind 4M-7 grouponly7
+bind 4M-8 grouponly8
+bind 4M-9 grouponly9
+
+# extra binds
+bind 4-Tab   cycle
+bind 4S-Tab  rcycle
+bind 4-comma label
+bind 4-q     delete
+bind 4-g     grouptoggle
+bind 4MC-l   cyclegroup
+bind 4MC-h   rcyclegroup
+
+bind 4-d     exec
+bind 4-n     ssh
+bind 4-s     search
+
+bind 4-v vmaximise
+bind 4-b hmaximise
+
+bind 4M-r    restart
+bind 4M-Escape quit
+
+# unbind shit
+bind M-h unbind
+bind M-j unbind
+bind M-l unbind
+bind M-k unbind
+
+# fix mousebinds (sometimes it's a necessity!)
+mousebind 4-1 window_move
+mousebind 4-2 window_grouptoggle
+mousebind 4-3 window_resize

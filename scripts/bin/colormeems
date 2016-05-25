@@ -1,1 +1,0 @@
-colors -n 32 usr/pic/chernobyl.png | sed '9,24p;d' | shuf | hex2col

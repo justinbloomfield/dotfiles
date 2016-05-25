@@ -1,5 +1,3 @@
-!#include "/home/j/.config/x/colours/chrnbl"
-
 #include "/home/j/.config/x/colours/bw"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry

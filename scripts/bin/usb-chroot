@@ -1,0 +1,7 @@
+#!/bin/sh
+cd /mnt/archusb
+mount -t proc /proc proc
+mount --rbind /sys sys
+mount --rbind /dev dev
+mount --rbind /run run
+chroot /mnt/archusb /bin/bash
