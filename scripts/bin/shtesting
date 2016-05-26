@@ -1,4 +1,0 @@
-#!/bin/sh
-#output=${1:-1}
-#echo ${output}
-for i in {1 .. 5}; do (echo "#memes" | skroll -r  & sleep 3); done | lemonbar -g 120x40+30+30 -B "#000000" -F "#FFFFFF"
