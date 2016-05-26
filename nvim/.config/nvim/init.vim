@@ -1,5 +1,5 @@
-set nu
-syntax off
+set number
+set relativenumber
 set nohlsearch
 set t_Co=0
 set scrolloff=1
@@ -34,5 +34,4 @@ aug CSV_Editing
 	au BufRead,BufWritePost *.csv :%ArrangeColumn
 	au BufWritePre *.csv :%UnArrangeColumn
 aug end
-"oremap <C-l>
-
+syntax off

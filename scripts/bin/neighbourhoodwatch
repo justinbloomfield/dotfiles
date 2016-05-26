@@ -1,0 +1,6 @@
+#!/bin/sh
+
+while true; do
+	test -d /home/j/Desktop && rm -r $HOME/Desktop
+	sleep 30
+done

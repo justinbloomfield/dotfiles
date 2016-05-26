@@ -94,6 +94,6 @@ bind M-l unbind
 bind M-k unbind
 
 # fix mousebinds (sometimes it's a necessity!)
-mousebind 4-1 window_move
-mousebind 4-2 window_grouptoggle
-mousebind 4-3 window_resize
+#mousebind 4-1 window_move
+#mousebind 4-2 window_grouptoggle
+#mousebind 4-3 window_resize

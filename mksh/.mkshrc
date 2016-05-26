@@ -1,16 +1,7 @@
 #!/bin/mksh
-alias vim='vi'
+export PS1='// '
+alias vim='nvim'
 export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
+alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
-alias nausea='nausea ~/etc/audio.fifo'
-export NTFY_FIFO_PATH=/tmp/ntfy.fifo
-alias mutt='env TERM=vt220 mutt'
-alias nausea='nausea ~/etc/audio.fifo'
-export NTFY_FIFO_PATH=/tmp/ntfy.fifo
-export PS1="// "
-export BROWSER="firefox"
-export CHOME=/home/j/usr
-export NOTIFY_FIFO_PATH=/tmp/popup.fifo
-rmdir ~/Desktop
-alias nausea='nausea ~/etc/audio.fifo'
 clear
