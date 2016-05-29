@@ -1,0 +1,7 @@
+#!/bin/sh
+COLORSCHEME=${1:-/.config/x/colours/moonbow_tty}
+cat $HOME/.mkshrc >> /tmp/.mkshrc
+cat /dev/null > $HOME/.mkshrc
+cat /tmp/.mkshrc | sed "/^if/,/^fi/d" >> $HOME/.mkshrc
+rm /tmp/.mkshrc
+cat $COLORSCHEME >> $HOME/.mkshrc
