@@ -1,7 +1,31 @@
 #!/bin/mksh
+HISTFILE="$HOME/.mksh_history"
 export PS1='// '
-alias vim='nvim'
+#alias vim='nvim'
 export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
-clear
+alias dvtm='dvtm-custom'
+alias fbv='fbv -f'
+alias fbvid='mplayer -vo fbdev2'
+
+
+if [ "$TERM" = "linux" ]; then
+	echo -en "\e]P02b3135"
+	echo -en "\e]P1a66959"
+	echo -en "\e]P2769070"
+        echo -en "\e]P3ac8d6e"
+        echo -en "\e]P4607a86"
+        echo -en "\e]P580757e"
+        echo -en "\e]P660867f"
+        echo -en "\e]P7c4c4b5"
+        echo -en "\e]P84c5356"
+        echo -en "\e]P9a66959"
+        echo -en "\e]PA769070"
+        echo -en "\e]PBac8d6e"
+        echo -en "\e]PC607a86"
+        echo -en "\e]PD80757e"
+        echo -en "\e]PE60867f"
+        echo -en "\e]PFc4c4b5"
+	clear
+fi

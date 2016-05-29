@@ -2,7 +2,7 @@
 source /home/j/.mkshrc
 export NTFY_FIFO_PATH=/tmp/ntfy.fifo
 export NTFY_FIFO_CNT=/tmp/ntfy.cnt
-amixer sset Master 15
+amixer sset Master 39%
 neighbourhoodwatch & 
 export PS1="// "
 export BROWSER="firefox"

@@ -1,0 +1,29 @@
+#!/bin/mksh
+HISTFILE="$HOME/.mksh_history"
+export PS1='// '
+#alias vim='nvim'
+export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
+alias nausea='nausea ~/etc/audio.fifo'
+alias mutt='env TERM=vt220 mutt'
+
+
+# if [ "$TERM" = "linux" ]; then
+#     echo -en "\e]P0000000" #black
+#     echo -en "\e]P1eeeeee" #darkred
+#     echo -en "\e]P2dddddd" #darkgreen
+#     echo -en "\e]P3333333" #green
+#     echo -en "\e]P4666666" #darkblue
+#     echo -en "\e]P5bbbbbb" #darkmagenta
+#     echo -en "\e]P6222222" #darkcyan
+#     echo -en "\e]P7444444" #lightgrey
+#     echo -en "\e]P8AFAFAF" #darkgrey
+#     echo -en "\e]P9eeeeee" #red
+#     echo -en "\e]PAdddddd" #green
+#     echo -en "\e]PB333333" #yellow
+#     echo -en "\e]PC666666" #blue
+#     echo -en "\e]PDbbbbbb" #magenta
+#     echo -en "\e]PE222222" #cyan
+#     echo -en "\e]PF444444" #white
+#fi
+# clear
+clear
