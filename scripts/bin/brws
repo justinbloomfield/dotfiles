@@ -1,2 +1,3 @@
 #!/bin/sh
-w3m www.duckduckgo.com
+URL=${1:-www.duckduckgo.com}
+w3m $URL

@@ -1,7 +1,7 @@
 #!/bin/sh
 urxvtd &
 sxhkd &
-hsetroot -tile ~/usr/pic/test_tile11.png &
+hsetroot -tile ~/usr/pic/tiles/test_tile12.png &
 xrdb ~/.Xresources & 
 compton --config ~/.config/compton.conf &
 barclock &

@@ -1,7 +1,20 @@
 #!/bin/sh
-COLORSCHEME=${1:-/.config/x/colours/moonbow_tty}
+# (c) piecesofquiet 2016 
+# automates changing TTY colorscheme
+
+RCFILE=${1:-$HOME/.mkshrc}
+COLORSCHEME=${2:-/dev/null}
+
+case $1 in
+	usage)
+	echo "ttycolrc <rcfile> <colourscheme>"
+	exit 1
+	;;
+    *)
+esac
+
 cat $HOME/.mkshrc >> /tmp/.mkshrc
 cat /dev/null > $HOME/.mkshrc
-cat /tmp/.mkshrc | sed "/^if/,/^fi/d" >> $HOME/.mkshrc
+cat /tmp/.mkshrc | sed "/^if/,/^fi/d"  >> $HOME/.mkshrc
 rm /tmp/.mkshrc
-cat $COLORSCHEME >> $HOME/.mkshrc
+sed '1d' $COLORSCHEME >> $HOME/.mkshrc
