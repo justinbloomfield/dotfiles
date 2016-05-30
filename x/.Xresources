@@ -1,4 +1,4 @@
-#include "/home/j/.config/x/colours/bw"
+#include "/home/j/.config/x/colours/bw_urxvt"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string

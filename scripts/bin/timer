@@ -11,7 +11,9 @@ usage() {
 while [ "$(date +%H:%M)" != $1 ]; do
     sleep 1
 done
-mplayer ~/etc/alarm.wav &
+mplayer ~/etc/alarm.wav &> /dev/null
 message=${2:-"DING DONG"}
 echo "$message" > "$NTFY_FIFO_PATH"
+echo "$message" > "$DVTM_FIFO"
+sleep 3
 } &

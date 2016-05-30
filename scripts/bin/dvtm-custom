@@ -1,18 +1,19 @@
 #!/bin/sh
 
-FIFO="/tmp/dvtm-status.$$"
+DVTM_FIFO="/tmp/dvtm-status.fifo"
 
-[ -e "$FIFO" ] || mkfifo "$FIFO"
-chmod 600 $FIFO
+[ -e "$DVTM_FIFO" ] || mkfifo "$DVTM_FIFO"
+chmod 600 $DVTM_FIFO
 
 while true; do
 	date +%H:%M 
-	sleep 3
-	echo $(mpc current)
-	sleep 3 
-done > $FIFO &
+	sleep 10
+	# if [ $(cat $DVTM_FIFO) != "" ]; then
+	#  	cat $DVTM_FIFO > $DVTM_FIFO
+	#  	sleep 3
+	# fi
+done > $DVTM_FIFO &
 
 STATUS_PID=$!
-dvtm -s $FIFO "$@"  2> /dev/null
-kill $STATUS_PID
-rm $FIFO
+dvtm -s $DVTM_FIFO "$@"  2> /dev/null
+rm $DVTM_FIFO

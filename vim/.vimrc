@@ -3,6 +3,7 @@ set number
 set relativenumber
 set nohlsearch
 set scrolloff=1
+set noundofile
 set nobackup
 set nowritebackup
 

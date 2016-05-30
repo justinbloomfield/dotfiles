@@ -2,6 +2,7 @@
 source /home/j/.mkshrc
 export NTFY_FIFO_PATH=/tmp/ntfy.fifo
 export NTFY_FIFO_CNT=/tmp/ntfy.cnt
+export DVTM_FIFO=/tmp/dvtm-status.fifo
 amixer sset Master 39%
 neighbourhoodwatch & 
 export PS1="// "

@@ -2,6 +2,11 @@
 # bar settings
 
 export PANEL_FONT="-*-metis-*-*-*-*-11-*-*-*-*-*-*-*"
+export PANEL_BG="#000000"
+export PANEL_FG="#ffffff"
+export PANEL_BC="#ffffff"
+export PANEL_BW="2"
+export PANEL_OPTS="-d -f $PANEL_FONT -B $PANEL_BG -F $PANEL_FG -R $PANEL_BC -r $PANEL_BW"
 #PANEL_ICON_FONT="-wuncon-siji-medium-*-*-*-10-*-*-*-*-*-*-*"
 #PANEL_BG_COLOR="#1d2a30"
 #PANEL_FG_COLOR="#71c2af"

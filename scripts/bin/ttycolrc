@@ -2,19 +2,36 @@
 # (c) piecesofquiet 2016 
 # automates changing TTY colorscheme
 
-RCFILE=${1:-$HOME/.mkshrc}
-COLORSCHEME=${2:-/dev/null}
+RCFILE=$1
+COLOURSCHEME=${2:-/dev/null}
 
-case $1 in
-	usage)
-	echo "ttycolrc <rcfile> <colourscheme>"
-	exit 1
-	;;
-    *)
-esac
+usage() { cat << EOF
+Usage: ttycolrc <rcfile> <path/to/colourscheme>
 
-cat $HOME/.mkshrc >> /tmp/.mkshrc
-cat /dev/null > $HOME/.mkshrc
-cat /tmp/.mkshrc | sed "/^if/,/^fi/d"  >> $HOME/.mkshrc
-rm /tmp/.mkshrc
-sed '1d' $COLORSCHEME >> $HOME/.mkshrc
+EOF
+
+exit 1
+} 
+
+# case $1 in
+# 	usage)
+# 	echo "ttycolrc <rcfile> <colourscheme>"
+# 	exit 1
+# 	;;
+#     *)
+# esac
+main () {
+	# validate files, if fail check print usage and quit
+	(test $# -lt 2 || !(test -f "$RCFILE" && test -f "$COLOURSCHEME")) && usage
+
+	cat "$HOME/$RCFILE" > "/tmp/$RCFILE"
+	cat /dev/null > "$HOME/$RCFILE"
+	cat "/tmp/$RCFILE" | sed "/^if/,/^fi/d" | sed "/^$/d" >> "$HOME/$RCFILE"
+	rm "/tmp/$RCFILE"
+	sed '1d' $COLOURSCHEME >> "$HOME/$RCFILE"
+
+
+	exit 0
+}
+
+main $@

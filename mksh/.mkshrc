@@ -11,21 +11,25 @@ alias fbvid='mplayer -vo fbdev2'
 
 
 if [ "$TERM" = "linux" ]; then
-	echo -en "\e]P02b3135"
-	echo -en "\e]P1a66959"
-	echo -en "\e]P2769070"
-        echo -en "\e]P3ac8d6e"
-        echo -en "\e]P4607a86"
-        echo -en "\e]P580757e"
-        echo -en "\e]P660867f"
-        echo -en "\e]P7c4c4b5"
-        echo -en "\e]P84c5356"
-        echo -en "\e]P9a66959"
-        echo -en "\e]PA769070"
-        echo -en "\e]PBac8d6e"
-        echo -en "\e]PC607a86"
-        echo -en "\e]PD80757e"
-        echo -en "\e]PE60867f"
-        echo -en "\e]PFc4c4b5"
-	clear
+echo -en "\e]P01b2227"
+echo -en "\e]P1785561"
+echo -en "\e]P258614f"
+echo -en "\e]P37e735a"
+echo -en "\e]P4424a64"
+echo -en "\e]P54d3e4c"
+echo -en "\e]P63c5a5d"
+echo -en "\e]P77b8695"
+echo -en "\e]P8374650"
+echo -en "\e]P98a6270"
+echo -en "\e]PA6d7762"
+echo -en "\e]PB8d8063"
+echo -en "\e]PC626c94"
+echo -en "\e]PD665064"
+echo -en "\e]PE548084"
+echo -en "\e]PF94a1b3"
+clear
 fi
+
+# so that shit works properly i guess (has to go after the previous bit so that colours work)
+[ "$TERM" = "fbterm" ]; export TERM=linux
+clear

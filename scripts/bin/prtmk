@@ -7,7 +7,7 @@ PKGFILE=$CHOME/ports/templates/Pkgfile
 PORTDIR=$CHOME/ports/crux
 EDITOR=${EDITOR:-vi}
 
-daddy="z3bra <willy at mailoo dot org>"
+daddy="piecesofquiet < jbloomfield at live dot com>"
 
 echo_color () {
     tput bold
