@@ -1,3 +1,5 @@
 #!/bin/sh
-URL=${1:-www.google.com}
+URL=${1:-www.duckduckgo.com}
+cd $HOME/usr/dl &&
+
 w3m -cookie $URL

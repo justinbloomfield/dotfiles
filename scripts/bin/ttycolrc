@@ -13,13 +13,6 @@ EOF
 exit 1
 } 
 
-# case $1 in
-# 	usage)
-# 	echo "ttycolrc <rcfile> <colourscheme>"
-# 	exit 1
-# 	;;
-#     *)
-# esac
 main () {
 	# validate files, if fail check print usage and quit
 	(test $# -lt 2 || !(test -f "$RCFILE" && test -f "$COLOURSCHEME")) && usage
