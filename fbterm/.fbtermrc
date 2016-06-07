@@ -7,7 +7,7 @@
 # font family names/pixelsize used by fbterm, multiple font family names must be seperated by ','
 # and using a fixed width font as the first is strongly recommended
 font-names=metis
-font-size=12
+font-size=14
 
 # force font width (and/or height), usually for non-fixed width fonts
 # legal value format: n (fw_new = n), +n (fw_new = fw_old + n), -n (fw_new = fw_old - n)
@@ -45,7 +45,7 @@ text-encodings=UTF-8
 # cursor shape: 0 = underline, 1 = block
 # cursor flash interval in milliseconds, 0 means disable flashing
 cursor-shape=0
-cursor-interval=500
+cursor-interval=0
 
 # additional ascii chars considered as part of a word while auto-selecting text, except ' ', 0-9, a-z, A-Z
 word-chars=._-
@@ -63,21 +63,21 @@ export TERM=linux
 # treat ambiguous width characters as wide
 #ambiguous-wide=yes
 
-color-foreground=7b8695
-color-background=1b2227
-color-0=1b2227
-color-1=785561
-color-2=58614f
-color-3=7e735a
-color-4=424a64
-color-5=4d3e4c
-color-6=3c5a5d
-color-7=7b8695
-color-8=374650
-color-9=8a6270
-color-10=6d7762
-color-11=8d8063
-color-12=626c94
-color-13=665064
-color-14=548084
-color-15=94a1b3
+color-foreground=545454
+color-background=020202
+color-0=020202
+color-1=FF7A7A
+color-2=FF4545
+color-3=E63030
+color-4=F20F0F
+color-5=CC0000
+color-6=910000
+color-7=545454
+color-8=020202
+color-9=FF7A7A
+color-10=FF4545
+color-11=E63030
+color-12=F20F0F
+color-13=CC0000
+color-14=910000
+color-15=545454
