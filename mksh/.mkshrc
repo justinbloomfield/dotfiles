@@ -2,34 +2,32 @@
 HISTFILE="$HOME/.mksh_history"
 export PS1='// '
 #alias vim='nvim'
-export PATH=$PATH:/home/j/bin/:/usr/local/bin/:/usr/bin/:
+export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
 alias dvtm='dvtm-custom'
 alias fbv='fbv -f'
 alias fbvid='mplayer -vo fbdev2'
-
+# so that shit works properly i guess (has to go after the previous bit so that colours work)
+#[ "$TERM" = "fbterm" ]; export TERM=linux
+clear
 
 if [ "$TERM" = "linux" ]; then
-echo -en "\e]P01b2227"
-echo -en "\e]P1785561"
-echo -en "\e]P258614f"
-echo -en "\e]P37e735a"
-echo -en "\e]P4424a64"
-echo -en "\e]P54d3e4c"
-echo -en "\e]P63c5a5d"
-echo -en "\e]P77b8695"
-echo -en "\e]P8374650"
-echo -en "\e]P98a6270"
-echo -en "\e]PA6d7762"
-echo -en "\e]PB8d8063"
-echo -en "\e]PC626c94"
-echo -en "\e]PD665064"
-echo -en "\e]PE548084"
-echo -en "\e]PF94a1b3"
+echo -en "\e]P0020202"
+echo -en "\e]P1FF7A7A"
+echo -en "\e]P2FF4545"
+echo -en "\e]P3E63030"
+echo -en "\e]P4F20F0F"
+echo -en "\e]P5CC0000"
+echo -en "\e]P6910000"
+echo -en "\e]P7545454"
+echo -en "\e]P8020202"
+echo -en "\e]P9FF7A7A"
+echo -en "\e]PAFF4545"
+echo -en "\e]PBE63030"
+echo -en "\e]PCF20F0F"
+echo -en "\e]PDCC0000"
+echo -en "\e]PE910000"
+echo -en "\e]PF545454"
 clear
 fi
-
-# so that shit works properly i guess (has to go after the previous bit so that colours work)
-[ "$TERM" = "fbterm" ]; export TERM=linux
-clear
