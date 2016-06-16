@@ -1,0 +1,21 @@
+# Description:  __DESCRIPTION__
+# URL:  __URL__
+# Maintainer:  __MAINTAINER__
+# Depends on: __DEPENDENCIES__ 
+
+name=__NAME__
+version=__VERSION__
+release=1
+source=(__SOURCE__)
+
+build() {
+    cd $name-$version
+
+    make
+    make DESTDIR=$PKG \
+        PREFIX=/usr \
+        MANDIR=/usr/man\
+        install
+}
+# vim: set ft=sh ts=4 et:
+

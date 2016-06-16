@@ -1,0 +1,30 @@
+# Description:  __DESCRIPTION__
+# URL:  __URL__
+# Maintainer:  __MAINTAINER__
+# Depends on: __DEPENDENCIES__ 
+
+name=__NAME__
+version=__VERSION__
+sversion=__GIT_HASH__
+release=1
+source=()
+
+gitsource=__GIT_URL__
+
+build() {
+    cd $PKGMK_SOURCE_DIR
+
+    if cd $name; then
+        git reset --hard
+        git pull $gitsource
+    else
+        git clone $gitsource $name
+        cd $name
+    fi
+
+    git checkout $sversion
+
+    make DESTDIR=$PKG PREFIX=/usr MANPREFIX=/usr/man install
+}
+# vim: set ft=sh ts=4 et:
+
