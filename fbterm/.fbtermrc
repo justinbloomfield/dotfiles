@@ -16,24 +16,25 @@ font-size=14
 
 # default color of foreground/background text
 # available colors: 0 = black, 1 = red, 2 = green, 3 = brown, 4 = blue, 5 = magenta, 6 = cyan, 7 = white
-# color-foreground=7
-# color-background=0
-# color-0=000000
-# color-1=AA0000
-# color-2=00AA00
-# color-3=AA5500
-# color-4=0000AA
-# color-5=AA00AA
-# color-6=00AAAA
-# color-7=AAAAAA
-# color-8=555555
-# color-9=FF5555
-# color-10=55FF55
-# color-11=FFFF55
-# color-12=5555FF
-# color-13=FF55FF
-# color-14=55FFFF
-# color-15=FFFFFF
+
+color-foreground=545454
+color-background=020202
+color-0=020202
+color-1=FF7A7A
+color-2=FF4545
+color-3=E63030
+color-4=F20F0F
+color-5=CC0000
+color-6=910000
+color-7=545454
+color-8=020202
+color-9=FF7A7A
+color-10=FF4545
+color-11=E63030
+color-12=F20F0F
+color-13=CC0000
+color-14=910000
+color-15=545454
 
 # max scroll-back history lines of every window, value must be [0 - 65535], 0 means disable it
 history-lines=1000
@@ -58,26 +59,8 @@ screen-rotate=0
 input-method=
 
 # so that shit works
-export TERM=linux
+#export TERM=linux
 
 # treat ambiguous width characters as wide
 #ambiguous-wide=yes
 
-color-foreground=545454
-color-background=020202
-color-0=020202
-color-1=FF7A7A
-color-2=FF4545
-color-3=E63030
-color-4=F20F0F
-color-5=CC0000
-color-6=910000
-color-7=545454
-color-8=020202
-color-9=FF7A7A
-color-10=FF4545
-color-11=E63030
-color-12=F20F0F
-color-13=CC0000
-color-14=910000
-color-15=545454

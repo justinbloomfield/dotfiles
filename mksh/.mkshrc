@@ -2,32 +2,37 @@
 HISTFILE="$HOME/.mksh_history"
 export PS1='// '
 #alias vim='nvim'
-export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:
+export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/home/poq/.cabal/bin/
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
 alias dvtm='dvtm-custom'
 alias fbv='fbv -f'
 alias fbvid='mplayer -vo fbdev2'
+alias newsesh='abduco -c 1 dvtm-custom'
+alias neofetch='neofetch --gtk3 off --gtk2 off'
+alias vim='vis'
 # so that shit works properly i guess (has to go after the previous bit so that colours work)
 #[ "$TERM" = "fbterm" ]; export TERM=linux
+#[ "$TERM" = "rxvt-unicode-256color" ]; export TERM=xterm
 clear
-
+[ "$TERM" = "dvtm" ]; export TERM=xterm
 if [ "$TERM" = "linux" ]; then
-echo -en "\e]P0020202"
-echo -en "\e]P1FF7A7A"
-echo -en "\e]P2FF4545"
-echo -en "\e]P3E63030"
-echo -en "\e]P4F20F0F"
-echo -en "\e]P5CC0000"
-echo -en "\e]P6910000"
-echo -en "\e]P7545454"
-echo -en "\e]P8020202"
-echo -en "\e]P9FF7A7A"
-echo -en "\e]PAFF4545"
-echo -en "\e]PBE63030"
-echo -en "\e]PCF20F0F"
-echo -en "\e]PDCC0000"
-echo -en "\e]PE910000"
-echo -en "\e]PF545454"
+echo -en "\e]P0273941"
+echo -en "\e]P1a66363"
+echo -en "\e]P263a690"
+echo -en "\e]P3a6a663"
+echo -en "\e]P46385a6"
+echo -en "\e]P5BF9C86"
+echo -en "\e]P663a69b"
+echo -en "\e]P7c0c5ce"
+echo -en "\e]P8456472"
+echo -en "\e]P9c27171"
+echo -en "\e]PA6dc2a3"
+echo -en "\e]PBbfc271"
+echo -en "\e]PC719bc2"
+echo -en "\e]PDBF9C86"
+echo -en "\e]PE71c2af"
+echo -en "\e]PFeff1f5"
 clear
 fi
+clear

@@ -1,4 +1,4 @@
-#include "/home/j/.config/x/colours/bw_urxvt"
+#include "/home/poq/.config/x/colours/bw_urxvt"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
@@ -69,7 +69,7 @@ URxvt*shading:                        20
 !URxvt*borderColor:                    #ebf8ff
 !URxvt*borderColor:			#273941
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:metis:pixelsize=8
+URxvt*font:                           xft:metis:pixelsize=12
 !URxvt*font:				-kori-Metis-normal-R-Normal--11-90-75-75-P-58-ISO10646-1
 XTerm*font:                           -*-metis-medium-r-normal*13-100-*-*-*-*-iso8859-1
 !URxvt*font:				xft:gohu:pixelsize=11
@@ -82,7 +82,7 @@ URxvt*boldFont:
 ! URxvt*intensityStyles:                boolean
 ! URxvt*inputMethod:                    name
 ! URxvt*preeditType:                    style
-! URxvt*imLocale:                       string
+URxvt*imLocale:                         en_AU.UTF-8
 ! URxvt*imFont:                         fontname
 ! URxvt*title:                          string
 ! URxvt*iconName:                       string

@@ -1,14 +1,14 @@
 fontname "metis"
 # borderwidth
-borderwidth 2
+borderwidth 3
 # colors
-color activeborder 	'#FFFFFF'
+color activeborder 	'#DDDDDD'
 color inactiveborder 	'#1A1A1A'
 color font		'#FFFFFF'
 color menubg		'#000000'
 color menufg		'#FFFFFF'
 color groupborder	'#333333'
-color ungroupborder	'#BBBBBB'
+color ungroupborder	'#AAAAAA'
 
 # autogroups
 autogroup 2 Firefox
