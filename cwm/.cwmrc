@@ -1,6 +1,12 @@
+# ░░░░█▀▀░█░█░█▄█░█▀▄░█▀▀
+# ░░░░█░░░█▄█░█░█░█▀▄░█░░
+# ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
+
+
 fontname "metis"
 # borderwidth
 borderwidth 3
+
 # colors
 color activeborder 	'#DDDDDD'
 color inactiveborder 	'#1A1A1A'
@@ -21,6 +27,9 @@ sticky no
 #menu
 command term /usr/bin/urxvt
 command firefox /usr/local/bin/firefox
+
+# gaps
+gap 30 10 10 10
 
 
 # resize

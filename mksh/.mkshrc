@@ -1,8 +1,12 @@
 #!/bin/mksh
+# ░░░░█▄█░█░█░█▀▀░█░█░█▀▄░█▀▀
+# ░░░░█░█░█▀▄░▀▀█░█▀█░█▀▄░█░░
+# ░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 HISTFILE="$HOME/.mksh_history"
 export PS1='// '
-#alias vim='nvim'
-export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/home/poq/.cabal/bin/
+export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/
+export TERM=rxvt
+unalias ls
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
 alias dvtm='dvtm-custom'
@@ -11,11 +15,9 @@ alias fbvid='mplayer -vo fbdev2'
 alias newsesh='abduco -c 1 dvtm-custom'
 alias neofetch='neofetch --gtk3 off --gtk2 off'
 alias vim='vis'
-# so that shit works properly i guess (has to go after the previous bit so that colours work)
-#[ "$TERM" = "fbterm" ]; export TERM=linux
-#[ "$TERM" = "rxvt-unicode-256color" ]; export TERM=xterm
-clear
-[ "$TERM" = "dvtm" ]; export TERM=xterm
+alias v='vis'
+alias vi='vis'
+
 if [ "$TERM" = "linux" ]; then
 echo -en "\e]P0273941"
 echo -en "\e]P1a66363"
@@ -35,4 +37,3 @@ echo -en "\e]PE71c2af"
 echo -en "\e]PFeff1f5"
 clear
 fi
-clear

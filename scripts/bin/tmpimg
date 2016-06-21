@@ -1,0 +1,3 @@
+#!/bin/sh
+wget -O tmp $1 
+fbv tmp

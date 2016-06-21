@@ -1,0 +1,34 @@
+#!/bin/sh
+VIDEO=$(yturl -q high $1)
+
+
+xvid(){
+	mpv "$VIDEO" > /dev/null 2>&1
+	exit 0
+}
+
+noxvid(){
+	mplayer -vo fbdev2 $VIDEO > /dev/null 2>&1
+	exit 0
+}
+
+
+main() {
+	pidof xinit >/dev/null
+
+	if [[ $? -ne 0 ]] ; then
+		xvid
+	elif ; then
+		noxvid
+	fi
+}
+
+# main() {
+#   (test -e ~/etc/xon) && xvid
+#   
+#   mplayer -vo fbdev2 $VIDEO > /dev/null 2>&1
+#
+#   exit 0
+# }
+
+main $@

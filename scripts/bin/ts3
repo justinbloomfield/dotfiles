@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd /home/poq/.ts3
+./ts3client_runscript.sh 2>&1

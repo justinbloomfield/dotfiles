@@ -1,6 +1,6 @@
 #!/bin/sh
 
 while true; do
-	test -d /home/j/Desktop && rm -r $HOME/Desktop
+	test /home/poq/Desktop && rm -r /home/poq/Desktop
 	sleep 30
 done

@@ -1,0 +1,3 @@
+#!/bin/sh
+SRC=$1
+hsetroot -fill $SRC

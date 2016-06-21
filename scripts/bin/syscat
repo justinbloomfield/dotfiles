@@ -12,9 +12,9 @@ COLOR=${COLOR:-15}
 c() { tput setaf $COLOR; }
 d() { tput sgr0; }
 
-system() {
-    crux
-}
+# system() {
+#     void
+# }
 
 cpuinfo() {
     sed -n "/model\ name/s/^.*:\ //p" /proc/cpuinfo | sed 1q
@@ -38,7 +38,7 @@ fontname() {
 
 cat <<EOF
 
-$(c)SYSTEM    $(d)$(system)
+$(c)SYSTEM    $(d)void
 $(c)KERNEL    $(d)$(uname -r)
 $(c)HOSTNAME  $(d)$(hostname)
 $(c)WMNAME    $(d)$(wmname)
