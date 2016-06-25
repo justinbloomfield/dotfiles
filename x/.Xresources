@@ -70,7 +70,7 @@ URxvt*shading:                        20
 !URxvt*borderColor:			#273941
 ! URxvt*iconFile:                       file
 URxvt*font:                           xft:metis:pixelsize=12
-!URxvt*font:				-kori-Metis-normal-R-Normal--11-90-75-75-P-58-ISO10646-1
+!URxvt*font:				xft:Vermin Vibes 1989:pixelsize=15
 XTerm*font:                           -*-metis-medium-r-normal*13-100-*-*-*-*-iso8859-1
 !URxvt*font:				xft:gohu:pixelsize=11
 !URxvt*font:				xft:metis:pixelsize=13
