@@ -8,5 +8,5 @@ managed with GNU stow
 
 1. Clone repo into a folder in your home directory (I use ".dotfiles" as mine, so that it's out of sight)
 2. Enter this folder
-3. Execute "stow <whatever>" and it will install the files for the program/folder/whatever into the "right" spot automagically. Amazing!
+3. Execute "stow \<whatever\>" and it will install the files for the program/folder/whatever into the "right" spot automagically. Amazing!
 
