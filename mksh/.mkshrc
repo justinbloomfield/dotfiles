@@ -2,6 +2,7 @@
 # ░░░░█▄█░█░█░█▀▀░█░█░█▀▄░█▀▀
 # ░░░░█░█░█▀▄░▀▀█░█▀█░█▀▄░█░░
 # ░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀▀
+
 HISTFILE="$HOME/.mksh_history"
 export PS1='// '
 export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/

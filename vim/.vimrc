@@ -24,6 +24,7 @@ let maplocalleader = ","
 let mapleader = ";"
 map <C-t> :NERDTreeToggle<CR>
 set clipboard=unnamedplus
+inoremap ii <Esc>
 aug CSV_Editing
 	au!
 	au BufRead,BufWritePost *.csv :%ArrangeColumn
