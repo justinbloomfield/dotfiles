@@ -1,7 +1,0 @@
-#!/bin/sh
-# generate arbitrary length passwords
-
-# use a default length of 16 chars
-LEN=${1:-16}
-# include all ascii chars between "space" and "tilde"
-tr -cd ' -~' < /dev/urandom | fold -w $LEN | sed 1q
