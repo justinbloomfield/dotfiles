@@ -1,8 +1,12 @@
 #!/bin/sh
 # requires wmutils-core to use like this (dynamic centering)
-ROOT_ID = "$(lsw -r)"
-ROOT_WIDTH = "$(wattr w ${ROOT_ID})"
+
+ROOT_ID="$(lsw -r)"
+ROOT_WIDTH="$(wattr w ${ROOT_ID})"
+BAR_WIDTH=250
+XOFFSET="$(($(($ROOT_WIDTH / 2)) - $(($BAR_WIDTH / 2))))" 
+echo $XOFFSET
 while true; do
 	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")" 
 	sleep 1 
-done | lemonbar -g $ROOT_WIDTHx25+0+5 -d -f metis -F "#ffffff" -B "#000000" #-R "#ffffff" -r 2
+done | lemonbar -g 250x25+$XOFFSET+0 -d -f metis -F "#131f1e" -B "#edf3f1" #-R "#ffffff" -r 2

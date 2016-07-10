@@ -4,12 +4,11 @@
 # mod4 = Super_L
 
 super + Return
-    rofilauncher
+    urxvt
 
 super + b
-    qutebrowser
+    firefox
 
-super + space 
     urxvt
 
 # reloading

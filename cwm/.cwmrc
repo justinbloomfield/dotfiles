@@ -4,12 +4,13 @@
 
 
 fontname "metis"
+
 # borderwidth
-borderwidth 3
+borderwidth 2
 
 # colors
-color activeborder 	'#DDDDDD'
-color inactiveborder 	'#1A1A1A'
+color activeborder 	'#839093'
+color inactiveborder 	'#131f1e'
 color font		'#FFFFFF'
 color menubg		'#000000'
 color menufg		'#FFFFFF'
@@ -19,6 +20,7 @@ color ungroupborder	'#AAAAAA'
 # autogroups
 autogroup 2 Firefox
 autogroup 3 mpv
+autogroup 7 gimp
 
 moveamount 5
 bigmoveamount 50
@@ -26,11 +28,11 @@ sticky no
 
 #menu
 command term /usr/bin/urxvt
-command firefox /usr/local/bin/firefox
+command firefox /usr/bin/firefox
+command steam /usr/bin/steam
 
 # gaps
 gap 30 10 10 10
-
 
 # resize
 bind 4M-h resizeleft

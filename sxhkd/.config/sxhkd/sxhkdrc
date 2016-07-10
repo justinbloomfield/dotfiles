@@ -26,7 +26,6 @@ super + Escape
 # bspwm
 
 
-
 super + shift + q
 	bspc quit
 

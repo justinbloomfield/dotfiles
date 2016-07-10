@@ -4,9 +4,8 @@
 # ░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 
 HISTFILE="$HOME/.mksh_history"
-export PS1='// '
+export PS1='>>> '
 export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/
-export TERM=rxvt
 unalias ls
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
@@ -18,6 +17,7 @@ alias neofetch='neofetch --gtk3 off --gtk2 off'
 alias vim='vis'
 alias v='vis'
 alias vi='vis'
+alias cc='cc -ansi'
 
 if [ "$TERM" = "linux" ]; then
 echo -en "\e]P0273941"
@@ -38,3 +38,5 @@ echo -en "\e]PE71c2af"
 echo -en "\e]PFeff1f5"
 clear
 fi
+
+export TERM=rxvt
