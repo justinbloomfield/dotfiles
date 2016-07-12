@@ -1,0 +1,30 @@
+#!/bin/sh
+# (c) piecesofquiet 2016 
+# automates changing TTY colorscheme
+
+RCFILE=$1
+COLOURSCHEME=${2:-/dev/null}
+
+usage() { cat << EOF
+Usage: ttycolrc <rcfile> <path/to/colourscheme>
+
+EOF
+
+exit 1
+} 
+
+main () {
+	# validate files, if fail check print usage and quit
+	(test $# -lt 2 || !(test -f "$RCFILE" && test -f "$COLOURSCHEME")) && usage
+
+	cat "$HOME/$RCFILE" > "/tmp/$RCFILE"
+	cat /dev/null > "$HOME/$RCFILE"
+	cat "/tmp/$RCFILE" | sed "/^if/,/^fi/d" | sed "/^$/d" >> "$HOME/$RCFILE"
+	rm "/tmp/$RCFILE"
+	sed '1d' $COLOURSCHEME >> "$HOME/$RCFILE"
+
+
+	exit 0
+}
+
+main $@
