@@ -1,17 +1,6 @@
 #!/bin/sh
-#urxvtd &
-#sxhkd &
-hsetroot -tile ~/usr/pic/tiles/test_tile12.png &
 xrdb ~/.Xresources & 
-compton --config ~/.config/compton.conf &
-#barclock &
-echo a | sudo -S mpd &
-xsetroot -cursor_name left_ptr&
-#wew | wewhandle &
-unclutter --timeout 1 &
-xrandr --output DP-1 --mode 1920x1080 --rate 144 &
-touch ~/etc/xon &
-exec dwm
-#xwait
-#exec cde
-#exec runfyre.sh
+xsetroot -cursor_name left_ptr &
+urxvt &
+#xset +fp /usr/share/fonts &
+exec cwm
