@@ -1,13 +1,7 @@
 #!/bin/sh
-LIBC=${1:-musl}
-PKG=$2
+#LIBC=${1:-musl}
+PKG=$1
 
-cd $VPKG_DIR &&
-
-if [ "$LIBC" = "musl" ]; then 
-	./xbps-src pkg -m masterdir-x86_64-musl "$PKG"
-elif [ "$LIBC" = "glibc" ]; then
-	./xbps-src pkg -m masterdir "$PKG"
-fi 
-
-sudo xbps-install --repository=hostdir/binpkgs "$PKG"
+cd "$VPKG_DIR"
+./xbps-src -m masterdir-x86_64-musl pkg "$PKG"
+sudo xbps-install --repository="$VPKGDIR"/hostdir/binpkgs "$PKG"
