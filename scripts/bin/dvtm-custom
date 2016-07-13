@@ -1,6 +1,6 @@
 #!/bin/sh
 
-DVTM_FIFO="/tmp/dvtm-status.fifo"
+#DVTM_FIFO="/tmp/dvtm-status.fifo"
 
 [ -e "$DVTM_FIFO" ] || mkfifo "$DVTM_FIFO"
 chmod 600 $DVTM_FIFO

@@ -1,4 +1,4 @@
-!#include "/home/poq/.config/x/colours/faroe_urxvt"
+#include "/home/poq/.config/x/colours/bw_urxvt"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
