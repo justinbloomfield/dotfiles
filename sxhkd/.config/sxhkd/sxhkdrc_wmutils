@@ -4,17 +4,14 @@
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + d
+super + Return
   urxvt
 
-alt + f
-  compfocus
-
-super + Return
-  rofilauncher
+super + d
+  thinglaunch
 
 super + b
-  qutebrowser
+  firefox
 
 # media keys things
 XF86AudioRaiseVolume

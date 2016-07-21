@@ -18,6 +18,8 @@ alias vim='vis'
 alias v='vis'
 alias vi='vis'
 alias cc='cc -ansi'
+alias c='clear'
+alias mkdir='mkdir -p'
 
 if [ "$TERM" = "linux" ]; then
 echo -en "\e]P0273941"

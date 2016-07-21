@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/bw_urxvt"
+#include "/home/poq/.config/x/colours/glacial_urxvt"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
@@ -69,12 +69,7 @@
 !URxvt*borderColor:                    #ebf8ff
 !URxvt*borderColor:			#273941
 ! URxvt*iconFile:                       file
-!URxvt*font:				-*-metis-*-*-normal-*-11-*-*-*-*-*-iso10646-*
-URxvt*font:                           xft:metis:pixelsize=12
-!URxvt*font:				xft:Vermin Vibes 1989:pixelsize=15
-!XTerm*font:                           -*-metis-medium-r-normal*13-100-*-*-*-*-iso8859-1
-!URxvt*font:				xft:gohu:pixelsize=11
-!URxvt*font:                           	xft:hanamina:pixelsize=12
+URxvt*font:                           xft:metis:pixelsize=9
 URxvt*boldFont:   
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname

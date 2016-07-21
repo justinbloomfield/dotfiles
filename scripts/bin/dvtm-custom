@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#DVTM_FIFO="/tmp/dvtm-status.fifo"
+DVTM_FIFO="/home/poq/var/dvtm/dvtm-status.fifo"
 
 [ -e "$DVTM_FIFO" ] || mkfifo "$DVTM_FIFO"
 chmod 600 $DVTM_FIFO
@@ -8,12 +8,8 @@ chmod 600 $DVTM_FIFO
 while true; do
 	date +%H:%M 
 	sleep 10
-	# if [ $(cat $DVTM_FIFO) != "" ]; then
-	#  	cat $DVTM_FIFO > $DVTM_FIFO
-	#  	sleep 3
-	# fi
 done > $DVTM_FIFO &
 
 STATUS_PID=$!
 dvtm -s $DVTM_FIFO "$@"  2> /dev/null
-rm $DVTM_FIFO
+rm "$DVTM_FIFO"

@@ -1,12 +1,12 @@
 #!/bin/sh
 # notification daemon, ripped from tudorom and z3bra
 
-NTFY_FIFO_PATH=${NTFY_FIFO_PATH:-/tmp/ntfy.fifo}
-NTFY_COUNT_PATH=${NTFY_COUNT_PATH:-/tmp/ntfy.cnt}
+NTFY_FIFO_PATH=${NTFY_FIFO_PATH:-/home/poq/var/ntfy/ntfy.fifo}
+NTFY_COUNT_PATH=${NTFY_COUNT_PATH:-/home/poq/var/ntfy/ntfy.cnt}
 
 # birth the fifo
 
-test -p /tmp/ntfy.fifo || mkfifo /tmp/ntfy.fifo
+test -p "$NTFY_FIFO_PATH" || mkfifo "$NTFY_FIFO_PATH"
 
 # screen params
 SCR_X="$(wattr x `lsw -r`)"
