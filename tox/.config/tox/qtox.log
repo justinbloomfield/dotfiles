@@ -1,0 +1,35 @@
+
+2016-07-13 20:02:58 qTox file logger starting
+[20:02:58.974] src/main.cpp:170 : Debug: built on:  17:23:28 Apr 17 2016 ( 1460913808 )
+[20:02:58.974] src/main.cpp:171 : Debug: commit:  built without git 
+
+[20:02:58.974] src/nexus.cpp:81 : Debug: Starting up
+[20:02:59.001] src/persistence/settings.cpp:1544 : Debug: Creating new profile settings in  "/home/poq/.config/tox//tox_save.ini"
+[20:02:59.006] src/persistence/settings.cpp:1544 : Debug: Creating new profile settings in  "/home/poq/.config/tox//toxic_profile.ini"
+[20:03:04.313] src/persistence/settings.cpp:354 : Debug: "Saving global settings at /home/poq/.config/tox/qtox.ini"
+[20:03:13.974] src/persistence/settings.cpp:354 : Debug: "Saving global settings at /home/poq/.config/tox/qtox.ini"
+[20:03:14.659] src/persistence/profile.cpp:86 : Debug: Loading tox save  "/home/poq/.config/tox/toxic_profile.tox"
+[20:03:14.659] src/persistence/settings.cpp:354 : Debug: "Saving global settings at /home/poq/.config/tox/qtox.ini"
+[20:03:14.664] src/persistence/settings.cpp:295 : Debug: Loading personal settings from "/home/poq/.config/tox/toxic_profile.ini"
+[20:03:15.199] src/core/core.cpp:236 : Debug: Loading user profile
+[20:03:15.200] src/persistence/profile.cpp:249 : Debug: Loading tox save  "/home/poq/.config/tox/toxic_profile.tox"
+[20:03:15.200] src/core/core.cpp:132 : Debug: Core starting with IPv6 enabled
+[20:03:15.244] src/core/core.cpp:305 : Debug: Self avatar not found, will broadcast empty avatar to friends
+[20:03:17.041] src/core/core.cpp:407 : Debug: "Connecting to 178.62.250.138:33445 (Impyy)"
+[20:03:17.093] src/core/core.cpp:407 : Debug: "Connecting to 130.133.110.14:33445 (Manolis)"
+[20:03:24.260] src/core/core.cpp:407 : Debug: "Connecting to 104.167.101.29:33445 (noisykeyboard)"
+[20:03:24.307] src/core/core.cpp:407 : Debug: "Connecting to 205.185.116.116:33445 (Busindre)"
+[20:03:25.750] src/core/core.cpp:374 : Debug: Connected to the DHT
+[20:03:25.751] src/persistence/profile.cpp:314 : Debug: Saving tox save to  "/home/poq/.config/tox/toxic_profile.tox"
+[20:03:30.749] src/widget/widget.cpp:1705 : Warning: No system tray detected!
+[20:03:42.122] src/persistence/profile.cpp:314 : Debug: Saving tox save to  "/home/poq/.config/tox/toxic_profile.tox"
+[20:06:20.282] src/core/core.cpp:585 : Debug: Requested friendship of  0
+[20:06:20.282] src/persistence/profile.cpp:314 : Debug: Saving tox save to  "/home/poq/.config/tox/toxic_profile.tox"
+[20:06:33.224] src/persistence/profile.cpp:314 : Debug: Saving tox save to  "/home/poq/.config/tox/toxic_profile.tox"
+[20:06:36.288] src/persistence/profile.cpp:314 : Debug: Saving tox save to  "/home/poq/.config/tox/toxic_profile.tox"
+[20:06:41.945] src/persistence/settings.cpp:480 : Debug: Saving personal settings at  "/home/poq/.config/tox/toxic_profile.ini"
+[20:06:54.460] src/audio/audio.cpp:225 : Debug: Opening audio input ""
+[20:06:54.469] src/audio/audio.cpp:254 : Debug: Opened audio input "ALSA Default"
+[20:06:54.469] src/audio/audio.cpp:181 : Debug: Subscribed to audio input device [ 1 subscriptions ]
+[20:06:59.969] src/audio/audio.cpp:197 : Debug: Unsubscribed from audio input device [ 0 subscriptions left ]
+[20:06:59.970] src/audio/audio.cpp:421 : Debug: Closing audio input
