@@ -21,8 +21,10 @@ PP_H="${PP_H:-40}"
 PP_X="$(( SCR_X - SCR_W - GAP ))"
 PP_MEMES="${PP_MEMES:-2}"
 PP_Y=40
-BORD_C="#ffffff"
+BORD_C="#d8e6e7"
 BORD_W=2
+BAR_FG="#d8e6e7"
+BAR_BG="#254348"
 
 # count
 cnt=0
@@ -38,7 +40,7 @@ tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
 # the business end, prints the message
 
 {
-	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "#FFFFFF" -f metis -B "#010101" -R $BORD_C -r $BORD_W #"$msg"
+	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "$BAR_FG" -f metis -B "$BAR_BG" -R "$BORD_C" -r "$BORD_C" #"$msg"
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt - 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"

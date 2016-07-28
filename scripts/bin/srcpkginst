@@ -3,5 +3,5 @@
 PKG=$1
 
 cd "$VPKG_DIR"
-./xbps-src -m masterdir-x86_64-musl pkg "$PKG"
+./xbps-src pkg "$PKG"
 sudo xbps-install --repository="$VPKGDIR"/hostdir/binpkgs "$PKG"

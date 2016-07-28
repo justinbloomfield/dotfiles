@@ -1,6 +1,6 @@
 #!/bin/sh
 
-NTFY_FIFO_PATH=/tmp/ntfy.fifo
+#NTFY_FIFO_PATH=/tmp/ntfy.fifo
 
 usage() {
     echo "Usage: timer <hour>:<minute> [message]"
@@ -13,7 +13,7 @@ while [ "$(date +%H:%M)" != $1 ]; do
 done
 mplayer ~/etc/alarm.wav > /dev/null &
 message=${2:-"DING DONG"}
-echo "$message" > "$NTFY_FIFO_PATH"
-echo "$message" > "$DVTM_FIFO"
+echo "$message" > "${NTFY_FIFO_PATH}"
+echo "$message" > "${DVTM_FIFO}"
 sleep 3
 } &

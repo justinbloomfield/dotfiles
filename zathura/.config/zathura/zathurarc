@@ -1,1 +1,3 @@
 set recolor
+set recolor-lightcolor "#242f31"
+set guioptions ''

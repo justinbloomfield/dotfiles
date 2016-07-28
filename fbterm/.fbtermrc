@@ -17,24 +17,24 @@ font-size=14
 # default color of foreground/background text
 # available colors: 0 = black, 1 = red, 2 = green, 3 = brown, 4 = blue, 5 = magenta, 6 = cyan, 7 = white
 
-color-foreground=545454
-color-background=020202
-color-0=020202
-color-1=FF7A7A
-color-2=FF4545
-color-3=E63030
-color-4=F20F0F
-color-5=CC0000
-color-6=910000
-color-7=545454
-color-8=020202
-color-9=FF7A7A
-color-10=FF4545
-color-11=E63030
-color-12=F20F0F
-color-13=CC0000
-color-14=910000
-color-15=545454
+#color-foreground=545454
+#color-background=020202
+#color-0=020202
+#color-1=FF7A7A
+#color-2=FF4545
+#color-3=E63030
+#color-4=F20F0F
+#color-5=CC0000
+#color-6=910000
+#color-7=545454
+#color-8=020202
+#color-9=FF7A7A
+#color-10=FF4545
+#color-11=E63030
+#color-12=F20F0F
+#color-13=CC0000
+#color-14=910000
+#color-15=545454
 
 # max scroll-back history lines of every window, value must be [0 - 65535], 0 means disable it
 history-lines=1000
