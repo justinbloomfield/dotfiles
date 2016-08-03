@@ -20,6 +20,8 @@ alias vi='vis'
 alias cc='cc -ansi'
 alias c='clear'
 alias mkdir='mkdir -p'
+alias ermac='emacs'
+alias e='emacs'
 
 #if [ "$TERM" = "linux" ]; then
 #echo -en "\e]P0273941"

@@ -69,7 +69,7 @@
 !URxvt*borderColor:                    #ebf8ff
 !URxvt*borderColor:			#273941
 ! URxvt*iconFile:                       file
-URxvt*font:                           xft:metis:pixelsize=9
+URxvt*font:                           xft:yuki:pixelsize=11
 URxvt*boldFont:   
 ! URxvt*italicFont:                     fontname
 ! URxvt*boldItalicFont:                 fontname

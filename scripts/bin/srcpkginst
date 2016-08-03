@@ -1,7 +1,6 @@
 #!/bin/sh
-#LIBC=${1:-musl}
 PKG=$1
 
 cd "$VPKG_DIR"
 ./xbps-src pkg "$PKG"
-sudo xbps-install --repository="$VPKGDIR"/hostdir/binpkgs "$PKG"
+sudo xbps-install "$PKG"
