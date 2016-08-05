@@ -8,3 +8,6 @@
 
 ;; ui
 (load "ui.el")
+
+;; non-confidential misc shit
+(load "prsnl.el")
