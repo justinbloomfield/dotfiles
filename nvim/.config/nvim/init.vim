@@ -13,6 +13,8 @@ Plug 'chrisbra/csv.vim'
 Plug 'yuratomo/w3m.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 Plug 'tomtom/tcomment_vim'
 Plug 'spolu/dwm.vim'
 execute plug#end()

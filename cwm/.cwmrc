@@ -9,8 +9,8 @@ fontname "metis"
 borderwidth 4
 
 # colors
-color activeborder 	'#839093'
-color inactiveborder 	'#131f1e'
+color activeborder 	'#c69753'
+color inactiveborder 	'#333333'
 color font		'#d8e6e7'
 color menubg		'#254348'
 color menufg		'#FFFFFF'

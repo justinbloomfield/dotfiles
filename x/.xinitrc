@@ -1,7 +1,9 @@
 #!/bin/sh
 xrdb ~/.Xresources & 
 xsetroot -cursor_name left_ptr &
-hsetroot -solid "#254348" &
+hsetroot -solid "#151515" &
 compton &
 ntfyd &
+#sxhkd -c ~/.config/sxhkd/sxhkdrc_wmutilsown & 
+xrandr --output DisplayPort-0 --mode 1920x1080 --rate 144 &
 exec cwm

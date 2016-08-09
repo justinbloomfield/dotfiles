@@ -6,6 +6,8 @@
 HISTFILE="$HOME/.mksh_history"
 export PS1='>>> '
 export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/
+
+#aliases
 unalias ls
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
@@ -23,6 +25,7 @@ alias mkdir='mkdir -p'
 alias ermac='emacs'
 alias e='emacs'
 
+# term colours 
 #if [ "$TERM" = "linux" ]; then
 #echo -en "\e]P0273941"
 #echo -en "\e]P1a66363"
@@ -43,4 +46,4 @@ alias e='emacs'
 #clear
 #fi
 
-export TERM=rxvt
+export TERM=linux
