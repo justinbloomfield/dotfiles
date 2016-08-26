@@ -40,7 +40,7 @@ tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
 # the business end, prints the message
 
 {
-	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "$BAR_FG" -f metis -B "$BAR_BG" -R "$BORD_C" -r "$BORD_C" #"$msg"
+	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "$BAR_FG" -f "metis" -B "$BAR_BG" #-R "$BORD_C" -r "$BORD_C" #"$msg"
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt - 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"
