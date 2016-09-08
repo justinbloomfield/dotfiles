@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/icorange_urxvt"
+#include "/home/poq/.config/x/colours/pnp"
 ! URxvt*termName:                       string
 ! URxvt*geometry:                       geometry
 ! URxvt*chdir:                          string
