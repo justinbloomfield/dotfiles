@@ -4,7 +4,7 @@
 # ░▀░░▀░▀░▀░▀░▀▀▀░▀░▀░▀░▀░▀▀▀
 
 HISTFILE="$HOME/.mksh_history"
-export PS1='>>> '
+export PS1='ζ '
 export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/
 
 #aliases
@@ -46,4 +46,4 @@ alias e='emacs'
 #clear
 #fi
 
-export TERM=linux
+export TERM=rxvt
