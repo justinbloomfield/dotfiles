@@ -5,7 +5,7 @@
 
 HISTFILE="$HOME/.mksh_history"
 export PS1='ζ '
-export PATH=$PATH:/home/poq/bin/:/usr/local/bin/:/usr/bin/:/
+export PATH=$PATH:/home/poq/bin/:/home/poq/.cabal/bin/:/usr/local/bin/:/usr/bin/:/
 
 #aliases
 unalias ls
@@ -24,6 +24,7 @@ alias c='clear'
 alias mkdir='mkdir -p'
 alias ermac='emacs'
 alias e='emacs'
+alias sxiv='sxiv -a'
 
 # term colours 
 #if [ "$TERM" = "linux" ]; then

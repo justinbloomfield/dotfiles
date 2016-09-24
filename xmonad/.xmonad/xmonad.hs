@@ -23,16 +23,16 @@ myManageHook = composeAll
 myLogHook = dynamicLog 
 	>> updatePointer (0.99,0.99) (0,0)
 
-myLayout = avoidStruts (ResizableTall 1 (2/100) (1/2) [] ||| Mirror (ResizableTall 1 (2/100) (1/2) [])) ||| noBorders (fullscreenFull Full)
+myLayout = avoidStruts ( spacing 10 (gaps [(U,15), (D,20), (L,20), (R,20)] (ResizableTall 1 (2/100) (1/2) [])) ||| ResizableTall 1 (2/100) (1/2) []) ||| noBorders (fullscreenFull Full)
 main = xmonad $ myConfig 
 
 myConfig = defaultConfig
-    { borderWidth = 2
+    { borderWidth = 5
     , modMask = mod4Mask -- winkey for true swag
     , workspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"]
     , terminal = "urxvt"
-    , normalBorderColor = "#000000"
-    , focusedBorderColor = "#ffffff" 
+    , focusedBorderColor = "#118566" --"#5f9d81"
+    , normalBorderColor = "#3c3c3b" 
     , manageHook = myManageHook <+> manageHook defaultConfig
     , layoutHook = myLayout 
     , logHook = myLogHook <+> logHook defaultConfig

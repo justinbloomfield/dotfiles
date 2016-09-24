@@ -3,8 +3,8 @@
 *background  : #000000
 
 ! black
-*color0	     : #ffffff
-*color8	     : #ffffff
+*color0	     : #333333
+*color8	     : #333333
 
 ! red
 *color1	     : #FF9CDB
@@ -14,17 +14,18 @@
 *color2	     : #b85ed6
 *color10     : #b85ed6
 
-! yellow
-*color3	     : #ffffff
-*color11     : #ffffff
+! yellow 
+*color3	     : #d09eff
+*color11     : #d09eff
+
 
 ! blue
 *color4	     : #9c9fff
 *color12     : #9c9fff
 
-! orange
-*color5	     : #d09eff
-*color13     : #d09eff
+! magenta
+*color5	     : #ef49ff
+*color13     : #ef49ff
 
 ! cyan
 *color6	     : #fa66dc
