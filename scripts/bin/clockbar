@@ -1,11 +1,18 @@
 #!/bin/sh
 # requires wmutils-core to use like this (dynamic centering)
 
+. panelsrc
+
 ROOT_ID="$(lsw -r)"
 ROOT_WIDTH="$(wattr w ${ROOT_ID})"
-BAR_WIDTH="$ROOT_WIDTH"
+BAR_WIDTH="$(( $ROOT_WIDTH / 3 ))"
 XOFFSET="$(($(($ROOT_WIDTH / 2)) - $(($BAR_WIDTH / 2))))" 
+FONT="$PANEL_FONT"
+OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+${XOFFSET}+2"
 while true; do
-	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")" 
+	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
 	sleep 1 
-done | lemonbar -g $BAR_WIDTHx15+$XOFFSET+0 -d -f -*-yuki-*-*-*-*-*-*-*-*-*-*-*-* -F "#118568" -B "#cccccc" #-R "#ffffff" -r 2
+done | lemonbar $PANEL_OPTS
+
+
+

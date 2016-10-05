@@ -8,4 +8,4 @@ xrandr --output DP-2 --mode 1920x1080 --rate 144 $
 barclock &
 xrandr --output DP-2 --mode 1920x1080 --rate 144 &
 start-pulseaudio-x11 &
-exec xmonad
+exec wmaker

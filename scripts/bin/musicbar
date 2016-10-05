@@ -1,12 +1,10 @@
 #! /bin/bash
 #
 # Little panel to show current playing song
-# (c) tudurom 2016 - wtfpl
+# ripped from tudurom, thanks for doing the hard work for me buddy 
 #
 
-. wmrc
 . panelsrc
-. iconsrc
 
 last_title="-"
 music() {
@@ -16,30 +14,16 @@ music() {
     last_title="-"
   fi
 
-  if [ -n "$(mpc status | grep paused)" ]; then
-    icon="$ICON_PAUSE"
-  elif [ -n "$(mpc status | grep playing)" ]; then
-    icon="$ICON_PLAY"
-  else
-    icon="$ICON_STOP"
-  fi
-
-  echo -e "%{c}%{A1:mpc toggle:}%{A2:urxvt -e /usr/bin/cava &:}%{A3:mpc stop:}%{A4:mpc next:}%{A5:mpc prev:}%{T2}%{F$PANEL_ACCENT_COLOR}${icon}%{T-}%{F-} $last_title%{A}%{A}%{A}%{A}%{A}"
+  echo -e "%{c}%{A1:mpc toggle:}%{A2:urxvt -e cava &:}%{A3:urxvt -e ncmpcpp &:}%{A4:mpc prev:}%{A5:mpc next:} $last_title%{A}%{A}%{A}%{A}%{A}"
 }
 
-width=330
-height=5
-root_window=$(lsw -r)
-root_width=$(wattr w $root_window)
-root_height=$(wattr h $root_window)
-
-panel_width=$(( width + 2 * WINDOW_GAP ))
-panel_height=$(( height + 2 * WINDOW_GAP ))
-panel_x=$(( root_width - panel_width - WINDOW_GAP ))
-panel_y=$(( WINDOW_GAP ))
-panel_opts="$PANEL_OPTS -g ${panel_width}x${panel_height}+${panel_x}+${panel_y}"
-
+ROOT_ID="$(lsw -r)"
+ROOT_WIDTH="$(wattr w ${ROOT_ID})"
+BAR_WIDTH="$(( $ROOT_WIDTH / 3 ))"
+XOFFSET="$(($(($ROOT_WIDTH / 3)) + $(($BAR_WIDTH))))" 
+FONT="$PANEL_FONT"
+OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+${XOFFSET}+2"
 while true; do
   music
   sleep 1
-done | lemonbar $panel_opts | sh
+done | lemonbar $OPTS | sh

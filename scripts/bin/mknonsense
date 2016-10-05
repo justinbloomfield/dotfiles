@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+LANGUAGES=(da de el en es fi fr is it ja ko nl no pl ru sv zh-CN)
+DEFAULTLANG=en
+PASSES=30
+
+if [[ -z "$1" ]] ; then
+  STRING="Please enter a string to make nonsense out of."
+else
+  STRING="$1"
+fi
+
+echo "$STRING"
+
+if [[ -z "$2" ]] ; then
+	originalLanguage=$DEFAULTLANG
+else
+	originalLanguage="$2"
+fi
+
+for pass in `seq $PASSES` ; do
+  echo -n "."
+  selectedLanguage=$(($RANDOM % ${#LANGUAGES[@]} - 1))
+  if [[ $pass == 1 ]] ; then
+    STRING=`trans -b "$originalLanguage":${LANGUAGES[$selectedLanguage]} -- "$STRING"`
+  elif [[ $pass == $PASSES ]] ; then
+    STRING=`trans -b ${LANGUAGES[$previousLanguage]}:"$originalLanguage" -- "$STRING"`
+  else
+    STRING=`trans -b ${LANGUAGES[$previousLanguage]}:${LANGUAGES[$selectedLanguage]} -- "$STRING"`
+  fi
+  previousLanguage=$selectedLanguage
+  echo "$STRING"
+done
+
+echo
+echo "$STRING"
+exit 0

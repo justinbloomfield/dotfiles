@@ -1,0 +1,4 @@
+#!/bin/sh
+. panelsrc
+
+echo '%{l}%{A:powerbar:} § %{A}' | lemonbar $PANEL_OPTS -f "font-awesome:size=10" -g 120x15+0+0 -d -p | sh

@@ -1,0 +1,27 @@
+#!/bin/sh
+
+. panelsrc
+
+REBOOT_CMD='sudo reboot'
+REBOOT_ICON=' res '
+
+POWEROFF_CMD='sudo poweroff'
+POWEROFF_ICON=' off '
+
+KILLX_CMD='pkill windowchew'
+KILLX_ICON='die'
+
+CANCEL_CMD='pkill -P '$$
+CANCEL_ICON=' fug '
+
+ROOT_ID="$(lsw -r)"
+ROOT_WIDTH="$(wattr w ${ROOT_ID})"
+BAR_WIDTH="$(( $ROOT_WIDTH / 3 ))"
+XOFFSET=0 
+FONT="$PANEL_FONT"
+OPTS="$PANEL_OPTS -p -g ${BAR_WIDTH}x15+${XOFFSET}+0"
+
+echo '%{l}%{A:'$REBOOT_CMD' && '$CANCEL_CMD':}'$REBOOT_ICON'%{A}'\
+     '%{A:'$POWEROFF_CMD' && '$CANCEL_CMD':}'$POWEROFF_ICON'%{A}'\
+     '%{A:'$KILLX_CMD':}'$KILLX_ICON'%{A}'\
+     '%{A:'$CANCEL_CMD':}'$CANCEL_ICON'%{A}' | lemonbar $OPTS | sh

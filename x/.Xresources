@@ -1,136 +1,49 @@
-#include "/home/poq/.config/x/colours/pnp"
-! URxvt*termName:                       string
-! URxvt*geometry:                       geometry
-! URxvt*chdir:                          string
-! URxvt*reverseVideo:                   boolean
-! URxvt*loginShell:                     boolean
-! URxvt*multiClickTime:                 number
-! URxvt*jumpScroll:                     boolean
-! URxvt*skipScroll:                     boolean
-! URxvt*pastableTabs:                   boolean
-! URxvt*scrollstyle:                    mode
- URxvt*scrollBar:                     false 
-! URxvt*scrollBar_right:                boolean
-! URxvt*scrollBar_floating:             boolean
-! URxvt*scrollBar_align:                mode
-! URxvt*thickness:                      number
-! URxvt*scrollTtyOutput:                boolean
-! URxvt*scrollTtyKeypress:              boolean
-! URxvt*scrollWithBuffer:               boolean
-! URxvt*inheritPixmap:                  boolean
-! URxvt*transparent:                    true
-! URxvt*tintColor:                      color
-URxvt*shading:                        50
- URxvt*blurRadius:                     5x5
-! URxvt*fading:                         number
-! URxvt*fadeColor:                      color
-! URxvt*utmpInhibit:                    boolean
-! URxvt*urgentOnBell:                   boolean
-! URxvt*visualBell:                     boolean
-! URxvt*mapAlert:                       boolean
-! URxvt*meta8:                          boolean
-! URxvt*mouseWheelScrollPage:           boolean
-! URxvt*tripleclickwords:               boolean
-! URxvt*insecure:                       boolean
-! URxvt*cursorUnderline:                boolean
-! URxvt*cursorBlink:                    boolean
-! URxvt*pointerBlank:                   boolean
-!URxvt*background:                     #273941
-! URxvt*foreground:                     color
-! URxvt*color0:                         color
-! URxvt*color1:                         color
-! URxvt*color2:                         color
-! URxvt*color3:                         color
-! URxvt*color4:                         color
-! URxvt*color5:                         color
-! URxvt*color6:                         color
-! URxvt*color7:                         color
-! URxvt*color8:                         color
-! URxvt*color9:                         color
-! URxvt*color10:                        color
-! URxvt*color11:                        color
-! URxvt*color12:                        color
-! URxvt*color13:                        color
-! URxvt*color14:                        color
-! URxvt*color15:                        color
-! URxvt*colorBD:                        color
-! URxvt*colorIT:                        color
-! URxvt*colorUL:                        color
-! URxvt*colorRV:                        color
-! URxvt*underlineColor:                 color
-! URxvt*scrollColor:                    color
-! URxvt*troughColor:                    color
-! URxvt*highlightColor:                 color
-! URxvt*highlightTextColor:             color
-! URxvt*cursorColor:                    color
-! URxvt*cursorColor2:                   color
-! URxvt*pointerColor:                   color
-! URxvt*pointerColor2:                  color
-!URxvt*borderColor:                    #ebf8ff
-!URxvt*borderColor:			#273941
-! URxvt*iconFile:                       file
-URxvt*font:                           xft:yuki:pixelsize=10
+#include "/home/poq/.config/x/colours/greymin"
+URxvt*scrollBar:                     false 
+URxvt*font:                          xft:yuki:pixelsize=10
 URxvt*boldFont:   
-! URxvt*italicFont:                     fontname
-! URxvt*boldItalicFont:                 fontname
-! URxvt*intensityStyles:                boolean
-! URxvt*inputMethod:                    name
-! URxvt*preeditType:                    style
-URxvt*imLocale:                         en_US.UTF-8
-URxvt*imFont:                         xft:yuki:pixelsize=11
-! URxvt*title:                          string
-! URxvt*iconName:                       string
-! URxvt*saveLines:                      number
-! URxvt*buffered:                       boolean
-!URxvt*depth:                          32
-! URxvt*visual:                         number
-! URxvt*transient-for:                  windowid
-! URxvt*override-redirect:              boolean
-! URxvt*hold:                           boolean
- URxvt*externalBorder:                0
- URxvt*internalBorder:                20 
-! URxvt*borderLess:                     boolean
-! URxvt*lineSpace:                      number
-! URxvt*letterSpace:                    number
-! URxvt*skipBuiltinGlyphs:              boolean
-! URxvt*pointerBlankDelay:              number
-! URxvt*backspacekey:                   string
-! URxvt*deletekey:                      string
-! URxvt*print-pipe:                     string
-! URxvt*modifier:                       modifier
-! URxvt*cutchars:                       string
-! URxvt*answerbackString:               string
-! URxvt*secondaryScreen:                boolean
-! URxvt*secondaryScroll:                boolean
-! URxvt*perl-lib:                       string
-! URxvt*perl-eval:                      perl-eval
-! URxvt*perl-ext-common:                string
-! URxvt*perl-ext:                       string
-! URxvt*iso14755:                       boolean
-! URxvt*iso14755_52:                    boolean
-! URxvt*xrm:                            string
-! URxvt*keysym.sym:                     keysym
-! URxvt*background.border:              boolean
-! URxvt*background.expr:                string
-! URxvt*background.interval:            seconds
-! URxvt*bell-command:                   string
-! URxvt*kuake.hotkey:                   string
-! URxvt*matcher.button:                 string
-! URxvt*matcher.launcher:               string
-! URxvt*matcher.launcher.*:             string
-! URxvt*matcher.pattern.*:              string
-! URxvt*matcher.rend.*:                 string
-! URxvt*remote-clipboard.fetch:         string
-! URxvt*remote-clipboard.store:         string
-! URxvt*searchable-scrollback:          string
-! URxvt*selection-autotransform.*:      string
-! URxvt*selection-pastebin.cmd:         string
-! URxvt*selection-pastebin.url:         string
-! URxvt*selection.pattern-0:            string
-! URxvt*tab-bg:                         colour
-! URxvt*tab-fg:                         colour
-! URxvt*tabbar-bg:                      colour
-! URxvt*tabbar-fg:                      colour
-! URxvt*url-launcher:                   string
-!URxvt*color12: rgb:5c/5c/ff
+URxvt*imLocale:                      en_US.UTF-8
+URxvt*imFont:                        xft:yuki:pixelsize=11
+URxvt*externalBorder:                0
+URxvt*internalBorder:                5 
+URxvt*url-launcher:                  /usr/bin/xdg-open
+
+! special
+*foreground  : fg
+*background  : bg
+*cursorColor : bl
+
+! black
+*color0	     : bg
+*color8	     : gr
+
+! red
+*color1	     : re
+*color9	     : re
+
+! green
+*color2	     : da
+*color10     : da
+
+! yellow 
+*color3	     : da
+*color11     : da
+
+
+! blue
+*color4	     : bl
+*color12     : bl
+
+! magenta
+*color5	     : bl
+*color13     : bl
+
+! cyan
+*color6	     : bl
+*color14     : bl
+
+! white
+*color7	     : fg
+*color15     : fg
+
 Xcursor.size: 8

@@ -1,6 +1,6 @@
 #!/bin/sh
 # notification daemon, ripped from tudorom and z3bra
-
+. panelsrc
 NTFY_FIFO_PATH=${NTFY_FIFO_PATH:-/home/poq/var/ntfy/ntfy.fifo}
 NTFY_COUNT_PATH=${NTFY_COUNT_PATH:-/home/poq/var/ntfy/ntfy.cnt}
 
@@ -15,17 +15,14 @@ SCR_W="$(wattr w `lsw -r`)"
 SCR_H="$(wattr h `lsw -r`)"
 
 # notification params
-GAP="40"
-PP_W="${PP_W:-150}"
-PP_H="${PP_H:-40}"
-PP_X="$(( SCR_X - SCR_W - GAP ))"
-PP_MEMES="${PP_MEMES:-2}"
-PP_Y=40
-BORD_C="#d8e6e7"
-BORD_W=2
-BAR_FG="#d8e6e7"
-BAR_BG="#254348"
-
+GAP="20"
+PP_W="1920"
+PP_H="30"
+PP_X="0" #"$((1920 - GAP - PP_W))"
+PP_MEMES="2"
+PP_Y="$((1080 - $((PP_H - 2 * cnt))))"
+OPTS="$PANEL_OPTS -g "$PP_W"x"$PP_H"+0+1050"
+echo $OPTS
 # count
 cnt=0
 echo "$cnt" > "$NTFY_COUNT_PATH"
@@ -40,7 +37,7 @@ tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
 # the business end, prints the message
 
 {
-	(echo "$msg" | skroll -r -n 20 & sleep 3) | lemonbar -d -g "$PP_W"x"$PP_H"+$(( SCR_W - PP_W - GAP ))+$(( SCR_H - (PP_H * PP_MEMES * cnt) )) -F "$BAR_FG" -f "metis" -B "$BAR_BG" #-R "$BORD_C" -r "$BORD_C" #"$msg"
+	(echo "$msg" | skroll -r -n 280 & sleep 3) | lemonbar $OPTS
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt - 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"

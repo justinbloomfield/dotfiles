@@ -2,5 +2,5 @@
 
 MSG=${1:-"oi you dumb cunt write something"}
 [ -e $NTFY_FIFO_PATH ] && echo $MSG > $NTFY_FIFO_PATH
-[ -e $DVTM_FIFO ] && echo $MSG > $DVTM_FIFO
+#[ -e $DVTM_FIFO ] && echo $MSG > $DVTM_FIFO
 
