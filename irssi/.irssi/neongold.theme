@@ -1,3 +1,28 @@
+#                                    
+#  ███████   █████   ██████  ███████ 
+# ░░██░░░██ ██░░░██ ██░░░░██░░██░░░██
+#  ░██  ░██░███████░██   ░██ ░██  ░██
+#  ░██  ░██░██░░░░ ░██   ░██ ░██  ░██
+#  ███  ░██░░██████░░██████  ███  ░██
+# ░░░   ░░  ░░░░░░  ░░░░░░  ░░░   ░░ 
+#
+#                          ██      ██
+#                         ░██     ░██       
+#         █████   ██████  ░██     ░██
+#        ██░░░██ ██░░░░██ ░██  ██████
+#       ░██  ░██░██   ░██ ░██ ██░░░██
+#       ░░██████░██   ░██ ░██░██  ░██
+#        ░░░░░██░░██████  ███░░██████
+#         █████  ░░░░░░  ░░░  ░░░░░░ 
+#        ░░░░░  
+#
+#  ▓▓▓▓▓▓▓▓▓▓
+# ░▓ author ▓ xero <x@xero.nu>
+# ░▓ code   ▓ http://code.xero.nu/dotfiles
+# ░▓ mirror ▓ http://git.io/.files
+# ░▓▓▓▓▓▓▓▓▓▓
+# ░░░░░░░░░░
+#
 default_color = "-1";
 
 info_eol = "false";
@@ -29,17 +54,17 @@ abstracts = {
 
   ban = "$*";
 
-  msgnick = "%Y$0%w$1 %Y º %N";
-  ownmsgnick = "%Y$0%w$1 %Y º ";
+  msgnick = "%Y$0%w$1 %Y│ %N";
+  ownmsgnick = "%Y$0%w$1 %Y│ ";
   ownnick = "%W$*%n";
   pubnick = "%N$*%n";
   menick = "%y$*%y";
 
   # generic one that's used by most actions
-  action = "%b$* %Y º %b";
+  action = "%b$* %Y│%b";
 
   # own action, both private/public
-  ownaction = "%b$* %Y º %b";
+  ownaction = "%b$* %Y│%b";
 
   # own action with target, both private/public
   ownaction_target = "{action $*}";
@@ -51,7 +76,7 @@ abstracts = {
   # public action sent by others
   pubaction = "{action $*}";
 
-  whois = "%w    º  %n$1-";
+  whois = "%w    │  %n$1-";
 
   ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
   notice = "%M$*%n ";
@@ -69,12 +94,12 @@ abstracts = {
   #netsplit = "%w$*%n";
   #netjoin = "%w$*%n";
 
-  names_users = "%Y ÉÍÍÍÍÍÍÍÍ¼ %nusers in %b$1";
+  names_users = "%Y┌─┄┄─┄┄──┘ %nusers in %b$1";
   names_nick = "$2$0%n$1 ";
   names_nick_op = "{names_nick $* %w}";
   names_nick_halfop = "{names_nick $* %w}";
   names_nick_voice = "{names_nick $* %w}";
-  names_prefix = "%Y º %n$1";
+  names_prefix = "%Y│ %n$1";
   names_channel = "%W$*%n";
 
   dcc = "%g$*%n";
@@ -94,13 +119,13 @@ abstracts = {
 
   sb_prompt_bg = "%n";
 
-  sbstart = " %Y ÉÍÍÍÍÍÍÍÍ¼ %w";
+  sbstart = " %Y┌─┄┄─────┘ %w";
   sbend = "";
 
-  topicsbstart = "%w$C %Y ÍÍÍ $*";
+  topicsbstart = "%w$C %Y┄─┄$*";
   topicsbend = "$*";
 
-  prompt = " %Y ÈÍÍÍÍ %n ";
+  prompt = " %Y└──┄┄%n ";
 
   sb = "%N$*%N ";
   #sb = "";
@@ -129,14 +154,14 @@ formats = {
   "fe-common/core" = {
     #line_start = "{line_start}";
     line_start_irssi = "{line_start}";
-    join = "%n join %Y ÍÍÍ¹ %n{channick $0} %w(%n{nickhost %w$1}%w)%n joined %w$2";
-    part = "%n part %Y ÍÍÍ¹ %n{channick $0} %w(%n{nickhost %w$1}%w)%n left %w$2 {reason %b$3}";
-    quit = "%n quit %Y ÍÍÍ¹ %nsignoff%w: %n{channick $0}%w {reason %b$2}";
-    kick = "%r kick %Y ÍÍÍ¹ %n{channick $0} was kicked by $2 %w{reason %b$3}";
-    nick_changed = "        %Y ÍÎÍ %w %n{channick $0} %Y >> %W{channick $1}";
-    your_nick_changed = "        %Y ÍÎÍ %w %n{channick $0} %Y >> %W{channick $1}";
-    new_topic = "%Y ÉÍÍÍÍÍÍÍÍ¼ %n\n%Y º %wtopic %b'$2' %Nset by%b $0\n%Y ÈÍÍÍÍÍÍÍÍ» ";
-    endofnames = "%Y ÈÍÍÍÍÍÍÍÍ» %btotal: {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normies%n";
+    join = "%n join %Y┄┄─┤ %n{channick $0} %w(%n{nickhost %w$1}%w)%n joined %w$2";
+    part = "%n part %Y┄┄─┤ %n{channick $0} %w(%n{nickhost %w$1}%w)%n left %w$2 {reason %b$3}";
+    quit = "%n quit %Y┄┄─┤ %nsignoff%w: %n{channick $0}%w {reason %b$2}";
+    kick = "%r kick %Y┄┄─┤ %n{channick $0} was kicked by $2 %w{reason %b$3}";
+    nick_changed = "        %Y┄┼┄%w %n{channick $0} %Y>> %W{channick $1}";
+    your_nick_changed = "        %Y┄┼┄%w %n{channick $0} %Y>> %W{channick $1}";
+    new_topic = "%Y┌─┄┄─────┘%n\n%Y│ %wtopic %b'$2' %Nset by%b $0\n%Y└─┄┄─┄┄──┐ ";
+    endofnames = "%Y└─┄┄─┄┄──┐ %btotal: {hilight $2} ops, {hilight $3} halfops, {hilight $4} voices, {hilight $5} normies%n";
     #nick padding
     pubmsg = "{pubmsgnick $2 {pubnick \00312$[-7]0}}$1";
     own_msg = "{ownmsgnick $2 {ownnick $[-7]0}}$1";
@@ -150,29 +175,29 @@ formats = {
     msg_private_query = "{privmsgnick $[-7]0}$2";
   };
   "fe-common/irc" = {
-    chanmode_change = "%n mode %Y ÍÍÍ¹ %w(%B{channick $1}%w) %nby %B$2";
-    server_chanmode_change = "%n mode %Y ÍÍÍ¹ %w{channick $1} %n(%w$2%n)";
-    whois = "%Y ÉÍÍÍ    %n\012%Y º %wuser %b$0 %w(%n$1%b@%n$2%w) %n\012%Y º %wname %n$3%n";
-    whois_idle = "%Y º %widle%b %º$1d $2h $3m $4s";
-    whois_idle_signon = "%Y º %widle%b %º$1d $2h $3m $4s {comment signon: $5}";
-    whois_server = "%Y º %wserv%b %|$1 {comment $2}";
-    whois_oper = "%Y º %woper%b {hilight $1}";
-    whois_registered = "%Y º %wrgis%n yes";
-    whois_help = "%Y º %whelp%b available for help";
-    whois_modes = "%Y º %wmode%b $1";
-    whois_realhost = "%Y º %wreal%b $1-";
-    whois_usermode = "%Y º %wumod%b $1";
-    whois_channels = "%Y º %wchan%b %|$1";
+    chanmode_change = "%n mode %Y┄┄─┤ %w(%B{channick $1}%w) %nby %B$2";
+    server_chanmode_change = "%n mode %Y┄┄─┤ %w{channick $1} %n(%w$2%n)";
+    whois = "%Y┌─┄┄    %n\012%Y│ %wuser %b$0 %w(%n$1%b@%n$2%w) %n\012%Y│ %wname %n$3%n";
+    whois_idle = "%Y│ %widle%b %|$1d $2h $3m $4s";
+    whois_idle_signon = "%Y│ %widle%b %|$1d $2h $3m $4s {comment signon: $5}";
+    whois_server = "%Y│ %wserv%b %|$1 {comment $2}";
+    whois_oper = "%Y│ %woper%b {hilight $1}";
+    whois_registered = "%Y│ %wrgis%n yes";
+    whois_help = "%Y│ %whelp%b available for help";
+    whois_modes = "%Y│ %wmode%b $1";
+    whois_realhost = "%Y│ %wreal%b $1-";
+    whois_usermode = "%Y│ %wumod%b $1";
+    whois_channels = "%Y│ %wchan%b %|$1";
     whois_away = "%Y│ %waway%b %|$1";
-    whois_special = "%Y º %winfo%b {comment %|$1}";
-    whois_extra = "%Y º %wextr%b %|$1";
-    end_of_whois = "%Y ÈÍÍÍ ";
-    whois_not_found = "%Y ÍÍÍ %wthere is no such nick %b$0";
-    topic = "%ntopic %Y ÍÍÍ¹ %B$0 %b$1";
-    topic_info = "      %Y ÍÍÍ¹ %wset by %b$0 %B(%w$1%B)";
-    channel_synced = "%n sync %Y ÍÍÍ¹ %nin {hilight $1} secs";
-    channel_created = "%n      %Y ÍÍÍ¹ %ncreated $1";
-    action_core = "%b$[-8]0 %Y º %b$1";
+    whois_special = "%Y│ %winfo%b {comment %|$1}";
+    whois_extra = "%Y│ %wextr%b %|$1";
+    end_of_whois = "%Y└─┄┄ ";
+    whois_not_found = "%Y──┄┄ %wthere is no such nick %b$0";
+    topic = "%ntopic %Y┄┄─┤ %B$0 %b$1";
+    topic_info = "      %Y┄┄─┤ %wset by %b$0 %B(%w$1%B)";
+    channel_synced = "%n sync %Y┄┄─┤ %nin {hilight $1} secs";
+    channel_created = "%n      %Y┄┄─┤ %ncreated $1";
+    action_core = "%b$[-8]0 %Y│ %b$1";
     own_action = "{ownaction $[-8]0} $1";
     action_private = "{pvtaction $[-8]0}$1";
     action_private_query = "{pvtaction_query $[-8} $2";

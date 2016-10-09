@@ -1,49 +1,49 @@
-#include "/home/poq/.config/x/colours/greymin"
+#include "/home/poq/.config/x/colours/balci"
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:yuki:pixelsize=10
+URxvt*font:                          xft:leggie:pixelsize=11
 URxvt*boldFont:   
-URxvt*imLocale:                      en_US.UTF-8
+URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:yuki:pixelsize=11
 URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
-! special
-*foreground  : fg
-*background  : bg
-*cursorColor : bl
-
-! black
-*color0	     : bg
-*color8	     : gr
-
-! red
-*color1	     : re
-*color9	     : re
-
-! green
-*color2	     : da
-*color10     : da
-
-! yellow 
-*color3	     : da
-*color11     : da
-
-
-! blue
-*color4	     : bl
-*color12     : bl
-
-! magenta
-*color5	     : bl
-*color13     : bl
-
-! cyan
-*color6	     : bl
-*color14     : bl
-
-! white
-*color7	     : fg
-*color15     : fg
-
-Xcursor.size: 8
+!! special
+!*foreground  : fg
+!*background  : bg
+!*cursorColor : bl
+!
+!! black
+!*color0	     : bg
+!*color8	     : gr
+!
+!! red
+!*color1	     : re
+!*color9	     : re
+!
+!! green
+!*color2	     : da
+!*color10     : da
+!
+!! yellow 
+!*color3	     : da
+!*color11     : da
+!
+!
+!! blue
+!*color4	     : bl
+!*color12     : bl
+!
+!! magenta
+!*color5	     : bl
+!*color13     : bl
+!
+!! cyan
+!*color6	     : bl
+!*color14     : bl
+!
+!! white
+!*color7	     : fg
+!*color15     : fg
+!
+!Xcursor.size: 8

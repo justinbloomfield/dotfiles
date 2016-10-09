@@ -1,0 +1,38 @@
+! color theme: balci
+*.borderColor: #252525
+*.background: #252525
+*.foreground: #d2c8bb
+*.cursorColor: #59bf8f
+
+! Black
+*color0:        #5b6641
+*color8:        #616654
+
+! Red
+*color1:        #59bf8f
+*color9:        #87bfa5
+
+! Green
+*color2:        #469f65
+*color10:       #719f81
+
+! Yellow
+*color3:        #30623f
+*color11:       #45624e
+
+! Blue
+*color4:        #54711f
+*color12:       #657150
+
+! Magenta
+*color5:        #4ad5d2
+*color13:       #97d5d4
+
+! Cyan
+*color6:        #2f4c21
+*color14:       #3d4c36
+
+! White
+*color7:        #d2c8bb
+*color15:       #b9b1a5
+

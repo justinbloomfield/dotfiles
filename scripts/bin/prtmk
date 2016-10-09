@@ -3,7 +3,7 @@
 # z3bra - (c) wtfpl 2014
 # Create a Pkgfile from simple templates and user input
 
-PKGFILE=$CHOME/ports/templates/Pkgfile
+PKGFILE=$HOME/etc/templates/Pkgfile
 PORTDIR=$CHOME/ports/crux
 EDITOR=${EDITOR:-vi}
 

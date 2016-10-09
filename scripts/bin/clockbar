@@ -12,7 +12,7 @@ OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+${XOFFSET}+2"
 while true; do
 	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
 	sleep 1 
-done | lemonbar $PANEL_OPTS
+done | lemonbar $OPTS
 
 
 

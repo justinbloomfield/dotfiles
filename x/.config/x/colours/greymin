@@ -1,8 +1,10 @@
 #define bg	#cccccc
 #define fg	#777777
-#define bl	#62a04c
-#define re	#545454
-#define gr	#62a04c
-#define da	#3c3c3b
+#define bl	#9c6ed4
+#define re	#4D3361
+#define gr	#9c6ed4
+#define da	#27002e
 !#5f819d
 !#118568
+!#62a04c
+!#3088A6

@@ -1,2 +1,0 @@
-#!/bin/sh
-wring text 'https://www.google.com/finance/converter?a=1&from=AUD&to=USD' '#currency_converter_result' | sed 's/ AUD//g' | sed 's/USD//g' | sed 's/=/→/'

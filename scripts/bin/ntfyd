@@ -37,7 +37,7 @@ tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
 # the business end, prints the message
 
 {
-	(echo "$msg" | skroll -r -n 280 & sleep 3) | lemonbar $OPTS
+	(echo "$msg" | skroll -d 0.05 -r -n 280 & sleep 3) | lemonbar $OPTS
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt - 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"

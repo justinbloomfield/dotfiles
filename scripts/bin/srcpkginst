@@ -1,6 +1,0 @@
-#!/bin/sh
-PKG=$1
-
-cd "$VPKG_DIR"
-./xbps-src pkg "$PKG"
-sudo xbps-install "$PKG"
