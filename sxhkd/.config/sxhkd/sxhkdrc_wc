@@ -1,5 +1,5 @@
 super + d
-	thinglaunch
+	rofi -show run
 
 XF86AudioRaiseVolume
     pactl set-sink-volume 0 +5%
@@ -61,5 +61,5 @@ super + ctrl + r
 super + Return
   urxvt
 
-super + {Insert,Prior,Delete,Next,End}
+super + {Insert,Prior,Delete,Next,m}
   waitron window_snap {topleft,topright,bottomleft,bottomright,middle}
