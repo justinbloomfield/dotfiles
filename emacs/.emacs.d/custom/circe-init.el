@@ -27,6 +27,7 @@
   )
 
 (use-package circe
+  :ensure t
   :config
   (my-circe-config))
   	

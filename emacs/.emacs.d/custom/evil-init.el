@@ -10,7 +10,7 @@
 ;; evil config
 (defun  my-evil-config ()
   "Configure evil mode"
-   
+  (setq evil-want-C-i-jump nil) 
   (eval-after-load 'ibuffer
     '(progn
        (evil-set-initial-state 'ibuffer-mode 'normal) 
@@ -26,11 +26,6 @@
        )
     )
 
-  ;; move buffers
-  (define-key evil-normal-state-map (kbd "C-h") 'buf-move-left)
-  (define-key evil-normal-state-map (kbd "C-j") 'buf-move-down) 
-  (define-key evil-normal-state-map (kbd "C-k") 'buf-move-up)
-  (define-key evil-normal-state-map (kbd "C-l") 'buf-move-right)
 
   ;; Make escape quit everything, whenever possible.
   (define-key evil-normal-state-map [escape] 'keyboard-quit)
@@ -41,6 +36,10 @@
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
+  ;; make org mode tab great again 
+  (add-hook 'org-mode-hook
+	    (lambda()
+	      (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
   (eval-after-load 'dired
     '(progn
        (evil-set-initial-state 'dired-mode 'normal)
@@ -69,7 +68,7 @@
     "g" 'magit-status
     "w" 'save-buffer
     "q" 'kill-buffer-and-window
-    "b" 'ibuffer
+    "i" 'ibuffer
     "c" 'circe
 
     ;; window management
@@ -81,8 +80,16 @@
     "J" 'shrink-window
     "K" 'enlarge-window
     "L" 'enlarge-window-horizontally
-    "n" 'evil-window-new
-    "v" 'evil-window-vnew
+    "n" 'evil-window-split
+    "v" 'evil-window-vsplit
+    "oa" 'org-agenda
+    "ol" 'org-store-link
+    "oc" 'org-capture
+    "ob" 'org-iswitchb
+    "bh" 'buf-move-left
+    "bj" 'buf-move-down 
+    "bk" 'buf-move-up
+    "bl" 'buf-move-right
     )
   )
 
