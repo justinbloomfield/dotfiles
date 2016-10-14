@@ -102,7 +102,7 @@
   (use-package evil-leader
     :ensure t
     :config
-    (global-evil-leader-mode)
-    (my-evil-leader-config)))
+    (my-evil-leader-config)
+    (global-evil-leader-mode)))
 
-(provide 'init-evil)
+;;(provide 'init-evil)
