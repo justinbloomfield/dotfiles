@@ -1,7 +1,7 @@
-#!/bin/bash
-#bgcolor=#161b1d
-#textcolor=#11ae91
-bgcolor=#343434
-fgcolor=#910000
+#!/bin/sh
+. panelsrc
+FG="$PANEL_FG"
+BG="$PANEL_BG"
+HLBG="$BORD_COL"
 
-rofi -show run -lines 3 -eh 2 -opacity "80" -bw 0 -color-window "$bgcolor" -bg "$bgcolor" -fg "$textcolor" -hlbg "$bgcolor" -hlfg "#aaaaaa" -font "metis 9"
+rofi -show run -font "leggie 10" -bg $BG -fg $FG -hlfg $BG -hlbg $HLBG 

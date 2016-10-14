@@ -17,7 +17,7 @@ alias vi='vis'
 alias c='clear'
 alias mkdir='mkdir -p'
 alias ermac='emacs'
-alias e='emacsclient -nw -c' 
+alias e='emacsclient -c' 
 alias sxiv='sxiv -a'
 
 export TERM=rxvt

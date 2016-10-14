@@ -1,1 +1,1 @@
-ssh -i ~/etc/bill.pem ec2-user@ec2-52-65-62-95.ap-southeast-2.compute.amazonaws.com
+ssh -i ~/etc/ubvps.pem ubuntu@ec2-52-65-74-155.ap-southeast-2.compute.amazonaws.com

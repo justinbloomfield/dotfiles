@@ -1,42 +1,39 @@
 ! special
-#define fg      #ffffff
-#define bg      #000000
-#define re	#ff9cdb
-#define gr      #b85ed6
-#define da	#fa66dc
+*.background : #111111
+*.foreground : #cccccc
+*.cursorColor : #ef49ff
+!black
+*color0	     : #111111
+*color8	     : #111111
 
-!!black
-!*color0	     : #333333
-!*color8	     : #333333
-!
-!! red
-!*color1	     : #FF9CDB
-!*color9	     : #FF9CDB
-!
-!! green
-!*color2	     : #b85ed6
-!*color10     : #b85ed6
-!
-!! yellow 
-!*color3	     : #d09eff
-!*color11     : #d09eff
-!
-!
-!! blue
-!*color4	     : #9c9fff
-!*color12     : #9c9fff
-!
-!! magenta
-!*color5	     : #ef49ff
-!*color13     : #ef49ff
-!
-!! cyan
-!*color6	     : #fa66dc
-!*color14     : #fa66dc
-!
-!! white
-!*color7	     : #ffbfdd
-!*color15     : #ffbfdd
+! red
+*color1	     : #FF9CDB
+*color9	     : #FF9CDB
+
+! green
+*color2	     : #b85ed6
+*color10     : #b85ed6
+
+! yellow 
+*color3	     : #d09eff
+*color11     : #d09eff
+
+
+! blue
+*color4	     : #9c9fff
+*color12     : #9c9fff
+
+! magenta
+*color5	     : #ef49ff
+*color13     : #ef49ff
+
+! cyan
+*color6	     : #fa66dc
+*color14     : #fa66dc
+
+! white
+*color7	     : #ffbfdd
+*color15     : #ffbfdd
 
 
 

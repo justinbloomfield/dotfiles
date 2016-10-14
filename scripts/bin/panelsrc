@@ -1,7 +1,8 @@
 #!/bin/sh
 # bar settings
 
-export PANEL_FONT="monofur:size=10"
-export PANEL_BG="#aaaaaa"
-export PANEL_FG="#333333"
-export PANEL_OPTS="-d -f "$PANEL_FONT" -B "$PANEL_BG" -F $PANEL_FG" 
+export PANEL_FONT="leggie:size=11"
+export PANEL_BG="#000000"
+export PANEL_FG="#ccc8a1"
+export BORD_COL="#d7a864"
+export PANEL_OPTS="-d -f "$PANEL_FONT" -B "$PANEL_BG" -F "$PANEL_FG" -R "$BORD_COL" -r 3" 

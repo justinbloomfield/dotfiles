@@ -1,13 +1,32 @@
-#include "/home/poq/.config/x/colours/balci"
+#include "/home/poq/.config/x/colours/mono"
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:leggie:pixelsize=11
-URxvt*boldFont:   
+URxvt*font:                          xft:leggie:pixelsize=10
+URxvt*boldFont:		             
+Emacs.font:			     leggie:10
+*boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:yuki:pixelsize=11
 URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
+rofi.font: 		leggie 10
+rofi.lines: 		4
+rofi.width:		25
+rofi.borderwidth:	3
+rofi.auto-select:	false
+rofi.hide-scrollbar:	true
+rofi.color-window:	bg, c0
+rofi.color-normal:	bg, fg, bg, c9, bg 
+rofi.separator-style:   solid
+
+
+
+
+!*.foreground:	#ffffff
+!*.background:	#000000
+!*color7:	#ffffff
+!*color0:	#000000
 !! special
 !*foreground  : fg
 !*background  : bg

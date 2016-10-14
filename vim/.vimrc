@@ -33,6 +33,6 @@ aug CSV_Editing
 	au BufWritePre *.csv :%UnArrangeColumn
 aug end
 map u1 :.w >> \/home/poq/var/irc/irc.unix.chat/\#unix/in<cr>dd
-map s1 :.w >> \/home/poq/var/irc/im.codemonkey.be/sarahhodge/in<cr>dd
+map <leader>s1 :.w >> \/home/poq/var/irc/im.codemonkey.be/sarahhodge/in<cr>dd
 
 let @b="yypVr─vy4p0r└$r┘yykPr┌$r┐j0i│ $a │"

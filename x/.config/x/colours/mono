@@ -1,37 +1,52 @@
 #define fg #d0d0d0
-#define bg #000000
+#define bg #010101
 #define lbg #020202
-
+#define c0  #353535
+#define c1  #ccc8a1
+#define c2  #cccccc
+#define c3  #dbdac1
+#define c4  #555555
+#define c5  #666666
+#define c6  #888888
+#define c7  #c2c2a8
+#define c8  #c3c2c5
+#define c9  #756637
+#define c10 #787878
+#define c11 #dbdac1
+#define c12 #aaaaaa
+#define c13 #777777
+#define c14 #999999
+#define c15 #dbdac1
 !030507
 !333333
 
 *foreground:                          fg
 *background:                          bg
-*cursorColor:                         #d3d3d3
+*cursorColor:                         c1
 
 ! Black                               Black !
-*color0:                              #353535
-*color8:                              #c3c2c5
+*color0:				c0
+*color8:                                c8 
 ! Red                                 Red   !
 ! #cd546c #ef545f
-*color1:                              #d4978d
-*color9:                              #d4b4b4
+*color1:				c1                              
+*color9:                           	c9 
 ! Green                               Green !
-*color2:                              #cccccc
-*color10:                             #787878
+*color2:                                c2
+*color10:                               c10
 ! Yellow                              Yellow!
-*color3:                              #dbdac1
-*color11:                             #dbdac1
-! Blue                                Blue  !
-*color4:                              #555555
-*color12:                             #aaaaaa
-! Magenta                             Magenta
-*color5:                              #666666
-*color13:                             #777777
-! Cyan                                Cyan  !
-*color6:                              #888888
-*color14:                             #999999
-! White                               White !
-*color7:                              #C2C2A8
-*color15:                             #DBDAC1
+*color3:                                c3
+*color11:                               c11 
+! Blue                                
+*color4:                                c4 
+*color12:                               c12
+! Magenta                             
+*color5:                                c5
+*color13:                               c13
+! Cyan                                
+*color6:                                c6
+*color14:                               c14
+! White                               
+*color7:                                c7
+*color15:                               c15
 

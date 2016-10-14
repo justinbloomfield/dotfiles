@@ -5,10 +5,10 @@
 
 ROOT_ID="$(lsw -r)"
 ROOT_WIDTH="$(wattr w ${ROOT_ID})"
-BAR_WIDTH="$(( $ROOT_WIDTH / 3 ))"
-XOFFSET="$(($(($ROOT_WIDTH / 2)) - $(($BAR_WIDTH / 2))))" 
+BAR_WIDTH="300" #"$(( $ROOT_WIDTH / 4 ))"
+XOFFSET="$(($ROOT_WIDTH - $BAR_WIDTH - 25 ))" 
 FONT="$PANEL_FONT"
-OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+${XOFFSET}+2"
+OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x25+${XOFFSET}+20"
 while true; do
 	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
 	sleep 1 
