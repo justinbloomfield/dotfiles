@@ -168,7 +168,7 @@
    `(circe-server-face ((t (:foreground ,green))))
    `(lui-button-face ((t (:foreground ,light-magenta))))
    `(lui-time-stamp-face ((t (:foreground "burlywood4"))))
-   `(lui-hilight-face ((t (:foreground "burlywood4"))
+   `(lui-hilight-face ((t (:foreground "burlywood4"))))
 
    ;; company-mode
    `(company-tooltip ((t (:foreground ,foreground :background ,background))))
