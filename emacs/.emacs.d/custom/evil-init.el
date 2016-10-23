@@ -6,6 +6,8 @@
     (dired-up-directory)
     (kill-buffer old)
     ))
+(fset 'mymacro
+   [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?l ?$ ?r ?\C-k ?u ?r ?y ?y ?k ?P ?r ?\C-k ?d ?l ?$ ?r ?\C-k ?d ?r ?j ?0 ?i ?\C-k ?v ?v ?\C-k escape ?$ ?a ?  ?\C-k ?v ?v escape])
 
 ;; evil config
 (defun  my-evil-config ()
@@ -26,7 +28,6 @@
        )
     )
 
-
   ;; Make escape quit everything, whenever possible.
   (define-key evil-normal-state-map [escape] 'keyboard-quit)
   (define-key evil-visual-state-map [escape] 'keyboard-quit)
@@ -35,6 +36,9 @@
   (define-key minibuffer-local-completion-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
+  
+  ;; border macro
+  (evil-set-register ?b [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?r ?$ ?r ?\C-k ?u ?l ?y ?y ?k ?P ?r ?\C-k ?d ?r ?$ ?r ?\C-k ?d ?l ?j ?0 ?i ?\C-k ?v ?v ?  escape ?$ ?a ?  ?\C-k ?v ?v escape])
 
   ;; make org mode tab great again 
   (add-hook 'org-mode-hook
@@ -71,6 +75,12 @@
     "i" 'ibuffer
     "c" 'circe
 
+    ;; ivy
+    "f" 'counsel-find-file
+    "F" 'counsel-describe-function
+    "V" 'counsel-descibe-variable
+    "/" 'swiper
+    
     ;; window management
     "h" 'evil-window-left
     "j" 'evil-window-down
@@ -82,14 +92,16 @@
     "L" 'enlarge-window-horizontally
     "n" 'evil-window-split
     "v" 'evil-window-vsplit
-    "oa" 'org-agenda
-    "ol" 'org-store-link
-    "oc" 'org-capture
-    "ob" 'org-iswitchb
     "bh" 'buf-move-left
     "bj" 'buf-move-down 
     "bk" 'buf-move-up
     "bl" 'buf-move-right
+
+    ;; org
+    "oa" 'org-agenda
+    "ol" 'org-store-link
+    "oc" 'org-capture
+    "ob" 'org-iswitchb
     )
   )
 

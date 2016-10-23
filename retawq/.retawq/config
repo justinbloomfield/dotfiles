@@ -1,0 +1,15 @@
+bookmarks local:~/.retawq/bookmarks.html
+execext-shell /bin/zsh -c
+keymap command
+ J line-down
+ j element-next
+ K line-up
+ k element-previous
+ ctrl-j jump
+ ctrl-k jump-preset
+ h view-back
+ H go-home
+ l view-forward
+ n document-search-next
+ N window-new
+ 

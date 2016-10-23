@@ -4,10 +4,18 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
-(use-package org
-  :ensure t)
+
+(use-package all-the-icons
+ :ensure t)
+
+(use-package haskell-mode
+  :ensure t
+  )
 
 (use-package magit
+  :ensure t)
+
+(use-package org
   :ensure t)
 
 (use-package powerline
@@ -15,11 +23,11 @@
 ; :config
 ; (powerline-center-evil-theme))
 
-(use-package all-the-icons
- :ensure t)
-
 (use-package smooth-scrolling
   :ensure t
   :config
   (setq smooth-scroll-margin 3))
-(use-package tramp )
+
+(use-package tramp
+  :ensure t)
+

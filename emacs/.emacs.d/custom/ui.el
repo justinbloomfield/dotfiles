@@ -1,15 +1,11 @@
-;; make emacs better
-(global-linum-mode)
-(setq linum-format "%3d ")
-
 ;; get rid of useless shit
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 
 ;; remove stupid lines
-(set-window-fringes nil 0 0)
-(set-fringe-style 0)
+;(set-window-fringes nil 0 0)
+; (set-fringe-style default)
 
 ;; change outdated 90's modeline hilite
 (set-face-attribute 'mode-line nil :box nil)
@@ -24,6 +20,8 @@
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
 
+;; let the glow flow through you
+;; (global-hl-line-mode t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)

@@ -25,7 +25,7 @@
 *cursorColor:                         c1
 
 ! Black                               Black !
-*color0:				c0
+*color0:				              bg
 *color8:                                c8 
 ! Red                                 Red   !
 ! #cd546c #ef545f
