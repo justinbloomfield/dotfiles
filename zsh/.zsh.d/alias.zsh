@@ -12,7 +12,7 @@ alias spi='sudo prt-get info'
 alias ..='cd ..'
 
 alias c='cd'
-alias e='emac' 
+alias e='emacs -nw' 
 alias s='ssh'
 alias x='clear'
 alias l='ls'
