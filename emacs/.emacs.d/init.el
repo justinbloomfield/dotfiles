@@ -33,24 +33,8 @@
 
 ;; put this in misc
 (put 'dired-find-alternate-file 'disabled nil)
+(setq ring-bell-function 'ignore)
+
 
 ;; Org mode shiz (for now)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("72a81c54c97b9e5efcc3ea214382615649ebb539cb4f2fe3a46cd12af72c7607" default)))
- '(package-selected-packages
-   (quote
-    (sublime-themes use-package smooth-scrolling powerline nlinum-relative markdown-preview-mode markdown-preview-eww magit linum-relative haskell-mode eww-lnum evil-visual-mark-mode evil-leader counsel circe buffer-move all-the-icons))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

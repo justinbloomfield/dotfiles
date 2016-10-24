@@ -26,10 +26,9 @@
 
 ;; let the glow flow through you
 ;;(global-hl-line-mode t)
-(load-theme 'granger t)
 
 ;; theme
-(load-theme 'granger t)
+(load-theme 'dracula t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)

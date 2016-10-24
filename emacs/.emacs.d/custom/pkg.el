@@ -19,9 +19,9 @@
   :ensure t)
 
 (use-package powerline
- :ensure t)
-; :config
-; (powerline-center-evil-theme))
+ :ensure t
+ :config
+ (powerline-default-theme))
 
 (use-package smooth-scrolling
   :ensure t

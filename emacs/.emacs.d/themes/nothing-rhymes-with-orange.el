@@ -65,8 +65,8 @@
    ;; UI
    `(default                           ((t (:background ,nrwo-bg :foreground ,nrwo-light0))))
    `(cursor                            ((t (:background ,nrwo-light0))))
-   `(mode-line                         ((t (:box nil :background ,nrwo-dark0 :foreground "ivory" :font "leggie-10"))))
-   `(mode-line-inactive                ((t (:box nil :background ,nrwo-dark1 :foreground ,nrwo-light4 :font "leggie-10"))))
+   `(mode-line                         ((t (:box nil :background ,nrwo-dark0 :foreground "ivory" :font "Terminus (TTF)-13"))))
+   `(mode-line-inactive                ((t (:box nil :background ,nrwo-dark1 :foreground ,nrwo-light4 :font "Terminus (TTF)-13"))))
    `(fringe                            ((t (:background ,nrwo-bg))))
    `(linum                             ((t (:background ,nrwo-bg :foreground ,nrwo-dark4))))
    `(hl-line                           ((t (:background ,nrwo-color0))))

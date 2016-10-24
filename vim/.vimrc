@@ -1,5 +1,4 @@
 syntax off
-set number
 set relativenumber
 set nohlsearch
 set scrolloff=1
@@ -11,6 +10,7 @@ execute plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/csv.vim'
 Plug 'yuratomo/w3m.vim'
+Plug 'plasticboy/vim-markdown'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
