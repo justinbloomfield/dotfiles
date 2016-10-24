@@ -6,6 +6,10 @@
 ;; remove stupid lines
 (set-window-fringes nil 0 0)
 
+;; numbers
+(global-linum-mode)
+(setq linum-format "%4d ")
+
 ;; change outdated 90's modeline hilite
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
@@ -21,6 +25,9 @@
 
 ;; let the glow flow through you
 ;;(global-hl-line-mode t)
+(load-theme 'granger t)
+
+;; theme
 (load-theme 'granger t)
 
 ;; make line wrapping actually work
