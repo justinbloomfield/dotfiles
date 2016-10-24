@@ -4,8 +4,12 @@
 (scroll-bar-mode -1)
 
 ;; remove stupid lines
-;(set-window-fringes nil 0 0)
-; (set-fringe-style default)
+(set-window-fringes nil 0 0)
+(set-fringe-style default)
+
+;; numbers
+(global-linum-mode)
+(setq linum-format "%4d ")
 
 ;; change outdated 90's modeline hilite
 (set-face-attribute 'mode-line nil :box nil)
@@ -22,6 +26,9 @@
 
 ;; let the glow flow through you
 ;; (global-hl-line-mode t)
+
+;; theme
+(load-theme 'granger t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)
