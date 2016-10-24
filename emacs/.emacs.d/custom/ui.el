@@ -5,6 +5,7 @@
 
 ;; remove stupid lines
 (set-window-fringes nil 0 0)
+(fringe-mode 0)
 
 ;; numbers
 (global-linum-mode)
