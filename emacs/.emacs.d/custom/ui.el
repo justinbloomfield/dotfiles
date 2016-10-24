@@ -4,15 +4,14 @@
 (scroll-bar-mode -1)
 
 ;; remove stupid lines
-;(set-window-fringes nil 0 0)
-; (set-fringe-style default)
+(set-window-fringes nil 0 0)
 
 ;; change outdated 90's modeline hilite
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; change dumb fonts
-(set-default-font "leggie-10")
+(set-default-font "Terminus (TTF)-13")
 (set-face-bold-p 'bold nil)
 (mapc
  (lambda (face)
@@ -21,7 +20,8 @@
  (face-list))
 
 ;; let the glow flow through you
-;; (global-hl-line-mode t)
+;;(global-hl-line-mode t)
+(load-theme 'granger t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)
