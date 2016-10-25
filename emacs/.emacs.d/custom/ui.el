@@ -28,7 +28,7 @@
 ;;(global-hl-line-mode t)
 
 ;; theme
-(load-theme 'dracula t)
+(load-theme 'granger t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)

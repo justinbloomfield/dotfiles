@@ -7,13 +7,13 @@
 
 (defun evil-tag-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-    (cond ((evil-normal-state-p)   "#333333")
-          ((evil-visual-state-p)   "#666666")
-          ((evil-insert-state-p)   "#756637")
-          ((evil-emacs-state-p)    "maroon")
-          ((evil-operator-state-p) "maroon")
-          ((evil-motion-state-p)   "maroon")
-          ((evil-replace-state-p)  "#555555"))
+    (cond ((evil-normal-state-p)   "slateblue3")
+          ((evil-visual-state-p)   "limegreen")
+          ((evil-insert-state-p)   "deeppink2")
+          ((evil-emacs-state-p)    "dodgerblue1")
+          ((evil-operator-state-p) "dodgerblue1")
+          ((evil-motion-state-p)   "dodgerblue1")
+          ((evil-replace-state-p)  "deepskyblue"))
     (face-background 'mode-line-inactive)))
 
 (defun branch-tag-bg-color ()
@@ -23,12 +23,12 @@
 
 (defun time-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "#ccc8a1"
+      "slateblue3"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-fg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "#181818"
+      "#eeeeee"
     (face-foreground 'mode-line-inactive)))
 
 (defun fancy-mode-line-render (left center right &optional lpad rpad)
@@ -107,7 +107,7 @@ can be used to add a number of spaces to the front and back of the string."
          (fg (time-tag-fg-color)))
     (concat
      (propertize
-      (all-the-icons-faicon "first-order")
+      (all-the-icons-faicon "empire")
       'face
       `(:height 1.0 :background ,bg :foreground ,fg) 'display '(raise -0.0))
      (propertize

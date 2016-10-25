@@ -10,6 +10,8 @@
 (load "pkg.el")
 (load "circe-init.el")
 (load "ivy-init.el")
+(load "twittering-mode.el")
+(setq twittering-use-master-pasword t)
 
 ;; ui
 (when (display-graphic-p)
