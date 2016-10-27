@@ -15,7 +15,10 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
 ;; change dumb fonts
-(set-default-font "FantasqueSans Mono-10")
+(if (eq system-type 'darwin)
+    (set-default-font "Fantasque Sans Mono-12.5")
+    (set-default-font "FantasqueSans Mono-10"))
+
 (set-face-bold-p 'bold nil)
 (mapc
  (lambda (face)

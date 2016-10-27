@@ -1,7 +1,11 @@
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
-;;(require 'mu4e)
+(if (eq system-type 'gnu/linux)
+	(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+	(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e/"))
+(require 'mu4e)
 
 (defun my-mu4e-config ()
+  (when (eq system-type 'darwin)
+    (setq mu4e-mu-binary "/usr/local/bin/mu"))
   (setq mu4e-maildir "~/var/mail/jbl")
   (setq mu4e-sent-folder "/Sent")
   (setq mu4e-drafts-folder "/Drafts")
