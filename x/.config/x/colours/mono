@@ -1,5 +1,5 @@
-#define fg #d0d0d0
-#define bg #010101
+#define fg  #d0d0d0
+#define bg  #010101
 #define lbg #020202
 #define c0  #353535
 #define c1  #ccc8a1

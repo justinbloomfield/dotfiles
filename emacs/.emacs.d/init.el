@@ -16,8 +16,7 @@
 
 ;; ui
 (load "ui.el")
-(when (display-graphic-p)
-  (load "modeline-init.el"))
+(load "modeline-init.el")
   ;(load "~/.emacs.d/themes/xres-theme.el"))
 
 ;; evil
