@@ -8,7 +8,7 @@ xrandr --output DisplayPort-0 --mode 1920x1080 --rate 119.98 &
 clockbar &
 ntfyd &
 compton &
-emacs -daemon &
+emacs &
 #funcbutton &
 #musicbar &
 exec windowchef
