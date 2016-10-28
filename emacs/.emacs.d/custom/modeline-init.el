@@ -8,17 +8,19 @@
 (defun evil-tag-color ()
   (if (eq (get-buffer-window) powerline-current-window)
     (cond ((evil-normal-state-p)   "slateblue3")
-          ((evil-visual-state-p)   "limegreen")
-          ((evil-insert-state-p)   "deeppink2")
-          ((evil-emacs-state-p)    "dodgerblue1")
-          ((evil-operator-state-p) "dodgerblue1")
-          ((evil-motion-state-p)   "dodgerblue1")
+          ((evil-visual-state-p)   "seagreen")
+          ((evil-insert-state-p)   "blueviolet")
+          ((evil-emacs-state-p)    "dodgerblue2")
+          ((evil-operator-state-p) "dodgerblue2")
+          ((evil-motion-state-p)   "dodgerblue2")
           ((evil-replace-state-p)  "deepskyblue"))
     (face-background 'mode-line-inactive)))
 
+(setq evil-fg "#222222")
+
 (defun branch-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "#424242"
+      "royalblue"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-bg-color ()
@@ -28,7 +30,7 @@
 
 (defun time-tag-fg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "#eeeeee"
+      "#222222"
     (face-foreground 'mode-line-inactive)))
 
 (defun fancy-mode-line-render (left center right &optional lpad rpad)
@@ -54,16 +56,16 @@ can be used to add a number of spaces to the front and back of the string."
     (error (format "[%s]: (%s) (%s) (%s)" err left center right))))
 
 (defun evil-mode-state ()
-  (let ((str (cond ((evil-normal-state-p)   (format " 01001110 " ))
-                   ((evil-visual-state-p)   (format " 01010110 " ))
-                   ((evil-insert-state-p)   (format " 01001001 " ))
-                   ((evil-emacs-state-p)    (format " 01000101 " ))
-                   ((evil-operator-state-p) (format " 01001111 " ))
-                   ((evil-motion-state-p)   (format " 01001101 " ))
-                   ((evil-replace-state-p)  (format " 01010010 " )))))
+  (let ((str (cond ((evil-normal-state-p)   (format " N " ))
+                   ((evil-visual-state-p)   (format " V " ))
+                   ((evil-insert-state-p)   (format " I " ))
+                   ((evil-emacs-state-p)    (format " E " ))
+                   ((evil-operator-state-p) (format " O " ))
+                   ((evil-motion-state-p)   (format " M " ))
+                   ((evil-replace-state-p)  (format " R " )))))
     (propertize
      str
-     'face `(:height 1.2 :background ,(evil-tag-color) :weight medium))))
+     'face `(:height 1.2 :background ,(evil-tag-color) :foreground ,evil-fg :weight medium))))
 
 (defun vc-mode-branch-state ()
   (let ((bufname (buffer-file-name (current-buffer))))
@@ -71,7 +73,7 @@ can be used to add a number of spaces to the front and back of the string."
       (when (magit-get-current-branch)
         (propertize
          (format "  %s " (magit-get-current-branch))
-         'face `(:weight medium :background ,(branch-tag-bg-color)))))))
+         'face `(:weight medium :background ,(branch-tag-bg-color) :foreground ,evil-fg))))))
 
 (defun powerline-modified ()
   (let* ((config-alist
@@ -86,11 +88,11 @@ can be used to add a number of spaces to the front and back of the string."
            (propertize
             (apply (cadr result) (cddr result))
             'face
-            `(:background ,(evil-tag-color) :family ,(funcall (car result))))))
+            `(:background ,(evil-tag-color) :foreground ,evil-fg :family ,(funcall (car result))))))
       (propertize
        (format "  %s" res)
        'face
-       `(:background ,(evil-tag-color) :family ,(funcall (car result)))))))
+       `(:background ,(evil-tag-color) :foreground ,evil-fg :family ,(funcall (car result)))))))
 
 (defun custom-modeline-mode-icon ()
   (let ((icon (all-the-icons-icon-for-buffer)))

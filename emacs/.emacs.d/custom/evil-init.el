@@ -6,8 +6,14 @@
     (dired-up-directory)
     (kill-buffer old)
     ))
+
+(defun buf-name ()
+  (message "%s" major-mode))
+
+;; macros
 (fset 'mymacro
    [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?l ?$ ?r ?\C-k ?u ?r ?y ?y ?k ?P ?r ?\C-k ?d ?l ?$ ?r ?\C-k ?d ?r ?j ?0 ?i ?\C-k ?v ?v ?\C-k escape ?$ ?a ?  ?\C-k ?v ?v escape])
+
 
 ;; evil config
 (defun  my-evil-config ()
@@ -96,6 +102,7 @@
     "bj" 'buf-move-down 
     "bk" 'buf-move-up
     "bl" 'buf-move-right
+    "bn" 'buf-name
 
     ;; org
     "oa" 'org-agenda
