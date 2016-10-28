@@ -1,19 +1,20 @@
-(if (eq system-type 'gnu/linux)
-	(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
-	(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e/"))
+(if (eq system-type 'darwin)
+	(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e/")
+	(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
 (require 'mu4e)
 
 (defun my-mu4e-config ()
-  (when (eq system-type 'darwin)
-    (setq mu4e-mu-binary "/usr/local/bin/mu"))
+  (if (eq system-type 'darwin)
+    (setq mu4e-mu-binary "/usr/local/bin/mu"
+          mu4e-get-mail-command "/usr/local/bin/offlineimap")
+    (setq mu4e-get-mail-command "offlineimap"))
   (setq mu4e-maildir "~/var/mail/jbl")
   (setq mu4e-sent-folder "/Sent")
   (setq mu4e-drafts-folder "/Drafts")
   (setq mu4e-inbox-folder "/Inbox")
   (setq mu4e-trash-folder "/Trash")
   (setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
-  (setq mu4e-get-mail-command "offlineimap"
-        mu4e-update-interval 300)
+  (setq mu4e-update-interval 300)
   (setq mu4e-reply-to-adress "jbloomfield@live.com"
         user-mail-address "jbloomfield@live.com"
         user-full-name "Justin Bloomfield")
@@ -35,8 +36,6 @@
   (setq mu4e-headers-date-format "%d/%m/%y")
   (setq mu4e-view-show-adresses t)
   (setq mu4e-html2text-command "w3m -T text/html")
-  ;;(setq mu4e-html2text-command 'mu4e-shr2text)
-  ;;(setq shr-color-visible-luminance-min 80)
   )
 
 (use-package evil-mu4e
