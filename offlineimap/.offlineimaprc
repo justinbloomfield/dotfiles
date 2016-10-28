@@ -1,0 +1,18 @@
+[general]
+accounts = jbloo
+
+[Account jbloo]
+localrepository = Local
+remoterepository = Remote
+[Repository Local]
+type = Maildir
+localfolders = ~/var/mail/jbl
+[Repository Remote]
+type = IMAP
+remotehost = imap-mail.outlook.com
+remoteuser = jbloomfield@live.com
+remotepass = hheheheheheheheehe
+folderfilter = lambda folder: folder in ['Inbox', 'Sent', 'Drafts']
+auth_mechanisms = PLAIN, LOGIN 
+ssl = yes
+sslcacertfile = /etc/ssl/cert.pem
