@@ -24,8 +24,20 @@
 	   :port 6667
 	   :nick "piecesofquiet"
 	   :nickserv-password ,irc-pass)))
-  )
+  
 
+  (setq
+   lui-time-stamp-position 'right-margin
+   lui-fill-type nil)
+  
+  (add-hook 'lui-mode-hook 'my-lui-setup)
+  (defun my-lui-setup ()
+    (setq
+     fringes-outside-margins t
+     right-margin-width 9
+     word-wrap t
+     wrap-prefix "    "))
+ )
 (use-package circe
   :ensure t
   :config
