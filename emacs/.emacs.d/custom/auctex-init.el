@@ -10,8 +10,8 @@
 
   )
 
-(use-package auctex
-  :ensure t
+(use-package tex
+  :defer t
+  :ensure auctex
   :config
   (my-auctex-config))
-
