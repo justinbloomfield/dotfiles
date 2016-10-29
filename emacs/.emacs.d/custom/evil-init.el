@@ -76,6 +76,7 @@
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
     "d" 'dired
+    "e" 'eww
     "g" 'magit-status
     "w" 'save-buffer
     "q" 'kill-buffer-and-window
