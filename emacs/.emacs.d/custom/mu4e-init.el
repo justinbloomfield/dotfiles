@@ -8,6 +8,8 @@
     (setq mu4e-mu-binary "/usr/local/bin/mu"
           mu4e-get-mail-command "/usr/local/bin/offlineimap")
     (setq mu4e-get-mail-command "offlineimap"))
+  (add-to-list 'mu4e-view-actions
+  '("ViewInBrowser" . mu4e-action-view-in-browser) t)
   (setq mu4e-maildir "~/var/mail/jbl")
   (setq mu4e-sent-folder "/Sent")
   (setq mu4e-drafts-folder "/Drafts")
@@ -25,8 +27,10 @@
     (imagemagick-register-types))
 
   ;; smtp
-  (setq message-send-mail-function 'message-send-mail-with-sendmail
-        sendmail-program "/usr/bin/msmtp")
+  (setq message-send-mail-function 'message-send-mail-with-sendmail)
+        (if (eq system-type 'darwin)
+            (setq sendmail-program "/usr/local/bin/msmtp")
+            (setqsendmail-program "/usr/bin/msmtp"))
   (setq message-kill-buffer-on-exit t)
   (setq mu4e-headers-fields
         '( (:human-date . 25)
