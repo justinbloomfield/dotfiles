@@ -8,9 +8,15 @@
 (use-package all-the-icons
  :ensure t)
 
-(use-package haskell-mode
+(use-package eww-lnum
   :ensure t
-  )
+  :config
+  (eval-after-load "eww"
+  '(progn (define-key eww-mode-map "f" 'eww-lnum-follow)
+          (define-key eww-mode-map "F" 'eww-lnum-universal))))
+
+(use-package haskell-mode
+  :ensure t)
 
 (use-package lua-mode
   :ensure t
