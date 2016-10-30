@@ -1,6 +1,3 @@
 set recolor
-#set recolor-darkcolor "#3c3c3d"
-#set recolor-lightcolor "#cccccc"
-#set recolor-lightcolor "#252525"
-set recolor-darkcolor "#d2c8bb"
+set recolor-darkcolor "#aaaaaa"
 set guioptions ''

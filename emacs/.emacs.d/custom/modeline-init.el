@@ -7,25 +7,25 @@
 
 (defun evil-tag-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-    (cond ((evil-normal-state-p)   "gray29")
-          ((evil-visual-state-p)   "gray50")
-          ((evil-insert-state-p)   "gray60")
+    (cond ((evil-normal-state-p)   "gray9")
+          ((evil-visual-state-p)   "gray20")
+          ((evil-insert-state-p)   "gray5")
           ((evil-emacs-state-p)    "gray10")
           ((evil-operator-state-p) "gray10")
           ((evil-motion-state-p)   "gray10")
-          ((evil-replace-state-p)  "deepskyblue"))
+          ((evil-replace-state-p)  "gray20"))
     (face-background 'mode-line-inactive)))
 
 (setq evil-fg "#cccccc")
 
 (defun branch-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "gray19"
+      "gray10"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "gray29"
+      "gray9"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-fg-color ()

@@ -1,19 +1,10 @@
-;;; phoenix-dark-mono-theme.el --- Monochromatic version of the Phoenix theme
+;; modified version of phoenix-dark-mono, credit to it's creator and what not
 
-;; Copyright 2013 J Irving
-
-;; Author: J Irving <j@lollyshouse.ca>
-;; URL: http://github.com/j0ni/phoenix-dark-mono
-;; Package-Version: 20130306.1215
-;; Version: 1.0
-
-;; Code:
-
-(deftheme phoenix-dark-mono
-  "Phoenix Dark Mono color theme")
+(deftheme dark-mono
+  "dark mono color theme")
 
 (custom-theme-set-faces
- 'phoenix-dark-mono
+ 'dark-mono
  '(default ((t (:inherit nil :stipple nil :background "#000000" :foreground "#ccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal))))
  '(cursor ((t (:background "#ccc" :foreground "#000000" :underline nil :weight normal))))
  '(fixed-pitch ((t (:underline nil :weight normal :family "PragmataPro"))))
@@ -161,6 +152,6 @@
   (add-to-list 'custom-theme-load-path
                (file-name-as-directory (file-name-directory load-file-name))))
 
-(provide-theme 'phoenix-dark-mono)
+(provide-theme 'dark-mono)
 
-;;; phoenix-dark-mono-theme.el ends here
+;;; dark-mono-theme.el ends here
