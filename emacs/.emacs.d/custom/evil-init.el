@@ -82,6 +82,7 @@
     "q" 'kill-buffer-and-window
     "i" 'ibuffer
     "c" 'circe
+    "m" 'mu4e
 
     ;; ivy
     "f" 'counsel-find-file
@@ -94,10 +95,10 @@
     "j" 'evil-window-down
     "k" 'evil-window-up
     "l" 'evil-window-right
-    "H" 'shrink-window-horizontally
+    "L" 'shrink-window-horizontally
     "J" 'shrink-window
     "K" 'enlarge-window
-    "L" 'enlarge-window-horizontally
+    "H" 'enlarge-window-horizontally
     "n" 'evil-window-split
     "v" 'evil-window-vsplit
     "bh" 'buf-move-left

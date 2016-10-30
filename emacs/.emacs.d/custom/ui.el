@@ -14,7 +14,7 @@
 ;;(global-hl-line-mode t)
 
 ;; theme
-(load-theme 'granger t)
+(load-theme 'phoenix-dark-mono t)
 
 ;; make line wrapping actually work
 (global-visual-line-mode t)

@@ -7,30 +7,30 @@
 
 (defun evil-tag-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-    (cond ((evil-normal-state-p)   "slateblue3")
-          ((evil-visual-state-p)   "seagreen")
-          ((evil-insert-state-p)   "blueviolet")
-          ((evil-emacs-state-p)    "dodgerblue2")
-          ((evil-operator-state-p) "dodgerblue2")
-          ((evil-motion-state-p)   "dodgerblue2")
+    (cond ((evil-normal-state-p)   "gray29")
+          ((evil-visual-state-p)   "gray50")
+          ((evil-insert-state-p)   "gray60")
+          ((evil-emacs-state-p)    "gray10")
+          ((evil-operator-state-p) "gray10")
+          ((evil-motion-state-p)   "gray10")
           ((evil-replace-state-p)  "deepskyblue"))
     (face-background 'mode-line-inactive)))
 
-(setq evil-fg "#222222")
+(setq evil-fg "#cccccc")
 
 (defun branch-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "royalblue"
+      "gray19"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-bg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "slateblue3"
+      "gray29"
     (face-background 'mode-line-inactive)))
 
 (defun time-tag-fg-color ()
   (if (eq (get-buffer-window) powerline-current-window)
-      "#222222"
+      "#cccccc"
     (face-foreground 'mode-line-inactive)))
 
 (defun fancy-mode-line-render (left center right &optional lpad rpad)
