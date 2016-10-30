@@ -15,7 +15,7 @@
 ;; ui
 (load "ui.el")
 (load "modeline-init.el")
-  ;(load "~/.emacs.d/themes/xres-theme.el"))
+(load "~/.emacs.d/themes/dark-mono-theme.el")
 
 ;; evil
 (load "evil-init.el")
@@ -34,17 +34,3 @@
 
 ;; Org mode shiz (for now)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (pdf-tools phoenix-dark-pink-theme phoenix-dark-pink eiv phoenix-dark-mono-theme sublime-themes sourcerer-theme smooth-scrolling quelpa-use-package powerline markdown-mode magit lua-mode haskell-mode eww-lnum evil-mu4e evil-leader dracula-theme counsel circe auctex all-the-icons abyss-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
