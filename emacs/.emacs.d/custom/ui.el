@@ -30,7 +30,7 @@
          ("emacs-config" (or (filename . ".emacs.d")
                              (filename . "emacs-config")))
          ("notes" (or (filename . "*.md")
-                      (mode . markdown-mode)))
+                      (filename . "uninotes")))
          ("git" (name . "\*magit"))
          ("irc" (or (mode . circe-server-mode)
                     (mode . circe-channel-mode)
