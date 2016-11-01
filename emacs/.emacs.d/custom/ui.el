@@ -46,7 +46,7 @@
     (setq default-frame-alist '((font . "Fantasque Sans Mono-12.5")))
     (setq default-frame-alist '((font . "FantasqueSans Mono-10"))))
 ;    (set-default-font "Fantasque Sans Mono-12.5")
-;    (set-default-font "FantasqueSans Mono-10"))
+;    (set-default-font "FiraSans-10")
 
 ;; numbers
 (global-linum-mode)
