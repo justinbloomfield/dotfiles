@@ -49,12 +49,16 @@
 ;    (set-default-font "FiraSans-10")
 
 ;; numbers
-(global-linum-mode)
-(setq linum-format "%4d ")
+;;(global-linum-mode)
+;;(setq linum-format "%4d ")
 
-;; remove stupid lines
-(set-window-fringes nil 0 0)
-(fringe-mode 0)
+;; fix stupid lines
+(set-window-fringes nil 20 20) 
+;; make stupid lines match
+(set-face-attribute 'fringe nil
+                    :foreground (face-foreground 'default)
+                    :background (face-background 'default))
+
 
 ;; get rid of useless shit
 (menu-bar-mode -1)
