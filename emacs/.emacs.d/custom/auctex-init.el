@@ -1,15 +1,19 @@
 (defun my-auctex-config ()
   (setq TeX-auto-save t)
   (setq TeX-parse-self t)
-  (setq-default TeX-master nil)
-  (set TeX-quote-after-quote 0)
+  (setq TeX-quote-after-quote 0)
   (add-hook 'LaTeX-mode-hook 'visual-line-mode)
   (add-hook 'LaTeX-mode-hook 'flyspell-mode)
   (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
   (add-hook 'LaTeX-mode-hook 'turn-on-reftex)
   (when (eq system-type 'gnu/linux)
-    (add-to-list 'TeX-view-program-list ("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o")))
-  (add-to-list 'TeX-view-program-selection (output-pdf "zathura"))) (setq reftex-plug-into-AUCTeX t)
+    (eval-after-load 'tex
+        '(add-to-list 'TeX-view-program-list
+                    '("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o"))))
+    (eval-after-load 'tex
+        '(add-to-list 'TeX-view-program-selection
+                    '(output-pdf "zathura"))))
+  (setq reftex-plug-into-AUCTeX t)
   )
                    
 

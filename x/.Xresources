@@ -4,7 +4,7 @@ URxvt*font:                          xft:leggie:pixelsize=10
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
-URxvt*imFont:                        xft:yuki:pixelsize=11
+URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
