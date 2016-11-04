@@ -53,7 +53,7 @@
 ;;(setq linum-format "%4d ")
 
 ;; fix stupid lines
-(set-window-fringes nil 20 20) 
+(setq fringe-mode 'default)
 ;; make stupid lines match
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)
