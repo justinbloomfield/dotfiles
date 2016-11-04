@@ -137,11 +137,7 @@ aliases = {
 };
 
 settings = {
-  core = {
-    real_name = "";
-    user_name = "";
-    nick = "";
-  };
+  core = { real_name = "Unknown"; user_name = "poq"; nick = "poq"; };
   "fe-text" = {
     actlist_sort = "refnum";
     term_force_colors = "yes";
