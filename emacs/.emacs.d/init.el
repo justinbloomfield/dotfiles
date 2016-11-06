@@ -20,6 +20,9 @@
 ;; evil
 (load "evil-init.el")
 
+;; satan
+(setq custom-file "~/.emacs.d/custom/custom.el")
+(load custom-file)
 ;; magit
 (load "magit-init.el")
 
@@ -32,5 +35,3 @@
 ;; random shit
 (load "misc.el")
 
-;; Org mode shiz (for now)
-(add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
