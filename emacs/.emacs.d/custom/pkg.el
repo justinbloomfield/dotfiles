@@ -8,6 +8,9 @@
 (use-package all-the-icons
  :ensure t)
 
+(use-package cdlatex
+  :ensure t)
+
 (use-package eww-lnum
   :ensure t
   :config
@@ -35,9 +38,6 @@
          ("\\.md\\'" . markdown-mode)
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
-
-(use-package org
-  :ensure t)
 
 (use-package powerline
  :ensure t

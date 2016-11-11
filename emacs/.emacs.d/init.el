@@ -11,10 +11,11 @@
 (load "ivy-init.el")
 (load "mu4e-init.el")
 (load "auctex-init.el")
+(load "org-init.el")
 
 ;; ui
 (load "modeline-init.el")
-(load "~/.emacs.d/themes/dark-mono-theme.el")
+;;(load "~/.emacs.d/themes/dark-mono-theme.el")
 (load "ui.el")
 
 ;; evil

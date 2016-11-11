@@ -20,6 +20,7 @@
   (setq mu4e-reply-to-adress "jbloomfield@live.com"
         user-mail-address "jbloomfield@live.com"
         user-full-name "Justin Bloomfield")
+
   ;(setq mu4e-use-fancy-chars t)
   (setq mu4e-sent-messages-behavior 'delete)
   (setq mu4e-view-show-images t)

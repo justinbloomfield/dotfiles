@@ -1,6 +1,6 @@
 #!/bin/sh
 
-waitron wm_config border_width 2
+waitron wm_config border_width 1
 waitron wm_config color_focused 0xa2a2a5
 waitron wm_config color_unfocused 0x4a4b4c
 #waitron wm_config gap_width 20

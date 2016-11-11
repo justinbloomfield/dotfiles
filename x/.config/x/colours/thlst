@@ -1,7 +1,7 @@
 #define fg  #4a4b4c
 #define bg  #000000
 #define lbg #020202
-#define c0  #25272b
+#define c0  #000000
 #define c1  #4a4b4c
 #define c2  #4a4b4c
 #define c3  #a2a2a5
