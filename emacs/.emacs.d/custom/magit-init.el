@@ -2,6 +2,7 @@
   :ensure magit
   :config
   (progn
+    (setq vc-follow-symlinks nil)
     (evil-set-initial-state 'magit-mode 'normal)
     (evil-set-initial-state 'magit-status-mode 'normal)
     (evil-set-initial-state 'magit-diff-mode 'normal)
