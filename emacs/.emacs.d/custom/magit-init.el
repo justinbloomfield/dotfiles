@@ -14,4 +14,5 @@
       "k" 'magit-section-backward)
     (evil-define-key 'normal magit-diff-mode-map
       "j" 'magit-section-forward
-      "k" 'magit-section-backward)))
+      "k" 'magit-section-backward)
+    (setq magit-completing-read-function 'ivy-completing-read)))

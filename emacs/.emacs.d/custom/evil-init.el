@@ -32,7 +32,6 @@
 	 )
        )
     )                             
-
   ;; Make escape quit everything, whenever possible.
   (define-key evil-normal-state-map [escape] 'keyboard-quit)
   (define-key evil-visual-state-map [escape] 'keyboard-quit)
@@ -42,6 +41,9 @@
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
+  (define-key evil-normal-state-map "p" 'counsel-yank-pop)
+  (define-key evil-normal-state-map "/" 'swiper)
+  
   ;; border macro
   (evil-set-register ?b [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?r ?$ ?r ?\C-k ?u ?l ?y ?y ?k ?P ?r ?\C-k ?d ?r ?$ ?r ?\C-k ?d ?l ?j ?0 ?i ?\C-k ?v ?v ?  escape ?$ ?a ?  ?\C-k ?v ?v escape])
 
@@ -68,28 +70,33 @@
 	 (kbd "N") 'evil-search-previous
 	 (kbd "q") 'kill-this-buffer
 	 )
-       )
     )
-)
+))
 
 (defun my-evil-leader-config ()
   "Configure evil leader mode"
   (evil-leader/set-leader "<SPC>")
   (evil-leader/set-key
+    "c" 'circe
     "d" 'dired
     "e" 'eww
-    "g" 'magit-status
-    "w" 'save-buffer
-    "q" 'kill-buffer-and-window
     "i" 'ibuffer
-    "c" 'circe
     "m" 'mu4e
+    "q" 'kill-buffer-and-window
+    "w" 'save-buffer
 
+    ;; git
+    "gs" 'magit-status
+    "gf" 'counsel-git
+    "gg" 'counsel-git-grep
+    
     ;; ivy
     "f" 'counsel-find-file
+    "l" 'counsel-locate
     "F" 'counsel-describe-function
-    "V" 'counsel-descibe-variable
-    "/" 'swiper
+    "p" 'counsel-yank-pop
+    "u" 'counsel-unicode-char
+    "V" 'counsel-describe-variable
 
     ;; window management
     "h" 'evil-window-left
@@ -115,6 +122,7 @@
     "ob" 'org-iswitchb
     )
   )
+
 
 (use-package evil
   :ensure t

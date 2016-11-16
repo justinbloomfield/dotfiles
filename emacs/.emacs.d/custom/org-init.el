@@ -4,7 +4,8 @@
                                "~/var/org/home.org"
                                "~/var/org/adulting.org"))
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-  ;(setq org-format-latex-options '(:scale 2.0))
+  (setq org-hide-emphasis-markers t)
+  (setq org-pretty-entities t)
   )
 
 (use-package org

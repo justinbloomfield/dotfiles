@@ -1,0 +1,1 @@
+docker run -e keymap=justin -e keyboard=planck --rm -v $('pwd'):/qmk:rw edasque/qmk_firmware

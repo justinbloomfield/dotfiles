@@ -14,7 +14,7 @@
 (load "org-init.el")
 
 ;; ui
-(load "modeline-init.el")
+;;(load "modeline-init.el")
 ;;(load "~/.emacs.d/themes/dark-mono-theme.el")
 (load "ui.el")
 

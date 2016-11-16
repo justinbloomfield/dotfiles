@@ -1,0 +1,1 @@
+sleep 4; sudo dfu-programmer atmega32u4 erase --force; sudo dfu-programmer atmega32u4 flash /home/poq/src/qmk_firmware/planck_rev4_justin.hex; sudo dfu-programmer atmega32u4 reset
