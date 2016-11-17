@@ -32,9 +32,10 @@
          ("notes" (filename . "uninotes"))
          ("git" (name . "\*magit"))
          ("org" (mode . org-mode))
-         ("irc" (or (mode . circe-server-mode)
-                    (mode . circe-channel-mode)
-                    (mode . circe-query-mode))))))
+         ("irc-chan" (or (mode . circe-channel-mode)
+                         (mode . circe-query-mode)))
+         ("irc-serv" (mode . circe-server-mode)))))
+
 
 (add-hook 'ibuffer-mode-hook
           '(lambda ()

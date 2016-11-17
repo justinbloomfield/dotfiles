@@ -11,12 +11,22 @@
 (use-package cdlatex
   :ensure t)
 
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode))
+
 (use-package eww-lnum
   :ensure t
   :config
   (eval-after-load "eww"
   '(progn (define-key eww-mode-map "f" 'eww-lnum-follow)
           (define-key eww-mode-map "F" 'eww-lnum-universal))))
+
+(use-package geiser
+  :ensure t
+  :config
+  (setq geiser-active-implementations '(chibi)))
 
 (use-package haskell-mode
   :ensure t)
@@ -42,7 +52,7 @@
 (use-package powerline
  :ensure t
  :config
- (powerline-default-theme))
+ (powerline-center-evil-theme))
 
 (use-package smooth-scrolling
   :ensure t

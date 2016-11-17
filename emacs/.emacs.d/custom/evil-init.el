@@ -10,9 +10,7 @@
 (defun buf-name ()
   (message "%s" major-mode))
 
-;; macros
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-
 
 ;; evil config
 (defun  my-evil-config ()
@@ -31,7 +29,17 @@
 
 	 )
        )
-    )                             
+    )
+  (eval-after-load 'eww
+    '(progn
+       (evil-set-initial-state 'eww-mode 'normal)
+       (evil-define-key 'normal eww-mode-map
+         (kbd "H") 'eww-back-url
+         (kbd "L") 'eww-forward-url
+         (kbd "R") 'eww-reload
+         (kbd "f") 'eww-lnum-universal
+         (kbd "y") 'eww-copy-page-url)))
+         
   ;; Make escape quit everything, whenever possible.
   (define-key evil-normal-state-map [escape] 'keyboard-quit)
   (define-key evil-visual-state-map [escape] 'keyboard-quit)
@@ -41,8 +49,8 @@
   (define-key minibuffer-local-must-match-map [escape] 'minibuffer-keyboard-quit)
   (define-key minibuffer-local-isearch-map [escape] 'minibuffer-keyboard-quit)
 
-  (define-key evil-normal-state-map "p" 'counsel-yank-pop)
   (define-key evil-normal-state-map "/" 'swiper)
+  (define-key evil-normal-state-map "p" 'counsel-yank-pop)
   
   ;; border macro
   (evil-set-register ?b [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?r ?$ ?r ?\C-k ?u ?l ?y ?y ?k ?P ?r ?\C-k ?d ?r ?$ ?r ?\C-k ?d ?l ?j ?0 ?i ?\C-k ?v ?v ?  escape ?$ ?a ?  ?\C-k ?v ?v escape])
@@ -54,6 +62,30 @@
   (add-hook 'org-mode-hook
 	    (lambda()
 	      (define-key evil-normal-state-map (kbd "TAB") 'org-cycle)))
+  (eval-after-load 'org-mode
+    '(progn
+       (evil-set-initial-state 'org-mode 'normal)
+       (evil-define-key 'normal org-mode-map
+         (kbd "RET") 'org-open-at-point
+         "za" 'org-cycle
+         "zA" 'org-shifttab
+         "zm" 'outline-hide-body
+         "zr" 'outline-show-all
+         "zo" 'outline-show-subtree
+         "zO" 'outline-show-all
+         "zc" 'outline-hide-subtree
+         "zC" 'outline-hide-all
+         (kbd "M-h") 'org-metaleft
+         (kbd "M-j") 'org-shiftleft
+         (kbd "M-k") 'org-shiftright
+         (kbd "M-l") 'org-metaright)
+
+       (evil-define-key 'insert org-mode-map
+         (kbd "M-h") 'org-metaleft
+         (kbd "M-j") 'org-shiftleft
+         (kbd "M-k") 'org-shiftright
+         (kbd "M-l") 'org-metaright)))
+
   (eval-after-load 'dired
     '(progn
        (evil-set-initial-state 'dired-mode 'normal)
@@ -68,10 +100,8 @@
 	 (kbd "c") 'dired-create-directory
 	 (kbd "n") 'evil-search-next
 	 (kbd "N") 'evil-search-previous
-	 (kbd "q") 'kill-this-buffer
-	 )
-    )
-))
+	 (kbd "q") 'kill-this-buffer)))
+)
 
 (defun my-evil-leader-config ()
   "Configure evil leader mode"
@@ -94,7 +124,9 @@
     "f" 'counsel-find-file
     "l" 'counsel-locate
     "F" 'counsel-describe-function
-    "p" 'counsel-yank-pop
+    "p" 'clipboard-yank
+    "y" 'clipboard-kill-ring-save
+    "x" 'clipboard-kill-region
     "u" 'counsel-unicode-char
     "V" 'counsel-describe-variable
 

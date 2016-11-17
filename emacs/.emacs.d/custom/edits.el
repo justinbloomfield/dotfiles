@@ -3,7 +3,7 @@
 (setq backup-directory-alist
       `((".*" . ,temp-file-dir)))
 (setq auto-save-file-name-transforms
-      `((".*" ,temp-file-dir)))
+      `((".*" ,temp-file-dir t)))
 
 ;; tabsen
 (setq-default indent-tabs-mode nil)

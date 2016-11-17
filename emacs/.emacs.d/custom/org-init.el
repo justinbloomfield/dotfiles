@@ -6,6 +6,7 @@
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
   (setq org-hide-emphasis-markers t)
   (setq org-pretty-entities t)
+  (setq org-default-notes-file "~/var/org/notes.org")
   )
 
 (use-package org

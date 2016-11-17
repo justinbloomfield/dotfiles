@@ -6,7 +6,7 @@ URxvt*boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
-URxvt*internalBorder:                5 
+URxvt*internalBorder:                20 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
 rofi.font:                           leggie 10

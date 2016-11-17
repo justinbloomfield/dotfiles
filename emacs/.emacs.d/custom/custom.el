@@ -13,7 +13,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (cdlatex use-package sublime-themes smooth-scrolling request powerline phoenix-dark-mono-theme nlinum-relative markdown-preview-mode markdown-preview-eww magit lua-mode linum-relative linum-off haskell-mode eww-lnum evil-visual-mark-mode evil-mu4e evil-leader counsel circe buffer-move auctex all-the-icons))))
+    (company geiser cdlatex use-package sublime-themes smooth-scrolling request powerline phoenix-dark-mono-theme nlinum-relative markdown-preview-mode markdown-preview-eww magit lua-mode linum-relative linum-off haskell-mode eww-lnum evil-visual-mark-mode evil-mu4e evil-leader counsel circe buffer-move auctex all-the-icons))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
