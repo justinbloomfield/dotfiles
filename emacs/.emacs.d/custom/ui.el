@@ -3,12 +3,12 @@
 (set-face-attribute 'mode-line-inactive nil :box nil)
 
 
-;;(set-face-bold-p 'bold nil)
-;;(mapc
-;; (lambda (face)
-;;        (when (eq (face-attribute face :weight) 'bold)
-;;          (set-face-attribute face nil :weight 'normal)))
-;; (face-list))
+(set-face-bold-p 'bold nil)
+(mapc
+ (lambda (face)
+        (when (eq (face-attribute face :weight) 'bold)
+          (set-face-attribute face nil :weight 'normal)))
+ (face-list))
 
 ;; let the glow flow through you
 ;;(global-hl-line-mode t)
