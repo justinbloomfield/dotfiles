@@ -4,11 +4,15 @@
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/") t)
 (package-initialize)
 
+(setq package-check-signature nil)
 
 (use-package all-the-icons
  :ensure t)
 
 (use-package cdlatex
+  :ensure t)
+
+(use-package cl-lib
   :ensure t)
 
 (use-package company
@@ -29,6 +33,9 @@
   (setq geiser-active-implementations '(chibi)))
 
 (use-package haskell-mode
+  :ensure t)
+
+(use-package json
   :ensure t)
 
 (use-package lua-mode
@@ -53,6 +60,9 @@
  :ensure t
  :config
  (powerline-center-evil-theme))
+
+(use-package request
+  :ensure t)
 
 (use-package smooth-scrolling
   :ensure t

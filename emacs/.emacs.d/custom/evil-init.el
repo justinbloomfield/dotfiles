@@ -129,6 +129,7 @@
     "x" 'clipboard-kill-region
     "u" 'counsel-unicode-char
     "V" 'counsel-describe-variable
+    "y" 'ivy-youtube
 
     ;; window management
     "h" 'evil-window-left

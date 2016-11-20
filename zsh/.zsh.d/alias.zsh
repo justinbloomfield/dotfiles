@@ -14,6 +14,12 @@ alias d2pdf='swriter --convert-to pdf'
 alias p2pdf='simpress --convert-to pdf'
 alias nb='newsbeuter -C ~/.config/newsbeuter/config'
 
+# alpine
+alias ss='apk search'
+alias sa='sudo apk add'
+alias sd='sudo apk del'
+alias si='apk info'
+
 alias c='cd'
 alias e='emacs -nw' 
 alias s='ssh'

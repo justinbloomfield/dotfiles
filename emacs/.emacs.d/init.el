@@ -12,6 +12,7 @@
 (load "mu4e-init.el")
 (load "auctex-init.el")
 (load "org-init.el")
+(load "ivy-youtube.el")
 
 ;; ui
 ;;(load "modeline-init.el")
