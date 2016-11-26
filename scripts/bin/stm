@@ -1,0 +1,3 @@
+#!/bin/sh
+export DBUS_SESSION_BUS_ADDRESS="$(dbus-daemon --session --print-address --fork)"
+/usr/bin/steam

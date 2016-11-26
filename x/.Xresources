@@ -1,7 +1,7 @@
 #include "/home/poq/.config/x/colours/thlst"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:leggie:pixelsize=10
+URxvt*font:                          xft:tewi:pixelsize=10
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8

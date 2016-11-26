@@ -9,8 +9,8 @@
 (use-package all-the-icons
  :ensure t)
 
-(use-package cdlatex
-  :ensure t)
+;;(use-package cdlatex
+ ;; :ensure t)
 
 (use-package cl-lib
   :ensure t)

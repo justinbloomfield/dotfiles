@@ -50,5 +50,6 @@
 (use-package tex
   :defer t
   :ensure auctex
+  :ensure cdlatex
   :config
   (my-auctex-config))

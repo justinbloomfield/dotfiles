@@ -34,7 +34,7 @@ super + shift + alt + {h,y,n,u}
 super + alt + Escape
   waitron wm_quit 0
 
-super + f
+super + e
   waitron window_maximize
 
 super + shift + c
