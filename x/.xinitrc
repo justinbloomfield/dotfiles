@@ -9,6 +9,4 @@ clockbar &
 compton &
 emacs &
 unclutter --timeout 1 -b &
-exec windowchef &
-
-
+exec windowchef
