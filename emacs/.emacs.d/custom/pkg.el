@@ -30,7 +30,9 @@
 (use-package geiser
   :ensure t
   :config
-  (setq geiser-active-implementations '(chibi)))
+  (setq geiser-active-implementations '(chibi))
+  (if (eq system-type 'darwin)
+      (setq geiser-chibi-binary "/usr/local/Cellar/chibi-scheme/0.7.3/bin/chibi-scheme")))
 
 (use-package haskell-mode
   :ensure t)
