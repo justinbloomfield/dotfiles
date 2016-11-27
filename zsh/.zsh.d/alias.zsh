@@ -13,12 +13,13 @@ alias ..='cd ..'
 alias d2pdf='swriter --convert-to pdf'
 alias p2pdf='simpress --convert-to pdf'
 alias nb='newsbeuter -C ~/.config/newsbeuter/config'
+alias rtv='BROWSER=$BROWSER rtv'
 
-# alpine
-alias ss='apk search'
-alias sa='sudo apk add'
-alias sd='sudo apk del'
-alias si='apk info'
+# arch
+alias ss='sudo aura -S'
+alias sa='sudo aura -A'
+alias sr='sudo aura -Runs'
+alias si='sudo aura -Ss'
 
 alias c='cd'
 alias e='emacs -nw' 

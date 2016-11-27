@@ -58,10 +58,10 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
 
-(use-package powerline
- :ensure t
- :config
- (powerline-center-evil-theme))
+;(use-package powerline
+; :ensure t
+; :config
+; (powerline-center-evil-theme))
 
 (use-package request
   :ensure t)

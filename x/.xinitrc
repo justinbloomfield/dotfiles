@@ -1,12 +1,12 @@
 #!/bin/sh
-xrdb ~/.Xresources & 
 xsetroot -cursor_name left_ptr &
-hsetroot -solid "#000000" &
 ntfyd &
-hsetroot -full ~/usr/img/supersweeter.png &
-sxhkd -c ~/.config/sxhkd/sxhkdrc_wc & 
+hsetroot -solid "#787878" &
+setxkbmap us -variant colemak &
+sxhkd -c ~/.config/sxhkd/sxhkdrc_wc_lap & 
 clockbar &
-compton &
+xrdb ~/.Xresources & 
+compton --config ~/.config/compton.conf &
 emacs &
-unclutter --timeout 1 -b &
+#unclutter --timeout 1 -b &
 exec windowchef

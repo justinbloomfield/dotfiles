@@ -8,7 +8,7 @@ ROOT_WIDTH="$(wattr w ${ROOT_ID})"
 BAR_WIDTH="300" #"$(( $ROOT_WIDTH / 4 ))"
 XOFFSET="$(($ROOT_WIDTH - $BAR_WIDTH - 25 ))" 
 FONT="$PANEL_FONT"
-OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x25+${XOFFSET}+5"
+OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x25+${XOFFSET}+5 LVDS-0"
 while true; do
 	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
 	sleep 1 
