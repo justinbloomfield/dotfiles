@@ -64,7 +64,7 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # custom
 ## music
 hc keybind XF86AudioRaiseVolume spawn amixer -c 0 sset Speaker 2db+ unmute
-hc keybind XF86AudioLowerVolume spawn amixer -c 0 sset SpeakeSpeakerr 2db- unmute 
+hc keybind XF86AudioLowerVolume spawn amixer -c 0 sset Speaker 2db- unmute 
 hc keybind XF86AudioPause       spawn mpc toggle
 ## scrot
 hc keybind Print         spawn ushot
