@@ -5,7 +5,7 @@
 
 mpd_host	"127.0.0.1"	
 mpd_port	"6600"
-mpd_music_dir	"/home/poq/var/msc"
+mpd_music_dir	"/mnt/msc/Music"
 
 header_visibility = "no"
 titles_visibility = "no"
@@ -26,7 +26,7 @@ progressbar_boldness = "no"
 
 # Visualiser
 mpd_host = "localhost"
-visualizer_fifo_path = "/home/poq/var/fifo/audio.fifo"
+visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "Pipe"
 visualizer_sync_interval = "15"
 visualizer_type = "ellipse"

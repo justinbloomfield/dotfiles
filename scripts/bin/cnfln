@@ -8,7 +8,7 @@ isExist(){
 
 if ( isExist "$1" )
 then
-	ln -st ${DIR}/$1/ $(pwd)/$1/*  && return 0
+	ln -st ${DIR}/$1/ $(pwd)/$1/* 
 else
 	echo "File doesn't exist"
 fi

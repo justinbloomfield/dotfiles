@@ -4,4 +4,4 @@ FG="$PANEL_FG"
 BG="$PANEL_BG"
 HLBG="$BORD_COL"
 
-rofi -show run -font "leggie 10" -bg $BG -fg $FG -hlfg $BG -hlbg $HLBG 
+rofi -show run -bg $BG -fg $FG -hlfg $BG -hlbg $HLBG 

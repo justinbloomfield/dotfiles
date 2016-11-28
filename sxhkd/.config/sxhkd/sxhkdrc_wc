@@ -40,7 +40,7 @@ super + f
 super + shift + c
   waitron window_close
 
-super + b
+super + t
   waitron window_hor_maximize
 
 super + v
@@ -59,7 +59,10 @@ super + ctrl + r
   waitron group_remove_window
 
 super + Return
-  urxvt
+  st
+
+super +  b
+  surf
 
 super + {Insert,Prior,Delete,Next,m}
   waitron window_snap {topleft,topright,bottomleft,bottomright,middle}

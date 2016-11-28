@@ -1,0 +1,22 @@
+#!/bin/sh
+. panelsrc
+clk() {
+    DATETIME=$(date "+%a %b %d, %I:%M")
+    echo $DATETIME
+}
+
+msc() {
+   PLAYING="$(mpc current)"
+   echo $PLAYING
+}
+
+wrk() {
+    WS=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+    AWS=$((WS + 1))
+    echo $AWS
+}
+
+while :; do
+    echo "%{l} $(wrk)%{c}$(msc)%{r}$(clk) "
+    sleep 1
+done | lemonbar $PANEL_OPTS
