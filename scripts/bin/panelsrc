@@ -2,7 +2,7 @@
 # bar settings
 
 export PANEL_FONT="tewi:size=10"
-export PANEL_BG="#787878"
-export PANEL_FG="#000000"
+export PANEL_BG="#000000"
+export PANEL_FG="#4a4b4c"
 export BORD_COL="#d7a864"
-export PANEL_OPTS="-f "$PANEL_FONT" -B "$PANEL_BG" -F "$PANEL_FG""
+export PANEL_OPTS="-d -f "$PANEL_FONT" -B "$PANEL_BG" -F "$PANEL_FG""

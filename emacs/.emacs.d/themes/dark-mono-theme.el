@@ -5,7 +5,7 @@
 
 (custom-theme-set-faces
  'dark-mono
- '(default ((t (:inherit nil :stipple nil :background "#000000" :foreground "#ccc" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal))))
+ '(default ((t (:inherit nil :stipple nil :background "#000000" :foreground "#4a4b4c" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :width normal))))
  '(cursor ((t (:background "#ccc" :foreground "#000000" :underline nil :weight normal))))
  '(fixed-pitch ((t (:underline nil :weight normal :family "PragmataPro"))))
  '(variable-pitch ((t (:family "Sans Serif" :weight normal :underline nil))))
@@ -17,7 +17,7 @@
  '(secondary-selection ((t (:weight normal :underline nil :background "#3f3f3f"))))
  '(trailing-whitespace ((t (:background "#ddd" :underline nil :weight normal))))
 
- '(font-lock-builtin-face ((t (:weight normal :underline nil :foreground "#ddd"))))
+ '(font-lock-builtin-face ((t (:weight normal :underline nil :foreground "#999"))))
  '(font-lock-comment-delimiter-face ((t (:weight normal :underline nil :foreground "#555" :inherit font-lock-comment-face))))
  '(font-lock-comment-face ((t (:foreground "#757575" :underline nil :weight normal))))
  '(font-lock-constant-face ((t (:foreground "#BBB" :underline nil :weight normal))))
@@ -38,14 +38,14 @@
  '(link ((t (:weight normal :underline nil :foreground "#fff"))))
  '(link-visited ((t (:weight normal :underline nil :foreground "#dfdfdf" :inherit (link)))))
  '(button ((t (:foreground "#fff" :underline nil :weight normal))))
- '(fringe ((t (:background "#101010" :foreground "#585858" :underline nil :weight normal))))
+ '(fringe ((t (:background "#000000" :foreground "#585858" :underline nil :weight normal))))
  '(header-line ((t (:weight normal :underline nil :inherit (mode-line)))))
  '(tooltip ((t (:weight normal :underline nil :foreground "#ddd" :background "#292929" :inherit (variable-pitch)))))
- '(mode-line ((t (:weight normal :underline nil :box nil :foreground "#ddd" :background "#2b2b2b"))))
- '(mode-line-buffer-id ((t (:weight normal :underline nil :foreground "#fff"))))
+ '(mode-line ((t (:weight normal :underline nil :box nil :foreground "#4a4b4c" :background "#15171b"))))
+ '(mode-line-buffer-id ((t (:weight normal :underline nil :foreground "#5d5b5e"))))
  '(mode-line-emphasis ((t (:weight normal :underline nil))))
  '(mode-line-highlight ((t (:weight normal :underline nil :box nil))))
- '(mode-line-inactive ((t (:weight normal :underline nil :box nil :foreground "#a5a5a5" :background "#202020" :inherit (mode-line)))))
+ '(mode-line-inactive ((t (:weight normal :underline nil :box nil :foreground "#4a4b4c" :background "#000" :inherit (mode-line)))))
  '(isearch ((t (:weight normal :underline nil :foreground "#ddd" :background "#2b2b2b"))))
  '(isearch-fail ((t (:weight normal :underline nil :foreground "#ddd" :background "#858585"))))
  '(lazy-highlight ((t (:weight normal :underline nil :foreground "#dfdfdf" :background "#2f2f2f"))))

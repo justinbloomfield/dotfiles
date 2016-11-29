@@ -17,7 +17,7 @@
 
 ;; ui
 ;;(load "modeline-init.el")
-;;(load "~/.emacs.d/themes/dark-mono-theme.el")
+(load "~/.emacs.d/themes/dark-mono-theme.el")
 (load "ui.el")
 
 ;; evil
