@@ -1,0 +1,1 @@
+ssh -i ~/etc/ubvps.pem ubuntu@52.65.74.155
