@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/thlst"
+#include "/home/poq/.config/x/colours/thlst_grn"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:tewi:pixelsize=10
