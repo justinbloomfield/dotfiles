@@ -52,6 +52,10 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
 
+(use-package mingus
+  :ensure libmpdee
+  :ensure t)
+
 ;(use-package powerline
 ; :ensure t
 ; :config
