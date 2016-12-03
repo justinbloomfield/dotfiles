@@ -1,0 +1,5 @@
+#!/bin/sh
+#cd $WP_DIR && find -name "*.png" | gawk 'BEGIN{ a=1 }{ printf "mv %s %04d.png\n", $0, a++ }' 
+mv $WP_DIR/new.png $WP_DIR/old.png
+wget -q https://source.unsplash.com/random -O $WP_DIR/new.png
+hsetroot -fill $WP_DIR/new.png

@@ -32,6 +32,7 @@
          ("notes" (filename . "uninotes"))
          ("git" (name . "\*magit"))
          ("org" (mode . org-mode))
+         ("mpc" (name . "MPC-*"))
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
          ("irc-serv" (mode . circe-server-mode)))))
@@ -65,3 +66,4 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
+

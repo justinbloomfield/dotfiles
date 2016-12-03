@@ -18,6 +18,7 @@
 ;; ui
 ;;(load "modeline-init.el")
 (load "~/.emacs.d/themes/dark-mono-theme.el")
+(load "modeline-custom.el")
 (load "ui.el")
 
 ;; evil
@@ -26,6 +27,7 @@
 ;; satan
 (setq custom-file "~/.emacs.d/custom/custom.el")
 (load custom-file)
+
 ;; magit
 (load "magit-init.el")
 
