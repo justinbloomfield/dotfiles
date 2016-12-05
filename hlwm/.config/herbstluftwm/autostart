@@ -61,8 +61,8 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 
 # custom
 ## music
-hc keybind XF86AudioRaiseVolume spawn ponymix increase 5
-hc keybind XF86AudioLowerVolume spawn ponymix decrease 5
+hc keybind XF86AudioRaiseVolume spawn ponymix increase 1
+hc keybind XF86AudioLowerVolume spawn ponymix decrease 1
 hc keybind XF86AudioPause       spawn mpc toggle
 ## scrot
 hc keybind Print         spawn ushot
@@ -125,12 +125,12 @@ hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
 hc set frame_gap 0
 
-hc attr theme.active.color '#aaaaaa'
-hc attr theme.normal.color '#4a4b4c'
+hc attr theme.active.color '#333333'
+hc attr theme.normal.color '#111111'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
 hc attr theme.inner_color "#765898"
-hc attr theme.border_width 3
+hc attr theme.border_width 1
 hc attr theme.floating.border_width 4
 hc attr theme.floating.outer_width 4
 hc attr theme.floating.outer_color black
@@ -138,7 +138,7 @@ hc attr theme.active.outer_color '#134332'
 hc attr theme.active.inner_color '#aaaaaa'
 hc attr theme.background_color '#141414'
 
-hc set window_gap 10 
+hc set window_gap 2 
 hc set frame_padding 0
 hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
@@ -161,7 +161,7 @@ hc rule windowtype~'_NET_WM_WINDOW_TYPE_(NOTIFICATION|DOCK|DESKTOP)' manage=off
 # unlock, just to be sure
 hc unlock
 
-#hc set tree_style '╾│ ├└╼─┐'
+hc set tree_style '╾│ ├└╼─┐'
 
 # do multi monitor setup here, e.g.:
 # hc set_monitors 1280x1024+0+0 1280x1024+1280+0

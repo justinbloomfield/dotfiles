@@ -9,16 +9,16 @@
                'display '(raise -0.1))))))
 
 (defun evil-mode-state ()
-  (let ((str (cond ((evil-normal-state-p) " N ")
-                   ((evil-insert-state-p) " I ")
-                   ((evil-visual-state-p) " V ")
-                   ((evil-emacs-state-p)  " E ")
-                   ((evil-operator-state-p) " O ")
-                   ((evil-motion-state-p) " M ")
-                   ((evil-replace-state-p) " R "))))
+  (let ((str (cond ((evil-normal-state-p) " n ")
+                   ((evil-insert-state-p) " i ")
+                   ((evil-visual-state-p) " v ")
+                   ((evil-emacs-state-p)  " e ")
+                   ((evil-operator-state-p) " o ")
+                   ((evil-motion-state-p) " m ")
+                   ((evil-replace-state-p) " r "))))
     (propertize
      str
-     'face `(:foreground "#ff007f"))))
+     'face `(:raise -0.2 :foreground "#ff007f"))))
 
 (defun vc-mode-branch-state ()
   (let ((bufname (buffer-file-name (current-buffer))))
