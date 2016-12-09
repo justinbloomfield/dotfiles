@@ -17,9 +17,12 @@
 
 ;; ui
 ;;(load "modeline-init.el")
-(load "~/.emacs.d/themes/dark-mono-theme.el")
+(load "~/.emacs.d/themes/xres-theme.el")
 (load "modeline-custom.el")
 (load "ui.el")
+(require 'exwm)
+(require 'exwm-config)
+(exwm-config-default)
 
 ;; evil
 (load "evil-init.el")

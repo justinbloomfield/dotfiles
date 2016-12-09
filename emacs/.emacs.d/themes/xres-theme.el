@@ -61,7 +61,7 @@
    `(link ((t (:foreground ,yellow :underline t :weight bold))))
    `(link-visited ((t (:foreground ,yellow :underline t :weight normal))))
    `(default ((t (:foreground ,foreground :background ,background))))
-   `(cursor ((t (:foreground ,foreground :background ,foreground))))
+   `(cursor ((t (:foreground ,background :background ,cyan))))
    `(escape-glyph ((t (:foreground ,yellow :bold t))))
    `(fringe ((t (:foreground ,foreground :background ,background))))
    `(header-line ((t (:foreground ,yellow
@@ -103,13 +103,13 @@
    `(minibuffer-prompt ((t (:foreground ,yellow))))
    `(mode-line
      ((t (:foreground ,green
-                      :background ,background
+                      :background "#330000"
                       :box (:line-width -1 :style released-button)))
       (t :inverse-video t)))
    `(mode-line-buffer-id ((t (:foreground ,yellow :weight bold))))
    `(mode-line-inactive
      ((t (:foreground ,green
-                      :background ,background
+                      :background "#0f0000"
                       :box (:line-width -1 :style released-button)))))
    `(region ((t (:background ,blue))
              (t :inverse-video t)))
@@ -166,9 +166,10 @@
    ;; circe
    `(circe-highlight-nick-face ((t (:foreground ,red))))
    `(circe-server-face ((t (:foreground ,green))))
+   `(circe-prompt-face ((t (:background ,red :foreground ,background))))
    `(lui-button-face ((t (:foreground ,light-magenta))))
-   `(lui-time-stamp-face ((t (:foreground "burlywood4"))))
-   `(lui-hilight-face ((t (:foreground "burlywood4"))))
+   `(lui-time-stamp-face ((t (:foreground ,magenta))))
+   `(lui-hilight-face ((t (:foreground ,magenta))))
 
    ;; company-mode
    `(company-tooltip ((t (:foreground ,foreground :background ,background))))
@@ -450,6 +451,8 @@
    `(powerline-inactive1 ((t (:background ,background :inherit mode-line-inactive))))
    `(powerline-inactive2 ((t (:background ,background :inherit mode-line-inactive))))
 
+   ;; mu4e
+   `(mu4e-header-highlight-face ((t (:foreground ,cyan :background ,red))))
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((t (:foreground ,foreground))))
    `(rainbow-delimiters-depth-2-face ((t (:foreground ,green))))

@@ -16,7 +16,7 @@ Mod=Mod4   # Use the super key as the main modifier
 hc keybind $Mod-Shift-q quit
 hc keybind $Mod-Shift-r reload
 hc keybind $Mod-Shift-c close
-hc keybind $Mod-t  spawn st
+hc keybind $Mod-t       spawn st
 hc keybind $Mod-d       spawn rofilauncher
 hc keybind $Mod-b       spawn surf
 
@@ -123,9 +123,9 @@ hc set frame_border_width 0
 hc set always_show_frame 0
 hc set frame_bg_transparent 1
 hc set frame_transparent_width 0
-hc set frame_gap 0
+hc set frame_gap 4
 
-hc attr theme.active.color '#333333'
+hc attr theme.active.color '#910000'
 hc attr theme.normal.color '#111111'
 hc attr theme.urgent.color orange
 hc attr theme.inner_width 0
@@ -138,7 +138,7 @@ hc attr theme.active.outer_color '#134332'
 hc attr theme.active.inner_color '#aaaaaa'
 hc attr theme.background_color '#141414'
 
-hc set window_gap 2 
+hc set window_gap 0 
 hc set frame_padding 0
 hc set smart_window_surroundings 0
 hc set smart_frame_surroundings 1
