@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/thlst_grn"
+#include "/home/poq/.config/x/colours/vamp_urxvt"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:tewi:pixelsize=10

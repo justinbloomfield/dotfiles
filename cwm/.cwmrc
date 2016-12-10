@@ -3,10 +3,10 @@
 # ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
 
 
-fontname "metis"
+fontname "tewi"
 
 # borderwidth
-borderwidth 4
+borderwidth 2
 
 # colors
 color activeborder 	'#c69753'
@@ -18,7 +18,7 @@ color groupborder	'#333333'
 color ungroupborder	'#AAAAAA'
 
 # autogroups
-autogroup 2 Firefox
+autogroup 2 google-chrome-stable
 autogroup 3 mpv
 autogroup 7 gimp
 
@@ -27,8 +27,8 @@ bigmoveamount 40
 sticky no
 
 #menu
-command term /usr/bin/urxvt
-command firefox /usr/bin/firefox
+command term /usr/bin/st
+command brws /usr/bin/surf
 command steam /usr/bin/steam
 
 # gaps
@@ -91,7 +91,7 @@ bind 4MC-h   rcyclegroup
 bind 4-d     exec
 bind 4-n     ssh
 bind 4-s     search
-bind 4-Return urxvt
+bind 4-t     st
 bind 4S-v    dv	
 
 bind 4-v vmaximize

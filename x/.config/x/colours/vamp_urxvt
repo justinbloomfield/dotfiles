@@ -1,38 +1,40 @@
-! special
-*.foreground:   #434343
-*.background:   #020202
-*.cursorColor:  #A60000
+#define fg      #434343
+#define bg      #020202
+#define lbg     #242424
+#define cc      #a60000
+#define c0      #020202
+#define c1      #ff7a7a
+#define c2      #ff4545
+#define c3      #e63030
+#define c4      #f20f0f
+#define c5      #cc0000
+#define c6      #910000
+#define c7      #434343
+#define c8      #020202
+#define c9      #ff7a7a
+#define c10     #ff4545
+#define c11     #e63030
+#define c12     #f20f0f
+#define c13     #cc0000
+#define c14     #910000
+#define c15     #434343
 
-! black
-*.color0:       #020202
-*.color8:       #020202
-
-! red
-*.color1:       #FF7A7A
-*.color9:       #FF7A7A
-
-! green
-*.color2:       #FF4545
-*.color10:      #FF4545
-
-! yellow
-*.color3:       #E63030
-*.color11:      #E63030
-
-! blue
-*.color4:       #F20F0F
-*.color12:      #F20F0F
-
-! orange
-*.color5:       #CC0000
-*.color13:      #CC0000
-
-! cyan
-*.color6:       #910000
-*.color14:      #910000
-
-! white
-*.color7:       #434343
-*.color15:      #434343
-
-! vim: set ft=xdefaults :
+*background:    bg
+*foreground:    fg
+*cursorColor:   cc
+*color0:        c0
+*color1:        c1
+*color2:        c2
+*color3:        c3
+*color4:        c4
+*color5:        c5
+*color6:        c6
+*color7:        c7
+*color8:        c8
+*color9:        c9
+*color10:       c10
+*color11:       c11
+*color12:       c12
+*color13:       c13
+*color14:       c14
+*color15:       c15
