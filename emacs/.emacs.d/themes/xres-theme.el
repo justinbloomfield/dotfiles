@@ -451,6 +451,8 @@
    `(powerline-inactive1 ((t (:background ,background :inherit mode-line-inactive))))
    `(powerline-inactive2 ((t (:background ,background :inherit mode-line-inactive))))
 
+   ;; mu4e
+   `(mu4e-header-highlight-face ((t (:foreground ,cyan :background ,red))))
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((t (:foreground ,foreground))))
    `(rainbow-delimiters-depth-2-face ((t (:foreground ,green))))
