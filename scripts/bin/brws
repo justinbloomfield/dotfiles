@@ -1,5 +1,12 @@
 #!/bin/sh
-URL=${1:-http://duckduckgo.com}
-cd $HOME/usr/dl &&
+vega(){
+    URL=${1:-http://duckduckgo.com}
+    cd $HOME/usr/dl &&
+    dtach -c /tmp/brws w3m -cookie $URL
+}
 
-w3m -cookie $URL
+if [ -e /tmp/brws ]; then
+    dtach -a /tmp/brws
+else
+    vega
+fi

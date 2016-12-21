@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ -e /tmp/irssi ]; then
+   dtach -a /tmp/irssi
+else
+   dtach -c /tmp/irssi irssi
+fi   
+   
