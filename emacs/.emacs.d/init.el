@@ -13,16 +13,14 @@
 (load "auctex-init.el")
 (load "org-init.el")
 (load "modeline-hide.el")
+(load "exwm-init.el")
 ;;(load "ivy-youtube.el")
 
 ;; ui
 ;;(load "modeline-init.el")
-(load "~/.emacs.d/themes/xres-theme.el")
-(load "modeline-custom.el")
+(load "~/.emacs.d/themes/xres-theme-blue.el")
+(load "modeline-custom-blue.el")
 (load "ui.el")
-(require 'exwm)
-(require 'exwm-config)
-(exwm-config-default)
 
 ;; evil
 (load "evil-init.el")

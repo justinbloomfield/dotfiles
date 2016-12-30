@@ -35,7 +35,9 @@
          ("mpc" (name . "MPC-*"))
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
-         ("irc-serv" (mode . circe-server-mode)))))
+         ("irc-serv" (mode . circe-server-mode))
+         ("exwm" (mode . EXWM))
+         ("scheme" (mode . Scheme)))))
 
 
 (add-hook 'ibuffer-mode-hook
@@ -46,9 +48,9 @@
 ;; change dumb fonts
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "Fantasque Sans Mono-12.5")))
-    (setq default-frame-alist '((font . "tewi-10"))))
+    (setq default-frame-alist '((font . "Fantasque Sans Mono-10"))))
 ;    (set-default-font "Fantasque Sans Mono-12.5")
-;    (set-default-font "tewi-10")
+;    (set-default-font "Fantasque Sans Mono-10")
 
 ;; numbers
 ;;(global-linum-mode)
@@ -56,6 +58,7 @@
 
 ;; fix stupid lines
 (setq fringe-mode 'default)
+
 ;; make stupid lines match
 (set-face-attribute 'fringe nil
                     :foreground (face-foreground 'default)

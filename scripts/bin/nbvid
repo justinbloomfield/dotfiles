@@ -1,0 +1,4 @@
+youtube-dl --list-formats $1
+echo -n "Format: "
+read fmt
+youtube-dl -f $fmt $1

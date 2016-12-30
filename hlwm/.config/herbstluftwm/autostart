@@ -145,7 +145,7 @@ hc set smart_frame_surroundings 1
 hc set mouse_recenter_gap 0
 hc set focus_follows_mouse 1
 
-hc pad 0 15
+hc pad 0 20
 
 # rules
 hc unrule -F

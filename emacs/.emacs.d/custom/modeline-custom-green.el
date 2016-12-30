@@ -5,7 +5,7 @@
               (propertize
                icon
                'face
-               `(:height 1.0 :family ,(all-the-icons-icon-family-for-buffer) :foreground "#000091")
+               `(:height 1.0 :family ,(all-the-icons-icon-family-for-buffer) :foreground "#009100")
                'display '(raise -0.1))))))
 
 (defun evil-mode-state ()
@@ -18,7 +18,7 @@
                    ((evil-replace-state-p) " r "))))
     (propertize
      str
-     'face `(:foreground "#0f0ff2"))))
+     'face `(:foreground "#0ff20f"))))
 
 (defun vc-mode-branch-state ()
   (let ((bufname (buffer-file-name (current-buffer))))
@@ -26,13 +26,13 @@
       (when (magit-get-current-branch)
         (propertize
          (format "  %s " (magit-get-current-branch))
-         'face `(:foreground "#000091" ))))))
+         'face `(:foreground "#009100" ))))))
 
 (defun time ()
-  (propertize (format-time-string " %H:%M ") 'face `(:foreground "#00ff7f")))
+  (propertize (format-time-string " %H:%M ") 'face `(:foreground "#007f00")))
 
 (defun current-buffer-title ()
-  (propertize " %b " 'face `(:foreground "#3030e6")))
+  (propertize " %b " 'face `(:foreground "#30e630")))
 
  
 (setq-default mode-line-format

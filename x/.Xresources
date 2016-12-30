@@ -1,7 +1,7 @@
-#include "/home/poq/.config/x/colours/vamp_urxvt"
+#include "/home/poq/.config/x/colours/vamp_blue"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:tewi:pixelsize=10
+URxvt*font:                          xft:creep:pixelsize=10
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8

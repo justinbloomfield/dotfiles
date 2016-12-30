@@ -103,13 +103,13 @@
    `(minibuffer-prompt ((t (:foreground ,yellow))))
    `(mode-line
      ((t (:foreground ,green
-                      :background "#000033"
+                      :background "#330000"
                       :box (:line-width -1 :style released-button)))
       (t :inverse-video t)))
    `(mode-line-buffer-id ((t (:foreground ,yellow :weight bold))))
    `(mode-line-inactive
      ((t (:foreground ,green
-                      :background "#00000f"
+                      :background "#0f0000"
                       :box (:line-width -1 :style released-button)))))
    `(region ((t (:background ,blue))
              (t :inverse-video t)))

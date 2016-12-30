@@ -26,10 +26,16 @@
 	 (kbd "j") 'evil-next-line
 	 (kbd "k") 'evil-previous-line
 	 (kbd "l") 'ibuffer-visit-buffer
-
+     
 	 )
        )
     )
+
+  ;;(global-set-key (kbd "s-h") 'evil-window-left)
+  ;;(global-set-key (kbd "s-j") 'evil-window-down)
+  ;;(global-set-key (kbd "s-k") 'evil-window-up)
+  ;;(global-set-key (kbd "s-l") 'evil-window-right)
+  
   (eval-after-load 'eww
     '(progn
        (evil-set-initial-state 'eww-mode 'normal)

@@ -9,6 +9,9 @@
 (use-package all-the-icons
  :ensure t)
 
+;;(use-package calist
+;;  :ensure t)
+
 (use-package cdlatex
   :ensure t)
 
@@ -69,3 +72,10 @@
 (use-package tramp
   :ensure t)
 
+(use-package win-switch
+  :ensure t)
+
+(use-package w3m-load
+  :config
+;;  (require 'mime-w3m)
+  (require 'w3m-load))
