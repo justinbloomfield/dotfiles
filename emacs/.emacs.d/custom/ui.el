@@ -36,8 +36,9 @@
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
          ("irc-serv" (mode . circe-server-mode))
-         ("exwm" (mode . EXWM))
-         ("scheme" (mode . Scheme)))))
+         ("exwm" (mode . exwm-mode))
+         ("eww" (mode . eww-mode))
+         ("scheme" (mode . scheme-mode)))))
 
 
 (add-hook 'ibuffer-mode-hook
@@ -48,9 +49,9 @@
 ;; change dumb fonts
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "Fantasque Sans Mono-12.5")))
-    (setq default-frame-alist '((font . "Fantasque Sans Mono-10"))))
+    (setq default-frame-alist '((font . "boxxy"))))
 ;    (set-default-font "Fantasque Sans Mono-12.5")
-;    (set-default-font "Fantasque Sans Mono-10")
+;    (set-default-font "lemon-10")
 
 ;; numbers
 ;;(global-linum-mode)

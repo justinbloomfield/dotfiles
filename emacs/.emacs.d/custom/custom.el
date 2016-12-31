@@ -11,7 +11,7 @@
  '(ivy-youtube-key (quote AIzaSyCCIm6WRIQgbbILnXEeJ0TL5uB287bmsw0))
  '(package-selected-packages
    (quote
-    (calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons))))
+    (bfbuilder brainfuck-mode tree-mode calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons))))
 ; '(w3m-search-default-engine "ddg")
 ; '(w3m-search-engine-alist
 ;   (quote
@@ -56,6 +56,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(eww-form-text ((t (:foreground "forest green" :underline t))))
+ '(eww-form-text ((t (:foreground "blue2" :underline t))))
+ '(message-header-name ((t (:foreground "dodger blue"))))
  '(mingus-song-file-face ((t (:foreground "lightgreen" :weight normal))))
  '(w3m-bold ((t (:underline t :weight normal)))))

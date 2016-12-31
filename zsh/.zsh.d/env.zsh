@@ -1,4 +1,4 @@
-EDITOR="emacs"
+EDITOR="emacsclient"
 PAGER="less"
 LC_CTYPE="en_AU.UTF-8"
 NTFY_FIFO_PATH="/home/$(whoami)/var/ntfy/ntfy.fifo"

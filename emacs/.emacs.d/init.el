@@ -7,6 +7,7 @@
 
 ;; pkgs
 (load "pkg.el")
+(load "bf.el")
 (load "circe-init.el")
 (load "ivy-init.el")
 (load "mu4e-init.el")
