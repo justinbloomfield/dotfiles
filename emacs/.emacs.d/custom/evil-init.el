@@ -61,6 +61,20 @@
   ;; border macro
   (evil-set-register ?b [?y ?y ?p ?V ?r ?\C-k ?h ?h ?v ?y ?4 ?p ?0 ?r ?\C-k ?u ?r ?$ ?r ?\C-k ?u ?l ?y ?y ?k ?P ?r ?\C-k ?d ?r ?$ ?r ?\C-k ?d ?l ?j ?0 ?i ?\C-k ?v ?v ?  escape ?$ ?a ?  ?\C-k ?v ?v escape])
 
+  ;; backtab??
+    (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+    (defun un-indent-by-removing-4-spaces ()                          
+    "remove 4 spaces from beginning of of line"                     
+    (interactive)                                                   
+    (save-excursion                                                 
+        (save-match-data                                              
+        (beginning-of-line)                                         
+        ;; get rid of tabs at beginning of line                     
+        (when (looking-at "^\\s-+")                                 
+            (untabify (match-beginning 0) (match-end 0)))             
+        (when (looking-at "^    ")                                  
+            (replace-match "")))))
+
   ;; LaTeX linespacing shit
   (evil-set-register ?l [?i ?\\ ?v ?s ?p ?a ?c ?e ?* ?\{ ?1 ?\\ ?b ?a ?s ?e ?l ?i ?n ?e ?s ?k ?i ?p ?\} escape])
 
