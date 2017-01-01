@@ -25,7 +25,7 @@
     (when bufname
       (when (magit-get-current-branch)
         (propertize
-         (format "  %s " (magit-get-current-branch))
+         (format " b: %s " (magit-get-current-branch))
          'face `(:foreground "#009100" ))))))
 
 (defun time ()
