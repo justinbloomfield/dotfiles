@@ -6,5 +6,4 @@
 (setq eww-download-directory "~/usr/dl")
 (when (eq system-type 'darwin)
   (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t))
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
 

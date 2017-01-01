@@ -15,6 +15,7 @@ alias p2pdf='simpress --convert-to pdf'
 alias nb='newsbeuter -C ~/.config/newsbeuter/config'
 alias rtv='BROWSER=$BROWSER EDITOR="vis" rtv'
 alias xsnow='xsnow -notrees -nosanta -norudolf'
+alias startx='csc'
 
 # arch
 alias ss='sudo aura -S'

@@ -5,6 +5,9 @@
 ;; fak u
 (load "private.el")
 
+;; random shit
+(load "misc.el")
+
 ;; pkgs
 (load "pkg.el")
 (load "bf.el")
@@ -19,8 +22,11 @@
 
 ;; ui
 ;;(load "modeline-init.el")
-(load "~/.emacs.d/themes/xres-theme-blue.el")
-(load "modeline-custom-blue.el")
+(load "themes-init.el")
+(load "csc.el")
+(csc)
+;(load "~/.emacs.d/themes/xres-blue-theme.el")
+;(load "modeline-custom-blue.el")
 (load "ui.el")
 
 ;; evil
@@ -39,6 +45,4 @@
 ;; lang specific shit
 (load "hask.el")
 
-;; random shit
-(load "misc.el")
 
