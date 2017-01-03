@@ -3,22 +3,23 @@
 # ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
 
 
-fontname "tewi"
+fontname "boxxy"
 
 # borderwidth
 borderwidth 2
 
 # colors
-color activeborder 	'#c69753'
-color inactiveborder 	'#333333'
-color font		'#d8e6e7'
-color menubg		'#254348'
-color menufg		'#FFFFFF'
-color groupborder	'#333333'
-color ungroupborder	'#AAAAAA'
+color activeborder 	'#0330e6'
+color inactiveborder 	'#000031'
+color font		    '#6767ff'
+color menubg		'#000000'
+color menufg		'#000091'
+color groupborder	'#0000cc'
+color ungroupborder	'#7a7aff'
 
 # autogroups
-autogroup 2 google-chrome-stable
+autogroup 1 emacs
+autogroup 2 qutebrowser
 autogroup 3 mpv
 autogroup 7 gimp
 
@@ -28,8 +29,8 @@ sticky no
 
 #menu
 command term /usr/bin/st
-command brws /usr/bin/surf
-command steam /usr/bin/steam
+command brws /usr/bin/qutebrowser
+#command steam /usr/bin/steam
 
 # gaps
 gap 30 10 10 10
@@ -69,15 +70,15 @@ bind 4-7 group7
 bind 4-8 group8
 bind 4-9 group9
 
-bind 4M-1 grouponly1
-bind 4M-2 grouponly2
-bind 4M-3 grouponly3
-bind 4M-4 grouponly4
-bind 4M-5 grouponly5
-bind 4M-6 grouponly6
-bind 4M-7 grouponly7
-bind 4M-8 grouponly8
-bind 4M-9 grouponly9
+bind 4S-1 grouponly1
+bind 4S-2 grouponly2
+bind 4S-3 grouponly3
+bind 4S-4 grouponly4
+bind 4S-5 grouponly5
+bind 4S-6 grouponly6
+bind 4S-7 grouponly7
+bind 4S-8 grouponly8
+bind 4S-9 grouponly9
 
 # extra binds
 bind 4-Tab   cycle
@@ -88,7 +89,7 @@ bind 4-g     grouptoggle
 bind 4MC-l   cyclegroup
 bind 4MC-h   rcyclegroup
 
-bind 4-d     exec
+bind 4-d     /home/poq/bin/rofilauncher
 bind 4-n     ssh
 bind 4-s     search
 bind 4-t     st

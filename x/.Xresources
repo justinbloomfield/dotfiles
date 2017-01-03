@@ -1,7 +1,7 @@
 #include "/home/poq/.config/x/colours/vamp_blue"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:creep:pixelsize=10
+*font:                          xft:boxxy:pixelsize=12
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
@@ -10,7 +10,7 @@ URxvt*externalBorder:                0
 URxvt*internalBorder:                20 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
-rofi.font:			    tewi 9
+rofi.font:			    boxxy 12
 rofi.lines: 		                 4
 rofi.width:		                     25
 rofi.borderwidth:	                 3

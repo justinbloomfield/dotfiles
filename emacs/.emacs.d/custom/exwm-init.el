@@ -32,6 +32,11 @@
                         (lambda (command)
                           (interactive (list (read-shell-command "$ ")))
                           (start-process-shell-command command nil command)))
+
+    (exwm-input-set-key (kbd "s-L")
+                        (lambda (command)
+                          (shell-command "rofilauncher")))
+
     )
 
 

@@ -1,6 +1,6 @@
 (put 'dired-find-alternate-file 'disabled nil)
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "surf")
+      browse-url-generic-program "qutebrowser")
 (setq shr-external-browser 'browse-url-generic)
 (setq ring-bell-function 'ignore)
 (setq eww-download-directory "~/usr/dl")

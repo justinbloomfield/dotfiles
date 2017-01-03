@@ -1,14 +1,14 @@
 # Disable access control
-xhost +SI:localuser:$USER
+#xhost +SI:localuser:$USER
 
 # Fallback cursor
 xsetroot -cursor_name left_ptr &
 
 # Other stuff
 setxkbmap us -variant colemak &
+xmodmap ~/.Xmodmap &
 xrdb ~/.Xresources &
-start-pulseaudio-x11 &
-sudo mpd &
 
 # Start Emacs
-exec emacs
+emacs &
+exec cwm
