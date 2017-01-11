@@ -1,0 +1,38 @@
+! color theme: patne
+*.borderColor: #25282f
+*.background: #25282f
+*.foreground: #bebdc7
+*.cursorColor: #bebdc7
+
+! Black
+*color0:        #484848
+*color8:        #484848
+
+! Red
+*color1:        #cd8376
+*color9:        #cd8376
+
+! Green
+*color2:        #82726c
+*color10:       #82726c
+
+! Yellow
+*color3:        #7db0df
+*color11:       #7db0df
+
+! Blue
+*color4:        #5c7186
+*color12:       #5c7186
+
+! Magenta
+*color5:        #ca6c5e
+*color13:       #ca6c5e
+
+! Cyan
+*color6:        #5e8d87
+*color14:       #5e8d87
+
+! White
+*color7:        #bebdc7
+*color15:       #bebdc7
+

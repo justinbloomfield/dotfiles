@@ -4,7 +4,7 @@ alias dvtm='dvtm-custom'
 alias neofetch='neofetch --gtk3 off --gtk2 off'
 alias mkdir='mkdir -p'
 alias ermac='emacs'
-alias pic='sxiv -a'
+alias pic='sxiv -ab'
 alias spd='sudo prt-get depinst'
 alias sps='sudo prt-get search'
 alias spi='sudo prt-get info'
@@ -19,9 +19,10 @@ alias suod='sudo' #becausei'mretarded
 alias eb="edbrowse"
 
 # arch
-alias sa='sudo xbps-install'
-alias sr='sudo xbps-remove'
-alias si='sudo xbps-query -Rs'
+alias sa='sudo aura -A'
+alias ss='sudo aura -S'
+alias sr='sudo aura -Runs'
+alias si='sudo aura -As'
 
 alias c='cd'
 alias e='emacs -nw' 

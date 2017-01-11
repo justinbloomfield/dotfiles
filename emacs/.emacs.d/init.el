@@ -17,14 +17,14 @@
 ;;(load "auctex-init.el")
 (load "org-init.el")
 (load "emms-init.el")
-(load "exwm-init.el")
+;;(load "exwm-init.el")
 ;;(load "ivy-youtube.el")
 
 ;; ui
 ;(load "csc.el")
 ;(csc)
-;(load "modeline-custom-xres.el")
-;(load-file "~/.emacs.d/themes/xres-theme.el")
+(load "modeline-custom-xres.el")
+(load-file "~/.emacs.d/themes/xres-theme.el")
 (load "ui.el")
 
 ;; evil

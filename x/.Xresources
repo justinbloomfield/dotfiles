@@ -1,7 +1,7 @@
-#include "/home/poq/.config/x/colours/vamp_blue"
+#include "/home/poq/.config/x/colours/vamp_green"
 
 URxvt*scrollBar:                     false 
-*font:                          xft:boxxy:pixelsize=12
+URxvt*font:                          xft:yuki:pixelsize=9
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
@@ -10,12 +10,14 @@ URxvt*externalBorder:                0
 URxvt*internalBorder:                20 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
-rofi.font:			    boxxy 12
-rofi.lines: 		                 4
-rofi.width:		                     25
+
+rofi.font:			    yuki 8
+rofi.lines: 		                 6
+rofi.width:		                 10
 rofi.borderwidth:	                 3
 rofi.auto-select:	                 false
 rofi.hide-scrollbar:	             true
-rofi.color-window:	                 bg, c0
+rofi.color-window:	                 bg, c3
 rofi.color-normal:	                 bg, fg, bg, c9, bg 
 rofi.separator-style:                solid
+

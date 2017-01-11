@@ -9,7 +9,7 @@ fifo(){
 }
 
 run(){
-    FIFO="/tmp/dvtm-status.$$" 
+    FIFO="/tmp/dvtm-status" 
     [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
     
     STATUS_PID=$!

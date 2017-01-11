@@ -16,27 +16,28 @@ import System.IO
 
 myManageHook = composeAll
         [ className =? "Xmessage" --> doFloat
-	, className =? "virt-manager" --> doFloat
+        , className =? "virt-manager" --> doFloat
 	, manageDocks
 	]
 
 myLogHook = dynamicLog 
 	>> updatePointer (0.99,0.99) (0,0)
 
-myLayout = avoidStruts ( spacing 5 (gaps [(U,95), (D,120), (L,200), (R,200)] (ResizableTall 1 (2/100) (1/2) [])) ||| ResizableTall 1 (2/100) (1/2) []) ||| noBorders (fullscreenFull Full)
+myLayout = avoidStruts ( spacing 5 (gaps [(U,100), (D,100), (L,200), (R,200)] (ResizableTall 1 (2/100) (1/2) [])) ||| ResizableTall 1 (2/100) (1/2) []) ||| noBorders (fullscreenFull Full)
 main = xmonad $ myConfig 
 
-myConfig = defaultConfig
+myConfig = def
     { borderWidth = 6
     , modMask = mod4Mask -- winkey for true swag
-    , workspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"]
-    , terminal = "urxvt"
+    , workspaces = myWorkspaces
+    , terminal = myTerminal
     , focusedBorderColor = "#62a04c" --"#5f9d81"
     , normalBorderColor = "#3c3c3b" 
     , manageHook = myManageHook <+> manageHook defaultConfig
     , layoutHook = myLayout 
     , logHook = myLogHook <+> logHook defaultConfig
     } `additionalKeysP` concat [ myCommandKeys
+                               , myProgKeys
                 --	       , myNav2DKeys
 		--	       , myBSPKeys ]
 		]
@@ -44,6 +45,13 @@ myConfig = defaultConfig
 myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
 	 , ("M-z", sendMessage MirrorExpand)
 	 ]
+
+myProgKeys = [
+             ("M-p", spawn "rofilauncher"
+              )]
+
+myTerminal = "st"
+myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
 -- for BSP (can't currently navigate properly??)
 --myNav2DConfig = def { layoutNavigation = [("emptyBSP", centerNavigation)] }
 --myNav2DKeys = [   ("M-h", windowGo L True)

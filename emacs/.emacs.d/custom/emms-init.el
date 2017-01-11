@@ -5,6 +5,7 @@
   (require 'emms-player-simple)
   (require 'emms-source-playlist)
   (require 'emms-source-file)
+  (require 'emms-player-mpd)
   (emms-all)
   (emms-default-players)
   (setq emms-source-file-default-directory "~/var/msc/")
@@ -25,6 +26,12 @@
     (emms-next-noerror)
     (let ((track-name (emms-track-description (emms-playlist-current-selected-track)))))
     (emms-notifications-message track-name))
+  ;; mpd
+  (setq emms-player-mpd-server-name "localhost")
+  (setq emms-player-mpd-server-port "6600")
+  (add-to-list 'emms-info-functions 'emms-info-mpd)
+  (add-to-list 'emms-player-list 'emms-player-mpd)
+  (setq emms-player-mpd-music-directory "/home/poq/var/msc")
   )
 
 (use-package emms

@@ -1,0 +1,21 @@
+ 1 #!/usr/bin/awk -f
+ 2 # e.g.:
+ 3 # `xrq URxvt.color8`
+ 4 # `xrq URxvt.color8 URxvt.scrollBar`
+ 5 BEGIN {
+ 6     FS = ":\t"
+ 7     if (ARGC < 2) {
+ 8         print "xrq: Need at least one resource name" | "cat 1>&2"
+ 9         exit(2)
+10     }
+11     while ("xrdb -query" | getline) {
+12         for (i in ARGV) {
+13             if ($1 == ARGV[i]) {
+14                 found = 1
+15                 print $2
+16                 continue
+17             }
+18         }
+19     }
+20     exit(!found)
+21 }

@@ -1,0 +1,38 @@
+! color theme: seags
+*.borderColor: #d9f6e7
+*.background: #d9f6e7
+*.foreground: #092b29
+*.cursorColor: #092b29
+
+! Black
+*color0:        #627676
+*color8:        #627676
+
+! Red
+*color1:        #75c57f
+*color9:        #75c57f
+
+! Green
+*color2:        #6dae73
+*color10:       #6dae73
+
+! Yellow
+*color3:        #62d7a8
+*color11:       #62d7a8
+
+! Blue
+*color4:        #6cc6ac
+*color12:       #6cc6ac
+
+! Magenta
+*color5:        #64a6a4
+*color13:       #64a6a4
+
+! Cyan
+*color6:        #57968e
+*color14:       #57968e
+
+! White
+*color7:        #349198
+*color15:       #349198
+
