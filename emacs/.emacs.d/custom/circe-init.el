@@ -1,5 +1,7 @@
 (defun my-circe-config ()
   "Configure circe IRC client"
+  (require 'tls)
+
   (setq circe-network-options
 	`(("fn"
 	   :host "irc.freenode.net"
@@ -29,6 +31,8 @@
   (setq
    lui-time-stamp-position 'right-margin
    lui-fill-type nil)
+
+  (setq circe-use-tls t)
   
   (add-hook 'lui-mode-hook 'my-lui-setup)
   (defun my-lui-setup ()
@@ -38,6 +42,7 @@
      word-wrap t
      wrap-prefix "    "))
  )
+
 (use-package circe
   :ensure t
   :config

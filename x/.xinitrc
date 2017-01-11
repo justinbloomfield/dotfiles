@@ -6,9 +6,10 @@ xsetroot -cursor_name left_ptr &
 
 # Other stuff
 setxkbmap us -variant colemak &
-xmodmap ~/.Xmodmap &
+#start-pulseaudio-x11 &
+#xmodmap ~/.Xmodmap &
 xrdb ~/.Xresources &
+xrandr --output HDMI-1 --left-of LVDS-1 &
 
 # Start Emacs
-emacs &
-exec cwm
+exec dwm 

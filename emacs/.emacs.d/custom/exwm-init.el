@@ -1,6 +1,13 @@
 (defun my-exwm-config()
   "Configure EXWM"
   (require 'exwm-config)
+  (require 'exwm-randr)
+  (setq exwm-randr-workspace-output-plist '(0 "HDMI-1"))
+  (add-hook 'exwm-randr0screen-change-hook
+	(lambda ()
+	  (start-process-shell-command
+	    "xrandr" nil "xrandr --output HDMI-1 --left-of LVDS-1 --auto")))
+  (exwm-randr-enable)	
   (setq exwm-workspace-number 10)
     (add-hook 'exwm-update-class-hook
             (lambda ()

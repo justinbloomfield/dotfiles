@@ -3,20 +3,22 @@
 #define lbg #020202
 #define c0  #000000
 #define c1  #4a4b4c
-#define c2  #4a4b4c
+#define c2  #3a3b3c
 #define c3  #a2a2a5
-#define c4  #5d5b5e
+#define c4  #afafaf
 #define c5  #4a4b4c
 #define c6  #6d6b6f
 #define c7  #4a4b4c
 #define c8  #15171b
 #define c9  #4a4b4c
 #define c10 #3a3b3c
-#define c11 #4a4b4c
-#define c12 #4a4b4c
-#define c13 #3a3b3c
-#define c14 #4a4b4c
+#define c11 #a2a2a5
+#define c12 #afafaf
+#define c13 #4a4b4c
+#define c14 #6d6b6f
 #define c15 #dbdac1
+#define mla #101010
+#define mli #020202
 
 *background:	bg
 *foreground:	fg
@@ -37,3 +39,6 @@
 *color13:  c13
 *color14:  c14
 *color15:  c15
+*color16: mla
+*color17: mli
+

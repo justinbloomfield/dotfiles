@@ -51,7 +51,10 @@
        (light-blue (xresources-theme-color "color12"))
        (light-magenta (xresources-theme-color "color13"))
        (light-cyan (xresources-theme-color "color14"))
-       (white (xresources-theme-color "color15")))
+       (white (xresources-theme-color "color15"))
+       (mla (xresources-theme-color "color16"))
+       (mli (xresources-theme-color "color17")))
+
   (custom-theme-set-faces
    'xresources
 
@@ -103,14 +106,12 @@
    `(minibuffer-prompt ((t (:foreground ,yellow))))
    `(mode-line
      ((t (:foreground ,green
-                      :background "#000033"
-                      :box (:line-width -1 :style released-button)))
-      (t :inverse-video t)))
+                      :background ,mla)))
+      (t :inverse-video t))
    `(mode-line-buffer-id ((t (:foreground ,yellow :weight bold))))
    `(mode-line-inactive
      ((t (:foreground ,green
-                      :background "#00000f"
-                      :box (:line-width -1 :style released-button)))))
+                      :background ,mli))))
    `(region ((t (:background ,blue))
              (t :inverse-video t)))
    `(secondary-selection ((t (:background ,background))))
@@ -393,6 +394,7 @@
    `(magit-branch ((t (:foreground ,blue :weight bold))))
    `(magit-log-author ((t (:foreground ,red))))
    `(magit-log-sha1 ((t (:foreground, red))))
+   `()
 
    ;; org-mode
    `(org-agenda-date-today
@@ -453,6 +455,20 @@
 
    ;; mu4e
    `(mu4e-header-highlight-face ((t (:foreground ,cyan :background ,red))))
+   `(mu4e-header-key-face ((t :foreground ,green)))
+
+   ;; emms
+   `(emms-playlist-selected-face ((t (:foreground ,green))))
+   `(emms-playlist-track-face ((t (:foreground ,foreground))))
+   ;; ivy
+   `(ivy-current-match ((t (:background ,red :foreground ,background))))
+   `(ivy-minibuffer-match-face-1 ((t (:background ,cyan :foreground ,background))))
+   `(ivy-minibuffer-match-face-2 ((t (:background ,magenta :foreground ,background))))
+   `(ivy-minibuffer-match-face-3 ((t (:background ,green :foreground ,background))))
+   `(ivy-minibuffer-match-face-4 ((t (:background ,blue :foreground ,background))))
+
+   ;; eww
+   `(eww-form-text ((t (:foreground ,red))))
 
    ;; rainbow-delimiters
    `(rainbow-delimiters-depth-1-face ((t (:foreground ,foreground))))

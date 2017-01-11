@@ -18,6 +18,8 @@
 #define c13     #00cc00
 #define c14     #009100
 #define c15     #434343
+#define mla	#003300
+#define mli	#001100
 
 *background:    bg
 *foreground:    fg
@@ -38,3 +40,5 @@
 *color13:       c13
 *color14:       c14
 *color15:       c15
+*color16:	mla
+*color17:	mli

@@ -1,0 +1,123 @@
+default_color = "-1";
+
+info_eol = "false";
+
+replaces = { "[]" = "%K$*%n"; };
+
+abstracts = {
+  indent_default = "";
+
+  line_start = "";
+
+  timestamp = "";
+
+  hilight = "%_$*%_";
+
+  error = "%R$*%n";
+
+  channel = "%K$*%n";
+
+  nick = "%_$*%_";
+
+  nickhost = "%g$*";
+
+  server = "%_$*%_";
+
+  comment = "%K[%W$*%K]";
+
+  reason = "{comment $*}";
+
+  mode = "{comment $*}";
+
+  channick_hilight = "%g$*%N";
+  chanhost_hilight = "{nickhost $*}";
+
+  channick = "$*";
+  chanhost = "{nickhost $*}";
+
+  channelhilight = "%g$*%n";
+
+  ban = "$*";
+
+  msgnick = "%c<%w$1-%n%|%c> ";
+  ownnick = "%n$*%n";
+  pubnick = "%N$*%n";
+
+  action_core = " %n$*";
+  whois = "%K      %n$1-";
+
+  ownnotice = "%NNote n = %Mnew%n $0 ($1-) ";
+  notice = "%M$*%n ";
+  pubnotice_channel = " %N<$*>";
+  pvtnotice_host = " %N<$*>";
+  servernotice = " %N($*)";
+
+  ownctcp = "%N$0 <%K$1-%N> ";
+  ctcp = "%N$*%n";
+
+  wallop = "%K$*%n: ";
+  wallop_nick = "%n$*";
+  wallop_action = "%K * $*%n ";
+
+  names_nick = "%K%W$2$0%n$1%K%n ";
+  names_nick_op = "{names_nick $* %W}";
+  names_nick_halfop = "{names_nick $* %W}";
+  names_nick_voice = "{names_nick $* %W}";
+  names_prefix = "%K    %n$1";
+  names_channel = "%W$*%n";
+
+  dcc = "%g$*%n";
+  dccfile = "%_$*%_";
+
+  dccownmsg = "%g /* $0 ($1-) */";
+  dccownnick = "$*%n";
+  dccownquerynick = "$*%n";
+  dccownaction = "{action $*}";
+  dccownaction_target = "{action $*}";
+
+  dccmsg = "%g/* $1- <$0> */";
+  dccquerynick = "%g$*%n";
+  dccaction = "{action $*}";
+
+  sb_background = "%N%N";
+
+  sb_prompt_bg = "%n";
+
+  sbstart = "";
+  sbend = "";
+
+  topicsbstart = "";
+  topicsbend = "";
+
+  prompt = " %b> ";
+
+  sb = "%N$1%N ";
+  sbmode = "%c<%K+%N$*%c>%n";
+  sbaway = "%c<%Naway%c>%N";
+  sbservertag = "%c:%N$0%c<%N^X%c>";
+  sbnickmode = "%K$0%N$1";
+};
+
+formats = {
+  "fe-common/core" = {
+    line_start_irssi = "{line_start}";
+
+    join = " %K<%njoin%K> %W{channick $0} %K[%W{nickhost %W$1}%K]%n";
+    part = " %K<%npart%K> %W{channick $0} %K[%W{nickhost %W$1}%K]%n";
+    quit = " %K<%nquit%K> %W{channick $0}%K {reason %c$2}";
+    kick = " %W{channick $0} %nwas kicked by $2 %K{reason %W$3}";
+    nick_changed = " %n{channick $0} %nis now known as %W{channick $1}";
+    your_nick_changed = " %nyou %Kare now known as %W{channick $1}";
+    new_topic = " %wtopic %K'%W$2%K' %Nset by $0";
+    pubmsg = "{pubmsgnick $2 {pubnick \00310$0}}$1";
+  };
+  "fe-common/irc" = {
+    chanmode_change = " %K<%nmode%K> %W$2 %K<%W{channick $1}%K>";
+    server_chanmode_change = " %K<%nmode%K> %W$2 %K<%W{channick $1}%K>";
+    whois_not_found = " %nthere is no such nick <$0>";
+    topic = " %Ntopic for %K$0 %K'%W$1%K'";
+    topic_info = " %Nset by $0 %K<%W$1%K>";
+    channel_synced = " %nsynced in {hilight $1} secs";
+    channel_created = " %ncreated $1";
+  };
+};

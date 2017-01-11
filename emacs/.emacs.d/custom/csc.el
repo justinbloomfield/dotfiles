@@ -16,7 +16,7 @@
   (setq coloursl '("red" "blue" "green"))
   (setq colour (ivy-read "Enter colourscheme: " coloursl))
   (setq ml (format "modeline-custom-%s.el" colour))
-  (setq xr (format "~/.emacs.d/themes/xres-%s-theme.el" colour))
+;;  (setq xr (format "~/.emacs.d/themes/xres-%s-theme.el" colour))
   (shell-command "sed -i 1d ~/.Xresources")
   (shell-command (format "sed -i \'1i #include \"/home/poq/.config/x/colours/vamp_%s\"' ~/.Xresources" colour))
   (shell-command "xrdb ~/.Xresources")

@@ -1,7 +1,6 @@
 alias nausea='nausea ~/etc/audio.fifo'
 alias mutt='env TERM=vt220 mutt'
 alias dvtm='dvtm-custom'
-alias newsesh='abduco -c 1 dvtm-custom'
 alias neofetch='neofetch --gtk3 off --gtk2 off'
 alias mkdir='mkdir -p'
 alias ermac='emacs'
@@ -13,15 +12,16 @@ alias ..='cd ..'
 alias d2pdf='swriter --convert-to pdf'
 alias p2pdf='simpress --convert-to pdf'
 alias nb='newsbeuter -C ~/.config/newsbeuter/config'
-alias rtv='BROWSER=$BROWSER EDITOR="vis" rtv'
+alias rtv='BROWSER=$BROWSER EDITOR=$EDITOR rtv'
 alias xsnow='xsnow -notrees -nosanta -norudolf'
-alias startx='csc'
+#alias startx='csc'
+alias suod='sudo' #becausei'mretarded
+alias eb="edbrowse"
 
 # arch
-alias ss='sudo aura -S'
-alias sa='sudo aura -A'
-alias sr='sudo aura -Runs'
-alias si='sudo aura -Ss'
+alias sa='sudo xbps-install'
+alias sr='sudo xbps-remove'
+alias si='sudo xbps-query -Rs'
 
 alias c='cd'
 alias e='emacs -nw' 

@@ -15,6 +15,9 @@
 ;;(use-package cdlatex
 ;;  :ensure t)
 
+(use-package cl
+  :ensure t)
+
 (use-package company
   :ensure t
   :config

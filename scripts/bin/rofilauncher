@@ -1,7 +1,7 @@
 #!/bin/sh
-. panelsrc
-FG="$PANEL_FG"
-BG="$PANEL_BG"
-HLBG="$BORD_COL"
+#. panelsrc
+#FG="$PANEL_FG"
+#BG="$PANEL_BG"
+#HLBG="$BORD_COL"
 
-rofi -show run -bg $BG -fg $FG -hlfg $BG -hlbg $HLBG 
+rofi -show run -m $1

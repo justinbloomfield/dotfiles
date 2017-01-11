@@ -49,7 +49,7 @@
 ;; change dumb fonts
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "Fantasque Sans Mono-12.5")))
-    (setq default-frame-alist '((font . "boxxy"))))
+    (setq default-frame-alist '((font . "yuki"))))
 ;    (set-default-font "Fantasque Sans Mono-12.5")
 ;    (set-default-font "lemon-10")
 

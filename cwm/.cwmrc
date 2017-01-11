@@ -8,28 +8,35 @@ fontname "boxxy"
 # borderwidth
 borderwidth 2
 
+# make other shit work first
+bind CM-j unmap
+bind C-\/  unmap 
+
 # colors
-color activeborder 	'#0330e6'
-color inactiveborder 	'#000031'
-color font		    '#6767ff'
-color menubg		'#000000'
-color menufg		'#000091'
-color groupborder	'#0000cc'
-color ungroupborder	'#7a7aff'
+#color activeborder      '#0330e6'
+#color inactiveborder    '#000031'
+color activeborder	'#4a4a4c'
+color inactiveborder	'#070707'
+color font		        '#6767ff'
+color menubg		    '#000000'
+color menufg		    '#000091'
+color groupborder	    '#0000cc'
+color ungroupborder	    '#7a7aff'
 
 # autogroups
-autogroup 1 emacs
-autogroup 2 qutebrowser
-autogroup 3 mpv
+autogroup 1 emacs, Emacs, emacs@$HOST
+autogroup 2 qutebrowser, surf, dillo
+autogroup 3 mpv, ffplay
 autogroup 7 gimp
 
-moveamount 1
-bigmoveamount 40
+moveamount 5
+bigmoveamount 90
 sticky no
 
 #menu
 command term /usr/bin/st
-command brws /usr/bin/qutebrowser
+command brws /usr/bin/dillo
+command emcs /usr/bin/emacs
 #command steam /usr/bin/steam
 
 # gaps

@@ -1,0 +1,21 @@
+#!/bin/sh
+fifo(){
+   while true; do
+       date +%H:%M
+       sleep 2
+      # echo "$(date +%H:%M:%S)" | skroll -r -- Dynamic length at some point probably
+      # sleep 2
+   done
+}
+
+run(){
+    FIFO="/tmp/dvtm-status.$$" 
+    [ -p "$FIFO" ] || mkfifo -m 600 "$FIFO" || exit 1
+    
+    STATUS_PID=$!
+    fifo > "$FIFO" &
+    dvtm -s "$FIFO" "$@" 2> /dev/null
+    rm -f "$FIFO"
+}
+
+run
