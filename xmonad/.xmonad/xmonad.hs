@@ -27,12 +27,12 @@ myLayout = avoidStruts ( spacing 5 (gaps [(U,100), (D,100), (L,200), (R,200)] (R
 main = xmonad $ myConfig 
 
 myConfig = def
-    { borderWidth = 6
+    { borderWidth = 5
     , modMask = mod4Mask -- winkey for true swag
     , workspaces = myWorkspaces
     , terminal = myTerminal
-    , focusedBorderColor = "#62a04c" --"#5f9d81"
-    , normalBorderColor = "#3c3c3b" 
+    , focusedBorderColor = "#003000" --"#62a04c" --"#5f9d81"
+    , normalBorderColor = "#101010" 
     , manageHook = myManageHook <+> manageHook defaultConfig
     , layoutHook = myLayout 
     , logHook = myLogHook <+> logHook defaultConfig
@@ -47,8 +47,10 @@ myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
 	 ]
 
 myProgKeys = [
-             ("M-p", spawn "rofilauncher"
-              )]
+               ("M-d", spawn "rofilauncher")
+             , ("M-b", spawn "surf")
+             , ("M-p", spawn myTerminal)
+              ]
 
 myTerminal = "st"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 

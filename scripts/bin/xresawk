@@ -1,21 +1,31 @@
- 1 #!/usr/bin/awk -f
- 2 # e.g.:
- 3 # `xrq URxvt.color8`
- 4 # `xrq URxvt.color8 URxvt.scrollBar`
- 5 BEGIN {
- 6     FS = ":\t"
- 7     if (ARGC < 2) {
- 8         print "xrq: Need at least one resource name" | "cat 1>&2"
- 9         exit(2)
-10     }
-11     while ("xrdb -query" | getline) {
-12         for (i in ARGV) {
-13             if ($1 == ARGV[i]) {
-14                 found = 1
-15                 print $2
-16                 continue
-17             }
-18         }
-19     }
-20     exit(!found)
-21 }
+#!/usr/bin/awk -f
+# e.g.:
+# `xrq URxvt.color8`
+
+# Run xrdb(1) to query specific resources from it
+# I thought xrdb -query would do this, but it doesn't seem to, maybe I'm doing
+# it wrong
+BEGIN {
+
+    # Separator is a colon followed by a tab
+    FS = ":\t"
+
+    # Check we have at least one resource name
+    if (ARGC < 2) {
+        print "xrq: Need at least one resource name" | "cat 1>&2"
+        exit(2)
+    }
+
+    # Run `xrdb -query` and search for instances of the requested resource
+    while ("xrdb -query" | getline) {
+        for (i in ARGV) {
+            if ($1 == ARGV[i]) {
+                found = 1
+                print $2
+            }
+        }
+    }
+
+    # Exit successfully if we found at least one result
+    exit(!found)
+}

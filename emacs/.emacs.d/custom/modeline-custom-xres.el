@@ -101,7 +101,7 @@
                    (evil-mode-state)
                    (vc-mode-branch-state)
                    (blank)
-;                   (now-playing)
+                   (now-playing)
                    (time))))
         (list
          '(:eval (concat
