@@ -27,15 +27,15 @@ myLayout = avoidStruts ( spacing 5 (gaps [(U,100), (D,100), (L,200), (R,200)] (R
 main = xmonad $ myConfig 
 
 myConfig = def
-    { borderWidth = 5
+    { borderWidth = 1
     , modMask = mod4Mask -- winkey for true swag
     , workspaces = myWorkspaces
     , terminal = myTerminal
-    , focusedBorderColor = "#003000" --"#62a04c" --"#5f9d81"
-    , normalBorderColor = "#101010" 
-    , manageHook = myManageHook <+> manageHook defaultConfig
+    , focusedBorderColor = myFocusedColour
+    , normalBorderColor = myNormalColour
+    , manageHook = myManageHook <+> manageHook def
     , layoutHook = myLayout 
-    , logHook = myLogHook <+> logHook defaultConfig
+    , logHook = myLogHook <+> logHook def
     } `additionalKeysP` concat [ myCommandKeys
                                , myProgKeys
                 --	       , myNav2DKeys
@@ -47,32 +47,15 @@ myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
 	 ]
 
 myProgKeys = [
-               ("M-d", spawn "rofilauncher")
-             , ("M-b", spawn "surf")
+               ("M-d", spawn myLauncher)
+             , ("M-b", spawn myBrowser)
              , ("M-p", spawn myTerminal)
               ]
 
+myLauncher = "rofilauncher"
 myTerminal = "st"
+myBrowser = "surf"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
--- for BSP (can't currently navigate properly??)
---myNav2DConfig = def { layoutNavigation = [("emptyBSP", centerNavigation)] }
---myNav2DKeys = [   ("M-h", windowGo L True)
---		, ("M-l", windowGo R True)
---		, ("M-j", windowGo D True)
---		, ("M-k", windowGo U True)
---		, ("M-S-h", windowSwap L True)
---		, ("M-S-l", windowSwap R True)
---		, ("M-S-j", windowSwap D True)
---		, ("M-S-k", windowSwap U True)
---	      ]
---myBSPKeys = [ ("M-M1-h", sendMessage $ ExpandTowards L)
---	    , ("M-M1-l", sendMessage $ ExpandTowards R)
---	    , ("M-M1-j", sendMessage $ ExpandTowards D)
---	    , ("M-M1-k", sendMessage $ ExpandTowards U)
---	    , ("M-C-h", sendMessage $ ShrinkFrom L) 
---	    , ("M-C-l", sendMessage $ ShrinkFrom R)
---	    , ("M-C-j", sendMessage $ ShrinkFrom D)
---	    , ("M-C-k", sendMessage $ ShrinkFrom U)
---	    , ("M-s", sendMessage $ Swap)
---	    , ("M-r", sendMessage $ Rotate)  
---	    ]
+
+myFocusedColour = "#aaaaaa"
+myNormalColour = "#101010"

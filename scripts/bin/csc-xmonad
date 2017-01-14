@@ -1,14 +1,24 @@
 #!/bin/sh
-#echo -n "Colourscheme: "
-#read cls
-#sed -i 1d ~/.zsh.d/env.zsh
-#sed -i "1i CSC=\"$cls\"" ~/.zsh.d/env.zsh
-#. ~/.zsh.d/env.zsh 
-#sed -i 1d ~/.Xresources 
-#sed -i "1i #include \"/home/poq/.config/x/colours/$CSC\"" ~/.Xresources
-ed -s ~/.xmonad/xmonad.hs <<< $'H\n/focusedBorder\ns/\#[0-9]/3/g\n.'
+# get this to use rofi/dmenu if x is active
+echo -n "Colourscheme: "
+read cls
 
+# i think this part was to work with csc.el, but we don't use that anymore
+##sed -i 1d ~/.zsh.d/env.zsh
+##sed -i "1i CSC=\"$cls\"" ~/.zsh.d/env.zsh
+##. ~/.zsh.d/env.zsh 
 
+sed -i 1d ~/.Xresources 
+sed -i "1i #include \"/home/poq/.config/x/colours/$cls\"" ~/.Xresources
+xrdb ~/.Xresources
+fccl=$(xrq color16)
+ed -s ~/.xmonad/xmonad.hs << EOF
+H
+/myFocusedColour\ =
+s/#.*$/$fccl\"/
+.p
+w
+EOF
+/usr/bin/xmonad --recompile 
+pkill -USR1 st 2>/dev/null 
 
-
-#/usr/bin/startx

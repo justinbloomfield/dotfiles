@@ -66,7 +66,7 @@
    `(default ((t (:foreground ,foreground :background ,background))))
    `(cursor ((t (:foreground ,background :background ,cyan))))
    `(escape-glyph ((t (:foreground ,yellow :bold t))))
-   `(fringe ((t (:foreground ,foreground :background ,background))))
+   `(fringe ((t (:foreground ,foreground :background ,black))))
    `(header-line ((t (:foreground ,yellow
                                   :background ,background
                                   :box (:line-width -1 :style released-button)))))
@@ -460,6 +460,7 @@
    ;; emms
    `(emms-playlist-selected-face ((t (:foreground ,green))))
    `(emms-playlist-track-face ((t (:foreground ,foreground))))
+
    ;; ivy
    `(ivy-current-match ((t (:background ,red :foreground ,background))))
    `(ivy-minibuffer-match-face-1 ((t (:background ,cyan :foreground ,background))))
@@ -485,7 +486,7 @@
    `(rainbow-delimiters-depth-12-face ((t (:foreground ,blue))))
 
    ;; sh-mode
-   `(sh-heredoc     ((t (:foreground ,yellow :bold t))))
+   `(sh-heredoc     ((t (:foreground ,yellow))))
    `(sh-quoted-exec ((t (:foreground ,red))))
 
    ;; smartparens

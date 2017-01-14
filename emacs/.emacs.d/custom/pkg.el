@@ -65,6 +65,9 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
 
+;(use-package sauron
+;  :ensure t)
+
 (use-package smooth-scrolling
   :ensure t
   :config

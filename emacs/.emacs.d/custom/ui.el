@@ -38,6 +38,7 @@
          ("irc-serv" (mode . circe-server-mode))
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))
+         ("haskell" (mode . haskell-mode))
          ("scheme" (mode . scheme-mode)))))
 
 

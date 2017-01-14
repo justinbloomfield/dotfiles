@@ -18,8 +18,8 @@
 #define c13     #00cc00
 #define c14     #009100
 #define c15     #434343
-#define mla	#003300
-#define mli	#001100
+#define mla	    #003300
+#define mli	    #001100
 
 *background:    bg
 *foreground:    fg

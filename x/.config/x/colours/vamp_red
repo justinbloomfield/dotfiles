@@ -1,4 +1,4 @@
-#define fg      #434343
+#define fg      #878787
 #define bg      #020202
 #define lbg     #242424
 #define cc      #a60000
@@ -18,6 +18,8 @@
 #define c13     #cc0000
 #define c14     #910000
 #define c15     #434343
+#define mla     #330000
+#define mli     #110000
 
 *background:    bg
 *foreground:    fg
@@ -38,3 +40,6 @@
 *color13:       c13
 *color14:       c14
 *color15:       c15
+*color16:       mla
+*color17:       mli
+
