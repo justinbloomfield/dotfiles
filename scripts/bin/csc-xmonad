@@ -1,24 +1,23 @@
 #!/bin/sh
-# get this to use rofi/dmenu if x is active
-echo -n "Colourscheme: "
-read cls
 
-# i think this part was to work with csc.el, but we don't use that anymore
-##sed -i 1d ~/.zsh.d/env.zsh
-##sed -i "1i CSC=\"$cls\"" ~/.zsh.d/env.zsh
-##. ~/.zsh.d/env.zsh 
+THEME_DIR=${THEME_DIR:-$HOME/.config/x/colours}
+cls=$(ls $THEME_DIR | rofi -dmenu)
+echo $cls
 
 sed -i 1d ~/.Xresources 
 sed -i "1i #include \"/home/poq/.config/x/colours/$cls\"" ~/.Xresources
 xrdb ~/.Xresources
-fccl=$(xrq color16)
+fccl=$(xrq color1)
+bgcl=$(xrq color16)
+ufccl=$(xrq color17)
 ed -s ~/.xmonad/xmonad.hs << EOF
 H
 /myFocusedColour\ =
 s/#.*$/$fccl\"/
-.p
+/myNormalColour\ =
+s/#.*$/$ufccl\"/
 w
 EOF
-/usr/bin/xmonad --recompile 
+xmonad --recompile &
 pkill -USR1 st 2>/dev/null 
-
+hsetroot -solid "$bgcl"

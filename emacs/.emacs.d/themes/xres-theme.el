@@ -3,16 +3,7 @@
 ;; Copyright (C) 2014-2014 Marten Lienen <marten.lienen@gmail.com>
 
 ;; Author: Marten Lienen <marten.lienen@gmail.com>
-;; Keywords: xresources, theme
-;; Version: 0.2.0
-
-;; This file is not part of GNU Emacs.
-
-;; This program is free software; you can redistribute it and/or modify it under
-;; the terms of the GNU General Public License as published by the Free Software
-;; Foundation; either version 3, or (at your option) any later version.
-;;
-;; This program is distributed in the hope that it will be useful, but WITHOUT
+;; Keywords: xresouful, but WITHOUT
 ;; ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
 ;; FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more
 ;; details.
@@ -66,7 +57,7 @@
    `(default ((t (:foreground ,foreground :background ,background))))
    `(cursor ((t (:foreground ,background :background ,cyan))))
    `(escape-glyph ((t (:foreground ,yellow :bold t))))
-   `(fringe ((t (:foreground ,foreground :background ,black))))
+   `(fringe ((t (:foreground ,foreground :background ,background))))
    `(header-line ((t (:foreground ,yellow
                                   :background ,background
                                   :box (:line-width -1 :style released-button)))))
