@@ -1,29 +1,46 @@
-*foreground  : #ffffff
-*background  : #000000
+#define fg      #ffffff
+#define bg      #000000
+#define cc      #ffffff
+#define c0      #aaaaaa
+#define c1      #eeeeee
+#define c2      #5effbc
+#define c3      #333333
+#define c4      #666666
+#define c5      #bbbbbb
+#define c6      #222222
+#define c7      #444444
+#define c8      #aaaaaa
+#define c9      #eeeeee
+#define c10     #dddddd
+#define c11     #333333
+#define c12     #666666
+#define c13     #bbbbbb
+#define c14     #222222
+#define c15     #444444
+#define mla     #444444
+#define mli     #202020
 
-*color0	     : #aaaaaa
-*color8	     : #aaaaaa
-
-*color1	     : #eeeeee
-*color9	     : #eeeeee
-
-*color2	     : #5effbc
-*color10     : #dddddd
-
-*color3	     : #333333
-*color11     : #333333
-
-*color4	     : #666666
-*color12     : #666666
-
-*color5	     : #bbbbbb
-*color13     : #bbbbbb
-
-*color6	     : #222222
-*color14     : #222222
-
-*color7	     : #444444
-*color15     : #444444
+*foreground:    fg
+*background:    bg
+*cursorColor:   cc
+*color0:        c0
+*color8:        c8
+*color1:        c1
+*color9:        c9
+*color2:        c2
+*color10:       c10
+*color3:        c3
+*color11:       c11
+*color4:        c4
+*color12:       c12
+*color5:        c5
+*color13:       c13
+*color6         c6
+*color14:       c14
+*color7:        c6
+*color15:       c15
+*color16:       mla
+*color17:       mli
 
 
 

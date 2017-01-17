@@ -2,10 +2,10 @@
 #define bg  #000000
 #define lbg #020202
 #define c0  #000000
-#define c1  #4a4b4c
+#define c1  #eeeeee
 #define c2  #3a3b3c
 #define c3  #a2a2a5
-#define c4  #afafaf
+#define c4  #4a4b4c
 #define c5  #4a4b4c
 #define c6  #6d6b6f
 #define c7  #4a4b4c
@@ -18,7 +18,7 @@
 #define c14 #6d6b6f
 #define c15 #dbdac1
 #define mla #aaaaaa
-#define mli #020202
+#define mli #050505
 
 *background:	bg
 *foreground:	fg

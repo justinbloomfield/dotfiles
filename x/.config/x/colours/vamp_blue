@@ -1,6 +1,5 @@
 #define fg      #878787
 #define bg      #020202
-#define lbg     #242424
 #define cc      #0000a6
 #define c0      #020202
 #define c1      #7a7aff
@@ -10,7 +9,7 @@
 #define c5      #0000cc
 #define c6      #000091
 #define c7      #434343
-#define c8      #020202
+#define c8      #000020
 #define c9      #7a7aff
 #define c10     #4545ff
 #define c11     #3030e6

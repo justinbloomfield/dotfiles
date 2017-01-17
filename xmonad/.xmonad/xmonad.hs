@@ -12,6 +12,7 @@ import XMonad.Actions.UpdatePointer
 --import XMonad.Actions.Navigation2D
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
+import XMonad.Actions.FloatKeys
 import System.IO
 
 myManageHook = composeAll
@@ -38,9 +39,10 @@ myConfig = def
     , logHook = myLogHook <+> logHook def
     } `additionalKeysP` concat [ myCommandKeys
                                , myProgKeys
+                               , myFloatKeys
                 --	       , myNav2DKeys
 		--	       , myBSPKeys ]
-		]
+	                       ]
     
 myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
 	 , ("M-z", sendMessage MirrorExpand)
@@ -52,10 +54,22 @@ myProgKeys = [
              , ("M-p", spawn myTerminal)
               ]
 
+myFloatKeys = [
+    ("M-C-j", withFocused (keysMoveWindow (0,10)))
+  , ("M-C-k", withFocused (keysMoveWindow (0,-10)))
+  , ("M-C-h", withFocused (keysMoveWindow (-10,0)))
+  , ("M-C-l", withFocused (keysMoveWindow (10,0)))
+  , ("M-M1-j", withFocused (keysResizeWindow (0,-10) (1,1)))
+  , ("M-M1-k", withFocused (keysResizeWindow (0,10) (1,1)))
+  , ("M-M1-h", withFocused (keysResizeWindow (10,0) (1,1)))
+  , ("M-M1-l", withFocused (keysResizeWindow (-10,0) (1,1)))
+
+              ]
+
 myLauncher = "rofilauncher"
 myTerminal = "st"
 myBrowser = "surf"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
 
-myFocusedColour = "#75c57f"
-myNormalColour = "#000011"
+myFocusedColour = "#ff7a7a"
+myNormalColour = "#110000"

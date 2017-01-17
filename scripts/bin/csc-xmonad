@@ -8,7 +8,7 @@ sed -i 1d ~/.Xresources
 sed -i "1i #include \"/home/poq/.config/x/colours/$cls\"" ~/.Xresources
 xrdb ~/.Xresources
 fccl=$(xrq color1)
-bgcl=$(xrq color16)
+bgcl=$(xrq color8)
 ufccl=$(xrq color17)
 ed -s ~/.xmonad/xmonad.hs << EOF
 H

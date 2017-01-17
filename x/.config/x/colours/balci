@@ -1,38 +1,44 @@
 ! color theme: balci
-*.borderColor: #252525
-*.background: #252525
-*.foreground: #d2c8bb
-*.cursorColor: #59bf8f
+#define fg      #d2c8bb
+#define bg      #252525
+#define cc      #59bf8f
+#define c0      #5b6641
+#define c1      #59bf8f
+#define c2      #469f65
+#define c3      #30623f
+#define c4      #54711f
+#define c5      #4ad5d2
+#define c6      #2f4c21
+#define c7      #d2c8bb
+#define c8      #616654
+#define c9      #87bfa5
+#define c10     #719f81
+#define c11     #45624e
+#define c12     #657150
+#define c13     #97d5d4
+#define c14     #3d4c36
+#define c15     #b9b1a5
+#define mla     #657150
+#define mli     #2f4c21
 
-! Black
-*color0:        #5b6641
-*color8:        #616654
-
-! Red
-*color1:        #59bf8f
-*color9:        #87bfa5
-
-! Green
-*color2:        #469f65
-*color10:       #719f81
-
-! Yellow
-*color3:        #30623f
-*color11:       #45624e
-
-! Blue
-*color4:        #54711f
-*color12:       #657150
-
-! Magenta
-*color5:        #4ad5d2
-*color13:       #97d5d4
-
-! Cyan
-*color6:        #2f4c21
-*color14:       #3d4c36
-
-! White
-*color7:        #d2c8bb
-*color15:       #b9b1a5
-
+*background:    bg
+*foreground:    fg
+*cursorColor:   cc
+*color0:        c0
+*color1:        c1
+*color2:        c2
+*color3:        c3
+*color4:        c4
+*color5:        c5
+*color6:        c6
+*color7:        c7
+*color8:        c8
+*color9:        c9
+*color10:       c10
+*color11:       c11
+*color12:       c12
+*color13:       c13
+*color14:       c14
+*color15:       c15
+*color16:	mla
+*color17:	mli
