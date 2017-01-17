@@ -4,4 +4,4 @@ else
     USER_LEVEL="%F{magenta}%}" #root
 fi
 
-PROMPT="${USER_LEVEL}ê %f"
+PROMPT="${USER_LEVEL}> %f"
