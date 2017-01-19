@@ -21,7 +21,7 @@ servers = (
 
 chatnets = {
   unixchat = { type = "IRC"; nick = "poq"; };
-  fb = { type = "IRC"; };
+  fb = { type = "IRC"; nick = "piecesofquiet"; };
 };
 
 channels = ( 
@@ -144,7 +144,7 @@ settings = {
     indent = "12";
   };
   "fe-common/core" = {
-    theme = "neongold.theme";
+    theme = "allego.theme";
     bell_beeps = "no";
     autolog_path = "/home/poq/var/logs/irc/$tag/$0.log";
     autolog = "yes";

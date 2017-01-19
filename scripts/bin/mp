@@ -3,7 +3,7 @@ fifo(){
    while true; do
        date +%H:%M
        sleep 5
-       echo "$(mpc current)" | skroll -r
+       echo "$(mpc current)"
        sleep 3
       # echo "$(date +%H:%M:%S)" | skroll -r -- Dynamic length at some point probably
       # sleep 2

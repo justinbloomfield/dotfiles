@@ -288,21 +288,21 @@
    `(eshell-ls-symlink ((t (:foreground ,cyan :weight bold))))
 
    ;; flycheck
-   `(flycheck-error
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,red) :inherit unspecified))
-      (t (:foreground ,red :weight bold :underline t))))
-   `(flycheck-warning
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,yellow) :inherit unspecified))
-      (t (:foreground ,yellow :weight bold :underline t))))
-   `(flycheck-info
-     ((((supports :underline (:style wave)))
-       (:underline (:style wave :color ,cyan) :inherit unspecified))
-      (t (:foreground ,cyan :weight bold :underline t))))
-   `(flycheck-fringe-error ((t (:foreground ,red :weight bold))))
-   `(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
-   `(flycheck-fringe-info ((t (:foreground ,cyan :weight bold))))
+   ;`(flycheck-error
+   ;  ((((supports :underline (:style line)))
+   ;    (:underline (:style line :color ,red) :inherit unspecified))
+   ;   (t (:foreground ,red :weight bold :underline t))))
+   ;`(flycheck-warning
+   ;  ((((supports :underline (:style line)))
+   ;    (:underline (:style line :color ,yellow) :inherit unspecified))
+   ;   (t (:foreground ,yellow :weight bold :underline t))))
+   ;`(flycheck-info
+   ;  ((((supports :underline (:style line)))
+   ;    (:underline (:style line :color ,cyan) :inherit unspecified))
+   ;   (t (:foreground ,cyan :weight bold :underline t))))
+   ;`(flycheck-fringe-error ((t (:foreground ,red :weight bold))))
+   ;`(flycheck-fringe-warning ((t (:foreground ,yellow :weight bold))))
+   ;`(flycheck-fringe-info ((t (:foreground ,cyan :weight bold))))
 
    ;; git-rebase-mode
    `(git-rebase-hash ((t (:foreground, red))))

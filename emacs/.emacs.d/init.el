@@ -10,6 +10,7 @@
 
 ;; pkgs
 (load "pkg.el")
+(load "evil-init.el")
 (load "erc-init.el")
 (load "circe-init.el")
 (load "ivy-init.el")
@@ -27,8 +28,6 @@
 (load-file "~/.emacs.d/themes/xresources-theme.el")
 (load "ui.el")
 
-;; evil
-(load "evil-init.el")
 
 ;; satan
 (setq custom-file "~/.emacs.d/custom/custom.el")

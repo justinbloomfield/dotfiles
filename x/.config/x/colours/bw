@@ -3,7 +3,7 @@
 #define cc      #ffffff
 #define c0      #aaaaaa
 #define c1      #eeeeee
-#define c2      #5effbc
+#define c2      #595959
 #define c3      #333333
 #define c4      #666666
 #define c5      #bbbbbb
