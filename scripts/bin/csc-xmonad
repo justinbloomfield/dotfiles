@@ -1,4 +1,5 @@
 #!/bin/sh
+# Requires GNU ed (afaict, sorry) and xrq, although you could subsitute xrq with some other xrdb-querying thingy
 
 THEME_DIR=${THEME_DIR:-$HOME/.config/x/colours}
 cls=$(ls $THEME_DIR | rofi -dmenu)
@@ -18,6 +19,6 @@ s/#.*$/$fccl\"/
 s/#.*$/$ufccl\"/
 w
 EOF
-xmonad --recompile &
 pkill -USR1 st 2>/dev/null 
-hsetroot -solid "$bgcl"
+xsetroot -solid $bgcl
+xmonad --recompile 

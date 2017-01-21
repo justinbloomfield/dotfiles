@@ -25,7 +25,7 @@
 ;(load "csc.el")
 ;(csc)
 (load "modeline-custom-xres.el")
-(load-file "~/.emacs.d/themes/xresources-theme.el")
+(load-file "~/.emacs.d/themes/xres-theme.el")
 (load "ui.el")
 
 

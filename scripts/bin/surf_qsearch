@@ -38,7 +38,7 @@ s=$(printf %s "${q#* }" | tr -d '\n' | od -t x1 -An |  tr ' ' '%')
 # 'd' = en.wiktionary.org
 case $e in
     's')
-        xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://duckduckgo.com/?q=${s}"
+        xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://duckduckgo.com/lite/?q=${s}"
         ;;
     'w')
         xprop -id $1 -f _SURF_GO 8s -set _SURF_GO "https://en.wikipedia.org/wiki/index.php/Special:Search?search=${s}&go=Go"

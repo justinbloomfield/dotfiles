@@ -8,10 +8,9 @@
 #start-pulseaudio-x11 &
 #sudo mpd &
 #unclutter --timeout 1 &
-#xrdb ~/.Xresources &
+xrdb ~/.Xresources &
 setxkbmap us -variant colemak &
 
 # Start Emacs
-#exec xmonad 
+exec xmonad 
 #sudo killall mpd
-exec dwm

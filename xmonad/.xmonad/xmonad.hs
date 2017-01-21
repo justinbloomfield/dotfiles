@@ -30,7 +30,7 @@ myLayout = avoidStruts ( spacing 5 (gaps [(U,100), (D,100), (L,200), (R,200)] em
 main = xmonad $ myConfig 
 
 myConfig = def
-    { borderWidth = 5
+    { borderWidth = 3
     , modMask = mod4Mask -- winkey for true swag
     , workspaces = myWorkspaces
     , terminal = myTerminal
@@ -104,5 +104,5 @@ myTerminal = "st"
 myBrowser = "surf"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
 
-myFocusedColour = "#eeeeee"
-myNormalColour = "#050505"
+myFocusedColour = "#ff7a7a"
+myNormalColour = "#110000"
