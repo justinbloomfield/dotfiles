@@ -5,7 +5,6 @@ import XMonad.Layout.Spacing
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.IndependentScreens
 import XMonad.Layout.BinarySpacePartition
 import qualified Data.Map as M
 import XMonad.Hooks.ManageDocks
@@ -25,7 +24,7 @@ myManageHook = composeAll
 myLogHook = dynamicLog 
 	>> updatePointer (0.99,0.99) (0,0)
 
-myLayout = avoidStruts ( spacing 5 (gaps [(U,100), (D,100), (L,200), (R,200)] emptyBSP) ||| emptyBSP) ||| noBorders (fullscreenFull Full)
+myLayout = avoidStruts ( spacing 5 (gaps [(U,10), (D,10), (L,10), (R,10)] emptyBSP) ||| noBorders (fullscreenFull Full))
 
 main = xmonad $ myConfig 
 
@@ -104,5 +103,5 @@ myTerminal = "st"
 myBrowser = "surf"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
 
-myFocusedColour = "#ff7a7a"
-myNormalColour = "#110000"
+myFocusedColour = "#eeeeee"
+myNormalColour = "#050505"
