@@ -1,5 +1,5 @@
-super + d
-	rofi -show run
+mod1 + d
+	dmenu_run
 
 XF86AudioRaiseVolume
     pactl set-sink-volume 0 +5%
@@ -16,53 +16,53 @@ XF86AudioPlay
 XF86AudioStop
     mpc stop
 
-super + Escape
+mod1 + Escape
 	pkill -USR1 -x sxhkd
 
-super + {h,j,k,l}
+mod1 + {h,j,k,l}
   waitron window_move {-2 0, 0 2, 0 -2, 2 0}
 
-super + alt + {h,j,k,l}
+mod1 + alt + {h,j,k,l}
   waitron window_resize {-2 0, 0 2, 0 -2, 2 0}
 
-super + shift + {h,j,k,l}
+mod1 + shift + {h,j,k,l}
   waitron window_move {-50 0, 0 50, 0 -50, 50 0}
 
-super + shift + alt + {h,j,k,l}
+mod1 + shift + alt + {h,j,k,l}
   waitron window_resize {-50 0, 0 50, 0 -50, 50 0}
 
-super + alt + Escape
+mod1 + alt + Escape
   waitron wm_quit 0
 
-super + f
+mod1 + f
   waitron window_maximize
 
-super + shift + c
+mod1 + shift + c
   waitron window_close
 
-super + t
+mod1 + t
   waitron window_hor_maximize
 
-super + v
+mod1 + v
   waitron window_ver_maximize
 
-super + Tab
+mod1 + Tab
   waitron window_cycle
 
-super + shift + Tab
+mod1 + shift + Tab
   waitron window_rev_cycle
 
-super + {_,shift +}{1-4}
+mod1 + {_,shift +}{1-4}
   waitron {group_toggle,group_add_window} {1-4}
 
-super + ctrl + r
+mod1 + ctrl + r
   waitron group_remove_window
 
-super + Return
+mod1 + Return
   st
 
-super +  b
+mod1 +  b
   surf
 
-super + {Insert,Prior,Delete,Next,m}
+mod1 + {Insert,Prior,Delete,Next,m}
   waitron window_snap {topleft,topright,bottomleft,bottomright,middle}

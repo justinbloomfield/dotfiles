@@ -22,10 +22,7 @@
 ;;(load "ivy-youtube.el")
 
 ;; ui
-;(load "csc.el")
-;(csc)
-(load "modeline-custom-xres.el")
-(load-file "~/.emacs.d/themes/xres-theme.el")
+(load "~/.emacs.d/custom/modeline-custom-nogui.el")
 (load "ui.el")
 
 
