@@ -23,6 +23,12 @@
   :config
   (add-hook 'after-init-hook 'global-company-mode))
 
+(use-package csv-mode
+  :ensure t)
+
+(use-package ess
+  :ensure t)
+
 (use-package eww-lnum
   :ensure t
   :config

@@ -123,7 +123,25 @@
 	 (kbd "n") 'evil-search-next
 	 (kbd "N") 'evil-search-previous
 	 (kbd "q") 'kill-this-buffer)))
-)
+
+  (eval-after-load 'emms
+    '(progn
+       (evil-set-initial-state 'emms-playlist-mode 'normal)
+       (evil-define-key 'normal emms-playlist-mode-map
+         (kbd "j") 'next-line
+         (kbd "k") 'previous-line
+         (kbd "d") 'emms-playlist-mode-kill-track
+         (kbd "D") 'emms-playlist-mode-clear
+         (kbd "e") 'emms-tag-editor-edit
+         (kbd "l") 'emms-next
+         (kbd "h") 'emss-prev
+         (kbd "<") 'emms-seek-backward
+         (kbd ">") 'emms-seek-forward
+         (kbd "p") 'emms-pause
+         (kbd "a") 'emms-add-directory
+         (kbd "A") 'emms-add-directory-tree
+         (kbd "RET") 'emms-playlist-mode-play-smart
+         ))))
 
 (defun my-evil-leader-config ()
   "Configure evil leader mode"
@@ -131,7 +149,7 @@
   (evil-leader/set-key
     "c" 'circe
     "d" 'dired
-    "e" 'eww
+    "e" 'emms
     "i" 'ibuffer
     "m" 'mu4e
     "q" 'kill-buffer-and-window
