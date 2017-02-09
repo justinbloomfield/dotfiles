@@ -1,0 +1,26 @@
+#!/bin/sh
+# Requires GNU ed (afaict, sorry) and xrq, although you could subsitute xrq with some other xrdb-querying thingy
+
+THEME_DIR=${THEME_DIR:-$HOME/.config/x/colours}
+cls=$(ls $THEME_DIR | rofi -dmenu)
+echo $cls
+
+sed -i 1d ~/.Xresources 
+sed -i "1i #include \"/home/poq/.config/x/colours/$cls\"" ~/.Xresources
+xrdb ~/.Xresources
+fccl=$(xrq color1 | cut -b 2-9)
+ufccl=$(xrq color17 | cut -b 2-9)
+bgcl=$(xrq color8)
+
+ed -s ~/.config/windowchef/windowchefrc << EOF
+H
+/color_focused
+s/0x.*$/0x$fccl/
+/color_unfocused
+s/0x.*$/0x$ufccl/
+w
+EOF
+pkill -USR1 st 2>/dev/null 
+xsetroot -solid $bgcl
+waitron wm_config color_focused 0x$fccl
+waitron wm_config color_unfocused 0x$ufccl

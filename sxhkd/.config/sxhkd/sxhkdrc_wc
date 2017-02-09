@@ -2,10 +2,10 @@ mod1 + d
 	dmenu_run
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +5%
+    pactl set-sink-volume 0 +2%
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 0 -5%
+    pactl set-sink-volume 0 -2%
 
 XF86AudioMute
     pactl set-sink-mute 0 toggle
@@ -22,7 +22,7 @@ mod1 + Escape
 mod1 + {h,j,k,l}
   waitron window_move {-2 0, 0 2, 0 -2, 2 0}
 
-mod1 + alt + {h,j,k,l}
+mod1 + ctrl + {h,j,k,l}
   waitron window_resize {-2 0, 0 2, 0 -2, 2 0}
 
 mod1 + shift + {h,j,k,l}
@@ -58,7 +58,7 @@ mod1 + {_,shift +}{1-4}
 mod1 + ctrl + r
   waitron group_remove_window
 
-mod1 + Return
+mod1 + p
   st
 
 mod1 +  b

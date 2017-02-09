@@ -13,6 +13,7 @@ import XMonad.Actions.Navigation2D
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
 import XMonad.Actions.FloatKeys
+import Graphics.X11.ExtraTypes.XF86
 import System.IO
 
 myManageHook = composeAll
@@ -35,7 +36,6 @@ myConfig = def
     , terminal = myTerminal
     , focusedBorderColor = myFocusedColour
     , normalBorderColor = myNormalColour
---    , layoutNavigation = [("emptyBSP", centerNavigation)]
     , manageHook = myManageHook <+> manageHook def
     , layoutHook = myLayout 
     , logHook = myLogHook <+> logHook def
@@ -44,6 +44,7 @@ myConfig = def
                                , myFloatKeys
                 	       , myNav2DKeys
 			       , myBSPKeys 
+                               , myMediaKeys
 	                       ]
     
 myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
@@ -96,12 +97,18 @@ myNav2DKeys = [
             , ("M-.", screenGo L True)
             , ("M-M1-,", screenSwap R False)
             , ("M-M1-.", screenSwap L False)
-
             ]
+
+myMediaKeys = [
+  ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -2%"),
+  ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +2%"),
+  ("<XF86AudioMute>", spawn "pactl set-sink-mute 0 toggle")
+              ]
+
 myLauncher = "rofilauncher"
 myTerminal = "st"
 myBrowser = "surf"
 myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
 
-myFocusedColour = "#eeeeee"
-myNormalColour = "#050505"
+myFocusedColour = "#7a7aff"
+myNormalColour = "#000011"
