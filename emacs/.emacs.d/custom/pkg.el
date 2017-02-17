@@ -12,9 +12,6 @@
 ;;(use-package calist
 ;;  :ensure t)
 
-(use-package cdlatex
-  :ensure t)
-
 (use-package cl
   :ensure t)
 
@@ -78,9 +75,6 @@
   :ensure t
   :config
   (setq smooth-scroll-margin 3))
-
-(use-package tex
-  :ensure auctex)
 
 (use-package tramp
   :ensure t)

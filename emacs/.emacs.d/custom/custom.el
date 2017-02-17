@@ -5,13 +5,13 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("0ff5d2474d50a101dc8387cbf9252a59656a01470f909805549ce0f0a636eb1e" "bcad60f2ae864a9b16d48f1fc0967b6ddc26219394476e09a59974dd5132f54d" default)))
+    ("8bb8a5b27776c39b3c7bf9da1e711ac794e4dc9d43e32a075d8aa72d6b5b3f59" "0ff5d2474d50a101dc8387cbf9252a59656a01470f909805549ce0f0a636eb1e" "bcad60f2ae864a9b16d48f1fc0967b6ddc26219394476e09a59974dd5132f54d" default)))
  '(eww-header-line-format "")
  '(helm-youtube-key (quote AIzaSyCCIm6WRIQgbbILnXEeJ0TL5uB287bmsw0))
  '(ivy-youtube-key (quote AIzaSyCCIm6WRIQgbbILnXEeJ0TL5uB287bmsw0))
  '(package-selected-packages
    (quote
-    (soundcloud csv-mode sauron emms-setup emms intero dark-mint-theme bfbuilder brainfuck-mode tree-mode calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons))))
+    (csv-mode sauron emms-setup emms intero dark-mint-theme bfbuilder brainfuck-mode tree-mode calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons))))
 ; '(w3m-search-default-engine "ddg")
 ; '(w3m-search-engine-alist
 ;   (quote
