@@ -1,7 +1,7 @@
-#include "/home/poq/.config/x/colours/vamp_green"
+#include "/Users/j/.config/x/colours/balci"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:yuki:pixelsize=9
+URxvt*font:                          xft:leggie:pixelsize=12
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8

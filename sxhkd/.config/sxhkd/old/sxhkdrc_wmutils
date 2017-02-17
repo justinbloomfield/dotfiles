@@ -1,16 +1,16 @@
 ## wm-independent hotkeys
 
 # reload sxhkd
-super + Escape
+mod1 + Escape
 	pkill -USR1 -x sxhkd
 
-super + Return
-  urxvt
+mod1 + Return
+  st
 
-super + d
-  thinglaunch
+mod1 + d
+  dmenu_run
 
-super + b
+mod1 + b
   firefox
 
 # media keys things
@@ -62,68 +62,68 @@ XF86AudioPrev
 #                                                                   /.-~
 
 # exit X session
-super + ctrl + q
+mod1 + ctrl + q
   pkill xwait
 
 # close window
-super + q
+mod1 + q
   killw  $(pfw)
 
 # fullscreens window
-super + w
-  fullscreenw $(pfw)
+mod1 + w
+  fullscreen.sh $(pfw)
 
 # focus window
-super + {h,j,k,l}
-  focusw $(closestw {h, j, k, l})
+mod1 + {h,j,k,l}
+  focus.sh $(closest.sh {h, j, k, l})
 
 # focus next window
-super + Tab
-  focusw $(closestw next)
+mod1 + Tab
+  focus.sh $(closest.sh next)
 
 # move window
-alt + {h,j,k,l}
+mod2 + {h,j,k,l}
   wmv {-10 0, 0 10, 0 -10, 10 0} $(pfw)
 
 # move window at warp speed
-alt + shift + {h,j,k,l}
+mod2 + shift + {h,j,k,l}
   wmv {-40 0, 0 40, 0 -40, 40 0} $(pfw)
 
 # resize window
-super + {r,s,f,t}
+mod1 + {r,s,f,t}
   wrs {-10 0, 0 10, 0 -10, 10 0} $(pfw)
 
-super + shift + {r,s,f,t}
+mod1 + shift + {r,s,f,t}
   wrs {-40 0, 0 40, 0 -40, 40 0} $(pfw)
 
 # toggle group
-super + {1,2,3,4,5,6}
-  groaw -t {1,2,3,4,5,6}
+mod1 + {1,2,3,4,5,6}
+  groups.sh -t {1,2,3,4,5,6}
 
 # add to group
-super + shift + {1,2,3,4,5,6}
-  groaw -a {1,2,3,4,5,6}
+mod1 + shift + {1,2,3,4,5,6}
+  groups.sh -a {1,2,3,4,5,6}
 
 # remove from group
-super + ctrl + {1,2,3,4,5,6}
-  groaw -d {1,2,3,4,5,6}
+mod1 + ctrl + {1,2,3,4,5,6}
+  groups.sh -d {1,2,3,4,5,6}
 
 
 # remove from all groups
-super + alt + shift + Return
-  groaw -d all
+mod1 + mod2 + shift + Return
+  groups.sh -d all
 
 
 # snap window to corner/middle of the screen
-super + {z,x,c,v,m}
-  cornerw {tl,tr, bl, br, md} $(pfw)
+#mod1 + {z,x,c,v,m}
+#  cornerw {tl,tr, bl, br, md} $(pfw)
 
 # tile windows
-super + ctrl + t
-  tilew
+mod1 + ctrl + t
+  tile.sh
 
-alt + @button2
-  focusw $(windowat $(wmp))
+mod2 + @button2
+  focus.sh $(windowat $(wmp))
 
 ctrl + !button2
   chwso -r $(pfw); wmv -a %i %i $(pfw)
