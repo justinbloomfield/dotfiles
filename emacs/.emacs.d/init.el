@@ -1,5 +1,4 @@
 (package-initialize)
-
 (add-to-list 'load-path "~/.emacs.d/custom")
 
 ;; fak u
@@ -22,7 +21,8 @@
 ;;(load "ivy-youtube.el")
 
 ;; ui
-(load "~/.emacs.d/custom/modeline-custom-nogui.el")
+(load "~/.emacs.d/custom/modeline-custom-xres.el")
+(load-file "~/.emacs.d/themes/xres-theme.el")
 (load "ui.el")
 
 

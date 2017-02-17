@@ -15,7 +15,7 @@ autocenter_mode = "yes"
 display_bitrate = "yes"
 enable_window_title = "no"
 statusbar_visibility = "no"
-song_list_format = "{$3%a$9} {%n} {%t} {%b} {%l}"
+#song_list_format = "{$3%a$9} {%n} {%t} {%b} {%l}"
 
 # Progbar
 progressbar_look = "▀▀▀"

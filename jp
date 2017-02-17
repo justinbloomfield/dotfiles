@@ -299,6 +299,18 @@ partial alphanumeric_keys
 xkb_symbols "colemak" {
     include "jp(OADG109A)"
     name[Group1]= "Japanese (Colemak)";
+    key <AE01> { [ 1, exclam		] };
+    key <AE02> { [ 2, at            ] };
+    key <AE03> { [ 3, numbersign	] };
+    key <AE04> { [ 4, dollar		] };
+    key <AE05> { [ 5, percent		] };
+    key <AE06> { [ 6, asciicircum	] };
+    key <AE07> { [ 7, ampersand 	] };
+    key <AE08> { [ 8, asterisk		] };
+    key <AE09> { [ 9, parenleft	    ] };
+    key <AE10> { [ 0, parenright    ] };
+    key <AE11> { [ minus, underscore		] };
+    key <AE12> { [ equal, plus              ] };
 
     key <AD01> { [ q, Q         ] };
     key <AD02> { [ w, W         ] };
@@ -309,8 +321,8 @@ xkb_symbols "colemak" {
     key <AD07> { [ l, L         ] };
     key <AD08> { [ u, U         ] };
     key <AD09> { [ y, Y         ] };
-    key <AD10> { [ semicolon, plus ] };
-    key <AD11> { [ at, grave ] };
+    key <AD10> { [ apostrophe, quotedbl ] };
+    key <AD11> { [ asciitilde, grave ] };
 
     key <AC02> { [ r, R         ] };
     key <AC03> { [ s, S         ] };
@@ -321,8 +333,9 @@ xkb_symbols "colemak" {
     key <AC08> { [ e, E         ] };
     key <AC09> { [ i, I         ] };
     key <AC10> { [ o, O         ] };
-
+    key <AC11> { [ colon, semicolon ] };
     key <AB06> { [ k, K         ] };
+    key <AB11> { [ backslash, bar ] };
 };
 
 // EXTRAS:

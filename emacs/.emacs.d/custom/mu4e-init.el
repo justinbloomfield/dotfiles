@@ -7,7 +7,7 @@
   (if (eq system-type 'darwin)
     (setq mu4e-mu-binary "/usr/local/bin/mu"
           mu4e-get-mail-command "/usr/local/bin/offlineimap")
-    (setq mu4e-get-mail-command "offlineimap"))
+    (setq mu4e-get-mail-command "mbsync -V jbloo"))
   (add-to-list 'mu4e-view-actions
   '("ViewInBrowser" . mu4e-action-view-in-browser) t)
   (setq mu4e-maildir "~/var/mail/jbl")

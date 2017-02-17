@@ -12,7 +12,7 @@ alias ..='cd ..'
 alias d2pdf='swriter --convert-to pdf'
 alias p2pdf='simpress --convert-to pdf'
 alias nb='newsbeuter -C ~/.config/newsbeuter/config'
-alias rtv='BROWSER=$BROWSER EDITOR=$EDITOR rtv'
+alias rtv='BROWSER=$BROWSER EDITOR=$EDITOR rtv --enable-media'
 alias xsnow='xsnow -notrees -nosanta -norudolf'
 #alias startx='csc'
 alias suod='sudo' #becausei'mretarded
