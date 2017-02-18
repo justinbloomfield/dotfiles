@@ -10,7 +10,7 @@
   (emms-default-players)
   (setq emms-source-file-default-directory "/mnt/msc/Music/")
   (setq emms-info-functions '(emms-info-libtag))
-  (define-emms-simple-player flao '(file) "\\.flac$" "flao")
+  (define-emms-simple-player flao '(file) "\\.flac$" "flac")
   (add-to-list 'emms-player-list 'emms-player-flao)
   (define-emms-simple-player mpv '(file) "\\.mkv$" "mpv")
   (add-to-list 'emms-player-list 'emms-player-mpv)

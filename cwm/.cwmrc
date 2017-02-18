@@ -3,7 +3,7 @@
 # ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
 
 
-fontname "boxxy"
+fontname "tewi"
 
 # borderwidth
 borderwidth 2
@@ -13,19 +13,17 @@ bind CM-j unmap
 bind C-\/  unmap 
 
 # colors
-#color activeborder      '#0330e6'
-#color inactiveborder    '#000031'
-color activeborder	'#4a4a4c'
-color inactiveborder	'#070707'
-color font		        '#6767ff'
-color menubg		    '#000000'
-color menufg		    '#000091'
+color activeborder      '#7a7aff'
+color inactiveborder	'#000011'
+color font		        '#0000cc'
+color menubg		    '#020202'
+color menufg		    '#0330e6'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
 # autogroups
 autogroup 1 emacs, Emacs, emacs@$HOST
-autogroup 2 qutebrowser, surf, dillo
+autogroup 2 qutebrowser, surf, dillo, firefox
 autogroup 3 mpv, ffplay
 autogroup 7 gimp
 
@@ -99,7 +97,7 @@ bind 4MC-h   rcyclegroup
 bind 4-d     /home/poq/bin/rofilauncher
 bind 4-n     ssh
 bind 4-s     search
-bind 4-t     st
+bind 4-p     st
 bind 4S-v    dv	
 
 bind 4-v vmaximize

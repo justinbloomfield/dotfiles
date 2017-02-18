@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#VDIR=${1:-/home/j/usr/vid/}
-OUTPUT=${2:-/home/j/usr/vid/recording.webm}
+#VDIR=${1:-/home/poq/usr/vid/}
+OUTPUT=${2:-/home/poq/usr/vid/recording.webm}
 
 ffmpeg -hide_banner -loglevel panic -video_size 1920x1080 -framerate 30 -f x11grab  -i :0.0+0+0 ${OUTPUT}
