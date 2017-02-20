@@ -7,8 +7,14 @@
     (kill-buffer old)
     ))
 
+(defun ii-write-to-in ()
+  (evil-visual-line)
+  (append-to-file))
+   ;(evil-write 0,$ >> /home/var/irc/im.codemonkey.be/zekekromar/in))
+
 (defun buf-name ()
   (message "%s" major-mode))
+
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 

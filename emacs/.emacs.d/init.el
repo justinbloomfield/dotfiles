@@ -14,7 +14,7 @@
 (load "circe-init.el")
 (load "ivy-init.el")
 (load "mu4e-init.el")
-;;(load "auctex-init.el")
+(load "auctex-init.el")
 (load "org-init.el")
 (load "emms-init.el")
 ;;(load "exwm-init.el")
