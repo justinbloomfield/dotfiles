@@ -39,4 +39,3 @@
 ;; lang specific shit
 (load "hask.el")
 
-

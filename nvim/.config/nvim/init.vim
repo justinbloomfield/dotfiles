@@ -42,8 +42,8 @@ aug CSV_Editing
 	au BufRead,BufWritePost *.csv :%ArrangeColumn
 	au BufWritePre *.csv :%UnArrangeColumn
 aug end
-"map u1 :.w >> \/home/poq/var/irc/irc.unix.chat/\#unix/in<cr>dd
-map <leader>s1 :.w >> \/home/poq/var/irc/im.codemonkey.be/zekekromar/in<cr>dd
+map <leader>u1 :.w >> \/home/poq/var/irc/irc.unix.chat/\#unix/in<cr>dd
+"map <leader>s1 :.w >> \/home/poq/var/irc/im.codemonkey.be/zekekromar/in<cr>dd
 "map <leader>bb :.w >> \/home/poq/var/irc/im.codemonkey.be/&\bitlbee/in<cr>dd
 "map w1 :.w >> \$IRC_DIR\irc.unix.net\\#unix\in<cr>dd
 

@@ -1,3 +1,4 @@
+
 for conf (~/.zsh.d/*.zsh) . $conf
 unset conf
 source ~/etc/info

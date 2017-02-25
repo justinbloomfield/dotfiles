@@ -7,16 +7,22 @@
     (kill-buffer old)
     ))
 
-(defun ii-write-to-in ()
-  (evil-visual-line)
-  (append-to-file))
-   ;(evil-write 0,$ >> /home/var/irc/im.codemonkey.be/zekekromar/in))
 
 (defun buf-name ()
   (message "%s" major-mode))
 
 
+(defun ii-write ()
+  (interactive
+   (let ((filename (read-file-name "File: " nil nil)))))
+;;  (append-to-file (region-beginning) (region-end) "~/var/irc/irc.unix.chat/#unix/in")
+  (append-to-file (region-beginning) (region-end) filename)
+  (kill-region (region-beginning) (region-end))
+  (newline))
+
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c u") 'ii-write)
 
 ;; evil config
 (defun  my-evil-config ()
@@ -175,7 +181,6 @@
     "x" 'clipboard-kill-region
     "u" 'counsel-unicode-char
     "V" 'counsel-describe-variable
-    "y" 'ivy-youtube
 
     ;; window management
     "h" 'evil-window-left

@@ -6,8 +6,7 @@ servers = (
     chatnet = "unixchat";
     port = "6697";
     use_ssl = "yes";
-    ssl_verify = "yes";
-    ssl_capath = "/etc/ssl/certs/";
+    ssl_capath = "/etc/ssl/cert.pem";
     autoconnect = "yes";
   },
   {
@@ -150,7 +149,6 @@ settings = {
   };
   "fe-common/core" = {
     theme = "allego.theme";
-    bell_beeps = "no";
     autolog_path = "/home/poq/var/logs/irc/$tag/$0.log";
     autolog = "yes";
   };
