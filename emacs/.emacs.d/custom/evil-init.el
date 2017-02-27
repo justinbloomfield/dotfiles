@@ -10,7 +10,9 @@
 (defun buf-name ()
   (message "%s" major-mode))
 
+
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-c n")   (lambda() (interactive) (find-file "~/.emacs.d/org/notes.org")))
 
 ;; evil config
 (defun  my-evil-config ()

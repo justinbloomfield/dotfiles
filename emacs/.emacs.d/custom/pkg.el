@@ -33,6 +33,9 @@
   '(progn (define-key eww-mode-map "f" 'eww-lnum-follow)
           (define-key eww-mode-map "F" 'eww-lnum-universal))))
 
+(use-package exec-path-from-shell
+  :ensure t)
+
 (use-package geiser
   :ensure t
   :config

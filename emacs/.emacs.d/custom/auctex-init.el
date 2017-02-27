@@ -52,4 +52,6 @@
   :ensure auctex
   :ensure cdlatex
   :config
-  (my-auctex-config))
+  ((setq exec-path (append exec-path '("/Library/TeX/texbin")))
+   (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
+  (my-auctex-config)))
