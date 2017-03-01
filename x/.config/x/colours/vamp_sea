@@ -1,25 +1,25 @@
-#define fg      #878787
-#define bg      #020202
+#define fg      #454545
+#define bg      #ccffcc
 #define lbg     #242424
-#define cc      #00a600
-#define c0      #020202
-#define c1      #7aff7a
-#define c2      #45ff45
-#define c3      #30e630
-#define c4      #0ff20f
-#define c5      #00cc00
+#define cc      #20b2aa
+#define c0      #ccffcc
+#define c1      #03c03c
+#define c2      #009e60
+#define c3      #00a550
+#define c4      #20b2aa
+#define c5      #007755
 #define c6      #009100
-#define c7      #434343
-#define c8      #002000
-#define c9      #7aff7a
-#define c10     #45ff45
-#define c11     #30e630
-#define c12     #0ff20f
-#define c13     #00cc00
+#define c7      #014421
+#define c8      #002002
+#define c9      #03c03c
+#define c10     #009e60
+#define c11     #00a550
+#define c12     #20b2aa
+#define c13     #007755
 #define c14     #009100
-#define c15     #434343
-#define mla	    #003300
-#define mli	    #001100
+#define c15     #014421
+#define mla	    #004422
+#define mli	    #002211
 
 *background:    bg
 *foreground:    fg

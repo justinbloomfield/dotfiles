@@ -1,0 +1,18 @@
+#!/bin/sh
+# requires wmutils-core and disputils
+
+. panelsrc
+MON="$(pfd)"
+
+ROOT_WIDTH="$(dattr w ${MON})"
+BAR_WIDTH="$(( $ROOT_WIDTH ))"
+XOFFSET="$(($ROOT_WIDTH - $BAR_WIDTH - 25 ))" 
+FONT="$PANEL_FONT"
+OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+${XOFFSET}+0 LVDS-0"
+while true; do
+	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
+	sleep 1 
+done | lemonbar $OPTS
+
+
+

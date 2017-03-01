@@ -1,0 +1,6 @@
+#!/bin/sh
+dtach -c /tmp/nx ii -i $IRC_DIR -s irc.unix.chat -p 6697 -e ssl -n poq -k $IRC_PASS &
+sleep 3
+echo "/j NickServ identify $IRC_PASS" > $IRC_DIR/irc.unix.chat/in
+sleep 3
+echo "/j #unix" > $IRC_DIR/irc.unix.chat/in

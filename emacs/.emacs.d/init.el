@@ -10,18 +10,18 @@
 ;; pkgs
 (load "pkg.el")
 (load "evil-init.el")
-(load "erc-init.el")
+;;(load "erc-init.el")
 (load "circe-init.el")
 (load "ivy-init.el")
-(load "mu4e-init.el")
-(load "auctex-init.el")
+;;(load "mu4e-init.el")
+;(load "auctex-init.el")
 (load "org-init.el")
-(load "emms-init.el")
+;;(load "emms-init.el")
 ;;(load "exwm-init.el")
 ;;(load "ivy-youtube.el")
 
 ;; ui
-(load "~/.emacs.d/custom/modeline-custom-xres.el")
+(load "~/.emacs.d/custom/modeline-custom-nogui.el")
 (load-file "~/.emacs.d/themes/xres-theme.el")
 (load "ui.el")
 
