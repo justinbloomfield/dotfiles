@@ -7,8 +7,12 @@ export GTK_IM_MODULE=uim
 export QT_IM_MODULE=uim
 export XMODIFIERS=@im=uim
 uim-xim &
-dwmclock &
+#dwmclock &
 #sxhkd -c ~/.config/sxhkd/sxhkdrc_wc -m -1 &
 xsetroot -solid $(xrq color8) &
+ntfyd &
 #xrandr --output DP-2 --mode 1920x1080 --rate 144 &
-exec dwm  
+st &
+exec xmonad  
+killall ntfyd
+#killall dwmclock

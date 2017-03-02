@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/vamp_sea"
+#include "/home/poq/.config/x/colours/vamp_sea_dark"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:leggie:pixelsize=12

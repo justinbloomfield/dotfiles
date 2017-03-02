@@ -6,7 +6,9 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Gaps
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.BinarySpacePartition
+import XMonad.Layout.IndependentScreens
 import qualified Data.Map as M
+import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
 import XMonad.Actions.UpdatePointer
 import XMonad.Actions.Navigation2D
@@ -14,20 +16,32 @@ import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.EZConfig
 import XMonad.Actions.FloatKeys
 import Graphics.X11.ExtraTypes.XF86
+import System.Environment
 import System.IO
 
 myManageHook = composeAll
         [ className =? "Xmessage" --> doFloat
         , className =? "virt-manager" --> doFloat
+	, className =? "Steam" --> doFloat
 	, manageDocks
 	]
 
 myLogHook = dynamicLog 
 	>> updatePointer (0.99,0.99) (0,0)
 
-myLayout = avoidStruts ( spacing 5 (gaps [(U,10), (D,10), (L,10), (R,10)] emptyBSP) ||| noBorders (fullscreenFull Full))
 
-main = xmonad $ myConfig 
+myLayout = avoidStruts $ spacing 5  (gaps [(U,10), (D,10), (L,10), (R,10)] (Tall nmaster delta ratio)) ||| noBorders (fullscreenFull Full)
+	where
+	nmaster = 1
+	ratio = 1/2
+	delta = 2/100
+	 
+
+main = do
+	unsetEnv "GHC_PACKAGE_PATH"
+	getEnv "PREVPATH" >>= setEnv "PATH"
+	unsetEnv "PREVPATH"
+	xmonad $ myConfig 
 
 myConfig = def
     { borderWidth = 3
@@ -41,23 +55,54 @@ myConfig = def
     , logHook = myLogHook <+> logHook def
     } `additionalKeysP` concat [ myCommandKeys
                                , myProgKeys
-                               , myFloatKeys
-                	       , myNav2DKeys
-			       , myBSPKeys 
+	               	       , myNav2DKeys
                                , myMediaKeys
 	                       ]
+--      `additionalKeys` concat [ myISKeys]
     
 myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
 	 , ("M-z", sendMessage MirrorExpand)
+	 , ("M-i", sendMessage (IncMasterN 1))
+	 , ("M-d", sendMessage (IncMasterN (-1)))
 	 ]
 
 myProgKeys = [
-               ("M-d", spawn myLauncher)
+               ("M-p", spawn myLauncher)
              , ("M-b", spawn myBrowser)
-             , ("M-p", spawn myTerminal)
+             , ("M-c t", spawn myTime)
+             , ("M-t", spawn myTerminal)
               ]
 
-myFloatKeys = [
+
+myNav2DKeys = [
+              ("M-,", screenGo R True)
+            , ("M-.", screenGo L True)
+            , ("M-M1-,", screenSwap R False)
+            , ("M-M1-.", screenSwap L False)
+            ]
+
+myMediaKeys = [
+  ("<XF86AudioLowerVolume>", spawn "amixer sset Master 1%+ unmute"),
+  ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 1%- unmute"),
+  ("<XF86AudioMute>", spawn "amixer sset Master toggle")
+              ]
+
+--myISKeys conf = let m = modMask conf in M.fromList $
+--    {- lots of other keybindings -}
+--    [((m .|. modm, k), windows $ f i)
+--        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+--        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]] 
+
+myLauncher = "rofilauncher"
+myTerminal = "st"
+myBrowser = "firefox"
+myWorkspaces = withScreens 2 ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
+myTime = "popup $(date)"
+
+myFocusedColour = "#ffffff"
+myNormalColour = "#552277"
+
+--myFloatKeys = [
 --    ("M-C-j", withFocused (keysMoveWindow (0,10)))
 --  , ("M-C-k", withFocused (keysMoveWindow (0,-10)))
 --  , ("M-C-h", withFocused (keysMoveWindow (-10,0)))
@@ -66,49 +111,29 @@ myFloatKeys = [
 --  , ("M-M1-k", withFocused (keysResizeWindow (0,10) (1,1)))
 --  , ("M-M1-h", withFocused (keysResizeWindow (10,0) (1,1)))
 --  , ("M-M1-l", withFocused (keysResizeWindow (-10,0) (1,1)))
-              ]
-
-myBSPKeys = [
-              ("M-M1-s", sendMessage $ Swap)
-            , ("M-M1-r", sendMessage $ Rotate)
-            , ("M-M1-h", sendMessage $ ExpandTowards L)
-            , ("M-M1-l", sendMessage $ ShrinkFrom L)
-            , ("M-M1-j", sendMessage $ ShrinkFrom U)
-            , ("M-M1-k", sendMessage $ ExpandTowards U)
-            , ("M-C-h", sendMessage $ ShrinkFrom R)
-            , ("M-C-l", sendMessage $ ExpandTowards R)
-            , ("M-C-k", sendMessage $ ShrinkFrom D)
-            , ("M-C-j", sendMessage $ ExpandTowards D)]
-
-myNav2DKeys = [
-              ("M-C-p", switchLayer)
-            -- Directional navigation
-            , ("M-h", windowGo L True)
-            , ("M-j", windowGo D True)
-            , ("M-k", windowGo U True)
-            , ("M-l", windowGo R True)
-            -- Swapping windows
-            , ("M-H", windowSwap L True)
-            , ("M-J", windowSwap D True)
-            , ("M-K", windowSwap U True)
-            , ("M-L", windowSwap R True)
-            -- Directional screen navigation
-            , ("M-,", screenGo R True)
-            , ("M-.", screenGo L True)
-            , ("M-M1-,", screenSwap R False)
-            , ("M-M1-.", screenSwap L False)
-            ]
-
-myMediaKeys = [
-  ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume 0 -2%"),
-  ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume 0 +2%"),
-  ("<XF86AudioMute>", spawn "pactl set-sink-mute 0 toggle")
-              ]
-
-myLauncher = "rofilauncher"
-myTerminal = "st"
-myBrowser = "surf"
-myWorkspaces = ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
-
-myFocusedColour = "#7a7aff"
-myNormalColour = "#000011"
+--              ]
+--
+--myBSPKeys = [
+--              ("M-M1-s", sendMessage $ Swap)
+--            , ("M-M1-r", sendMessage $ Rotate)
+--            , ("M-M1-h", sendMessage $ ExpandTowards L)
+--            , ("M-M1-l", sendMessage $ ShrinkFrom L)
+--            , ("M-M1-j", sendMessage $ ShrinkFrom U)
+--            , ("M-M1-k", sendMessage $ ExpandTowards U)
+--            , ("M-C-h", sendMessage $ ShrinkFrom R)
+--            , ("M-C-l", sendMessage $ ExpandTowards R)
+--            , ("M-C-k", sendMessage $ ShrinkFrom D)
+--            , ("M-C-j", sendMessage $ ExpandTowards D)]
+-- Nav2D shit
+--              ("M-C-p", switchLayer)
+--            -- Directional navigation
+--            , ("M-h", windowGo L True)
+--            , ("M-j", windowGo D True)
+--            , ("M-k", windowGo U True)
+--            , ("M-l", windowGo R True)
+--            -- Swapping windows
+--            , ("M-H", windowSwap L True)
+--            , ("M-J", windowSwap D True)
+--            , ("M-K", windowSwap U True)
+--            , ("M-L", windowSwap R True)
+--            -- Directional screen navigation
