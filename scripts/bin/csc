@@ -6,4 +6,4 @@ sed -i "1i CSC=\"$cls\"" ~/.zsh.d/env.zsh
 . ~/.zsh.d/env.zsh 
 sed -i 1d ~/.Xresources 
 sed -i "1i #include \"/home/poq/.config/x/colours/$CSC\"" ~/.Xresources
-/usr/bin/startx
+/usr/bin/urxvtartx

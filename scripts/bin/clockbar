@@ -3,15 +3,22 @@
 
 . panelsrc
 
-ROOT_ID="$(lsw -r)"
-ROOT_WIDTH="$(wattr w ${ROOT_ID})"
-BAR_WIDTH="300" #"$(( $ROOT_WIDTH / 4 ))"
-XOFFSET="$(($ROOT_WIDTH - $BAR_WIDTH - 25 ))" 
-FONT="$PANEL_FONT"
-OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x25+${XOFFSET}+5 LVDS-0"
 while true; do
-	echo "%{c}$(date "+%H:%M:%S, %A, %B %d")"
-	sleep 1 
+	Monitors=$(lsd)
+	tmp=0                                                                       
+#	for m in $(echo "$Monitors"); do                                        
+#    		barout+="%{S${tmp}}%{c}$(date "+%H:%M:%S, %A, %B %d")"
+#    		let tmp=$tmp+1                                                          
+	MON=$(pfd)
+	echo $MON >> ~/data
+	ROOT_WIDTH="$(dattr w ${MON})"
+	echo $ROOT_WIDTH >> ~/data
+	BAR_WIDTH="$(( $ROOT_WIDTH ))"
+	#XOFFSET="$(($ROOT_WIDTH - $BAR_WIDTH - 25 ))" 
+	FONT="$PANEL_FONT"
+	OPTS="$PANEL_OPTS -g ${BAR_WIDTH}x15+0+0"
+	echo "%{c}$(date "+%H:%M")"
+	sleep 1
 done | lemonbar $OPTS
 
 

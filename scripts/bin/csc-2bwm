@@ -24,7 +24,7 @@ H
 s/#.*$/$ccll/
 w
 EOF
-pkill -USR1 st 2>/dev/null 
-cd ~/src/pkg/2bwm/ && sudo make PREFIX=/usr install
+pkill -USR1 urxvt 2>/dev/null 
+cd ~/src/pkg/2bwm/ && sudo make PREFIX=/usr inurxvtall
 xsetroot -solid $bg
 

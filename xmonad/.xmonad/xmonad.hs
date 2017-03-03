@@ -70,8 +70,8 @@ myProgKeys = [
                ("M-p", spawn myLauncher)
              , ("M-b", spawn myBrowser)
              , ("M-c t", spawn myTime)
-             , ("M-t", spawn myTerminal)
               ]
+
 
 
 myNav2DKeys = [
@@ -87,20 +87,14 @@ myMediaKeys = [
   ("<XF86AudioMute>", spawn "amixer sset Master toggle")
               ]
 
---myISKeys conf = let m = modMask conf in M.fromList $
---    {- lots of other keybindings -}
---    [((m .|. modm, k), windows $ f i)
---        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
---        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]] 
-
 myLauncher = "rofilauncher"
-myTerminal = "st"
+myTerminal = "urxvt"
 myBrowser = "firefox"
 myWorkspaces = withScreens 2 ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
-myTime = "popup $(date)"
+myTime = "xmessage $(date)"
 
-myFocusedColour = "#ffffff"
-myNormalColour = "#552277"
+myFocusedColour = "#03c03c"
+myNormalColour = "#002211"
 
 --myFloatKeys = [
 --    ("M-C-j", withFocused (keysMoveWindow (0,10)))

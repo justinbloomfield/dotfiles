@@ -4,6 +4,7 @@
                                "~/var/org/home.org"
                                "~/var/org/adulting.org"))
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+  (add-hook 'org-mode-hook 'turn-on-flyspell)
   (setq org-directory "~/var/org")
   (setq org-mobile-directory "~/var/org/mblo")
   (setq org-mobile-inbox-for-pull "~/var/org/mblo/mbpll")

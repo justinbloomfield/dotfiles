@@ -56,7 +56,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(eww-form-text ((t (:foreground "blue2" :underline t))))
+ '(eww-form-text ((t (:underline t))))
  '(message-header-name ((t (:foreground "dodger blue"))))
  '(mingus-song-file-face ((t (:foreground "lightgreen" :weight normal))))
  '(w3m-bold ((t (:underline t :weight normal)))))

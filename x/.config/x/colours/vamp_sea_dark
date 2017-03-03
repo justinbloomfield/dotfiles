@@ -1,0 +1,44 @@
+#define fg      #aabbaa
+#define bg      #050505
+#define lbg     #242424
+#define cc      #20b2aa
+#define c0      #050505
+#define c1      #03c03c
+#define c2      #009e60
+#define c3      #00a550
+#define c4      #20b2aa
+#define c5      #007755
+#define c6      #009100
+#define c7      #014421
+#define c8      #ccffcc
+#define c9      #03c03c
+#define c10     #009e60
+#define c11     #00a550
+#define c12     #20b2aa
+#define c13     #007755
+#define c14     #009100
+#define c15     #014421
+#define mla	    #004422
+#define mli	    #002211
+
+*background:    bg
+*foreground:    fg
+*cursorColor:   cc
+*color0:        c0
+*color1:        c1
+*color2:        c2
+*color3:        c3
+*color4:        c4
+*color5:        c5
+*color6:        c6
+*color7:        c7
+*color8:        c8
+*color9:        c9
+*color10:       c10
+*color11:       c11
+*color12:       c12
+*color13:       c13
+*color14:       c14
+*color15:       c15
+*color16:	mla
+*color17:	mli

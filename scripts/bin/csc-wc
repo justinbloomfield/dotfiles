@@ -20,7 +20,7 @@ s/0x.*$/0x$fccl/
 s/0x.*$/0x$ufccl/
 w
 EOF
-pkill -USR1 st 2>/dev/null 
+pkill -USR1 urxvt 2>/dev/null 
 xsetroot -solid $bgcl
 waitron wm_config color_focused 0x$fccl
 waitron wm_config color_unfocused 0x$ufccl

@@ -11,12 +11,11 @@
 (defun buf-name ()
   (message "%s" major-mode))
 
-
 (defun ii-write ()
-  (interactive
-   (let ((filename (read-file-name "File: " nil nil)))))
-;;  (append-to-file (region-beginning) (region-end) "~/var/irc/irc.unix.chat/#unix/in")
-  (append-to-file (region-beginning) (region-end) filename)
+  (interactive)
+;   (let ((filename (read-file-name "File: " nil nil)))))
+  (append-to-file (region-beginning) (region-end) "~/var/irc/irc.unix.chat/#unix/in")
+;  (append-to-file (region-beginning) (region-end) filename)
   (kill-region (region-beginning) (region-end))
   (newline))
 

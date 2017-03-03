@@ -1,5 +1,6 @@
 EDITOR="emacs"
 PAGER="less"
+LANG=en_AU.UTF-8
 LC_CTYPE="en_AU.UTF-8"
 NTFY_FIFO_PATH="/home/$(whoami)/var/ntfy/ntfy.fifo"
 SRC_DIR="/home/$(whoami)/src/pkg"
