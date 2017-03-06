@@ -11,7 +11,7 @@ URxvt*internalBorder:                20
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
 
-rofi.font:			    gohufont 9
+rofi.font:			    tewi 9
 rofi.lines: 		                 6
 rofi.width:		                 10
 rofi.borderwidth:	                 3

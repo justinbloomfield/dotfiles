@@ -1,133 +1,116 @@
 import XMonad
+
 import XMonad.Hooks.DynamicLog
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Spacing
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Gaps
-import XMonad.Layout.Fullscreen
-import XMonad.Layout.BinarySpacePartition
-import XMonad.Layout.IndependentScreens
-import qualified Data.Map as M
-import qualified XMonad.StackSet as W
 import XMonad.Hooks.ManageDocks
-import XMonad.Actions.UpdatePointer
-import XMonad.Actions.Navigation2D
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Fullscreen
+import XMonad.Layout.NoBorders
+import XMonad.Layout.Spacing
+import XMonad.Layout.Gaps
 import XMonad.Util.Run(spawnPipe)
-import XMonad.Util.EZConfig
-import XMonad.Actions.FloatKeys
+import XMonad.Util.Scratchpad
 import Graphics.X11.ExtraTypes.XF86
-import System.Environment
+import Data.Default
+import Data.Monoid
 import System.IO
 
-myManageHook = composeAll
-        [ className =? "Xmessage" --> doFloat
-        , className =? "virt-manager" --> doFloat
-	, className =? "Steam" --> doFloat
-	, manageDocks
-	]
+import qualified XMonad.StackSet as W
+import qualified Data.Map as M
 
-myLogHook = dynamicLog 
-	>> updatePointer (0.99,0.99) (0,0)
+myTerminal :: [Char]
+myBorderWidth :: Dimension
+myNormalBorderColor :: [Char]
+myFocusedBorderColor :: [Char]
+myXmobarHlColor :: [Char]
+myXmobarTitleColor :: [Char]
+myFocusFollowsMouse :: Bool
+myModMask :: KeyMask
+myTerminal = "st"
+myBorderWidth = 4
+myNormalBorderColor = "#002211"
+myFocusedBorderColor = "#03c03c"
+myXmobarHlColor = "#03c03c"
+myXmobarUrgentColor = "#c79595"
+myXmobarTitleColor = "#ccffcc"
+myFocusFollowsMouse = True
+myModMask = mod4Mask
 
+manageScratchPad :: ManageHook
+manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
+  where
+    h = 0.1
+    w = 1
+    t = 1 - h
+    l = 1 - w
 
-myLayout = avoidStruts $ spacing 5  (gaps [(U,10), (D,10), (L,10), (R,10)] (Tall nmaster delta ratio)) ||| noBorders (fullscreenFull Full)
-	where
-	nmaster = 1
-	ratio = 1/2
-	delta = 2/100
-	 
+myManageHook :: ManageHook
+myManageHook =
+  manageDocks <+>
+  manageScratchPad
 
+myLogHook :: Handle -> X ()
+myLogHook xmproc =
+  dynamicLogWithPP xmobarPP {
+    ppCurrent = xmobarColor myXmobarHlColor ""
+  , ppUrgent = xmobarColor myXmobarUrgentColor ""
+  , ppHidden = xmobarColor myXmobarTitleColor "" . (\ws -> if ws == "NSP" then "" else ws)
+  , ppOutput = hPutStrLn xmproc
+  , ppSep = xmobarColor myXmobarHlColor "" " ∴ ", ppTitle = xmobarColor myXmobarTitleColor "".shorten 50
+  }
+
+myLayout =
+  avoidStruts $
+  (spacing 5 $
+  gaps [(U, 20)] (
+  tiled)) ||| noBorders (fullscreenFull Full)
+  where
+    tiled = ResizableTall nmaster delta ratio slaves
+    nmaster = 1
+    ratio = 1/2
+    delta = 3/100
+    slaves = []
+
+myHandleEventHook :: Event -> X All
+myHandleEventHook =
+  handleEventHook def
+
+scratchpad :: X ()
+scratchpad = scratchpadSpawnActionTerminal "urxvt"
+newKeys XConfig {XMonad.modMask = modMask} =
+  [ ((modMask, xK_u), scratchpad)
+  , ((modMask, xK_a), sendMessage MirrorExpand)
+  , ((modMask, xK_z), sendMessage MirrorShrink)
+  , ((modMask, xK_p), spawn "rofilauncher")
+  , ((modMask, xK_q), recompile True >> restart "xmonad" True)
+  , ((modMask, xK_i), sendMessage (IncMasterN 1))
+  , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
+  , ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 1%+ unmute")
+  , ((0, xF86XK_AudioLowerVolume), spawn "amixer sset Master 1%- unmute")
+  , ((0, xF86XK_AudioMute), spawn "amixer sset Master toggle")
+  , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
+  , ((0, xF86XK_AudioNext), spawn "mpc next")
+  , ((0, xF86XK_AudioPrev), spawn "mpc prev")
+  , ((0, xK_Print), spawn "scrot")
+  , ((shiftMask, xK_Print), spawn "scrot -s")
+  , ((0, xK_End), spawn "slock")
+  ]
+myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
+myKeys x = M.union (M.fromList (newKeys x)) (keys def x)
+
+main :: IO ()
 main = do
-	unsetEnv "GHC_PACKAGE_PATH"
-	getEnv "PREVPATH" >>= setEnv "PATH"
-	unsetEnv "PREVPATH"
-	xmonad $ myConfig 
-
-myConfig = def
-    { borderWidth = 3
-    , modMask = mod4Mask -- winkey for true swag
-    , workspaces = myWorkspaces
+  xmproc <- spawnPipe "xmobar /home/poq/.xmonad/xmobar.conf"
+  xmonad $ def
+    { borderWidth = myBorderWidth
     , terminal = myTerminal
-    , focusedBorderColor = myFocusedColour
-    , normalBorderColor = myNormalColour
-    , manageHook = myManageHook <+> manageHook def
-    , layoutHook = myLayout 
-    , logHook = myLogHook <+> logHook def
-    } `additionalKeysP` concat [ myCommandKeys
-                               , myProgKeys
-	               	       , myNav2DKeys
-                               , myMediaKeys
-	                       ]
---      `additionalKeys` concat [ myISKeys]
-    
-myCommandKeys = [ ("M-a", sendMessage MirrorShrink)
-	 , ("M-z", sendMessage MirrorExpand)
-	 , ("M-i", sendMessage (IncMasterN 1))
-	 , ("M-d", sendMessage (IncMasterN (-1)))
-	 ]
+    , normalBorderColor = myNormalBorderColor
+    , focusedBorderColor = myFocusedBorderColor
+    , focusFollowsMouse = myFocusFollowsMouse
+    , manageHook = myManageHook
+    , layoutHook = myLayout
+    , logHook = myLogHook xmproc
+    , handleEventHook = myHandleEventHook
+    , modMask = myModMask
+    , keys = myKeys
+    }
 
-myProgKeys = [
-               ("M-p", spawn myLauncher)
-             , ("M-b", spawn myBrowser)
-             , ("M-c t", spawn myTime)
-              ]
-
-
-
-myNav2DKeys = [
-              ("M-,", screenGo R True)
-            , ("M-.", screenGo L True)
-            , ("M-M1-,", screenSwap R False)
-            , ("M-M1-.", screenSwap L False)
-            ]
-
-myMediaKeys = [
-  ("<XF86AudioLowerVolume>", spawn "amixer sset Master 1%+ unmute"),
-  ("<XF86AudioRaiseVolume>", spawn "amixer sset Master 1%- unmute"),
-  ("<XF86AudioMute>", spawn "amixer sset Master toggle")
-              ]
-
-myLauncher = "rofilauncher"
-myTerminal = "urxvt"
-myBrowser = "firefox"
-myWorkspaces = withScreens 2 ["1:brws", "2:dev", "3:virt", "4", "5", "6", "7", "8", "9"] 
-myTime = "xmessage $(date)"
-
-myFocusedColour = "#03c03c"
-myNormalColour = "#002211"
-
---myFloatKeys = [
---    ("M-C-j", withFocused (keysMoveWindow (0,10)))
---  , ("M-C-k", withFocused (keysMoveWindow (0,-10)))
---  , ("M-C-h", withFocused (keysMoveWindow (-10,0)))
---  , ("M-C-l", withFocused (keysMoveWindow (10,0)))
---  , ("M-M1-j", withFocused (keysResizeWindow (0,-10) (1,1)))
---  , ("M-M1-k", withFocused (keysResizeWindow (0,10) (1,1)))
---  , ("M-M1-h", withFocused (keysResizeWindow (10,0) (1,1)))
---  , ("M-M1-l", withFocused (keysResizeWindow (-10,0) (1,1)))
---              ]
---
---myBSPKeys = [
---              ("M-M1-s", sendMessage $ Swap)
---            , ("M-M1-r", sendMessage $ Rotate)
---            , ("M-M1-h", sendMessage $ ExpandTowards L)
---            , ("M-M1-l", sendMessage $ ShrinkFrom L)
---            , ("M-M1-j", sendMessage $ ShrinkFrom U)
---            , ("M-M1-k", sendMessage $ ExpandTowards U)
---            , ("M-C-h", sendMessage $ ShrinkFrom R)
---            , ("M-C-l", sendMessage $ ExpandTowards R)
---            , ("M-C-k", sendMessage $ ShrinkFrom D)
---            , ("M-C-j", sendMessage $ ExpandTowards D)]
--- Nav2D shit
---              ("M-C-p", switchLayer)
---            -- Directional navigation
---            , ("M-h", windowGo L True)
---            , ("M-j", windowGo D True)
---            , ("M-k", windowGo U True)
---            , ("M-l", windowGo R True)
---            -- Swapping windows
---            , ("M-H", windowSwap L True)
---            , ("M-J", windowSwap D True)
---            , ("M-K", windowSwap U True)
---            , ("M-L", windowSwap R True)
---            -- Directional screen navigation

@@ -8,7 +8,7 @@
   (require 'emms-player-mpd)
   (emms-all)
   (emms-default-players)
-  (setq emms-source-file-default-directory "/mnt/exthdd/Music/")
+  (setq emms-source-file-default-directory "/mnt/msc/Music/")
   (setq emms-info-functions '(emms-info-libtag))
   (define-emms-simple-player flao '(file) "\\.flac$" "flac")
   (add-to-list 'emms-player-list 'emms-player-flao)
@@ -31,7 +31,7 @@
   (setq emms-player-mpd-server-port "6600")
   (add-to-list 'emms-info-functions 'emms-info-mpd)
   (add-to-list 'emms-player-list 'emms-player-mpd)
-  (setq emms-player-mpd-music-directory "/mnt/exthdd/Music/")
+  (setq emms-player-mpd-music-directory "/mnt/msc/Music/")
   (emms-player-mpd-connect)
   )
 

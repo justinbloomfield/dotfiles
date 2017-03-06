@@ -43,15 +43,6 @@
   (if (eq system-type 'darwin)
       (setq geiser-chibi-binary "/usr/local/Cellar/chibi-scheme/0.7.3/bin/chibi-scheme")))
 
-;; it's out of order and it hurts papa
-(use-package intero
-  :ensure t)
-
-(use-package haskell-mode
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
-
 
 (use-package lua-mode
   :ensure t

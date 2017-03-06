@@ -13,12 +13,12 @@ bgcl=$(xrq color5)
 ufccl=$(xrq color17)
 ed -s ~/.xmonad/xmonad.hs << EOF
 H
-/myFocusedColour\ =
-s/#.*$/$fccl\"/
-/myNormalColour\ =
+/myNormalBorderColour\ =
 s/#.*$/$ufccl\"/
+/myFocusedBorderColour\ =
+s/#.*$/$fccl\"/
 w
 EOF
-pkill -USR1 urxvt 2>/dev/null 
+pkill -USR1 st 2>/dev/null 
 xsetroot -solid $bgcl
 xmonad --recompile 
