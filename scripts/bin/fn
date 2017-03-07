@@ -1,0 +1,2 @@
+#!/bin/sh
+ii -i $IRC_DIR -s irc.freenode.net -n piecesofquiet -k $IRC_PASS 

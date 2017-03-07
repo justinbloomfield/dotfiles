@@ -12,6 +12,9 @@
 ;;(use-package calist
 ;;  :ensure t)
 
+;;(use-package cdlatex
+;;  :ensure t)
+
 (use-package cl
   :ensure t)
 
@@ -43,15 +46,6 @@
   (if (eq system-type 'darwin)
       (setq geiser-chibi-binary "/usr/local/Cellar/chibi-scheme/0.7.3/bin/chibi-scheme")))
 
-;; it's out of order and it hurts papa
-(use-package intero
-  :ensure t)
-
-(use-package haskell-mode
-  :ensure t
-  :config
-  (add-hook 'haskell-mode-hook 'intero-mode))
-
 
 (use-package lua-mode
   :ensure t
@@ -71,21 +65,22 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
 
-;(use-package sauron
-;  :ensure t)
-
-(use-package smooth-scrolling
-  :ensure t
-  :config
-  (setq smooth-scroll-margin 3))
-
+;;(use-package sauron
+;;  :ensure t)
+;
+;(use-package smooth-scrolling
+;  :ensure t
+;  :config
+;  (setq smooth-scroll-margin 3))
+;
+;
 (use-package tramp
   :ensure t)
-
-(use-package win-switch
-  :ensure t)
-
+;
+;(use-package win-switch
+;  :ensure t)
+;
 (use-package w3m-load
   :config
-;;  (require 'mime-w3m)
+;;;  (require 'mime-w3m)
   (require 'w3m-load))

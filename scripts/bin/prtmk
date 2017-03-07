@@ -7,7 +7,7 @@ PKGFILE=$HOME/etc/templates/Pkgfile
 PORTDIR=$CHOME/ports/crux
 EDITOR=${EDITOR:-vi}
 
-daddy="piecesofquiet < jbloomfield at live dot com>"
+daddy="poq <jbloomfield at live dot com>"
 
 echo_color () {
     tput bold

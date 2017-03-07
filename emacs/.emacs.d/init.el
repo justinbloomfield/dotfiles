@@ -13,7 +13,7 @@
 ;; pkgs
 (load "pkg.el")
 (load "evil-init.el")
-(load "erc-init.el")
+;;(load "erc-init.el")
 (load "circe-init.el")
 (load "ivy-init.el")
 (load "mu4e-init.el")
@@ -21,7 +21,6 @@
 (load "org-init.el")
 ;(load "emms-init.el")
 ;;(load "exwm-init.el")
-;;(load "ivy-youtube.el")
 
 ;; ui
 (load "~/.emacs.d/custom/modeline-custom-nogui.el")
@@ -41,5 +40,4 @@
 
 ;; lang specific shit
 (load "hask.el")
-
 

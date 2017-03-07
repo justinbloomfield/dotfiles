@@ -9,14 +9,14 @@ sed -i 1d ~/.Xresources
 sed -i "1i #include \"/home/poq/.config/x/colours/$cls\"" ~/.Xresources
 xrdb ~/.Xresources
 fccl=$(xrq color1)
-bgcl=$(xrq color8)
+bgcl=$(xrq color5)
 ufccl=$(xrq color17)
 ed -s ~/.xmonad/xmonad.hs << EOF
 H
-/myFocusedColour\ =
-s/#.*$/$fccl\"/
-/myNormalColour\ =
+/myNormalBorderColour\ =
 s/#.*$/$ufccl\"/
+/myFocusedBorderColour\ =
+s/#.*$/$fccl\"/
 w
 EOF
 pkill -USR1 st 2>/dev/null 

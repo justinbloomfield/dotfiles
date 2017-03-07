@@ -1,4 +1,4 @@
-#include "/Users/j/.config/x/colours/balci"
+#include "/home/poq/.config/x/colours/vamp_sea_dark"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:leggie:pixelsize=12
@@ -11,7 +11,7 @@ URxvt*internalBorder:                20
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
 
-rofi.font:			    yuki 8
+rofi.font:			    tewi 9
 rofi.lines: 		                 6
 rofi.width:		                 10
 rofi.borderwidth:	                 3

@@ -1,11 +1,12 @@
 (defun my-org-config ()
   (setq org-log-done 'time)
-  (setq org-agenda-files (list "~/.emacs.d/org/notes.org"))
+  (setq org-agenda-files (list "~/var/org/notes.org"))
   (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-  (setq org-directory "~/.emacs.d/org")
+  (add-hook 'org-mode-hook 'turn-on-flyspell)
+  (setq org-directory "~/var/org")
   (setq org-hide-emphasis-markers t)
   (setq org-pretty-entities t)
-  (setq org-default-notes-file "~/.emacs.d/org/notes.org")
+  (setq org-default-notes-file "~/var/org/notes.org")
   )
 
 (use-package org

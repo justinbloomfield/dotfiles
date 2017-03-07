@@ -14,7 +14,8 @@
 	   :nickserv-password ,irc-pass)
 	  ("nx"
 	   :host "irc.unix.chat"
-	   :port 6667
+       :tls t
+	   :port 6697
 	   :nick "poq"
 	   :channels ("#unix")
 	   :nickserv-identify-challenge "\C-b/msg\\s-NickServ\\s-identify\\s-<password>\C-b"

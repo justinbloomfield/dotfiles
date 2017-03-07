@@ -16,12 +16,12 @@ SCR_H="$(wattr h `lsw -r`)"
 
 # notification params
 GAP="20"
-PP_W="1914"
+PP_W="400"
 PP_H="30"
-PP_X="0" #"$((1920 - GAP - PP_W))"
+PP_X="500" #"$((1920 - GAP - PP_W))"
 PP_MEMES="2"
-PP_Y="$((1080 - $((PP_H - 2 * cnt)) - 3))"
-OPTS="$PANEL_OPTS -g "$PP_W"x"$PP_H"+0+1050"
+PP_Y="$(( $((PP_H - 2 * cnt)) - 3))"
+OPTS="$PANEL_OPTS -g "$PP_W"x"$PP_H"+$PP_X+$PP_Y"
 echo $OPTS
 # count
 cnt=0
@@ -33,11 +33,12 @@ tail -f "$NTFY_FIFO_PATH" | while IFS= read -r msg; do
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt + 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"
+    
 
 # the business end, prints the message
 
 {
-	(echo "$msg" | skroll -d 0.05 -r -n 280 & sleep 3) | lemonbar $OPTS
+	(echo "$msg" | skroll -d 0.05 -r -n 60 & sleep 3) | lemonbar $OPTS
     cnt="$(cat "$NTFY_COUNT_PATH")"
     cnt="$(( cnt - 1 ))"
     echo "$cnt" > "$NTFY_COUNT_PATH"

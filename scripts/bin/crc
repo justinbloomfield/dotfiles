@@ -1,0 +1,6 @@
+#!/bin/sh
+ii -i $IRC_DIR -s irc.freenode.net -n piecesofquiet -k $IRC_PASS &
+sleep 3
+echo "/j NickServ identify $IRC_PASS" > $IRC_DIR/irc.freenode.net/in
+sleep 3
+echo "/j #crux" > $IRC_DIR/irc.freenode.net/in

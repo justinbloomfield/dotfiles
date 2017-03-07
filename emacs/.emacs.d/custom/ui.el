@@ -52,7 +52,7 @@
     (setq default-frame-alist '((font . "Fantasque Sans Mono-12.5")))
     (setq default-frame-alist '((font . "tewi"))))
 ;    (set-default-font "Fantasque Sans Mono-12.5")
-;    (set-default-font "lemon-10")
+;    (set-default-font "gohufont-11")
 
 ;; numbers
 ;;(global-linum-mode)

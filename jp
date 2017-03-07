@@ -321,7 +321,7 @@ xkb_symbols "colemak" {
     key <AD07> { [ l, L         ] };
     key <AD08> { [ u, U         ] };
     key <AD09> { [ y, Y         ] };
-    key <AD10> { [ apostrophe, quotedbl ] };
+    key <AD10> { [ semicolon, colon ] };
     key <AD11> { [ asciitilde, grave ] };
 
     key <AC02> { [ r, R         ] };
@@ -333,7 +333,7 @@ xkb_symbols "colemak" {
     key <AC08> { [ e, E         ] };
     key <AC09> { [ i, I         ] };
     key <AC10> { [ o, O         ] };
-    key <AC11> { [ colon, semicolon ] };
+    key <AC11> { [ apostrophe, quotedbl ] };
     key <AB06> { [ k, K         ] };
     key <AB11> { [ backslash, bar ] };
 };
