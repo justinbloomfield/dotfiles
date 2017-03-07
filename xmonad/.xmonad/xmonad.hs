@@ -25,23 +25,24 @@ myXmobarHlColor :: [Char]
 myXmobarTitleColor :: [Char]
 myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
-myTerminal = "st"
+myTerminal = "urxvt"
 myBorderWidth = 4
 myNormalBorderColor = "#002211"
 myFocusedBorderColor = "#03c03c"
-myXmobarHlColor = "#03c03c"
-myXmobarUrgentColor = "#c79595"
-myXmobarTitleColor = "#ccffcc"
+myXmobarHlColor = "#007755"
+myXmobarUrgentColor = "#20b2aa"
+myXmobarTitleColor = "#002002"
+myBackgroundColor = "#007755"
 myFocusFollowsMouse = True
 myModMask = mod4Mask
 
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
   where
-    h = 0.1
-    w = 1
+    h = 0.3
+    w = 0.5
     t = 1 - h
-    l = 1 - w
+    l = (1 - w) * 0.5
 
 myManageHook :: ManageHook
 myManageHook =
@@ -58,11 +59,17 @@ myLogHook xmproc =
   , ppSep = xmobarColor myXmobarHlColor "" " ∴ ", ppTitle = xmobarColor myXmobarTitleColor "".shorten 50
   }
 
+myStartupHook :: X ()
+myStartupHook = do
+  spawn "xsetroot -solid '$(xrq color5)'"
+  spawn "xset -dpms"
+  spawn "xset s off"
+--  spawn "setxkbmap jp colemak"
+
 myLayout =
-  avoidStruts $
-  (spacing 5 $
-  gaps [(U, 20)] (
-  tiled)) ||| noBorders (fullscreenFull Full)
+  avoidStruts 
+  (spacing 5 
+  tiled) ||| noBorders (fullscreenFull Full)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1

@@ -17,6 +17,7 @@ alias xsnow='xsnow -notrees -nosanta -norudolf'
 #alias startx='csc'
 alias suod='sudo' #becausei'mretarded
 alias eb="edbrowse"
+alias yi="yi --as=emacs"
 
 # arch
 alias sa='sudo aura -A'

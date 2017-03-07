@@ -62,6 +62,9 @@
          ("\\.markdown\\'" . markdown-mode))
   :init (setq markdown-command "multimarkdown")) 
 
+(use-package nix-mode
+  :ensure t)
+
 ;;(use-package sauron
 ;;  :ensure t)
 ;

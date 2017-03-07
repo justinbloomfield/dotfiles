@@ -1,13 +1,13 @@
 #include "/home/poq/.config/x/colours/vamp_sea_dark"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:leggie:pixelsize=12
+URxvt*font:                          xft:tewi:pixelsize=9
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
-URxvt*internalBorder:                20 
+URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
 

@@ -9,7 +9,7 @@ set splitright
 execute plug#begin()
 Plug 'scrooloose/nerdtree'
 Plug 'chrisbra/csv.vim'
-Plug 'yuratomo/w3m.vim'
+"Plug 'yuratomo/w3m.vim'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-fugitive'
 Plug 'godlygeek/tabular'
