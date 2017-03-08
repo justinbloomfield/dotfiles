@@ -1,6 +1,6 @@
 (if (eq system-type 'darwin)
 	(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.16/share/emacs/site-lisp/mu/mu4e/")
-	(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
+	(add-to-list 'load-path "/home/poq/.nix-profile/share/emacs/site-lisp/mu4e"))
 (require 'mu4e)
 
 (defun my-mu4e-config ()
@@ -31,7 +31,7 @@
   (setq message-send-mail-function 'message-send-mail-with-sendmail)
         (if (eq system-type 'darwin)
             (setq sendmail-program "/usr/local/bin/msmtp")
-            (setq sendmail-program "/usr/bin/msmtp"))
+            (setq sendmail-program "msmtp"))
   (setq message-kill-buffer-on-exit t)
   (setq mu4e-headers-fields
         '( (:human-date . 25)
