@@ -11,7 +11,8 @@
   (setq org-hide-emphasis-markers t)
   (setq org-pretty-entities t)
   (setq org-default-notes-file "~/var/org/notes.org")
-  )
+  (global-set-key (kbd "C-c n")
+                  (lambda () (interactive) (find-file "~/var/org/notes.org"))))
 
 (use-package org
   :ensure t
