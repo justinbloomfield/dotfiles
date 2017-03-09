@@ -11,7 +11,6 @@
 
 ;;(use-package calist
 ;;  :ensure t)
-
 ;;(use-package cdlatex
 ;;  :ensure t)
 
@@ -88,8 +87,3 @@
 ;;;  (require 'mime-w3m)
   (require 'w3m-load))
 
-(use-package xah-fly-keys
-  :ensure t
-  :config
-  (xah-fly-keys 1)
-  (global-set-key (kbd "<henkan>") 'xah-fly-command-mode-activate))

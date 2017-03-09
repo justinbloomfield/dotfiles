@@ -11,7 +11,7 @@
  '(ivy-youtube-key (quote AIzaSyCCIm6WRIQgbbILnXEeJ0TL5uB287bmsw0))
  '(package-selected-packages
    (quote
-    (soundcloud csv-mode sauron emms-setup emms intero dark-mint-theme bfbuilder brainfuck-mode tree-mode calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons)))
+    (evil-dvorak soundcloud csv-mode sauron emms-setup emms intero dark-mint-theme bfbuilder brainfuck-mode tree-mode calist emacs-w3m win-switcher win-switch exwm simple-mpc mingus libmpdee dracula-theme helm-youtube evil-mu4e use-package smooth-scrolling powerline markdown-mode magit lua-mode haskell-mode geiser eww-lnum evil-leader counsel company circe cdlatex all-the-icons)))
  '(send-mail-function (quote smtpmail-send-it)))
 ; '(w3m-search-default-engine "ddg")
 ; '(w3m-search-engine-alist

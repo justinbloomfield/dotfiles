@@ -64,12 +64,13 @@ myStartupHook = do
   spawn "xsetroot -solid '$(xrq color5)'"
   spawn "xset -dpms"
   spawn "xset s off"
+  spawn "ibus-daemon -drx"
 --  spawn "setxkbmap jp colemak"
 
 myLayout =
   avoidStruts 
   (spacing 5 
-  tiled) ||| noBorders (fullscreenFull Full)
+  tiled) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] (noBorders (Full))
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -91,6 +92,11 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((modMask, xK_q), recompile True >> restart "xmonad" True)
   , ((modMask, xK_i), sendMessage (IncMasterN 1))
   , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
+  , ((modMask, xK_t), windows W.focusDown)
+  , ((modMask, xK_n), windows W.focusUp)
+  , ((modMask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
+  -- ((modMask .|. shiftMask, xK_t), W.swapDown )
+  -- ((modMask .|. shiftMask, xK_c), W.swapUp )
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 1%+ unmute")
   , ((0, xF86XK_AudioLowerVolume), spawn "amixer sset Master 1%- unmute")
   , ((0, xF86XK_AudioMute), spawn "amixer sset Master toggle")
