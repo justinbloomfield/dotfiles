@@ -46,6 +46,7 @@
   ;;(global-set-key (kbd "s-j") 'evil-window-down)
   ;;(global-set-key (kbd "s-k") 'evil-window-up)
   ;;(global-set-key (kbd "s-l") 'evil-window-right)
+
   (define-key evil-normal-state-map (kbd "h") 'backward-char)
   (define-key evil-normal-state-map (kbd "t") 'evil-next-line)
   (define-key evil-normal-state-map (kbd "n") 'evil-previous-line)

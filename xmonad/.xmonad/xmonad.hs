@@ -68,9 +68,9 @@ myStartupHook = do
 --  spawn "setxkbmap jp colemak"
 
 myLayout =
-  avoidStruts 
+  avoidStruts $ 
   (spacing 5 
-  tiled) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] (noBorders (Full))
+  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] (noBorders (Full))
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
