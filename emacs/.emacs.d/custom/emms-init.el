@@ -6,6 +6,7 @@
   (require 'emms-source-playlist)
   (require 'emms-source-file)
   (require 'emms-player-mpd)
+  (require 'cl)
   (emms-all)
   (emms-default-players)
   (setq emms-source-file-default-directory "/mnt/msc/Music/")
@@ -26,17 +27,35 @@
     (emms-next-noerror)
     (let ((track-name (emms-track-description (emms-playlist-current-selected-track)))))
     (emms-notifications-message track-name))
+
   ;; mpd
   (setq emms-player-mpd-server-name "localhost")
   (setq emms-player-mpd-server-port "6600")
   (add-to-list 'emms-info-functions 'emms-info-mpd)
   (add-to-list 'emms-player-list 'emms-player-mpd)
   (setq emms-player-mpd-music-directory "/mnt/msc/Music/")
+  (eval-after-load 'emms
+    '(progn
+       (evil-set-initial-state 'emms-playlist-mode 'normal)
+       (evil-define-key 'normal emms-playlist-mode-map
+         (kbd "t") 'next-line
+         (kbd "n") 'previous-line
+         (kbd "d") 'emms-playlist-mode-kill-track
+         (kbd "D") 'emms-playlist-mode-clear
+         (kbd "e") 'emms-tag-editor-edit
+         (kbd "s") 'emms-next
+         (kbd "h") 'emss-prev
+         (kbd "<") 'emms-seek-backward
+         (kbd ">") 'emms-seek-forward
+         (kbd "p") 'emms-pause
+         (kbd "a") 'emms-add-directory
+         (kbd "A") 'emms-add-directory-tree
+         (kbd "RET") 'emms-playlist-mode-play-smart
+         ))))
   (emms-player-mpd-connect)
   )
 
 (use-package emms
-  :ensure t
   :config
   (my-emms-config))
 

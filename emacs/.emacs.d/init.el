@@ -1,4 +1,14 @@
-;;; poq's emacs config, use at own risk
+;;; poq's emacs config, blatantly ripped from arc and modified. use at own risk
+
+;; fuck you tramp
+(defun sudo-edit (&optional arg)
+  "edit current files as root"
+  (interactive "P")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:"
+                         (ido-read-file-name "Find file (as root):")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+(global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; pkg
 (require 'package)
@@ -22,6 +32,7 @@
 
 ;; backtab
 (global-set-key (kbd "<backtab>") 'un-indent-by-removing-4-spaces)
+
 (defun un-indent-by-removing-4-spaces ()                          
   "remove 4 spaces from beginning of of line"                     
   (interactive)                                                   
@@ -49,20 +60,69 @@
 (set-fringe-mode -1)
 
 ;; theme/modeline
+(setq custom-safe-themes t)
+(load-theme 'base16-ashes)
+;;(load-file "~/.emacs.d/themes/xres-theme.el")
 ;;(load-file "~/.emacs.d/custom/modeline-custom-nogui.el")
-(load-file "~/.emacs.d/themes/xres-theme.el")
+(global-linum-mode t)
+(setq linum-format " %3d ")
 
 ;; fuck GNU
 (setq inhibit-startup-screen t)
 
 ;;; pkgs
-;; asonethusaonethu
-(use-package all-the-icons
-  :ensure t)
+;(use-package all-the-icons)
 
 ;; ace-window
 (use-package ace-window
   :bind ("C-x o" . ace-window))
+
+;; circe
+(load-file "~/.emacs.d/custom/private.el")
+(require 'tls)
+(setq circe-network-options
+      `(("fn"
+         :host "irc.freenode.net"
+         :port 6667
+         :nick "piecesofquiet"
+         :channels ("#crux")
+         :nickserv-identify-challenge "\C-b/msg\\s-NickServ\\s-identify\\s-<password>\C-b"
+         :nickserv-identify-command "PRIVMSG NickServ :IDENTIFY {nick} {password}"
+         :nickserv-identify-confirmation "^You are now identified for.*\\.$" 
+         :nickserv-password ,irc-pass)
+        ("nx"
+         :host "irc.unix.chat"
+         :tls t
+         :port 6697
+         :nick "poq"
+         :channels ("#unix")
+         :nickserv-identify-challenge "\C-b/msg\\s-NickServ\\s-identify\\s-<password>\C-b"
+         :nickserv-identify-command "PRIVMSG NickServ :IDENTIFY {nick} {password}"
+         :nickserv-identify-confirmation "^You are now identified for.*\\.$" 
+         :nickserv-password ,irc-pass)
+        ("fb"
+         :host "im.codemonkey.be"
+         :port 6667
+         :nick "piecesofquiet"
+         :nickserv-password ,irc-pass)))
+
+(setq
+ lui-time-stamp-position 'right-margin
+ lui-fill-type nil)
+
+(setq circe-use-tls t)
+
+(add-hook 'lui-mode-hook 'my-lui-setup)
+(defun my-lui-setup ()
+  (setq
+   fringes-outside-margins t
+   right-margin-width 9
+   word-wrap t
+   wrap-prefix "    "))
+)
+
+;; company
+(add-hook 'after-init-hook 'global-company-mode)
 
 ;; evil
 (evil-mode nil)
@@ -95,13 +155,16 @@
 (define-key evil-normal-state-map "p" 'counsel-yank-pop)
 
 ;; magit
-(setq vc-follow-symbolics nil)
-(evil-set-initial-state 'magit-mode 'normal)
-(evil-set-initial-state 'magit-status-mode 'normal)
-(evil-define-key 'normal magit-mode-map
-  "t" 'magit-section-forward
-  "n" 'magit-section-backward)
-(setq magit-completing-read-function 'ivy-completing-read)
+(use-package magit
+  :config
+  (progn
+    (setq vc-follow-symbolics nil)
+    (evil-set-initial-state 'magit-mode 'normal)
+    (evil-set-initial-state 'magit-status-mode 'normal)
+    (evil-define-key 'normal magit-mode-map
+      "t" 'magit-section-forward
+      "n" 'magit-section-backward)
+    (setq magit-completing-read-function 'ivy-completing-read)))
 
 ;; org-mode
 (add-hook 'org-mode-hook
