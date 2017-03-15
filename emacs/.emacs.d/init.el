@@ -158,13 +158,13 @@
 (use-package magit
   :config
   (progn
-    (setq vc-follow-symbolics nil)
     (evil-set-initial-state 'magit-mode 'normal)
     (evil-set-initial-state 'magit-status-mode 'normal)
     (evil-define-key 'normal magit-mode-map
       "t" 'magit-section-forward
       "n" 'magit-section-backward)
     (setq magit-completing-read-function 'ivy-completing-read)))
+(setq vc-follow-symbolics nil)
 
 ;; org-mode
 (add-hook 'org-mode-hook
