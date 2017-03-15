@@ -10,7 +10,7 @@
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
-;; pkg
+;; PKG
 (require 'package)
 
 (setq package-archives nil)
@@ -18,7 +18,7 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-;;; edits
+;;; EDITS
 (setq temp-file-dir "~/.emacs.d/.tmp")
 (setq backup-directory-alist
       `((".*" . ,temp-file-dir)))
@@ -48,7 +48,13 @@
 ;; electric pairs
 (electric-pair-mode)
 
-;;; ui
+;;; UI
+;; theme/modeline
+(setq custom-safe-themes t)
+(load-theme 'base16-ashes)
+(global-linum-mode t)
+(setq linum-format " %3d ")
+
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
@@ -59,18 +65,10 @@
 (scroll-bar-mode -1)
 (set-fringe-mode -1)
 
-;; theme/modeline
-(setq custom-safe-themes t)
-(load-theme 'base16-ashes)
-;;(load-file "~/.emacs.d/themes/xres-theme.el")
-;;(load-file "~/.emacs.d/custom/modeline-custom-nogui.el")
-(global-linum-mode t)
-(setq linum-format " %3d ")
-
 ;; fuck GNU
 (setq inhibit-startup-screen t)
 
-;;; pkgs
+;;; PKGS
 ;(use-package all-the-icons)
 
 ;; ace-window
@@ -118,8 +116,8 @@
    fringes-outside-margins t
    right-margin-width 9
    word-wrap t
-   wrap-prefix "    "))
-)
+   wrap-prefix "    ")
+  (linum-mode 0))
 
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
@@ -196,7 +194,7 @@
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 
-;;; misc
+;;; MISC
 ;; bold font fuck off
 (set-face-bold-p 'bold nil)
 (mapc
