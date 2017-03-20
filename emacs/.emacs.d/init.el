@@ -51,7 +51,7 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-(load-theme 'base16-ashes)
+(load-theme 'base16-atelier-lakeside)
 (global-linum-mode t)
 (setq linum-format " %3d ")
 
@@ -64,6 +64,27 @@
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
 (set-fringe-mode -1)
+
+;; ibuffer
+(setq ibuffer-expert t)
+(setq ibuffer-show-empty-filter-groups nil)
+(setq ibuffer-saved-filter-groups
+      '(("memes"
+         ("email" (name . "\*mu4e"))
+         ("emacs-config" (or (filename . ".emacs.d")
+                             (filename . "emacs-config")))
+         ("git" (name . "\*magit"))
+         ("org" (mode . org-mode))
+         ("irc-chan" (or (mode . circe-channel-mode)
+                         (mode . circe-query-mode)))
+         ("irc-serv" (mode . circe-server-mode))
+         ("exwm" (mode . exwm-mode))
+         ("eww" (mode . eww-mode))
+         ("haskell" (mode . haskell-mode))
+         ("scheme" (mode . scheme-mode)))))
+
+;; let the glow flow through you
+(global-hl-line-mode t)
 
 ;; fuck GNU
 (setq inhibit-startup-screen t)
@@ -133,11 +154,24 @@
  "d" 'dired
  "e" 'emms
  "i" 'switch-to-buffer
+ "b" 'ibuffer
  "m" 'mu4e
  "g" 'magit-status
  "w" 'save-buffer
  "f" 'counsel-find-file
  "p" 'clipboard-yank)
+
+(eval-after-load 'ibuffer
+    '(progn
+       (evil-set-initial-state 'ibuffer-mode 'normal)
+       (evil-define-key 'normal ibuffer-mode-map
+	 (kbd "J") 'ibuffer-jump-to-buffer
+	 (kbd "d") 'ibuffer-mark-for-delete
+	 (kbd "x") 'ibuffer-do-kill-on-deletion-marks
+	 (kbd "t") 'evil-next-line
+	 (kbd "n") 'evil-previous-line
+	 (kbd "l") 'ibuffer-visit-buffer)))
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; dvorak bindings
 (define-key evil-normal-state-map (kbd "h") 'backward-char)
@@ -162,7 +196,7 @@
       "t" 'magit-section-forward
       "n" 'magit-section-backward)
     (setq magit-completing-read-function 'ivy-completing-read)))
-(setq vc-follow-symbolics nil)
+(setq vc-follow-symlinks nil)
 
 ;; org-mode
 (add-hook 'org-mode-hook
@@ -193,6 +227,7 @@
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;;; MISC
 ;; bold font fuck off
@@ -203,3 +238,7 @@
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
 
+;;; EXWM
+;;(require 'exwm)
+;;(require 'exwm-config)
+;;(exwm-config-default)

@@ -64,10 +64,10 @@ myStartupHook = do
   spawn "xsetroot -solid '$(xrq color5)'"
   spawn "xset -dpms"
   spawn "xset s off"
-  spawn "ibus-daemon -drx"
   spawn "export GTK_IM_MODULE=ibus"
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
+  spawn "ibus-daemon -drx"
 --  spawn "setxkbmap jp colemak"
 --  碇シンジ
 
@@ -127,6 +127,7 @@ main = do
     , layoutHook = myLayout
     , logHook = myLogHook xmproc
     , handleEventHook = myHandleEventHook
+    , startupHook = myStartupHook
     , modMask = myModMask
     , keys = myKeys
     }
