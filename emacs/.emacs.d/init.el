@@ -237,6 +237,7 @@
         (when (eq (face-attribute face :weight) 'bold)
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
+(global-set-key (kbd "C-c c") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
 
 ;;; EXWM
 ;;(require 'exwm)
