@@ -61,7 +61,7 @@ myLogHook xmproc =
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawn "xsetroot -solid '$(xrq color5)'"
+  spawn "xsetroot -solid '#007755"
   spawn "xset -dpms"
   spawn "xset s off"
   spawn "export GTK_IM_MODULE=ibus"
