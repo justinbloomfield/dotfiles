@@ -61,20 +61,19 @@ myLogHook xmproc =
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawn "xsetroot -solid '#007755"
   spawn "xset -dpms"
   spawn "xset s off"
   spawn "export GTK_IM_MODULE=ibus"
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
   spawn "ibus-daemon -drx"
---  spawn "setxkbmap jp colemak"
+  spawn "xsetroot -solid '#007755"
 --  碇シンジ
 
 myLayout =
   avoidStruts $ 
   (spacing 5 
-  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] Full
+  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1

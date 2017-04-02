@@ -51,7 +51,7 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-(load-theme 'base16-atelier-lakeside)
+(load-theme 'base16-atelier-savanna)
 (global-linum-mode t)
 (setq linum-format " %3d ")
 
@@ -95,6 +95,7 @@
 ;; ace-window
 (use-package ace-window
   :bind ("C-x o" . ace-window))
+(setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
 
 ;; circe
 (load-file "~/.emacs.d/custom/private.el")
@@ -227,7 +228,7 @@
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook 'intero-mode)
+;;(add-hook 'haskell-mode-hook 'intero-mode)
 
 ;;; MISC
 ;; bold font fuck off
@@ -238,6 +239,9 @@
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
 (global-set-key (kbd "C-c c") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
+(add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o")))
+(setq TeX-view-program-selection '((output-pdf "zathura")))
+
 
 ;;; EXWM
 ;;(require 'exwm)
