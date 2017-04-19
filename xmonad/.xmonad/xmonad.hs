@@ -2,6 +2,7 @@ import XMonad
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
@@ -67,13 +68,13 @@ myStartupHook = do
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
   spawn "ibus-daemon -drx"
-  spawn "xsetroot -solid '#007755"
+  spawn "xsetroot -solid '#0055aa'"
 --  碇シンジ
 
 myLayout =
   avoidStruts $ 
   (spacing 5 
-  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full)
+  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| spacing 5 (gaps [(U,20), (R,400), (L,400)] Full)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -116,7 +117,7 @@ myKeys x = M.union (M.fromList (newKeys x)) (keys def x)
 main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar /home/poq/.xmonad/xmobar.conf"
-  xmonad $ def
+  xmonad $ ewmh def
     { borderWidth = myBorderWidth
     , terminal = myTerminal
     , normalBorderColor = myNormalBorderColor

@@ -239,8 +239,11 @@
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
 (global-set-key (kbd "C-c c") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
-(add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o")))
-(setq TeX-view-program-selection '((output-pdf "zathura")))
+
+(use-package tex
+  :config
+    (add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o")))
+    (setq TeX-view-program-selection '((output-pdf "zathura"))))
 
 
 ;;; EXWM
