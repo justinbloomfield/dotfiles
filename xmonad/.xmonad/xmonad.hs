@@ -27,7 +27,7 @@ myXmobarTitleColor :: [Char]
 myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
 myTerminal = "urxvt"
-myBorderWidth = 4
+myBorderWidth = 2
 myNormalBorderColor = "#002211"
 myFocusedBorderColor = "#03c03c"
 myXmobarHlColor = "#007755"
@@ -74,7 +74,7 @@ myStartupHook = do
 myLayout =
   avoidStruts $ 
   (spacing 5 
-  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| spacing 5 (gaps [(U,20), (R,400), (L,400)] Full)
+  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled) 
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
