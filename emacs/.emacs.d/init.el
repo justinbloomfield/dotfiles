@@ -51,7 +51,8 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-(load-theme 'base16-atelier-savanna)
+;(load-file "~/.emacs.d/themes/xres-theme.el")
+(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
 (global-linum-mode t)
 (setq linum-format " %3d ")
 
@@ -124,7 +125,13 @@
          :host "im.codemonkey.be"
          :port 6667
          :nick "piecesofquiet"
-         :nickserv-password ,irc-pass)))
+         :nickserv-password ,irc-pass)
+        ("tw"
+         :host "irc.chat.twitch.tv"
+         :port 6667
+         :nick "piecesofquiet777"
+         :nickserv-password ,twitch-oauth
+         :channels ("#bajostream"))))
 
 (setq
  lui-time-stamp-position 'right-margin
@@ -141,73 +148,89 @@
    wrap-prefix "    ")
   (linum-mode 0))
 
+;; auctex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq font-latex-fontify-script 'invisible)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'Latex-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; evil
-(evil-mode nil)
-(global-evil-leader-mode)
-(evil-mode 1)
-
-(evil-leader/set-leader "<SPC>")
-(evil-leader/set-key
- "c" 'circe
- "d" 'dired
- "e" 'emms
- "i" 'switch-to-buffer
- "b" 'ibuffer
- "m" 'mu4e
- "g" 'magit-status
- "w" 'save-buffer
- "f" 'counsel-find-file
- "p" 'clipboard-yank)
-
-(eval-after-load 'ibuffer
-    '(progn
-       (evil-set-initial-state 'ibuffer-mode 'normal)
-       (evil-define-key 'normal ibuffer-mode-map
-	 (kbd "J") 'ibuffer-jump-to-buffer
-	 (kbd "d") 'ibuffer-mark-for-delete
-	 (kbd "x") 'ibuffer-do-kill-on-deletion-marks
-	 (kbd "t") 'evil-next-line
-	 (kbd "n") 'evil-previous-line
-	 (kbd "l") 'ibuffer-visit-buffer)))
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-;; dvorak bindings
-(define-key evil-normal-state-map (kbd "h") 'backward-char)
-(define-key evil-normal-state-map (kbd "t") 'evil-next-line)
-(define-key evil-normal-state-map (kbd "n") 'evil-previous-line)
-(define-key evil-normal-state-map (kbd "s") 'forward-char)
-(define-key evil-visual-state-map (kbd "h") 'backward-char)
-(define-key evil-visual-state-map (kbd "t") 'evil-next-line)
-(define-key evil-visual-state-map (kbd "n") 'evil-previous-line)
-(define-key evil-visual-state-map (kbd "s") 'forward-char)
-(define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
-(define-key evil-normal-state-map "/" 'swiper)
-(define-key evil-normal-state-map "p" 'counsel-yank-pop)
+;;(evil-mode nil)
+;;(global-evil-leader-mode)
+;;(evil-mode 1)
+;;(evil-escape-mode 1)
+;;(evil-set-initial-state 'mpc-mode 'emacs)
+;;(evil-set-initial-state 'mpc-tagbrowser-mode 'emacs)
+;;(evil-set-initial-state 'mpc-songs-mode 'emacs)
+;;
+;;
+;;(setq-default evil-escape-key-sequence "ii")
+;;(setq-default evil-escape-delay 0.2)
+;;(evil-leader/set-leader "<SPC>")
+;;(evil-leader/set-key
+;; "c" 'circe
+;; "d" 'dired
+;; "i" 'switch-to-buffer
+;; "b" 'ibuffer
+;; "m" 'mpc
+;; "g" 'magit-status
+;; "w" 'save-buffer
+;; "f" 'counsel-find-file
+;; "p" 'clipboard-yank)
+;;
+;;(eval-after-load 'ibuffer
+;;    '(progn
+;;       (evil-set-initial-state 'ibuffer-mode 'normal)
+;;       (evil-define-key 'normal ibuffer-mode-map
+;;	 (kbd "J") 'ibuffer-jump-to-buffer
+;;	 (kbd "d") 'ibuffer-mark-for-delete
+;;	 (kbd "x") 'ibuffer-do-kill-on-deletion-marks
+;;	 (kbd "t") 'evil-next-line
+;;	 (kbd "n") 'evil-previous-line
+;;	 (kbd "l") 'ibuffer-visit-buffer)))
+;;(global-set-key (kbd "C-x C-b") 'ibuffer)
+;;
+;;;; dvorak bindings
+;;(define-key evil-normal-state-map (kbd "h") 'backward-char)
+;;(define-key evil-normal-state-map (kbd "t") 'evil-next-line)
+;;(define-key evil-normal-state-map (kbd "n") 'evil-previous-line)
+;;(define-key evil-normal-state-map (kbd "s") 'forward-char)
+;;(define-key evil-visual-state-map (kbd "h") 'backward-char)
+;;(define-key evil-visual-state-map (kbd "t") 'evil-next-line)
+;;(define-key evil-visual-state-map (kbd "n") 'evil-previous-line)
+;;(define-key evil-visual-state-map (kbd "s") 'forward-char)
+;;(define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
+;;(define-key evil-normal-state-map "/" 'swiper)
+;;(define-key evil-normal-state-map "p" 'counsel-yank-pop)
 
 ;; magit
 (use-package magit
   :config
   (progn
-    (evil-set-initial-state 'magit-mode 'normal)
-    (evil-set-initial-state 'magit-status-mode 'normal)
-    (evil-define-key 'normal magit-mode-map
-      "t" 'magit-section-forward
-      "n" 'magit-section-backward)
+;;    (evil-set-initial-state 'magit-mode 'normal)
+;;    (evil-set-initial-state 'magit-status-mode 'normal)
+;;    (evil-define-key 'normal magit-mode-map
+;;      "t" 'magit-section-forward
+;;      "n" 'magit-section-backward)
     (setq magit-completing-read-function 'ivy-completing-read)))
 (setq vc-follow-symlinks nil)
 
 ;; org-mode
-(add-hook 'org-mode-hook
-          (lambda()
-            (define-key evil-normal-state-map (kbd "TAB") 'org-mode)))
-
-(eval-after-load 'org-mode
-  '(progn
-     (evil-set-initial-state 'org-mode 'normal)
-     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
+;;(add-hook 'org-mode-hook
+;;          (lambda()
+;;            (define-key evil-normal-state-map (kbd "TAB") 'org-mode)))
+;;
+;;(eval-after-load 'org-mode
+;;  '(progn
+;;     (evil-set-initial-state 'org-mode 'normal)
+;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
 
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (setq org-directory "~/var/org")
@@ -217,6 +240,7 @@
 
 ;; ivy/counsel/swiper
 (global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -230,6 +254,11 @@
 (autoload 'ghc-debug "ghc" nil t)
 ;;(add-hook 'haskell-mode-hook 'intero-mode)
 
+;; slime
+;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "clisp")
+(slime-setup '(slime-company))
+
 ;;; MISC
 ;; bold font fuck off
 (set-face-bold-p 'bold nil)
@@ -238,7 +267,13 @@
         (when (eq (face-attribute face :weight) 'bold)
           (set-face-attribute face nil :weight 'normal)))
  (face-list))
-(global-set-key (kbd "C-c c") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
+(global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
+(global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key (kbd "C-c m") 'mpc)
+(global-set-key (kbd "C-c d") 'dired)
+(global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "C-c i") 'switch-to-buffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (use-package tex
   :config
@@ -247,6 +282,6 @@
 
 
 ;;; EXWM
-;;(require 'exwm)
-;;(require 'exwm-config)
-;;(exwm-config-default)
+(require 'exwm)
+(require 'exwm-config)
+;(exwm-config-default)

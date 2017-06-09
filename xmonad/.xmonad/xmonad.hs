@@ -3,11 +3,13 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.Decoration
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Layout.Groups.Wmii
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.Scratchpad
 import Graphics.X11.ExtraTypes.XF86
@@ -28,12 +30,12 @@ myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
 myTerminal = "urxvt"
 myBorderWidth = 2
-myNormalBorderColor = "#002211"
-myFocusedBorderColor = "#03c03c"
-myXmobarHlColor = "#007755"
-myXmobarUrgentColor = "#20b2aa"
-myXmobarTitleColor = "#ccffcc"
-myBackgroundColor = "#007755"
+myNormalBorderColor = "#111d3c"
+myFocusedBorderColor = "#208ae2"
+myXmobarHlColor = "#227799"
+myXmobarUrgentColor = "#10adee"
+myXmobarTitleColor = "#ffffff"
+myBackgroundColor = "#227799"
 myFocusFollowsMouse = True
 myModMask = mod4Mask
 
@@ -69,12 +71,9 @@ myStartupHook = do
   spawn "export QT_IM_MODULE=ibus"
   spawn "ibus-daemon -drx"
   spawn "xsetroot -solid '#0055aa'"
---  碇シンジ
 
 myLayout =
-  avoidStruts $ 
-  (spacing 5 
-  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled) 
+  noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -93,6 +92,7 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((modMask, xK_a), sendMessage MirrorExpand)
   , ((modMask, xK_z), sendMessage MirrorShrink)
   , ((modMask, xK_p), spawn "rofilauncher")
+  , ((modMask, xK_e), spawn "emacs")
   , ((modMask, xK_q), recompile True >> restart "xmonad" True)
   , ((modMask, xK_i), sendMessage (IncMasterN 1))
   , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
@@ -107,9 +107,9 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
   , ((0, xF86XK_AudioNext), spawn "mpc next")
   , ((0, xF86XK_AudioPrev), spawn "mpc prev")
-  , ((0, xK_Print), spawn "scrot")
-  , ((shiftMask, xK_Print), spawn "scrot -s")
-  , ((0, xK_End), spawn "slock")
+  , ((controlMask, xK_Print), spawn "scrot $HOME/usr/img/scrot/%Y-%m-%d-%H:%M:%S.png")
+  --, ((modMask, xK_End), spawn "scrot -s &")
+  , ((modMask, xK_End), spawn "ssvr")
   ]
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys x = M.union (M.fromList (newKeys x)) (keys def x)
