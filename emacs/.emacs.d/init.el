@@ -273,6 +273,7 @@
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-c g") 'magit-status)
 (global-set-key (kbd "C-c i") 'switch-to-buffer)
+(global-set-key (kbd "C-c x") 'counsel-M-x)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (use-package tex
