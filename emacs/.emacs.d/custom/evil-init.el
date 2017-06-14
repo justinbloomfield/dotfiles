@@ -48,7 +48,17 @@
   ;;(global-set-key (kbd "s-j") 'evil-window-down)
   ;;(global-set-key (kbd "s-k") 'evil-window-up)
   ;;(global-set-key (kbd "s-l") 'evil-window-right)
-  
+
+  (define-key evil-normal-state-map (kbd "h") 'backward-char)
+  (define-key evil-normal-state-map (kbd "t") 'evil-next-line)
+  (define-key evil-normal-state-map (kbd "n") 'evil-previous-line)
+  (define-key evil-normal-state-map (kbd "s") 'forward-char)
+  (define-key evil-visual-state-map (kbd "h") 'backward-char)
+  (define-key evil-visual-state-map (kbd "t") 'evil-next-line)
+  (define-key evil-visual-state-map (kbd "n") 'evil-previous-line)
+  (define-key evil-visual-state-map (kbd "s") 'forward-char)
+  (define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
+
   (eval-after-load 'eww
     '(progn
        (evil-set-initial-state 'eww-mode 'normal)
@@ -141,12 +151,12 @@
     '(progn
        (evil-set-initial-state 'emms-playlist-mode 'normal)
        (evil-define-key 'normal emms-playlist-mode-map
-         (kbd "j") 'next-line
-         (kbd "k") 'previous-line
+         (kbd "t") 'next-line
+         (kbd "n") 'previous-line
          (kbd "d") 'emms-playlist-mode-kill-track
          (kbd "D") 'emms-playlist-mode-clear
          (kbd "e") 'emms-tag-editor-edit
-         (kbd "l") 'emms-next
+         (kbd "s") 'emms-next
          (kbd "h") 'emss-prev
          (kbd "<") 'emms-seek-backward
          (kbd ">") 'emms-seek-forward
@@ -185,14 +195,14 @@
 
     ;; window management
     "h" 'evil-window-left
-    "j" 'evil-window-down
-    "k" 'evil-window-up
-    "l" 'evil-window-right
-    "L" 'shrink-window-horizontally
-    "J" 'shrink-window
-    "K" 'enlarge-window
+    "t" 'evil-window-down
+    "n" 'evil-window-up
+    "s" 'evil-window-right
+    "S" 'shrink-window-horizontally
+    "T" 'shrink-window
+    "N" 'enlarge-window
     "H" 'enlarge-window-horizontally
-    "n" 'evil-window-split
+    "z" 'evil-window-split
     "v" 'evil-window-vsplit
     "bh" 'buf-move-left
     "bj" 'buf-move-down
@@ -208,17 +218,15 @@
     )
   )
 
-
 (use-package evil
   :ensure t
   :config
   (add-hook 'evil-mode-hook 'my-evil-config)
   (evil-mode 1)
 
-  (use-package evil-leader
-    :ensure t
-    :config
-    (my-evil-leader-config)
-    (global-evil-leader-mode)))
+(use-package evil-leader
+  :ensure t
+  :config
+  (my-evil-leader-config)
+  (global-evil-leader-mode)))
 
-;;(provide 'init-evil)

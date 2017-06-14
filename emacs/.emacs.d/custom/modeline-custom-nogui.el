@@ -57,12 +57,12 @@
       (if (eq ml-selected-window (selected-window))  
           (list
            '(:eval (concat
-                   (custom-modeline-mode-icon)
+;                   (custom-modeline-mode-icon)
                    (current-buffer-title)
                    (evil-mode-state)
-                   (vc-mode-branch-state)
+;                   (vc-mode-branch-state)
                    (blank)
-                   (now-playing)
+;                   (now-playing)
                    (time))))
         (list
          '(:eval (concat

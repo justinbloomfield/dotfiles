@@ -25,23 +25,24 @@ myXmobarHlColor :: [Char]
 myXmobarTitleColor :: [Char]
 myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
-myTerminal = "st"
+myTerminal = "urxvt"
 myBorderWidth = 4
 myNormalBorderColor = "#002211"
 myFocusedBorderColor = "#03c03c"
-myXmobarHlColor = "#03c03c"
-myXmobarUrgentColor = "#c79595"
+myXmobarHlColor = "#007755"
+myXmobarUrgentColor = "#20b2aa"
 myXmobarTitleColor = "#ccffcc"
+myBackgroundColor = "#007755"
 myFocusFollowsMouse = True
 myModMask = mod4Mask
 
 manageScratchPad :: ManageHook
 manageScratchPad = scratchpadManageHook (W.RationalRect l t w h)
   where
-    h = 0.1
-    w = 1
+    h = 0.3
+    w = 0.5
     t = 1 - h
-    l = 1 - w
+    l = (1 - w) * 0.5
 
 myManageHook :: ManageHook
 myManageHook =
@@ -58,11 +59,22 @@ myLogHook xmproc =
   , ppSep = xmobarColor myXmobarHlColor "" " ∴ ", ppTitle = xmobarColor myXmobarTitleColor "".shorten 50
   }
 
+myStartupHook :: X ()
+myStartupHook = do
+  spawn "xsetroot -solid '$(xrq color5)'"
+  spawn "xset -dpms"
+  spawn "xset s off"
+  spawn "ibus-daemon -drx"
+  spawn "export GTK_IM_MODULE=ibus"
+  spawn "export XMODIFIERS=@im=ibus"
+  spawn "export QT_IM_MODULE=ibus"
+--  spawn "setxkbmap jp colemak"
+--  碇シンジ
+
 myLayout =
-  avoidStruts $
-  (spacing 5 $
-  gaps [(U, 20)] (
-  tiled)) ||| noBorders (fullscreenFull Full)
+  avoidStruts $ 
+  (spacing 5 
+  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] Full
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -84,6 +96,11 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((modMask, xK_q), recompile True >> restart "xmonad" True)
   , ((modMask, xK_i), sendMessage (IncMasterN 1))
   , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
+  , ((modMask, xK_t), windows W.focusDown)
+  , ((modMask, xK_n), windows W.focusUp)
+  , ((modMask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
+  -- ((modMask .|. shiftMask, xK_t), W.swapDown )
+  -- ((modMask .|. shiftMask, xK_c), W.swapUp )
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 1%+ unmute")
   , ((0, xF86XK_AudioLowerVolume), spawn "amixer sset Master 1%- unmute")
   , ((0, xF86XK_AudioMute), spawn "amixer sset Master toggle")
