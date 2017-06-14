@@ -1,3 +1,3 @@
 #!/bin/sh
 # set window title for dvtm
-echo -n "\033]0;$1\007"
+echo -ne "\033]0;$1\007"

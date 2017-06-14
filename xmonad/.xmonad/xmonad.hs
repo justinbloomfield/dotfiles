@@ -2,11 +2,14 @@ import XMonad
 
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.Decoration
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
+import XMonad.Layout.Groups.Wmii
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.Scratchpad
 import Graphics.X11.ExtraTypes.XF86
@@ -25,14 +28,14 @@ myXmobarHlColor :: [Char]
 myXmobarTitleColor :: [Char]
 myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
-myTerminal = "urxvt"
-myBorderWidth = 4
-myNormalBorderColor = "#002211"
-myFocusedBorderColor = "#03c03c"
-myXmobarHlColor = "#007755"
-myXmobarUrgentColor = "#20b2aa"
-myXmobarTitleColor = "#ccffcc"
-myBackgroundColor = "#007755"
+myTerminal = "urxvtc"
+myBorderWidth = 2
+myNormalBorderColor = "#111d3c"
+myFocusedBorderColor = "#208ae2"
+myXmobarHlColor = "#227799"
+myXmobarUrgentColor = "#10adee"
+myXmobarTitleColor = "#ffffff"
+myBackgroundColor = "#227799"
 myFocusFollowsMouse = True
 myModMask = mod4Mask
 
@@ -61,20 +64,17 @@ myLogHook xmproc =
 
 myStartupHook :: X ()
 myStartupHook = do
-  spawn "xsetroot -solid '$(xrq color5)'"
   spawn "xset -dpms"
   spawn "xset s off"
-  spawn "ibus-daemon -drx"
   spawn "export GTK_IM_MODULE=ibus"
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
---  spawn "setxkbmap jp colemak"
---  碇シンジ
+  spawn "ibus-daemon -drx"
+  spawn "xcape -t 200 -e 'Shift_L=parenleft;Shift_R=parenright"
+  spawn "xsetroot -solid '#0055aa'"
 
 myLayout =
-  avoidStruts $ 
-  (spacing 5 
-  (gaps [(U,20)] tiled)) ||| noBorders (fullscreenFull Full) ||| gaps [(U,80), (D,60), (L,500), (R,500)] Full
+  noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -87,12 +87,13 @@ myHandleEventHook =
   handleEventHook def
 
 scratchpad :: X ()
-scratchpad = scratchpadSpawnActionTerminal "urxvt"
+scratchpad = scratchpadSpawnActionTerminal "urxvtc"
 newKeys XConfig {XMonad.modMask = modMask} =
   [ ((modMask, xK_u), scratchpad)
   , ((modMask, xK_a), sendMessage MirrorExpand)
   , ((modMask, xK_z), sendMessage MirrorShrink)
   , ((modMask, xK_p), spawn "rofilauncher")
+  , ((modMask, xK_e), spawn "emacs")
   , ((modMask, xK_q), recompile True >> restart "xmonad" True)
   , ((modMask, xK_i), sendMessage (IncMasterN 1))
   , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
@@ -107,9 +108,9 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((0, xF86XK_AudioPlay), spawn "mpc toggle")
   , ((0, xF86XK_AudioNext), spawn "mpc next")
   , ((0, xF86XK_AudioPrev), spawn "mpc prev")
-  , ((0, xK_Print), spawn "scrot")
-  , ((shiftMask, xK_Print), spawn "scrot -s")
-  , ((0, xK_End), spawn "slock")
+  , ((controlMask, xK_Print), spawn "scrot $HOME/usr/img/scrot/%Y-%m-%d-%H:%M:%S.png")
+  --, ((modMask, xK_End), spawn "scrot -s &")
+  , ((modMask, xK_End), spawn "ssvr")
   ]
 myKeys :: XConfig Layout -> M.Map (KeyMask, KeySym) (X ())
 myKeys x = M.union (M.fromList (newKeys x)) (keys def x)
@@ -117,7 +118,7 @@ myKeys x = M.union (M.fromList (newKeys x)) (keys def x)
 main :: IO ()
 main = do
   xmproc <- spawnPipe "xmobar /home/poq/.xmonad/xmobar.conf"
-  xmonad $ def
+  xmonad $ ewmh def
     { borderWidth = myBorderWidth
     , terminal = myTerminal
     , normalBorderColor = myNormalBorderColor
@@ -127,6 +128,7 @@ main = do
     , layoutHook = myLayout
     , logHook = myLogHook xmproc
     , handleEventHook = myHandleEventHook
+    , startupHook = myStartupHook
     , modMask = myModMask
     , keys = myKeys
     }

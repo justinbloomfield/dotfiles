@@ -1,7 +1,7 @@
-#include "/home/poq/.config/x/colours/vamp_sea_dark"
+#include "/home/poq/.config/x/colours/deep_thought"
 
 URxvt*scrollBar:                     false 
-URxvt*font:                          xft:tewi:pixelsize=9
+URxvt*font:                          xft:tewi:size=11
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8
@@ -10,14 +10,16 @@ URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
+Emacs.font:			     Inziu Iosevka J-11
 
-rofi.font:			    tewi 9
-rofi.lines: 		                 6
-rofi.width:		                 10
+
+rofi.font:                           tewi 10
+rofi.lines: 		                 4
+rofi.width:		                     6
 rofi.borderwidth:	                 3
 rofi.auto-select:	                 false
 rofi.hide-scrollbar:	             true
 rofi.color-window:	                 bg, c3
-rofi.color-normal:	                 bg, fg, bg, c9, bg 
+rofi.color-normal:	                 bg, fg, bg, c4, bg 
 rofi.separator-style:                solid
 
