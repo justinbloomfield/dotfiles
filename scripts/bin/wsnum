@@ -1,0 +1,34 @@
+#!/bin/sh
+# script for getting the current workspace and outputting formatted list with the current workspace highlighted. Probably pretty shit, but it works I guess.
+
+WS=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print$3}')
+AWS=$((WS + 1))
+
+fmt() {
+    COL=$(xrq color1)
+    CAT="%{F$COL}$1%{F}"
+    echo $CAT
+}
+
+wssel() {
+
+    case $AWS in
+        1)
+            echo "$(fmt 1) 2 3 4 5"
+            ;;
+        2)
+            echo "1 $(fmt 2) 3 4 5"
+            ;;
+        3)
+            echo "1 2 $(fmt 3) 4 5"
+            ;;
+        4)
+            echo "1 2 3 $(fmt 4) 5"
+            ;;
+        5)
+            echo "1 2 3 4 $(fmt 5)"
+            ;;
+    esac
+}
+
+wssel

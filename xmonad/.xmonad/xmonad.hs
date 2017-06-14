@@ -3,13 +3,13 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
+import XMonad.Layout.BinarySpacePartition
 import XMonad.Layout.Decoration
-import XMonad.Layout.ResizableTile
 import XMonad.Layout.Fullscreen
-import XMonad.Layout.NoBorders
-import XMonad.Layout.Spacing
 import XMonad.Layout.Gaps
-import XMonad.Layout.Groups.Wmii
+import XMonad.Layout.NoBorders
+import XMonad.Layout.ResizableTile
+import XMonad.Layout.Spacing
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Util.Scratchpad
 import Graphics.X11.ExtraTypes.XF86
@@ -74,7 +74,7 @@ myStartupHook = do
   spawn "xsetroot -solid '#0055aa'"
 
 myLayout =
-  noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled)
+  noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled) ||| avoidStruts (gaps [(U,20)] emptyBSP)
   where
     tiled = ResizableTall nmaster delta ratio slaves
     nmaster = 1
@@ -99,7 +99,18 @@ newKeys XConfig {XMonad.modMask = modMask} =
   , ((modMask, xK_d), sendMessage (IncMasterN (-1)))
   , ((modMask, xK_t), windows W.focusDown)
   , ((modMask, xK_n), windows W.focusUp)
-  , ((modMask .|. shiftMask, xK_t), withFocused $ windows . W.sink)
+  , ((modMask .|. shiftMask, xK_f), withFocused $ windows . W.sink)
+  -- BSP Keys
+  , ((modMask .|. shiftMask, xK_s), sendMessage $ ExpandTowards R)
+  , ((modMask .|. shiftMask, xK_h), sendMessage $ ExpandTowards L)
+  , ((modMask .|. shiftMask, xK_n), sendMessage $ ExpandTowards U)
+  , ((modMask .|. shiftMask, xK_t), sendMessage $ ExpandTowards D)
+  , ((modMask .|. controlMask, xK_s), sendMessage $ ShrinkFrom R)
+  , ((modMask .|. controlMask, xK_h), sendMessage $ ShrinkFrom L)
+  , ((modMask .|. controlMask, xK_n), sendMessage $ ShrinkFrom U)
+  , ((modMask .|. controlMask, xK_t), sendMessage $ ShrinkFrom D)
+  , ((modMask, xK_r), sendMessage $ Swap)
+  , ((modMask .|. controlMask, xK_r), sendMessage $ Rotate)
   -- ((modMask .|. shiftMask, xK_t), W.swapDown )
   -- ((modMask .|. shiftMask, xK_c), W.swapUp )
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 1%+ unmute")

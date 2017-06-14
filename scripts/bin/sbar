@@ -6,17 +6,38 @@ clk() {
 }
 
 msc() {
-   PLAYING="$(mpc current)"
-   echo $PLAYING
+    CUR="$(mpc current)"
+    FG=$(xrq color4)
+    PLAYING="%{F$FG}$CUR%{F}"
+    echo $PLAYING
 }
 
 wrk() {
-    WS=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
-    AWS=$((WS + 1))
-    echo $AWS
+    WS=$(wsnum) #it's kinda big, don't really want it in here
+    echo $WS
+}
+
+div() {
+    SYM='∴'
+    FG=$(xrq color5)
+    DIV="%{F$FG}$SYM%{F}"
+    echo $DIV
+}
+
+name() {
+    FG=$(xrq color5)
+    ID=$(xdotool getwindowfocus)
+    WIN=$(xprop -id $ID WM_NAME)
+    lookfor='"(.*)"'
+
+    if [[ "$WIN" =~ $lookfor ]]; then
+        NAME=${BASH_REMATCH[1]}
+        FMT_NAME="%{F$FG}$NAME%{F}"
+        echo $FMT_NAME
+    fi
 }
 
 while :; do
-    echo "%{l} $(wrk)%{c}$(msc)%{r}$(clk) "
+    echo "%{l} $(wrk) $(div) $(name) %{r}$(msc) $(div) $(clk) "
     sleep 1
 done | lemonbar $PANEL_OPTS
