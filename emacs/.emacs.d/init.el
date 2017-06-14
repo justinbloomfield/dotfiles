@@ -14,7 +14,7 @@
 (require 'package)
 
 (setq package-archives nil)
-
+;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (setq package-enable-at-startup nil)
 (package-initialize)
 
@@ -52,13 +52,16 @@
 ;; theme/modeline
 (setq custom-safe-themes t)
 ;(load-file "~/.emacs.d/themes/xres-theme.el")
-(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
+;(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
+(load-theme 'spacegray t)
 (global-linum-mode t)
 (setq linum-format " %3d ")
-
+;(add-to-list 'default-frame-alist
+;             '(font . "Monofur-13"))
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
+;(pretty-mode)
 
 ;; gross gui shit
 (menu-bar-mode -1)
@@ -94,59 +97,9 @@
 ;(use-package all-the-icons)
 
 ;; ace-window
-(use-package ace-window
-  :bind ("C-x o" . ace-window))
+
+(global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
-
-;; circe
-(load-file "~/.emacs.d/custom/private.el")
-(require 'tls)
-(setq circe-network-options
-      `(("fn"
-         :host "irc.freenode.net"
-         :port 6667
-         :nick "piecesofquiet"
-         :channels ("#crux")
-         :nickserv-identify-challenge "\C-b/msg\\s-NickServ\\s-identify\\s-<password>\C-b"
-         :nickserv-identify-command "PRIVMSG NickServ :IDENTIFY {nick} {password}"
-         :nickserv-identify-confirmation "^You are now identified for.*\\.$" 
-         :nickserv-password ,irc-pass)
-        ("nx"
-         :host "irc.unix.chat"
-         :tls t
-         :port 6697
-         :nick "poq"
-         :channels ("#unix")
-         :nickserv-identify-challenge "\C-b/msg\\s-NickServ\\s-identify\\s-<password>\C-b"
-         :nickserv-identify-command "PRIVMSG NickServ :IDENTIFY {nick} {password}"
-         :nickserv-identify-confirmation "^You are now identified for.*\\.$" 
-         :nickserv-password ,irc-pass)
-        ("fb"
-         :host "im.codemonkey.be"
-         :port 6667
-         :nick "piecesofquiet"
-         :nickserv-password ,irc-pass)
-        ("tw"
-         :host "irc.chat.twitch.tv"
-         :port 6667
-         :nick "piecesofquiet777"
-         :nickserv-password ,twitch-oauth
-         :channels ("#bajostream"))))
-
-(setq
- lui-time-stamp-position 'right-margin
- lui-fill-type nil)
-
-(setq circe-use-tls t)
-
-(add-hook 'lui-mode-hook 'my-lui-setup)
-(defun my-lui-setup ()
-  (setq
-   fringes-outside-margins t
-   right-margin-width 9
-   word-wrap t
-   wrap-prefix "    ")
-  (linum-mode 0))
 
 ;; auctex
 (setq TeX-auto-save t)
@@ -157,10 +110,110 @@
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'Latex-mode-hook 'turn-on-reftex)
 (setq reftex-plug-into-AUCTeX t)
+(eval-after-load "tex"
+  '(progn
+     (add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -p %(outpage)") " %o")))
+     (setq TeX-view-program-selection '((output-pdf "zathura")))))
+
 
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
+
+;; magit
+(setq magit-completing-read-function 'ivy-completing-read)
+(setq vc-follow-symlinks nil)
+(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+(setq org-directory "~/var/org")
+(setq org-default-notes-file "~/var/org/notes.org")
+(global-set-key (kbd "C-c g") 'magit-status)
+
+;; ivy/counsel/swiper
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(ivy-mode 1)
+(setq ivy-use-virtual-buffers t)
+(setq ivy-count-format "(%d/%d) ")
+
+
+;; multi-term
+(setq multi-term-program "zsh")
+
+;; neotree
+(setq neo-theme 'ascii)
+(global-set-key (kbd "C-c t") 'neotree-toggle)
+
+;; haskell-mode
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+;;(add-hook 'haskell-mode-hook 'intero-mode)
+
+
+;; slime
+;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
+(setq inferior-lisp-program "clisp")
+(slime-setup '(slime-company))
+
+;; mu4e
+(require 'mu4e)
+(setq mu4e-maildir "/home/poq/var/mail/jbl")
+(setq mu4e-sent-folder "/Sent"
+      mu4e-drafts-folder "/Drafts"
+      mu4e-trash-folder "/Trash")
+(setq mu4e-maildir-shortcuts
+      '(("/Inbox" . ?i)
+        ("/Sent"  . ?s)))
+(setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
+(setq mu4e-headers-fields
+      '((:human-date   .  25)
+        (:flags        .   6)
+        (:from         .  22)
+        (:subject      .  nil)))
+
+(setq mu4e-get-mail-command "mbsync jbloo")
+(setq mu4e-reply-to-address "jbloomfield@live.com"
+      user-mail-address "jbloomfield@live.com"
+      user-full-name "Justin Bloomfield")
+(setq
+ message-send-mail-function 'message-send-mail-with-sendmail
+ sendmail-program "msmtp")
+(setq message-kill-buffer-on-exit t)
+(setq mu4e-use-fancy-chars t)
+(global-set-key (kbd "C-c m") 'mu4e)
+;(setq mu4e-view-show-images t)
+
+
+;;; MISC
+;; bold font fuck off
+(set-face-bold-p 'bold nil)
+(mapc
+ (lambda (face)
+        (when (eq (face-attribute face :weight) 'bold)
+          (set-face-attribute face nil :weight 'normal)))
+ (face-list))
+
+(global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
+(global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key (kbd "C-c d") 'dired)
+(global-set-key (kbd "C-c i") 'switch-to-buffer)
+(global-set-key (kbd "C-c x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+(global-set-key (kbd "C-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-c n") (lambda () (interactive) (find-file "~/var/org/notes.org")))
+
+(setq disabled-command-function nil)
+(setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
+
+;;; EXWM
+(require 'exwm)
+(require 'exwm-config)
+;(exwm-config-default)
+;(exwm-enable t)
+
+
+
+;; We aren't using this at the moment 
 ;; evil
 ;;(evil-mode nil)
 ;;(global-evil-leader-mode)
@@ -209,19 +262,6 @@
 ;;(define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
 ;;(define-key evil-normal-state-map "/" 'swiper)
 ;;(define-key evil-normal-state-map "p" 'counsel-yank-pop)
-
-;; magit
-(use-package magit
-  :config
-  (progn
-;;    (evil-set-initial-state 'magit-mode 'normal)
-;;    (evil-set-initial-state 'magit-status-mode 'normal)
-;;    (evil-define-key 'normal magit-mode-map
-;;      "t" 'magit-section-forward
-;;      "n" 'magit-section-backward)
-    (setq magit-completing-read-function 'ivy-completing-read)))
-(setq vc-follow-symlinks nil)
-
 ;; org-mode
 ;;(add-hook 'org-mode-hook
 ;;          (lambda()
@@ -231,58 +271,3 @@
 ;;  '(progn
 ;;     (evil-set-initial-state 'org-mode 'normal)
 ;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
-
-(add-hook 'org-mode-hook 'turn-on-org-cdlatex)
-(setq org-directory "~/var/org")
-(setq org-default-notes-file "~/var/org/notes.org")
-
-(global-set-key (kbd "C-c n") (lambda () (interactive) (find-file "~/var/org/notes.org")))
-
-;; ivy/counsel/swiper
-(global-set-key (kbd "M-x") 'counsel-M-x)
-(global-set-key (kbd "C-s") 'swiper)
-(global-set-key (kbd "C-x C-f") 'counsel-find-file)
-(ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
-(setq ivy-count-format "(%d/%d) ")
-
-;; multi-term
-(setq multi-term-program "zsh")
-
-;; haskell-mode
-(autoload 'ghc-init "ghc" nil t)
-(autoload 'ghc-debug "ghc" nil t)
-;;(add-hook 'haskell-mode-hook 'intero-mode)
-
-;; slime
-;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "clisp")
-(slime-setup '(slime-company))
-
-;;; MISC
-;; bold font fuck off
-(set-face-bold-p 'bold nil)
-(mapc
- (lambda (face)
-        (when (eq (face-attribute face :weight) 'bold)
-          (set-face-attribute face nil :weight 'normal)))
- (face-list))
-(global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
-(global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
-(global-set-key (kbd "C-c m") 'mpc)
-(global-set-key (kbd "C-c d") 'dired)
-(global-set-key (kbd "C-c g") 'magit-status)
-(global-set-key (kbd "C-c i") 'switch-to-buffer)
-(global-set-key (kbd "C-c x") 'counsel-M-x)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
-
-(use-package tex
-  :config
-    (add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -P %(outpage)") " %o")))
-    (setq TeX-view-program-selection '((output-pdf "zathura"))))
-
-
-;;; EXWM
-(require 'exwm)
-(require 'exwm-config)
-;(exwm-config-default)

@@ -36,21 +36,14 @@ if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
     zle -N zle-line-finish
 fi
 
-bindkey -v
-bindkey '^P' up-history
-bindkey '^N' down-history
-
-export KEYTIMEOUT=1
-
 function zle-line-init zle-keymap-select {
     if [[ "$EUID" -ne "0" ]]; then
-     USER_LEVEL="%F{green}%}" #unroot
+     USER_LEVEL="%F{blue}%}" #unroot
     else
      USER_LEVEL="%F{magenta}%}" #root
     fi
-    VIM_PROMPT="%{$fg[green]%} [% NORMAL]% %{$reset_color%}"
     PROMPT="${USER_LEVEL} │ %f"
-    RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+    
     zle reset-prompt
 }
 

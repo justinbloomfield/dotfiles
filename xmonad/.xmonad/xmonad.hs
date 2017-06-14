@@ -28,7 +28,7 @@ myXmobarHlColor :: [Char]
 myXmobarTitleColor :: [Char]
 myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
-myTerminal = "urxvt"
+myTerminal = "urxvtc"
 myBorderWidth = 2
 myNormalBorderColor = "#111d3c"
 myFocusedBorderColor = "#208ae2"
@@ -70,6 +70,7 @@ myStartupHook = do
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
   spawn "ibus-daemon -drx"
+  spawn "xcape -t 200 -e 'Shift_L=parenleft;Shift_R=parenright"
   spawn "xsetroot -solid '#0055aa'"
 
 myLayout =
@@ -86,7 +87,7 @@ myHandleEventHook =
   handleEventHook def
 
 scratchpad :: X ()
-scratchpad = scratchpadSpawnActionTerminal "urxvt"
+scratchpad = scratchpadSpawnActionTerminal "urxvtc"
 newKeys XConfig {XMonad.modMask = modMask} =
   [ ((modMask, xK_u), scratchpad)
   , ((modMask, xK_a), sendMessage MirrorExpand)
