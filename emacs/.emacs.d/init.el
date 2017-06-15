@@ -52,10 +52,13 @@
 ;; theme/modeline
 (setq custom-safe-themes t)
 ;(load-file "~/.emacs.d/themes/xres-theme.el")
-;(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
-(load-theme 'spacegray t)
+(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
+;(load-theme 'spacegray t)
 (global-linum-mode t)
 (setq linum-format " %3d ")
+
+;; let the glow flow through you
+(global-hl-line-mode nil)
 ;(add-to-list 'default-frame-alist
 ;             '(font . "Monofur-13"))
 ;; remove modeline 90's box thing
@@ -87,8 +90,7 @@
          ("haskell" (mode . haskell-mode))
          ("scheme" (mode . scheme-mode)))))
 
-;; let the glow flow through you
-(global-hl-line-mode t)
+
 
 ;; fuck GNU
 (setq inhibit-startup-screen t)
@@ -198,6 +200,7 @@
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-c i") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
+(global-set-key (kbd "C-c a") 'simple-mpc)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-c n") (lambda () (interactive) (find-file "~/var/org/notes.org")))
@@ -271,3 +274,17 @@
 ;;  '(progn
 ;;     (evil-set-initial-state 'org-mode 'normal)
 ;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (em xresources-theme use-package sublime-themes spacegray-theme slime-company simple-mpc pretty-mode nix-mode neotree multi-term magit intero geiser exwm evil-escape ess emms-player-mpv csv-mode counsel company-ghc circe cdlatex base16-theme auctex all-the-icons-dired ace-window))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
