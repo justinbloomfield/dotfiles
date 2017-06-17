@@ -1,5 +1,4 @@
 import XMonad
-
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.EwmhDesktops
@@ -15,6 +14,7 @@ import XMonad.Util.Scratchpad
 import Graphics.X11.ExtraTypes.XF86
 import Data.Default
 import Data.Monoid
+import Data.Ratio
 import System.IO
 
 import qualified XMonad.StackSet as W
@@ -52,7 +52,6 @@ myManageHook =
   manageDocks <+>
   manageScratchPad
 
-myLogHook :: Handle -> X ()
 myLogHook xmproc =
   dynamicLogWithPP xmobarPP {
     ppCurrent = xmobarColor myXmobarHlColor ""
@@ -71,20 +70,20 @@ myStartupHook = do
   spawn "export QT_IM_MODULE=ibus"
   spawn "ibus-daemon -drx"
   spawn "xcape -t 200 -e 'Shift_L=parenleft;Shift_R=parenright"
-  spawn "xsetroot -solid '#0055aa'"
+  spawn "xsetroot -solid '#102530'"
 
 myLayout =
-  noBorders (fullscreenFull Full) ||| avoidStruts (gaps [(U,20)] tiled) ||| avoidStruts (gaps [(U,20)] emptyBSP)
-  where
-    tiled = ResizableTall nmaster delta ratio slaves
-    nmaster = 1
-    ratio = 1/2
-    delta = 3/100
-    slaves = []
+  noBorders (fullscreenFull Full) ||| avoidStruts emptyBSP
+--  where
+--    tiled = ResizableTall nmaster delta ratio slaves
+--    nmaster = 1
+--    ratio = 1/2
+--    delta = 3/100
+--    slaves = []
 
 myHandleEventHook :: Event -> X All
 myHandleEventHook =
-  handleEventHook def
+  docksEventHook 
 
 scratchpad :: X ()
 scratchpad = scratchpadSpawnActionTerminal "urxvtc"

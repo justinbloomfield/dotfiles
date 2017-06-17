@@ -14,7 +14,6 @@ in
     company-ghc
     counsel
     ess
-    geiser
     ghc
     haskell-mode
     magit
@@ -30,6 +29,7 @@ in
     emms
     emms-player-mpv
     evil-escape
+    geiser
     intero
     multi-term
     neotree
@@ -42,7 +42,6 @@ in
     spacegray-theme
     sublime-themes
     use-package
-    xresources-theme
 #    evil-escape
   ]) ++ (with epkgs.elpaPackages; [
     ace-window

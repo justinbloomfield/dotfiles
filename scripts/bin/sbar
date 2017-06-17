@@ -38,6 +38,6 @@ name() {
 }
 
 while :; do
-    echo "%{l} $(wrk) $(div) $(name) %{r}$(msc) $(div) $(clk) "
+    echo "%{l} $(name) %{r}$(msc) $(div) $(clk) "
     sleep 1
 done | lemonbar $PANEL_OPTS

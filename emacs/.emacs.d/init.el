@@ -52,8 +52,8 @@
 ;; theme/modeline
 (setq custom-safe-themes t)
 ;(load-file "~/.emacs.d/themes/xres-theme.el")
-(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
-;(load-theme 'spacegray t)
+;(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
+(load-theme 'spacegray t)
 (global-linum-mode t)
 (setq linum-format " %3d ")
 
@@ -185,6 +185,8 @@
 (global-set-key (kbd "C-c m") 'mu4e)
 ;(setq mu4e-view-show-images t)
 
+;; geiser
+(setq geiser-active-implementations '(chez))
 
 ;;; MISC
 ;; bold font fuck off
@@ -198,7 +200,7 @@
 (global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
 (global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
 (global-set-key (kbd "C-c d") 'dired)
-(global-set-key (kbd "C-c i") 'switch-to-buffer)
+(global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
 (global-set-key (kbd "C-c a") 'simple-mpc)
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -209,8 +211,8 @@
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
 
 ;;; EXWM
-(require 'exwm)
-(require 'exwm-config)
+;(require 'exwm)
+;(require 'exwm-config)
 ;(exwm-config-default)
 ;(exwm-enable t)
 
@@ -275,16 +277,4 @@
 ;;     (evil-set-initial-state 'org-mode 'normal)
 ;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
 (custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (em xresources-theme use-package sublime-themes spacegray-theme slime-company simple-mpc pretty-mode nix-mode neotree multi-term magit intero geiser exwm evil-escape ess emms-player-mpv csv-mode counsel company-ghc circe cdlatex base16-theme auctex all-the-icons-dired ace-window))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(sh-heredoc ((t (:foreground "DodgerBlue1")))))
