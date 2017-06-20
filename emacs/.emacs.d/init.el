@@ -53,7 +53,7 @@
 (setq custom-safe-themes t)
 ;(load-file "~/.emacs.d/themes/xres-theme.el")
 ;(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
-(load-theme 'spacegray t)
+(load-theme 'seoul256 t)
 (global-linum-mode t)
 (setq linum-format " %3d ")
 
@@ -277,4 +277,17 @@
 ;;     (evil-set-initial-state 'org-mode 'normal)
 ;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
 (custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   (quote
+    (seoul256-theme seo use-package sublime-themes spacegray-theme slime-company simple-mpc pretty-mode nix-mode neotree multi-term magit intero geiser exwm evil-escape ess emms-player-mpv csv-mode counsel company-ghc circe cdlatex base16-theme auctex all-the-icons-dired ace-window)))
  '(sh-heredoc ((t (:foreground "DodgerBlue1")))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

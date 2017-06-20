@@ -15,11 +15,11 @@ bind 4-t unbind
 bind 4-n unbind
 
 # colors
-color activeborder      '#208ae2'
-color inactiveborder	'#111d3c'
-color font		        '#227799'
-color menubg		    '#000f14'
-color menufg		    '#002566'
+color activeborder      '#f1d4d6'
+color inactiveborder	'#952d2c'
+color font		        '#cca3b1'
+color menubg		    '#f4f7fc'
+color menufg		    '#6e6578'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
