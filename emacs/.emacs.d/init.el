@@ -56,13 +56,10 @@
 (setq linum-format " %3d ")
 (column-number-mode t)
 
-(defun cbt ()
-  (propertize " %b "))
-
 (setq-default mode-line-format
               (list
-               '(:eval (concat
-                        (cbt)))))
+               " %b "
+               " %l,%c "))
 
 ;; let the glow flow through you
 (global-hl-line-mode nil)
@@ -221,19 +218,3 @@
 ;(require 'exwm-config)
 ;(exwm-config-default)
 ;(exwm-enable t)
-
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (seoul256-theme seo use-package sublime-themes spacegray-theme slime-company simple-mpc pretty-mode nix-mode neotree multi-term magit intero geiser exwm evil-escape ess emms-player-mpv csv-mode counsel company-ghc circe cdlatex base16-theme auctex all-the-icons-dired ace-window)))
- '(sh-heredoc ((t (:foreground "DodgerBlue1")))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
