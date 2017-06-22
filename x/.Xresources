@@ -14,8 +14,8 @@ Emacs.font:			     Inziu Iosevka J-11
 
 
 rofi.font:                           tewi 10
-rofi.lines: 		                 4
-rofi.width:		                     6
+rofi.lines: 		                 8
+rofi.width:		                     10
 rofi.borderwidth:	                 3
 rofi.auto-select:	                 false
 rofi.hide-scrollbar:	             true

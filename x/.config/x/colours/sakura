@@ -1,20 +1,20 @@
-#define fg    #ffffff 
-#define bg    #000f14
-#define cc    #3748a0 
-#define c0    #000f14 
-#define c1    #208ae2 
-#define c2    #102530
-#define c3    #002566
-#define c4    #10adee 
-#define c5    #227799 
-#define c6    #105f89
-#define c7    #113399 
-#define mla   #001520 
-#define mli   #111d3c
+#define fg    #42284d
+#define bg    #f4f7fc 
+#define cc    #ff5ec5
+#define c0    #f4f7fc
+#define c1    #f1d4d6
+#define c2    #fdc395
+#define c3    #6e6578
+#define c4    #cbb3c3
+#define c5    #cca3b1
+#define c6    #ff847c
+#define c7    #df88bf
+#define mla   #e0c8d6
+#define mli   #952d2c
 
 *background:    bg
 *foreground:    fg
-*cursorColor:   cc
+*cursorColor:   c2
 *color0:        c0
 *color1:        c1
 *color2:        c2

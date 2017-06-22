@@ -51,20 +51,23 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-;(load-file "~/.emacs.d/themes/xres-theme.el")
-;(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
 (load-theme 'spacegray t)
 (global-linum-mode t)
 (setq linum-format " %3d ")
+(column-number-mode t)
+
+(setq-default mode-line-format
+              (list
+               " %b "
+               " %l,%c "))
 
 ;; let the glow flow through you
 (global-hl-line-mode nil)
-;(add-to-list 'default-frame-alist
-;             '(font . "Monofur-13"))
+
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
-;(pretty-mode)
+(pretty-mode)
 
 ;; gross gui shit
 (menu-bar-mode -1)
@@ -215,66 +218,3 @@
 ;(require 'exwm-config)
 ;(exwm-config-default)
 ;(exwm-enable t)
-
-
-
-;; We aren't using this at the moment 
-;; evil
-;;(evil-mode nil)
-;;(global-evil-leader-mode)
-;;(evil-mode 1)
-;;(evil-escape-mode 1)
-;;(evil-set-initial-state 'mpc-mode 'emacs)
-;;(evil-set-initial-state 'mpc-tagbrowser-mode 'emacs)
-;;(evil-set-initial-state 'mpc-songs-mode 'emacs)
-;;
-;;
-;;(setq-default evil-escape-key-sequence "ii")
-;;(setq-default evil-escape-delay 0.2)
-;;(evil-leader/set-leader "<SPC>")
-;;(evil-leader/set-key
-;; "c" 'circe
-;; "d" 'dired
-;; "i" 'switch-to-buffer
-;; "b" 'ibuffer
-;; "m" 'mpc
-;; "g" 'magit-status
-;; "w" 'save-buffer
-;; "f" 'counsel-find-file
-;; "p" 'clipboard-yank)
-;;
-;;(eval-after-load 'ibuffer
-;;    '(progn
-;;       (evil-set-initial-state 'ibuffer-mode 'normal)
-;;       (evil-define-key 'normal ibuffer-mode-map
-;;	 (kbd "J") 'ibuffer-jump-to-buffer
-;;	 (kbd "d") 'ibuffer-mark-for-delete
-;;	 (kbd "x") 'ibuffer-do-kill-on-deletion-marks
-;;	 (kbd "t") 'evil-next-line
-;;	 (kbd "n") 'evil-previous-line
-;;	 (kbd "l") 'ibuffer-visit-buffer)))
-;;(global-set-key (kbd "C-x C-b") 'ibuffer)
-;;
-;;;; dvorak bindings
-;;(define-key evil-normal-state-map (kbd "h") 'backward-char)
-;;(define-key evil-normal-state-map (kbd "t") 'evil-next-line)
-;;(define-key evil-normal-state-map (kbd "n") 'evil-previous-line)
-;;(define-key evil-normal-state-map (kbd "s") 'forward-char)
-;;(define-key evil-visual-state-map (kbd "h") 'backward-char)
-;;(define-key evil-visual-state-map (kbd "t") 'evil-next-line)
-;;(define-key evil-visual-state-map (kbd "n") 'evil-previous-line)
-;;(define-key evil-visual-state-map (kbd "s") 'forward-char)
-;;(define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
-;;(define-key evil-normal-state-map "/" 'swiper)
-;;(define-key evil-normal-state-map "p" 'counsel-yank-pop)
-;; org-mode
-;;(add-hook 'org-mode-hook
-;;          (lambda()
-;;            (define-key evil-normal-state-map (kbd "TAB") 'org-mode)))
-;;
-;;(eval-after-load 'org-mode
-;;  '(progn
-;;     (evil-set-initial-state 'org-mode 'normal)
-;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
-(custom-set-variables
- '(sh-heredoc ((t (:foreground "DodgerBlue1")))))
