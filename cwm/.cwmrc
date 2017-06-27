@@ -15,11 +15,11 @@ bind 4-t unbind
 bind 4-n unbind
 
 # colors
-color activeborder      '#f1d4d6'
-color inactiveborder	'#952d2c'
-color font		        '#cca3b1'
-color menubg		    '#f4f7fc'
-color menufg		    '#6e6578'
+color activeborder      '#eeeeee'
+color inactiveborder	'#202020'
+color font		        '#bbbbbb'
+color menubg		    '#000000'
+color menufg		    '#333333'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
@@ -30,6 +30,7 @@ autogroup 3 mpv
 autogroup 4 Steam
 autogroup 5 zathura
 autogroup 7 Gimp
+autogroup 8 Firefox
 autogroup 9 discord
 
 moveamount 5

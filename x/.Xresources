@@ -10,7 +10,7 @@ URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
-Emacs.font:			     Inziu Iosevka J-11
+Emacs.font:			     boxxy-11
 
 
 rofi.font:                           tewi 10
