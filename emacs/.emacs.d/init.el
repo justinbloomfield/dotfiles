@@ -10,6 +10,16 @@
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
+;; QL/STUMPWM
+(load "~/.ql/slime-helper.el")
+(slime-setup '(slime-fancy slime-highlight-edits))
+(setf slime-scratch-file "~/.ql/slime-scratch.lisp")
+(defun stumpwm-config ()
+  "Open file & connect to slime instance"
+  (interactive)
+  (find-file "~/.config/stumpwm/config")
+  (slime-connect "127.0.0.1" "4005"))
+
 ;; PKG
 (require 'package)
 
@@ -51,9 +61,10 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-(load-theme 'spacegray t)
-(global-linum-mode t)
-(setq linum-format " %3d ")
+(load-theme 'base16-pico t)
+(set-face-attribute 'default nil :foreground "#EEEEEE")
+;(global-linum-mode t)
+;(setq linum-format " %3d ")
 (column-number-mode t)
 
 (setq-default mode-line-format
@@ -62,7 +73,7 @@
                " %l,%c "))
 
 ;; let the glow flow through you
-(global-hl-line-mode nil)
+;(global-hl-line-mode nil)
 
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
@@ -143,7 +154,7 @@
 
 
 ;; multi-term
-(setq multi-term-program "zsh")
+(setq multi-term-program "mksh")
 
 ;; neotree
 (setq neo-theme 'ascii)
@@ -157,7 +168,7 @@
 
 ;; slime
 ;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "clisp")
+(setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
 
 ;; mu4e
@@ -191,17 +202,10 @@
 ;; geiser
 (setq geiser-active-implementations '(chez))
 
-;;; MISC
-;; bold font fuck off
-(set-face-bold-p 'bold nil)
-(mapc
- (lambda (face)
-        (when (eq (face-attribute face :weight) 'bold)
-          (set-face-attribute face nil :weight 'normal)))
- (face-list))
 
 (global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
 (global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(global-set-key (kbd "C-c c s") 'stumpwm-config)
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)

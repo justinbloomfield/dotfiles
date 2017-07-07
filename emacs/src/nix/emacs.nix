@@ -18,8 +18,6 @@ in
     haskell-mode
     magit
     swiper
-#    evil
-#    evil-leader
   ]) ++ (with epkgs.melpaPackages; [
     all-the-icons
     all-the-icons-dired
@@ -35,14 +33,13 @@ in
     neotree
     nix-mode
     pretty-mode
-#    seoul256-theme
     simple-mpc
-    slime
+#    slime
     slime-company
     spacegray-theme
+    stumpwm-mode
     sublime-themes
     use-package
-#    evil-escape
   ]) ++ (with epkgs.elpaPackages; [
     ace-window
     auctex

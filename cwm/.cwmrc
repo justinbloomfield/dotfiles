@@ -13,13 +13,14 @@ bind CM-j unmap
 bind 4-s unbind
 bind 4-t unbind
 bind 4-n unbind
+bind M-Return unbind
 
 # colors
-color activeborder      '#eeeeee'
-color inactiveborder	'#202020'
-color font		        '#bbbbbb'
+color activeborder      '#4a4b4c'
+color inactiveborder	''
+color font		        '#4a4b4c'
 color menubg		    '#000000'
-color menufg		    '#333333'
+color menufg		    '#a2a2a5'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
@@ -28,7 +29,7 @@ autogroup 1 Emacs
 autogroup 2 qutebrowser
 autogroup 3 mpv
 autogroup 4 Steam
-autogroup 5 zathura
+autogroup 5 .zathura-wrapped_
 autogroup 7 Gimp
 autogroup 8 Firefox
 autogroup 9 discord
