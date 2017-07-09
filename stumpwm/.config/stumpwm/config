@@ -64,6 +64,7 @@
 
 ;; binds
 (define-key *root-map* (kbd "c") "exec st")
+(define-key *root-map* (kbd "z") "exec zathura")
 (define-key *root-map* (kbd "C-c") "exec st")
 (define-key *root-map* (kbd "C-q") "quit")
 (define-key *root-map* (kbd "C-'") "gselect 1")
@@ -77,8 +78,8 @@
 ;; window rules
 (clear-window-placement-rules)
 
-(define-frame-preference "web"
-  (1 t   t :class "qutebrowser")
+(define-frame-preference "www"
+  (0 t   t :class "qutebrowser")
   (1 nil t :class "Firefox"))
 
 (run-commands "grename def")
