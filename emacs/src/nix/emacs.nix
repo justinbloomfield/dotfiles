@@ -49,7 +49,7 @@ in
     csv-mode
     exwm
   ]) ++ [
-    pkgs.chibi
+    pkgs.guile
     pkgs.isync
     pkgs.libressl
     pkgs.mu

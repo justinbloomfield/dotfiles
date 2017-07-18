@@ -2,10 +2,10 @@
 
 (in-package :stumpwm)
 (set-module-dir "/home/poq/.config/stumpwm/contrib")
-(add-to-load-path "/home/poq/src/pkg/swm-gaps")
-(load-module "maildir")
-(load-module "mem")
-(load-module "swm-gaps")
+;(add-to-load-path "/home/poq/src/pkg/swm-gaps")
+;(load-module "maildir")
+;(load-module "mem")
+;(load-module "swm-gaps")
 (load-module "ttf-fonts")
 (require 'clx-truetype)
 
@@ -20,6 +20,8 @@
                          "Getting swanky"))
 (swank)
 
+
+
 (defcommand colon1 (&optional (initial "")) (:rest)
             (let ((cmd (read-one-line (current-screen) ": " :initial-input initial)))
               (when cmd
@@ -27,9 +29,7 @@
 
 (defcommand xprint (msg)
     ((:string))
-  (message "bajo~a" msg))
-;;  (stumpwm:run-shell-command
-;;   (format nil "echo bajo~A" msg) t))
+   (run-shell-command (format nil "seq 4 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
 
 
 ;; macros
@@ -62,10 +62,10 @@
    (format nil "date +\"~A\""
            *time-modeline-string*) t))
 
-(setf *screen-mode-line-format*
-      (list "^6 %g ^n^b %W ^> %X | %N | "
-            '(:eval (get-date-modeline))))
-(mode-line)
+;(setf *screen-mode-line-format*
+;      (list "^6 %g ^n^b %W ^> %X | %N | "
+;            '(:eval (get-date-modeline))))
+;(mode-line)
 
 
 ;; borders
@@ -77,32 +77,32 @@
 
 
 ;; gaps
-(setf swm-gaps:*inner-gaps-size* 10)
-(setf swm-gaps:*outer-gaps-size* 10)
+;(setf swm-gaps:*inner-gaps-size* 10)
+;(setf swm-gaps:*outer-gaps-size* 10)
 
 
 ;; custom maps
 (defvar *my-emote-bindings*
   (let ((m (make-sparse-keymap)))
     (stumpwm:define-key m (stumpwm:kbd "s") "xprint Sad")
-    (define-key m (kbd "y") "xprint Yeahnah")
-    (define-key m (kbd "8") "xprint 8bit")
-    (define-key m (kbd "q") "xprint Quasarface")
-    (define-key m (kbd "Q") "xprint Quasar")
-    (define-key m (kbd "c") "xprint Cry")
-    (define-key m (kbd "d") "xprint Djbj")
-    (define-key m (kbd "m") "xprint Milk")
-    (define-key m (kbd "r") "xprint Rage")
-    (define-key m (kbd "g") "xprint Graphics")
-    (define-key m (kbd "b") "xprint Bidet")
-    (define-key m (kbd "m") "xprint Maker")
-    (define-key m (kbd "1") "xprint 17th")
-    (define-key m (kbd "p") "xprint Ponder")
-    (define-key m (kbd "k") "xprint Kisses")
-    (define-key m (kbd "P") "xprint Praise")
-    (define-key m (kbd "c") "xprint Clownin")
-    (define-key m (kbd "B") "xprint Broken")
-    (define-key m (kbd "a") "xprint Art")
+    (define-key m (kbd "C-y") "xprint Yeahnah")
+    (define-key m (kbd "C-8") "xprint 8bit")
+    (define-key m (kbd "C-q") "xprint Quasarface")
+    (define-key m (kbd "q") "xprint Quasar")
+    (define-key m (kbd "C-c") "xprint Cry")
+    (define-key m (kbd "C-d") "xprint Djbj")
+    (define-key m (kbd "C-m") "xprint Milk")
+    (define-key m (kbd "C-r") "xprint Rage")
+    (define-key m (kbd "C-g") "xprint Graphics")
+    (define-key m (kbd "C-b") "xprint Bidet")
+    (define-key m (kbd "C-m") "xprint Maker")
+    (define-key m (kbd "C-1") "xprint 17th")
+    (define-key m (kbd "C-p") "xprint Ponder")
+    (define-key m (kbd "C-k") "xprint Kisses")
+    (define-key m (kbd "p") "xprint Praise")
+    (define-key m (kbd "C-c") "xprint Clownin")
+    (define-key m (kbd "b") "xprint Broken")
+    (define-key m (kbd "C-a") "xprint Art")
 
     m ; NOTE: this is important
   ))
@@ -120,7 +120,7 @@
 (define-key *root-map* (kbd "C-f") "fullscreen")
 (define-key *root-map* (kbd "!") "exec dmenu_run")
 (define-key *root-map* (kbd "RET") "mode-line")
-(define-key *root-map* (kbd "C-RET") "toggle-gaps")
+;(define-key *root-map* (kbd "C-RET") "toggle-gaps")
 (define-key *root-map* (kbd "C-e") '*my-emote-bindings*)
 
 
@@ -140,14 +140,12 @@
 
 (run-commands "grename def")
 (make-groups-bg "www" "irc" "dota")
-(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
+;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
 
 (in-package :clx-truetype)
 (setq *font-dirs* '("/home/poq/.local/share/fonts"
                     "/run/current-system/sw/share/X11-fonts"))
-
-;(cache-font-file "/home/poq/.local/share/fonts/Px437 (TrueType - DOS charset)/Px437_IBM_VGA8.ttf")
-;(xft:cache-fonts)
+(xft:cache-fonts)
 
 (in-package :stumpwm)
-(set-font (make-instance 'xft:font :family "Px437 IBM VGA8" :subfamily "Regular" :size 11 :antialias nil :hints t))
+(set-font (make-instance 'xft:font :family "PxPlus IBM VGA8" :subfamily "Regular" :size 12 :antialias nil :hints t))

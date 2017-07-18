@@ -14,7 +14,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-(load "~/.ql/slime-helper.el")
+(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -69,7 +69,7 @@
 ;(global-linum-mode t)
 ;(setq linum-format " %3d ")
 (column-number-mode t)
-(set-default-font "Px437 IBM VGA8-11:antialias=false")
+(set-default-font "PxPlus IBM VGA8-11:antialias=false")
 (set-face-bold-p 'bold nil)
 
 (setq-default mode-line-format
@@ -189,7 +189,6 @@
 
 
 ;; slime
-;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
 
