@@ -1,10 +1,10 @@
 ! special
-*.background : #111111
+*.background : #000000
 *.foreground : #cccccc
 *.cursorColor : #ef49ff
 !black
-*color0	     : #111111
-*color8	     : #111111
+*color0	     : #000000
+*color8	     : #000000
 
 ! red
 *color1	     : #FF9CDB

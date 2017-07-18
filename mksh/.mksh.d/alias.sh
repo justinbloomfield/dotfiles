@@ -17,6 +17,7 @@ alias xsnow='xsnow -notrees -nosanta -norudolf'
 alias suod='sudo' #becausei'mretarded
 alias nr='sudo nixos-rebuild switch -I nixpkgs=/home/poq/src/nix/nixpkgs'
 alias schleep='systemctl suspend'
+alias guixd='sudo ~root/.guix-profile/bin/guix-daemon --build-users-group=guixbuild'
 
 alias eb="edbrowse"
 alias c='cd'

@@ -24,6 +24,7 @@ in
     base16-theme
     cdlatex
     circe
+    elfeed
     emms
     emms-player-mpv
     evil-escape

@@ -1,5 +1,8 @@
 ;;; poq's emacs config, blatantly ripped from arc and modified. use at own risk
 
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 ;; fuck you tramp
 (defun sudo-edit (&optional arg)
   "edit current files as root"
@@ -20,7 +23,7 @@
   (find-file "~/.config/stumpwm/config")
   (slime-connect "127.0.0.1" "4005"))
 
-;; PKG
+;;; PKG
 (require 'package)
 
 (setq package-archives nil)
@@ -62,10 +65,12 @@
 ;; theme/modeline
 (setq custom-safe-themes t)
 (load-theme 'base16-pico t)
-(set-face-attribute 'default nil :foreground "#EEEEEE")
+(set-face-attribute 'default nil :foreground "#bbbbbb")
 ;(global-linum-mode t)
 ;(setq linum-format " %3d ")
 (column-number-mode t)
+(set-default-font "Px437 IBM VGA8-11:antialias=false")
+(set-face-bold-p 'bold nil)
 
 (setq-default mode-line-format
               (list
@@ -92,8 +97,7 @@
 (setq ibuffer-saved-filter-groups
       '(("memes"
          ("email" (name . "\*mu4e"))
-         ("emacs-config" (or (filename . ".emacs.d")
-                             (filename . "emacs-config")))
+         ("emacs-config" (filename . ".emacs.d"))
          ("git" (name . "\*magit"))
          ("org" (mode . org-mode))
          ("irc-chan" (or (mode . circe-channel-mode)
@@ -102,8 +106,23 @@
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))
          ("haskell" (mode . haskell-mode))
+         ("lisp" (mode . lisp-mode))
+         ("nix" (or (mode . nix-mode)
+                    (name . "\*nix")))
          ("scheme" (mode . scheme-mode)))))
 
+(setq ibuffer-never-show-predicates
+      '("\*scratch\*"
+        "*tramp*"
+        "\*Messages\*"
+        "\*Help\*"))
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)
+             (ibuffer-switch-to-saved-filter-groups "memes")))
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 ;; fuck GNU
@@ -144,6 +163,7 @@
 (setq org-default-notes-file "~/var/org/notes.org")
 (global-set-key (kbd "C-c g") 'magit-status)
 
+
 ;; ivy/counsel/swiper
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-s") 'swiper)
@@ -156,9 +176,11 @@
 ;; multi-term
 (setq multi-term-program "mksh")
 
+
 ;; neotree
 (setq neo-theme 'ascii)
 (global-set-key (kbd "C-c t") 'neotree-toggle)
+
 
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
@@ -170,6 +192,7 @@
 ;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
+
 
 ;; mu4e
 (require 'mu4e)
@@ -200,19 +223,61 @@
 ;(setq mu4e-view-show-images t)
 
 ;; geiser
-(setq geiser-active-implementations '(chez))
+(setq geiser-active-implementations '(guile))
+
+;; elfeed
+(require 'elfeed)
+(setq elfeed-feeds
+      '("https://github.com/martanne/dvtm/commits/master.atom"))
+
+(setq-default elfeed-search-filter "@2-weeks-ago +unread ")
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "youtube\\.com"
+                              :add '(video youtube))
+          (elfeed-make-tagger :feed-url "github\\.com"
+                              :add '(code git))
+          (elfeed-make-tagger :before "2 weeks ago"
+                              :remove 'unread))
+
+(defun mpv-open (url)
+  (async-shell-command(format "mpv %s" url)))
+
+(defun elfeed-mpv-open ()
+  (interactive)
+  (let ((entry (elfeed-search-selected :single)))
+    (mpv-open (elfeed-entry-link entry))))
+
+(define-key elfeed-search-mode-map "x" #'elfeed-mpv-open)
+(global-set-key (kbd "C-c r") 'elfeed)
+
+;; async-shell-command fixeridoos
+(setq async-shell-command-buffer 'new-buffer)
+(add-to-list 'display-buffer-alist
+             '("^*Async Shell Command*" . (display-buffer-no-window)))
 
 
-(global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
-(global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+;;; MISCBINDS
+(global-set-key (kbd "C-c c n")
+                (lambda ()
+                  (interactive)
+                  (find-file "/sudo::/etc/nixos/configuration.nix")))
+
+(global-set-key (kbd "C-c c e")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/.emacs.d/init.el")))
+
+(global-set-key (kbd "C-c n")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/var/org/notes.org")))
+
 (global-set-key (kbd "C-c c s") 'stumpwm-config)
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
 (global-set-key (kbd "C-c a") 'simple-mpc)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
-(global-set-key (kbd "C-c n") (lambda () (interactive) (find-file "~/var/org/notes.org")))
 
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
@@ -222,3 +287,4 @@
 ;(require 'exwm-config)
 ;(exwm-config-default)
 ;(exwm-enable t)
+
