@@ -1,5 +1,8 @@
 ;;; poq's emacs config, blatantly ripped from arc and modified. use at own risk
 
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
+
 ;; fuck you tramp
 (defun sudo-edit (&optional arg)
   "edit current files as root"
@@ -10,7 +13,17 @@
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
-;; PKG
+;; QL/STUMPWM
+(load "~/.quicklisp/slime-helper.el")
+(slime-setup '(slime-fancy slime-highlight-edits))
+(setf slime-scratch-file "~/.ql/slime-scratch.lisp")
+(defun stumpwm-config ()
+  "Open file & connect to slime instance"
+  (interactive)
+  (find-file "~/.config/stumpwm/config")
+  (slime-connect "127.0.0.1" "4005"))
+
+;;; PKG
 (require 'package)
 
 (setq package-archives nil)
@@ -51,20 +64,26 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-;(load-file "~/.emacs.d/themes/xres-theme.el")
-(load-file "~/.emacs.d/edtt/deep-thought-theme.el")
-;(load-theme 'spacegray t)
-(global-linum-mode t)
-(setq linum-format " %3d ")
+(load-theme 'base16-pico t)
+(set-face-attribute 'default nil :foreground "#bbbbbb")
+;(global-linum-mode t)
+;(setq linum-format " %3d ")
+(column-number-mode t)
+(set-default-font "PxPlus IBM VGA8-11:antialias=false")
+(set-face-bold-p 'bold nil)
+
+(setq-default mode-line-format
+              (list
+               " %b "
+               " %l,%c "))
 
 ;; let the glow flow through you
-(global-hl-line-mode nil)
-;(add-to-list 'default-frame-alist
-;             '(font . "Monofur-13"))
+;(global-hl-line-mode nil)
+
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
-;(pretty-mode)
+(pretty-mode)
 
 ;; gross gui shit
 (menu-bar-mode -1)
@@ -78,8 +97,7 @@
 (setq ibuffer-saved-filter-groups
       '(("memes"
          ("email" (name . "\*mu4e"))
-         ("emacs-config" (or (filename . ".emacs.d")
-                             (filename . "emacs-config")))
+         ("emacs-config" (filename . ".emacs.d"))
          ("git" (name . "\*magit"))
          ("org" (mode . org-mode))
          ("irc-chan" (or (mode . circe-channel-mode)
@@ -88,8 +106,23 @@
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))
          ("haskell" (mode . haskell-mode))
+         ("lisp" (mode . lisp-mode))
+         ("nix" (or (mode . nix-mode)
+                    (name . "\*nix")))
          ("scheme" (mode . scheme-mode)))))
 
+(setq ibuffer-never-show-predicates
+      '("\*scratch\*"
+        "*tramp*"
+        "\*Messages\*"
+        "\*Help\*"))
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-auto-mode 1)
+             (ibuffer-switch-to-saved-filter-groups "memes")))
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 
 ;; fuck GNU
@@ -130,6 +163,7 @@
 (setq org-default-notes-file "~/var/org/notes.org")
 (global-set-key (kbd "C-c g") 'magit-status)
 
+
 ;; ivy/counsel/swiper
 (global-set-key (kbd "M-x") 'counsel-M-x)
 (global-set-key (kbd "C-s") 'swiper)
@@ -140,11 +174,13 @@
 
 
 ;; multi-term
-(setq multi-term-program "zsh")
+(setq multi-term-program "mksh")
+
 
 ;; neotree
 (setq neo-theme 'ascii)
 (global-set-key (kbd "C-c t") 'neotree-toggle)
+
 
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
@@ -153,9 +189,9 @@
 
 
 ;; slime
-;(load (expand-file-name "~/.quicklisp/slime-helper.el"))
-(setq inferior-lisp-program "clisp")
+(setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
+
 
 ;; mu4e
 (require 'mu4e)
@@ -185,106 +221,69 @@
 (global-set-key (kbd "C-c m") 'mu4e)
 ;(setq mu4e-view-show-images t)
 
+;; geiser
+(setq geiser-active-implementations '(guile))
 
-;;; MISC
-;; bold font fuck off
-(set-face-bold-p 'bold nil)
-(mapc
- (lambda (face)
-        (when (eq (face-attribute face :weight) 'bold)
-          (set-face-attribute face nil :weight 'normal)))
- (face-list))
+;; elfeed
+(require 'elfeed)
+(setq elfeed-feeds
+      '("https://github.com/martanne/dvtm/commits/master.atom"))
 
-(global-set-key (kbd "C-c c n") (lambda () (interactive) (find-file "/sudo::/etc/nixos/configuration.nix")))
-(global-set-key (kbd "C-c c e") (lambda () (interactive) (find-file "~/.emacs.d/init.el")))
+(setq-default elfeed-search-filter "@2-weeks-ago +unread ")
+(add-hook 'elfeed-new-entry-hook
+          (elfeed-make-tagger :feed-url "youtube\\.com"
+                              :add '(video youtube))
+          (elfeed-make-tagger :feed-url "github\\.com"
+                              :add '(code git))
+          (elfeed-make-tagger :before "2 weeks ago"
+                              :remove 'unread))
+
+(defun mpv-open (url)
+  (async-shell-command(format "mpv %s" url)))
+
+(defun elfeed-mpv-open ()
+  (interactive)
+  (let ((entry (elfeed-search-selected :single)))
+    (mpv-open (elfeed-entry-link entry))))
+
+(define-key elfeed-search-mode-map "x" #'elfeed-mpv-open)
+(global-set-key (kbd "C-c r") 'elfeed)
+
+;; async-shell-command fixeridoos
+(setq async-shell-command-buffer 'new-buffer)
+(add-to-list 'display-buffer-alist
+             '("^*Async Shell Command*" . (display-buffer-no-window)))
+
+
+;;; MISCBINDS
+(global-set-key (kbd "C-c c n")
+                (lambda ()
+                  (interactive)
+                  (find-file "/sudo::/etc/nixos/configuration.nix")))
+
+(global-set-key (kbd "C-c c e")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/.emacs.d/init.el")))
+
+(global-set-key (kbd "C-c n")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/var/org/notes.org")))
+
+(global-set-key (kbd "C-c c s") 'stumpwm-config)
 (global-set-key (kbd "C-c d") 'dired)
-(global-set-key (kbd "C-c i") 'switch-to-buffer)
+(global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
 (global-set-key (kbd "C-c a") 'simple-mpc)
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
-(global-set-key (kbd "C-c n") (lambda () (interactive) (find-file "~/var/org/notes.org")))
 
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
 
 ;;; EXWM
-(require 'exwm)
-(require 'exwm-config)
+;(require 'exwm)
+;(require 'exwm-config)
 ;(exwm-config-default)
 ;(exwm-enable t)
 
-
-
-;; We aren't using this at the moment 
-;; evil
-;;(evil-mode nil)
-;;(global-evil-leader-mode)
-;;(evil-mode 1)
-;;(evil-escape-mode 1)
-;;(evil-set-initial-state 'mpc-mode 'emacs)
-;;(evil-set-initial-state 'mpc-tagbrowser-mode 'emacs)
-;;(evil-set-initial-state 'mpc-songs-mode 'emacs)
-;;
-;;
-;;(setq-default evil-escape-key-sequence "ii")
-;;(setq-default evil-escape-delay 0.2)
-;;(evil-leader/set-leader "<SPC>")
-;;(evil-leader/set-key
-;; "c" 'circe
-;; "d" 'dired
-;; "i" 'switch-to-buffer
-;; "b" 'ibuffer
-;; "m" 'mpc
-;; "g" 'magit-status
-;; "w" 'save-buffer
-;; "f" 'counsel-find-file
-;; "p" 'clipboard-yank)
-;;
-;;(eval-after-load 'ibuffer
-;;    '(progn
-;;       (evil-set-initial-state 'ibuffer-mode 'normal)
-;;       (evil-define-key 'normal ibuffer-mode-map
-;;	 (kbd "J") 'ibuffer-jump-to-buffer
-;;	 (kbd "d") 'ibuffer-mark-for-delete
-;;	 (kbd "x") 'ibuffer-do-kill-on-deletion-marks
-;;	 (kbd "t") 'evil-next-line
-;;	 (kbd "n") 'evil-previous-line
-;;	 (kbd "l") 'ibuffer-visit-buffer)))
-;;(global-set-key (kbd "C-x C-b") 'ibuffer)
-;;
-;;;; dvorak bindings
-;;(define-key evil-normal-state-map (kbd "h") 'backward-char)
-;;(define-key evil-normal-state-map (kbd "t") 'evil-next-line)
-;;(define-key evil-normal-state-map (kbd "n") 'evil-previous-line)
-;;(define-key evil-normal-state-map (kbd "s") 'forward-char)
-;;(define-key evil-visual-state-map (kbd "h") 'backward-char)
-;;(define-key evil-visual-state-map (kbd "t") 'evil-next-line)
-;;(define-key evil-visual-state-map (kbd "n") 'evil-previous-line)
-;;(define-key evil-visual-state-map (kbd "s") 'forward-char)
-;;(define-key evil-insert-state-map (kbd "<hiragana-katakana>") 'evil-normal-state)
-;;(define-key evil-normal-state-map "/" 'swiper)
-;;(define-key evil-normal-state-map "p" 'counsel-yank-pop)
-;; org-mode
-;;(add-hook 'org-mode-hook
-;;          (lambda()
-;;            (define-key evil-normal-state-map (kbd "TAB") 'org-mode)))
-;;
-;;(eval-after-load 'org-mode
-;;  '(progn
-;;     (evil-set-initial-state 'org-mode 'normal)
-;;     (evil-define-key 'normal org-mode-map (kbd "RET") 'org-open-at-point)))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   (quote
-    (em xresources-theme use-package sublime-themes spacegray-theme slime-company simple-mpc pretty-mode nix-mode neotree multi-term magit intero geiser exwm evil-escape ess emms-player-mpv csv-mode counsel company-ghc circe cdlatex base16-theme auctex all-the-icons-dired ace-window))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )

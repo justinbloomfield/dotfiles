@@ -10,59 +10,66 @@ borderwidth 2
 
 # make other shit work first
 bind CM-j unmap
-bind C-\/  unmap 
+bind 4-s unbind
+bind 4-t unbind
+bind 4-n unbind
+bind M-Return unbind
 
 # colors
-color activeborder      '#7a7aff'
-color inactiveborder	'#000011'
-color font		        '#0000cc'
-color menubg		    '#020202'
-color menufg		    '#0330e6'
+color activeborder      '#4a4b4c'
+color inactiveborder	''
+color font		        '#4a4b4c'
+color menubg		    '#000000'
+color menufg		    '#a2a2a5'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
 # autogroups
-autogroup 1 emacs, Emacs, emacs@$HOST
-autogroup 2 qutebrowser, surf, dillo, firefox
-autogroup 3 mpv, ffplay
-autogroup 7 gimp
+autogroup 1 Emacs
+autogroup 2 qutebrowser
+autogroup 3 mpv
+autogroup 4 Steam
+autogroup 5 .zathura-wrapped_
+autogroup 7 Gimp
+autogroup 8 Firefox
+autogroup 9 discord
 
 moveamount 5
 bigmoveamount 90
 sticky no
 
 #menu
-command term /usr/bin/st
-command brws /usr/bin/dillo
-command emcs /usr/bin/emacs
-#command steam /usr/bin/steam
+command term urxvtc
+command brws qutebrowser
+command emcs emacs
+command steam steam
 
 # gaps
 gap 30 10 10 10
 
 # resize
 bind 4M-h resizeleft
-bind 4M-j resizedown
-bind 4M-k resizeup
-bind 4M-l resizeright
+bind 4M-t resizedown
+bind 4M-n resizeup
+bind 4M-s resizeright
 
 # big resize
 bind 4SM-h bigresizeleft
-bind 4SM-j bigresizedown
-bind 4SM-k bigresizeup
-bind 4SM-l bigresizeright
+bind 4SM-t bigresizedown
+bind 4SM-n bigresizeup
+bind 4SM-s bigresizeright
 
 # move
 bind 4-h moveleft
-bind 4-j movedown
-bind 4-k moveup
-bind 4-l moveright
+bind 4-t movedown
+bind 4-n moveup
+bind 4-s moveright
 
 # big move
 bind 4S-h bigmoveleft
-bind 4S-j bigmovedown
-bind 4S-k bigmoveup
-bind 4S-l bigmoveright
+bind 4S-t bigmovedown
+bind 4S-n bigmoveup
+bind 4S-s bigmoveright
 
 # groups
 bind 4-1 group1
@@ -94,10 +101,7 @@ bind 4-g     grouptoggle
 bind 4MC-l   cyclegroup
 bind 4MC-h   rcyclegroup
 
-bind 4-d     /home/poq/bin/rofilauncher
-bind 4-n     ssh
-bind 4-s     search
-bind 4-p     st
+bind 4-p     rofilauncher
 bind 4S-v    dv	
 
 bind 4-v vmaximize
@@ -105,6 +109,7 @@ bind 4-b hmaximize
 bind 4-m maximize
 bind 4-f fullscreen
 
+bind 4-Return urxvtc
 bind 4M-r    restart
 bind 4M-Escape quit
 

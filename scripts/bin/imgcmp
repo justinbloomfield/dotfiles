@@ -1,0 +1,17 @@
+#!/bin/sh
+# converts image files to compressed farbfeld in specified directory. If using to save space should really only use on *.png, as jpg files take up more space after converted and compressed.
+
+DIR=${1:-.}
+FILES=$DIR/*
+
+mkdir $DIR/ffcmp
+
+for file in $FILES; do
+    NAME=$(echo $file | rev | cut -d '/' -f1 | rev)
+    if [[ "$NAME" =~ \.(jpg|png|jpeg)$ ]]; then
+        echo "$NAME..."
+        NOEXT=$(echo $NAME | cut -d'.' -f1)
+        2ff < $file | bzip2 > $DIR/ffcmp/$NOEXT.ff.bz2
+        echo "done"
+    fi
+done

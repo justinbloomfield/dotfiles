@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/deep_thought"
+!#include "/home/poq/.config/x/colours/deep_thought"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:tewi:size=11
@@ -10,12 +10,13 @@ URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
-Emacs.font:			     Inziu Iosevka J-11
+!Emacs.font:			     boxxy-11
 
+st*font:			     PxPlus IBM VGA8-12:antialias=false:autohint=true
 
 rofi.font:                           tewi 10
-rofi.lines: 		                 4
-rofi.width:		                     6
+rofi.lines: 		                 8
+rofi.width:		                     10
 rofi.borderwidth:	                 3
 rofi.auto-select:	                 false
 rofi.hide-scrollbar:	             true

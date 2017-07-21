@@ -23,7 +23,7 @@
 *foreground:    fg
 *background:    bg
 *cursorColor:   cc
-*color0:        c0
+*color0:        bg
 *color8:        c8
 *color1:        c1
 *color9:        c9
@@ -35,7 +35,7 @@
 *color12:       c12
 *color5:        c5
 *color13:       c13
-*color6         c6
+*color6:        c6
 *color14:       c14
 *color7:        c6
 *color15:       c15

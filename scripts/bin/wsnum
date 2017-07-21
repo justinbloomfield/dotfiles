@@ -11,7 +11,7 @@ fmt() {
 }
 
 wssel() {
-
+#if anyone knows a better way to do this pls help
     case $AWS in
         1)
             echo "$(fmt 1) 2 3 4 5"

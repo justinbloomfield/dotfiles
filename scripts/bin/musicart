@@ -1,15 +1,16 @@
-o $(echo /home/hoeruo/music/$(mpc current -f %file%)|sed 's_\(.*\)/\(.*\)/\(.*\)_\1/\2/_')
-#ART=$(echo /home/hoeruo/music/$(mpc current -f %file%)|sed 's_\(.*\)/\(.*\)/\(.*\)_\1/\2/_')
+#!/bin/sh
+# currently broken, need to fix this so that it re-reads the current thingy as well. Could just call it at intervals lole, but that's bad
+CURPATH=$(mpc current -f %file% | sed 's_\(.*\)/\(.*\)/\(.*\)_\1/\2/_')
+echo $CURPATH
+#FIXEDPATH=$(echo $CURPATH | sed 's/ /\\ /g')
+#echo $FIXEDPATH
+FULLPATH=/mnt/exthdd/Music/$CURPATH
 SHOWN=0
 while true; do
-echo check
-if [ "$(cat /home/hoeruo/current_music)" != "$SHOWN" ]; then
-pkill meh;
-echo killed meh
-feh -Z -g 100x100+1500+30 -^ art "$(cat /home/hoeruo/current_music)" &
-SHOWN=$(cat /home/hoeruo/current_music)
-fi
-echo sleeping
-sleep 5s;
-echo slept
+    if [ "$FULLPATH" != "$SHOWN" ]; then
+        pkill feh;
+        feh -Z -g 150x150+1760+25 -^ art "$FULLPATH"*.jpg &
+        SHOWN="$FULLPATH"
+    fi
+    sleep 5s
 done

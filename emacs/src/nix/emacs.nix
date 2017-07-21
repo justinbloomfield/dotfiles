@@ -14,36 +14,33 @@ in
     company-ghc
     counsel
     ess
-    geiser
     ghc
     haskell-mode
     magit
     swiper
-#    evil
-#    evil-leader
   ]) ++ (with epkgs.melpaPackages; [
     all-the-icons
     all-the-icons-dired
     base16-theme
     cdlatex
     circe
+    elfeed
     emms
     emms-player-mpv
     evil-escape
+    geiser
     intero
     multi-term
     neotree
     nix-mode
     pretty-mode
-#    seoul256-theme
     simple-mpc
-    slime
+#    slime
     slime-company
     spacegray-theme
+    stumpwm-mode
     sublime-themes
     use-package
-    xresources-theme
-#    evil-escape
   ]) ++ (with epkgs.elpaPackages; [
     ace-window
     auctex
@@ -52,7 +49,7 @@ in
     csv-mode
     exwm
   ]) ++ [
-    pkgs.chibi
+    pkgs.guile
     pkgs.isync
     pkgs.libressl
     pkgs.mu

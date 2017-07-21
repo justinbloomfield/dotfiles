@@ -1,5 +1,6 @@
 #!/bin/sh
 
+dt irc
 if [ -e /tmp/irssi ]; then
     dtach -a /tmp/irssi
 else

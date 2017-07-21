@@ -1,0 +1,151 @@
+;; -*-lisp-*-
+
+(in-package :stumpwm)
+(set-module-dir "/home/poq/.config/stumpwm/contrib")
+;(add-to-load-path "/home/poq/src/pkg/swm-gaps")
+;(load-module "maildir")
+;(load-module "mem")
+;(load-module "swm-gaps")
+(load-module "ttf-fonts")
+(require 'clx-truetype)
+
+;(set-font "-*-tewi-medium-r-normal--*-*-*-*-*-*-*-*")
+
+;; functions
+(ql:quickload :swank)
+(defcommand swank ()  ()
+            (swank:create-server :port 4005
+                                 :dont-close t)
+            (echo-string (current-screen)
+                         "Getting swanky"))
+(swank)
+
+
+
+(defcommand colon1 (&optional (initial "")) (:rest)
+            (let ((cmd (read-one-line (current-screen) ": " :initial-input initial)))
+              (when cmd
+                (eval-command cmd t))))
+
+(defcommand xprint (msg)
+    ((:string))
+   (run-shell-command (format nil "seq 4 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
+
+
+;; macros
+(defmacro make-groups-bg (&rest names)
+  (let ((ns (mapcar #'(lambda (n) (concatenate 'string "gnewbg " n)) names)))
+    `(run-commands ,@ns)))
+
+(defmacro auto-commands (&rest commands)
+  (let ((coms (mapcar #'(lambda (n) (concatenate 'string "exec " n)) commands)))
+  `(run-commands ,@coms)))
+
+
+;; colours
+(setf *colors* (append *colors*
+                       (list "LightCoral")))
+
+;; modeline
+(setf *mode-line-border-width* 0)
+(setf *mode-line-pad-y* 1)
+(setf *mode-line-pad-x* 100)
+(setf *mode-line-foreground-color* "mediumspringgreen")
+(setf *mode-line-background-color* "black")
+(setf *group-format* " %t ")
+(setf *window-format* "%m%n %20t ")
+(setf *mode-line-timeout* 2)
+(setf *time-modeline-string* "%e %B %l:%M ")
+
+(defun get-date-modeline ()
+  (stumpwm:run-shell-command
+   (format nil "date +\"~A\""
+           *time-modeline-string*) t))
+
+;(setf *screen-mode-line-format*
+;      (list "^6 %g ^n^b %W ^> %X | %N | "
+;            '(:eval (get-date-modeline))))
+;(mode-line)
+
+
+;; borders
+(set-focus-color "deeppink")
+(set-unfocus-color "gray3")
+(setf *maxsize-border-width* 1)
+(setf *normal-border-width* 4)
+(setf *window-border-style* :thin)
+
+
+;; gaps
+;(setf swm-gaps:*inner-gaps-size* 10)
+;(setf swm-gaps:*outer-gaps-size* 10)
+
+
+;; custom maps
+(defvar *my-emote-bindings*
+  (let ((m (make-sparse-keymap)))
+    (stumpwm:define-key m (stumpwm:kbd "s") "xprint Sad")
+    (define-key m (kbd "C-y") "xprint Yeahnah")
+    (define-key m (kbd "C-8") "xprint 8bit")
+    (define-key m (kbd "C-q") "xprint Quasarface")
+    (define-key m (kbd "q") "xprint Quasar")
+    (define-key m (kbd "C-c") "xprint Cry")
+    (define-key m (kbd "C-d") "xprint Djbj")
+    (define-key m (kbd "C-m") "xprint Milk")
+    (define-key m (kbd "C-r") "xprint Rage")
+    (define-key m (kbd "C-g") "xprint Graphics")
+    (define-key m (kbd "C-b") "xprint Bidet")
+    (define-key m (kbd "C-m") "xprint Maker")
+    (define-key m (kbd "C-1") "xprint 17th")
+    (define-key m (kbd "C-p") "xprint Ponder")
+    (define-key m (kbd "C-k") "xprint Kisses")
+    (define-key m (kbd "p") "xprint Praise")
+    (define-key m (kbd "C-c") "xprint Clownin")
+    (define-key m (kbd "b") "xprint Broken")
+    (define-key m (kbd "C-a") "xprint Art")
+
+    m ; NOTE: this is important
+  ))
+
+
+;; binds
+(define-key *root-map* (kbd "c") "exec st")
+(define-key *root-map* (kbd "z") "exec zathura")
+(define-key *root-map* (kbd "C-c") "exec st")
+(define-key *root-map* (kbd "C-q") "quit")
+(define-key *root-map* (kbd "C-'") "gselect 1")
+(define-key *root-map* (kbd "C-,") "gselect 2")
+(define-key *root-map* (kbd "C-.") "gselect 3")
+(define-key *root-map* (kbd "C-p") "gselect 4")
+(define-key *root-map* (kbd "C-f") "fullscreen")
+(define-key *root-map* (kbd "!") "exec dmenu_run")
+(define-key *root-map* (kbd "RET") "mode-line")
+;(define-key *root-map* (kbd "C-RET") "toggle-gaps")
+(define-key *root-map* (kbd "C-e") '*my-emote-bindings*)
+
+
+;; window rules
+(clear-window-placement-rules)
+
+(define-frame-preference "dota"
+    (0 nil t :class "Steam"))
+
+(define-frame-preference "irc"
+    (0 nil t :title "irc"))
+
+(define-frame-preference "www"
+  (0 t   t :class "qutebrowser")
+  (1 nil t :class "Firefox"))
+
+
+(run-commands "grename def")
+(make-groups-bg "www" "irc" "dota")
+;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
+
+(in-package :clx-truetype)
+(setq *font-dirs* '("/home/poq/.local/share/fonts"
+                    "/run/current-system/sw/share/X11-fonts"))
+(xft:cache-fonts)
+
+(in-package :stumpwm)
+(set-font (make-instance 'xft:font :family "PxPlus IBM VGA8" :subfamily "Regular" :size 12 :antialias nil :hints t))
