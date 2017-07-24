@@ -69,7 +69,7 @@
 ;(global-linum-mode t)
 ;(setq linum-format " %3d ")
 (column-number-mode t)
-(set-default-font "PxPlus IBM VGA8-11:antialias=false")
+(set-default-font "PxPlus IBM VGA8-11:antialias=true")
 (set-face-bold-p 'bold nil)
 
 (setq-default mode-line-format
@@ -155,6 +155,21 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 
+;; emms
+(emms-standard)
+(emms-default-players)
+(setq emms-playlist-buffer-name "EMMS")
+(require 'emms-info-libtag)
+(setq emms-info-functions '(emms-info-libtag))
+(setq emms-source-file-default-directory "/mnt/Music/")
+(defvar emms-browser-info-title-format "%i%n")
+(defvar emms-browser-playlist-info-title-format
+  emms-browser-info-title-format)
+(setq emms-history-file "~/.emacs.d/emms_hist")
+(emms-history-load)
+
+
+
 ;; magit
 (setq magit-completing-read-function 'ivy-completing-read)
 (setq vc-follow-symlinks nil)
@@ -226,17 +241,18 @@
 
 ;; elfeed
 (require 'elfeed)
-(setq elfeed-feeds
-      '("https://github.com/martanne/dvtm/commits/master.atom"))
+;(setq elfeed-feeds
+;      '("https://github.com/martanne/dvtm/commits/master.atom"))
 
 (setq-default elfeed-search-filter "@2-weeks-ago +unread ")
 (add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "youtube\\.com"
-                              :add '(video youtube))
+                              :add '(video youtube)))
+(add-hook 'elfeed-new-entry-hook
           (elfeed-make-tagger :feed-url "github\\.com"
                               :add '(code git))
-          (elfeed-make-tagger :before "2 weeks ago"
-                              :remove 'unread))
+          t)
+
 
 (defun mpv-open (url)
   (async-shell-command(format "mpv %s" url)))
@@ -275,12 +291,27 @@
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
-(global-set-key (kbd "C-c a") 'simple-mpc)
+(global-set-key (kbd "C-c a b") 'emms-browser)
+(global-set-key (kbd "C-c a p") 'emms)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
 
+;;; ESHELL
+(setq eshell-aliases-file "~/.emacs.d/alias.el")
+(setq eshell-cmpl-cycle-completions t)
+(setq eshell-where-to-jump 'begin)
+(setq eshell-review-quick-commands nil)
+(setq eshell-smart-space-goes-to-end t)
+(add-hook 'eshell-mode-hook '(lambda nil (prefer-coding-system 'utf-8)))
+
+(global-set-key (kbd "C-c s")
+                (lambda ()
+                  (interactive)
+                  (switch-to-buffer "*eshell*")))
+
+(eshell)
 ;;; EXWM
 ;(require 'exwm)
 ;(require 'exwm-config)

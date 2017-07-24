@@ -1,4 +1,4 @@
-!#include "/home/poq/.config/x/colours/deep_thought"
+#include "/home/poq/.config/x/colours/pnp"
 
 URxvt*scrollBar:                     false 
 URxvt*font:                          xft:tewi:size=11

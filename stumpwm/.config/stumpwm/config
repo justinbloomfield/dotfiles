@@ -29,7 +29,7 @@
 
 (defcommand xprint (msg)
     ((:string))
-   (run-shell-command (format nil "seq 4 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
+   (run-shell-command (format nil "seq 3 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
 
 
 ;; macros
@@ -71,8 +71,8 @@
 ;; borders
 (set-focus-color "deeppink")
 (set-unfocus-color "gray3")
-(setf *maxsize-border-width* 1)
-(setf *normal-border-width* 4)
+(setf *maxsize-border-width* 3)
+(setf *normal-border-width* 3)
 (setf *window-border-style* :thin)
 
 
@@ -81,28 +81,33 @@
 ;(setf swm-gaps:*outer-gaps-size* 10)
 
 
+;; mouse focus
+(setf *mouse-focus-policy* :click)
+
+
 ;; custom maps
 (defvar *my-emote-bindings*
   (let ((m (make-sparse-keymap)))
     (stumpwm:define-key m (stumpwm:kbd "s") "xprint Sad")
-    (define-key m (kbd "C-y") "xprint Yeahnah")
-    (define-key m (kbd "C-8") "xprint 8bit")
-    (define-key m (kbd "C-q") "xprint Quasarface")
-    (define-key m (kbd "q") "xprint Quasar")
-    (define-key m (kbd "C-c") "xprint Cry")
-    (define-key m (kbd "C-d") "xprint Djbj")
-    (define-key m (kbd "C-m") "xprint Milk")
-    (define-key m (kbd "C-r") "xprint Rage")
-    (define-key m (kbd "C-g") "xprint Graphics")
-    (define-key m (kbd "C-b") "xprint Bidet")
-    (define-key m (kbd "C-m") "xprint Maker")
-    (define-key m (kbd "C-1") "xprint 17th")
-    (define-key m (kbd "C-p") "xprint Ponder")
-    (define-key m (kbd "C-k") "xprint Kisses")
-    (define-key m (kbd "p") "xprint Praise")
-    (define-key m (kbd "C-c") "xprint Clownin")
+    (define-key m (kbd "y") "xprint Yeahnah")
+    (define-key m (kbd "8") "xprint 8bit")
+    (define-key m (kbd "q") "xprint Quasarface")
+    (define-key m (kbd "z") "xprint Quasar")
+    (define-key m (kbd "t") "xprint Cry")
+    (define-key m (kbd "d") "xprint Djbj")
+    (define-key m (kbd "u") "xprint Milk")
+    (define-key m (kbd "r") "xprint Rage")
+    (define-key m (kbd "g") "xprint Graphics")
+    (define-key m (kbd "b") "xprint Bidet")
+    (define-key m (kbd "m") "xprint Maker")
+    (define-key m (kbd "1") "xprint 17th")
+    (define-key m (kbd "p") "xprint Ponder")
+    (define-key m (kbd "k") "xprint Kisses")
+    (define-key m (kbd "v") "xprint Praise")
+    (define-key m (kbd "c") "xprint Clownin")
     (define-key m (kbd "b") "xprint Broken")
-    (define-key m (kbd "C-a") "xprint Art")
+    (define-key m (kbd "a") "xprint Art")
+;    (define-key m (kbd ""))
 
     m ; NOTE: this is important
   ))
@@ -113,6 +118,7 @@
 (define-key *root-map* (kbd "z") "exec zathura")
 (define-key *root-map* (kbd "C-c") "exec st")
 (define-key *root-map* (kbd "C-q") "quit")
+(define-key *root-map* (kbd "C-dead_acute") "gselect 1")
 (define-key *root-map* (kbd "C-'") "gselect 1")
 (define-key *root-map* (kbd "C-,") "gselect 2")
 (define-key *root-map* (kbd "C-.") "gselect 3")
@@ -133,8 +139,8 @@
 (define-frame-preference "irc"
     (0 nil t :title "irc"))
 
-(define-frame-preference "www"
-  (0 t   t :class "qutebrowser")
+(define-frame-preference "def"
+  (1 t   t :class "qutebrowser")
   (1 nil t :class "Firefox"))
 
 
