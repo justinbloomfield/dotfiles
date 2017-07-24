@@ -48,8 +48,8 @@
   :ensure t)
 (use-package sublime-themes
   :ensure t)
-(use-package stumpm-mode
-  :ensure t)
+;;(use-package stumpm-mode
+;;  :ensure t)
 (use-package use-package
   :ensure t)
 (use-package ace-window
