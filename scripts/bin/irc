@@ -2,7 +2,7 @@
 
 dt irc
 if [ -e /tmp/irssi ]; then
-    dtach -a /tmp/irssi
+    dtach -a /tmp/weechat
 else
-    dtach -c /tmp/irssi irssi
+    dtach -c /tmp/weechat weechat
 fi
