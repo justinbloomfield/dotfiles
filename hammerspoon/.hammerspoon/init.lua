@@ -38,6 +38,8 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "H", function()
   f.x = f.x - 15
   win:setFrame(f)
 end)
+
+-- emacs
 hs.hotkey.bind({"cmd", "ctrl"}, "E", function()
     hs.execute("/Users/j/bin/ose")
 end)

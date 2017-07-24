@@ -22,14 +22,10 @@
   :ensure t)
 (use-package base16-theme
   :ensure t)
-(use-package cdlatex
-  :ensure t)
 (use-package circe
   :ensure t)
-(use-package emms
+(use-package elfeed
   :ensure t)
-;(use-package emms-player-mpv
-;  :ensure t)
 (use-package intero
   :ensure t)
 (use-package multi-term
@@ -52,14 +48,15 @@
   :ensure t)
 (use-package sublime-themes
   :ensure t)
-(use-package use-package
+(use-package stumpm-mode
   :ensure t)
-(use-package xresources-theme
+(use-package use-package
   :ensure t)
 (use-package ace-window
   :ensure t)
-(use-package auctex
-  :ensure t)
+(use-package tex
+  :ensure auctex
+  :ensure cdlatex)
 (use-package cl-lib
   :ensure t)
 (use-package company

@@ -1,5 +1,18 @@
 ;;; poq's emacs config, blatantly ripped from arc and modified. use at own risk
 
+(if (eq system-type 'darwin)
+  (progn
+    (require 'package)
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+    (package-initialize)
+    (load-file "~/.emacs.d/custom/macospkg.el"))
+  (progn
+    ((require 'package)
+     (setq package-archives nil)
+     (setq package-enable-at-startup nil)
+     (package-initialize)))
+)
+
 (setq custom-file "~/.emacs.d/custom.el")
 (load custom-file)
 
@@ -23,13 +36,6 @@
   (find-file "~/.config/stumpwm/config")
   (slime-connect "127.0.0.1" "4005"))
 
-;;; PKG
-(require 'package)
-
-(setq package-archives nil)
-;(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
-(setq package-enable-at-startup nil)
-(package-initialize)
 
 ;;; EDITS
 (setq temp-file-dir "~/.emacs.d/.tmp")
@@ -64,12 +70,13 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-(load-theme 'base16-pico t)
-(set-face-attribute 'default nil :foreground "#bbbbbb")
+;;(load-theme 'base16-pico t)
+;;(set-face-attribute 'default nil :foreground "#bbbbbb")
 ;(global-linum-mode t)
 ;(setq linum-format " %3d ")
 (column-number-mode t)
-(set-default-font "PxPlus IBM VGA8-11:antialias=false")
+(set-default-font "PxPlus IBM VGA8-16:antialias=true")
+(set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
 (set-face-bold-p 'bold nil)
 
 (setq-default mode-line-format
