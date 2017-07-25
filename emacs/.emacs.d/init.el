@@ -7,10 +7,10 @@
     (package-initialize)
     (load-file "~/.emacs.d/custom/macospkg.el"))
   (progn
-    ((require 'package)
-     (setq package-archives nil)
-     (setq package-enable-at-startup nil)
-     (package-initialize)))
+    (require 'package)
+    (setq package-archives nil)
+    (setq package-enable-at-startup nil)
+    (package-initialize))
 )
 
 (setq custom-file "~/.emacs.d/custom.el")
@@ -70,15 +70,20 @@
 ;;; UI
 ;; theme/modeline
 (setq custom-safe-themes t)
-;;(load-theme 'base16-pico t)
-;;(set-face-attribute 'default nil :foreground "#bbbbbb")
-;;(global-linum-mode t)
-;;(setq linum-format " %3d ")
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (load-theme 'base16-pico t)
+                  (set-face-attribute 'default nil :foreground "#bbbbbb"))))
+  (load-theme 'base16-pico))
+
 (if (eq system-type 'darwin)
-    (set-default-font "PxPlus IBM VGA8-16:antialias=true")
-  (set-default-font "PxPlus IBM VGA8-11:antialias=true"))
+    (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
+  (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
 (set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
 (set-face-bold-p 'bold nil)
+
 
 (setq-default mode-line-format
               (list
@@ -167,7 +172,7 @@
 (emms-standard)
 (emms-default-players)
 (setq emms-playlist-buffer-name "EMMS")
-(require 'emms-info-libtag)
+;(require 'emms-info-libtag)
 (setq emms-info-functions '(emms-info-libtag))
 (setq emms-source-file-default-directory "/mnt/Music/")
 (defvar emms-browser-info-title-format "%i%n")
@@ -208,7 +213,7 @@
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-;;(add-hook 'haskell-mode-hook 'intero-mode)
+(add-hook 'haskell-mode-hook 'intero-mode)
 
 
 ;; slime
