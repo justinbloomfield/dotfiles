@@ -122,6 +122,7 @@
          ("lisp" (mode . lisp-mode))
          ("nix" (or (mode . nix-mode)
                     (name . "\*nix")))
+         ("dired" (mode . dired-mode))
          ("scheme" (mode . scheme-mode)))))
 
 (setq ibuffer-never-show-predicates
@@ -282,6 +283,11 @@
 (setq async-shell-command-buffer 'new-buffer)
 (add-to-list 'display-buffer-alist
              '("^*Async Shell Command*" . (display-buffer-no-window)))
+
+;; yasnippet
+(add-hook 'java-mode-hook '((yas-minor-mode-on)
+				(yas-reload-all)))
+				
 
 
 ;;; MISCBINDS
