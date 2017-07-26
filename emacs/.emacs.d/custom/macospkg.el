@@ -33,3 +33,4 @@
 (use-package ensime)
 (use-package sbt-mode)
 (use-package scala-mode)
+(use-package yasnippet)
