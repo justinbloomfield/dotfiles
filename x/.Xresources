@@ -1,7 +1,7 @@
 #include "/home/poq/.config/x/colours/pnp"
 
 URxvt*scrollBar:                     false 
-!URxvt*font:                          PxPlus IBM VGA8-12:antialias=false:autohint=true
+!URxvt*font:                         PxPlus IBM VGA8-12:antialias=true:autohint=true
 URxvt*boldFont:		             
 *boldFont:
 URxvt*imLocale:                      en_AU.UTF-8

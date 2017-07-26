@@ -43,6 +43,7 @@ in
     stumpwm-mode
     sublime-themes
     use-package
+    yasnippet
   ]) ++ (with epkgs.elpaPackages; [
     ace-window
     auctex
