@@ -5,6 +5,8 @@
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
     (package-initialize)
+    (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
     (load-file "~/.emacs.d/custom/macospkg.el"))
   (progn
     (require 'package)
@@ -170,17 +172,19 @@
 
 
 ;; emms
-(emms-standard)
-(emms-default-players)
-(setq emms-playlist-buffer-name "EMMS")
-;(require 'emms-info-libtag)
-(setq emms-info-functions '(emms-info-libtag))
-(setq emms-source-file-default-directory "/mnt/Music/")
-(defvar emms-browser-info-title-format "%i%n")
-(defvar emms-browser-playlist-info-title-format
-  emms-browser-info-title-format)
-(setq emms-history-file "~/.emacs.d/emms_hist")
-(emms-history-load)
+(when (eq system-type 'gnu/linux)
+  (progn
+    (emms-standard)
+    (emms-default-players)
+    (setq emms-playlist-buffer-name "EMMS")
+    (require 'emms-info-libtag)
+    (setq emms-info-functions '(emms-info-libtag))
+    (setq emms-source-file-default-directory "/mnt/Music/")
+    (defvar emms-browser-info-title-format "%i%n")
+    (defvar emms-browser-playlist-info-title-format
+      emms-browser-info-title-format)
+    (setq emms-history-file "~/.emacs.d/emms_hist")
+    (emms-history-load)))
 
 
 

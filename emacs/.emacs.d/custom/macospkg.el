@@ -1,65 +1,35 @@
-(use-package company
-  :ensure t)
-;(use-package company-ghc
-;  :ensure t)
-(use-package counsel
-  :ensure t)
-(use-package ess
-  :ensure t)
-(use-package geiser
-  :ensure t)
-(use-package ghc
-  :ensure t)
-(use-package haskell-mode
-  :ensure t)
-(use-package magit
-  :ensure t)
-(use-package swiper
-  :ensure t)
-(use-package all-the-icons
-  :ensure t)
-(use-package all-the-icons-dired
-  :ensure t)
-(use-package base16-theme
-  :ensure t)
-(use-package circe
-  :ensure t)
-(use-package elfeed
-  :ensure t)
-(use-package intero
-  :ensure t)
-(use-package multi-term
-  :ensure t)
-(use-package neotree
-  :ensure t)
-(use-package nix-mode
-  :ensure t)
-(use-package pretty-mode
-  :ensure t)
-(use-package seoul256-theme
-  :ensure t)
-(use-package simple-mpc
-  :ensure t)
-(use-package slime
-  :ensure t)
-(use-package slime-company
-  :ensure t)
-(use-package spacegray-theme
-  :ensure t)
-(use-package sublime-themes
-  :ensure t)
-;;(use-package stumpm-mode
-;;  :ensure t)
-(use-package use-package
-  :ensure t)
-(use-package ace-window
-  :ensure t)
+(use-package company)
+(use-package counsel)
+(use-package ess)
+(use-package geiser)
+(use-package ghc)
+(use-package haskell-mode)
+(use-package magit)
+(use-package swiper)
+(use-package all-the-icons)
+(use-package all-the-icons-dired)
+(use-package base16-theme)
+(use-package circe)
+(use-package elfeed)
+(use-package intero)
+(use-package multi-term)
+(use-package neotree)
+(use-package nix-mode)
+(use-package pretty-mode)
+(use-package seoul256-theme)
+(use-package simple-mpc)
+(use-package slime)
+(use-package slime-company)
+(use-package spacegray-theme)
+(use-package sublime-themes)
+(use-package use-package)
+(use-package ace-window)
 (use-package tex
   :ensure auctex
   :ensure cdlatex)
-(use-package cl-lib
-  :ensure t)
-(use-package company
-  :ensure t)
-(use-package csv-mode
-  :ensure t)
+(use-package cl-lib)
+(use-package company)
+(use-package csv-mode)
+(use-package ensime)
+(use-package sbt-mode)
+(use-package scala-mode)
