@@ -5,6 +5,8 @@
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
     (package-initialize)
+    (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
+    (setq exec-path (append exec-path '("/usr/local/bin")))
     (load-file "~/.emacs.d/custom/macospkg.el"))
   (progn
     ((require 'package)
