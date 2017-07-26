@@ -115,6 +115,7 @@
 
 ;; binds
 (define-key *root-map* (kbd "c") "exec st")
+(define-key *root-map* (kbd "e") "exec emacsclient -c")
 (define-key *root-map* (kbd "z") "exec zathura")
 (define-key *root-map* (kbd "C-c") "exec st")
 (define-key *root-map* (kbd "C-q") "quit")
@@ -146,7 +147,8 @@
 
 (run-commands "grename def")
 (make-groups-bg "www" "irc" "dota")
-;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
+(run-shell-command "emacs --daemon")
+;;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
 
 (in-package :clx-truetype)
 (setq *font-dirs* '("/home/poq/.local/share/fonts"

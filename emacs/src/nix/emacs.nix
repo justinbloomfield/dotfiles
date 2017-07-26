@@ -27,13 +27,15 @@ in
     elfeed
     emms
     emms-player-mpv
-    evil-escape
+    ensime
     geiser
     intero
     multi-term
     neotree
     nix-mode
     pretty-mode
+    sbt-mode
+    scala-mode
     simple-mpc
 #    slime
     slime-company
