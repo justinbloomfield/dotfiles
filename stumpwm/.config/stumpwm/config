@@ -140,7 +140,7 @@
 (define-frame-preference "irc"
     (0 nil t :title "irc"))
 
-(define-frame-preference "def"
+(define-frame-preference "www"
   (1 t   t :class "qutebrowser")
   (1 nil t :class "Firefox"))
 
