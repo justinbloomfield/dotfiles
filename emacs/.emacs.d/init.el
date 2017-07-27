@@ -4,7 +4,7 @@
   (progn
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-    (package-initialize)
+o    (package-initialize)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
     (load-file "~/.emacs.d/custom/macospkg.el"))
@@ -78,7 +78,7 @@
                 (with-selected-frame frame
                   (load-theme 'base16-pico t)
                   (set-face-attribute 'default nil :foreground "#bbbbbb"))))
-  (load-theme 'base16-pico))
+  (load-theme 'spacegray))
 
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
@@ -289,9 +289,16 @@
              '("^*Async Shell Command*" . (display-buffer-no-window)))
 
 ;; yasnippet
-(add-hook 'java-mode-hook '((yas-minor-mode-on)
-				(yas-reload-all)))
+(require 'yasnippet)
+(yas-reload-all)
+(yas-global-mode)
+(define-key yas-minor-mode-map (kbd "<tab>") nil)
+(define-key yas-minor-mode-map (kbd "TAB") nil)
+(define-key yas-minor-mode-map (kbd "C-c e") 'yas-expand)
 				
+;; ensime
+(setq ensime-startup-notification nil)
+(setq ensime-startup-snapshot-notification nil)
 
 
 ;;; MISCBINDS
