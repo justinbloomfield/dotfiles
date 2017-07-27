@@ -131,6 +131,7 @@
       '("\*scratch\*"
         "*tramp*"
         "\*Messages\*"
+        "^\\*"
         "\*Help\*"))
 
 (add-hook 'ibuffer-mode-hook
@@ -185,7 +186,6 @@
       emms-browser-info-title-format)
     (setq emms-history-file "~/.emacs.d/emms_hist")
     (emms-history-load)))
-
 
 
 ;; magit
