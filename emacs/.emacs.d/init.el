@@ -4,7 +4,7 @@
   (progn
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-o    (package-initialize)
+    (package-initialize)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
     (load-file "~/.emacs.d/custom/macospkg.el"))
@@ -84,7 +84,7 @@ o    (package-initialize)
     (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
   (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
 (set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
-(set-face-bold-p 'bold nil)
+;;(set-face-bold-p 'bold nil)
 
 
 (setq-default mode-line-format
@@ -191,10 +191,19 @@ o    (package-initialize)
 ;; magit
 (setq magit-completing-read-function 'ivy-completing-read)
 (setq vc-follow-symlinks nil)
+(global-set-key (kbd "C-c g") 'magit-status)
+
+
+
+;; org
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (setq org-directory "~/var/org")
 (setq org-default-notes-file "~/var/org/notes.org")
-(global-set-key (kbd "C-c g") 'magit-status)
+(setq org-agenda-files (list "~/var/org/notes.org"
+                            "~/usr/doc/uninotes/dates.org"))
+(global-set-key (kbd "C-c o a") 'org-agenda)
+(setq org-log-done t)
+
 
 
 ;; ivy/counsel/swiper
@@ -321,8 +330,8 @@ o    (package-initialize)
 (global-set-key (kbd "C-c d") 'dired)
 (global-set-key (kbd "C-x b") 'switch-to-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
-(global-set-key (kbd "C-c a b") 'emms-browser)
-(global-set-key (kbd "C-c a p") 'emms)
+(global-set-key (kbd "C-c e b") 'emms-browser)
+(global-set-key (kbd "C-c e p") 'emms)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 
 (setq disabled-command-function nil)

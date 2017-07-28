@@ -120,7 +120,7 @@
 (define-key *root-map* (kbd "C-c") "exec st")
 (define-key *root-map* (kbd "C-q") "quit")
 (define-key *root-map* (kbd "C-dead_acute") "gselect 1")
-(define-key *root-map* (kbd "C-'") "gselect 1")
+(define-key *root-map* (kbd "C-;") "gselect 1")
 (define-key *root-map* (kbd "C-,") "gselect 2")
 (define-key *root-map* (kbd "C-.") "gselect 3")
 (define-key *root-map* (kbd "C-p") "gselect 4")
