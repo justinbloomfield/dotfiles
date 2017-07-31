@@ -4,7 +4,7 @@
 (set-module-dir "/home/poq/.config/stumpwm/contrib")
 ;;(add-to-load-path "/home/poq/src/pkg/swm-gaps")
 ;;(load-module "maildir")
-;;(load-module "mem")
+(load-module "mem")
 (load-module "swm-gaps")
 (load-module "ttf-fonts")
 (require 'clx-truetype)
@@ -53,7 +53,7 @@
 (setf *mode-line-foreground-color* "deeppink")
 (setf *mode-line-background-color* "black")
 (setf *group-format* " %t ")
-(setf *window-format* "%m%n %20t ")
+(setf *window-format* "%m[%n] %20t ")
 (setf *mode-line-timeout* 2)
 (setf *time-modeline-string* "%e %B %l:%M ")
 
@@ -62,10 +62,10 @@
    (format nil "date +\"~A\""
            *time-modeline-string*) t))
 
-;(setf *screen-mode-line-format*
-;      (list "^6 %g ^n^b %W ^> %X | %N | "
-;            '(:eval (get-date-modeline))))
-;(mode-line)
+(setf *screen-mode-line-format*
+      (list "[^5%g^n] / %W ^>  %N / "
+            '(:eval (get-date-modeline))))
+(mode-line)
 
 
 ;; borders
@@ -98,7 +98,7 @@
     (define-key m (kbd "u") "xprint Milk")
     (define-key m (kbd "r") "xprint Rage")
     (define-key m (kbd "g") "xprint Graphics")
-    (define-key m (kbd "b") "xprint Bidet")
+    (define-key m (kbd "w") "xprint Bidet")
     (define-key m (kbd "m") "xprint Maker")
     (define-key m (kbd "1") "xprint 17th")
     (define-key m (kbd "p") "xprint Ponder")
@@ -116,10 +116,9 @@
 ;; binds
 (define-key *root-map* (kbd "c") "exec st")
 (define-key *root-map* (kbd "e") "exec emacsclient -c")
-(define-key *root-map* (kbd "z") "exec zathura")
+(define-key *root-map* (kbd "z") "exec mupdf") ;; make this ask for input
 (define-key *root-map* (kbd "C-c") "exec st")
 (define-key *root-map* (kbd "C-q") "quit")
-(define-key *root-map* (kbd "C-dead_acute") "gselect 1")
 (define-key *root-map* (kbd "C-;") "gselect 1")
 (define-key *root-map* (kbd "C-,") "gselect 2")
 (define-key *root-map* (kbd "C-.") "gselect 3")
