@@ -1,4 +1,4 @@
-;;; poq's emacs config, blatantly ripped from arc and modified. use at own risk
+;;; poq's emacs config, use at own risk
 
 (if (eq system-type 'darwin)
   (progn
@@ -76,21 +76,21 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (load-theme 'base16-pico t)
+;;                  (load-file "~/.emacs.d/xresources-theme/xresources-theme.el")
                   (set-face-attribute 'default nil :foreground "#bbbbbb"))))
-  (load-theme 'spacegray))
+  (when (window-system)
+    (load-theme 'spacegray t)))
 
+(set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
   (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
 (set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
-;;(set-face-bold-p 'bold nil)
 
-
-(setq-default mode-line-format
-              (list
-               " %b "
-               " %l,%c "))
+(setq-default mode-line-format nil)
+;;              (list
+;;               " %b "
+;;               " %l,%c "))
 
 ;; let the glow flow through you
 ;(global-hl-line-mode nil)
@@ -125,6 +125,7 @@
          ("nix" (or (mode . nix-mode)
                     (name . "\*nix")))
          ("dired" (mode . dired-mode))
+         ("java" (name . "\*java"))
          ("scheme" (mode . scheme-mode)))))
 
 (setq ibuffer-never-show-predicates
@@ -161,11 +162,19 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'Latex-mode-hook 'turn-on-reftex)
+(setq org-src-fontify-natively t)
 (setq reftex-plug-into-AUCTeX t)
 (eval-after-load "tex"
   '(progn
-     (add-to-list 'TeX-view-program-list '("zathura" ("zathura" (mode-io-correlate " -p %(outpage)") " %o")))
-     (setq TeX-view-program-selection '((output-pdf "zathura")))))
+     (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
+     (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
+(setq org-latex-listings 'minted
+      org-latex-packages-alist '(("" "minted"))
+      org-latex-pdf-process
+      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;;(add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
 
 
 ;; company
@@ -196,7 +205,9 @@
 
 
 ;; org
+(require 'ox-latex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
+(add-hook 'org-mode-hook 'pretty-mode)
 (setq org-directory "~/var/org")
 (setq org-default-notes-file "~/var/org/notes.org")
 (setq org-agenda-files (list "~/var/org/notes.org"
@@ -309,6 +320,9 @@
 (setq ensime-startup-notification nil)
 (setq ensime-startup-snapshot-notification nil)
 
+;; emacs-w3m
+(require 'w3m-load)
+(setq w3m-use-cookies t)
 
 ;;; MISCBINDS
 (global-set-key (kbd "C-c c n")
@@ -333,6 +347,8 @@
 (global-set-key (kbd "C-c e b") 'emms-browser)
 (global-set-key (kbd "C-c e p") 'emms)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
+(global-set-key (kbd "C-c h") help-map)
+(global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))

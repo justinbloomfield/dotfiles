@@ -1,8 +1,8 @@
 #!/bin/sh
 # bar settings
 
-export PANEL_FONT="tewi:size=9"
+export PANEL_FONT="PxPlusIBMVGA8:size=12"
 export PANEL_BG="$(xrq color0)"
 export PANEL_FG="$(xrq foreground)"
 #export BORD_COL=""
-export PANEL_OPTS="-d -f "$PANEL_FONT" -B "$PANEL_BG" -F "$PANEL_FG" -g 1600x20+0+0"
+export PANEL_OPTS="-d -f "$PANEL_FONT" -B "$PANEL_BG" -F "$PANEL_FG"" # -g 1600x20+0+0"

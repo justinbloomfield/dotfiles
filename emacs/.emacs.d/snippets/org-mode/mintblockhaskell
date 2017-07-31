@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mint block haskell
+# key: mnbh
+# --
+\#+begin_src haskell
+     $0
+\#+end_src

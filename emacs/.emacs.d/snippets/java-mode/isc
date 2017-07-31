@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: java import scanner
+# key: isc
+# --
+import java.util.Scanner;
+$0

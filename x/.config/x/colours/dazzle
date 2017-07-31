@@ -14,10 +14,9 @@
 *color2	     : #b85ed6
 *color10     : #b85ed6
 
-! yellow 
-*color3	     : #d09eff
-*color11     : #d09eff
-
+! yellow
+*color3	     : #fa66dc
+*color11     : #fa66dc
 
 ! blue
 *color4	     : #9c9fff
@@ -28,8 +27,8 @@
 *color13     : #ef49ff
 
 ! cyan
-*color6	     : #fa66dc
-*color14     : #fa66dc
+*color6	     : #d09eff
+*color14     : #d09eff
 
 ! white
 *color7	     : #ffbfdd

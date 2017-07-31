@@ -1,5 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 . panelsrc
+
 clk() {
     DATETIME=$(date "+%a %b %d, %I:%M")
     echo $DATETIME
@@ -37,7 +38,9 @@ name() {
     fi
 }
 
+#MON=$(xrandr | grep -o "^.* connected" | sed "s/ connected//")
+
 while :; do
-    echo "%{l} $(name) %{r}$(msc) $(div) $(clk) "
+    echo "%{S0}%{l} $(name) %{r}$(div) $(clk) "
     sleep 1
 done | lemonbar $PANEL_OPTS

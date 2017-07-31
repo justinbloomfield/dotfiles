@@ -2,10 +2,10 @@
 
 (in-package :stumpwm)
 (set-module-dir "/home/poq/.config/stumpwm/contrib")
-;(add-to-load-path "/home/poq/src/pkg/swm-gaps")
-;(load-module "maildir")
-;(load-module "mem")
-;(load-module "swm-gaps")
+;;(add-to-load-path "/home/poq/src/pkg/swm-gaps")
+;;(load-module "maildir")
+;;(load-module "mem")
+(load-module "swm-gaps")
 (load-module "ttf-fonts")
 (require 'clx-truetype)
 
@@ -50,7 +50,7 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-y* 1)
 (setf *mode-line-pad-x* 100)
-(setf *mode-line-foreground-color* "mediumspringgreen")
+(setf *mode-line-foreground-color* "deeppink")
 (setf *mode-line-background-color* "black")
 (setf *group-format* " %t ")
 (setf *window-format* "%m%n %20t ")
@@ -69,16 +69,16 @@
 
 
 ;; borders
-(set-focus-color "deeppink")
-(set-unfocus-color "gray3")
+(set-unfocus-color "gray5")
+(set-focus-color "#ef499f")
 (setf *maxsize-border-width* 3)
 (setf *normal-border-width* 3)
 (setf *window-border-style* :thin)
 
 
 ;; gaps
-;(setf swm-gaps:*inner-gaps-size* 10)
-;(setf swm-gaps:*outer-gaps-size* 10)
+(setf swm-gaps:*inner-gaps-size* 5)
+(setf swm-gaps:*outer-gaps-size* 20)
 
 
 ;; mouse focus
@@ -127,7 +127,7 @@
 (define-key *root-map* (kbd "C-f") "fullscreen")
 (define-key *root-map* (kbd "!") "exec dmenu_run")
 (define-key *root-map* (kbd "RET") "mode-line")
-;(define-key *root-map* (kbd "C-RET") "toggle-gaps")
+(define-key *root-map* (kbd "C-RET") "toggle-gaps")
 (define-key *root-map* (kbd "C-e") '*my-emote-bindings*)
 
 

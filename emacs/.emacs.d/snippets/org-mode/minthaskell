@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mint inline haskell
+# key: mnih
+# --
+\mintinline{haskell}{$0}

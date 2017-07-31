@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: mint block java
+# key: mnbj
+# --
+\#+begin_src java
+     $0
+\#+end_src

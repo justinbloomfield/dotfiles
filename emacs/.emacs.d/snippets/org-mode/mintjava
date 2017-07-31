@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: mint inline java
+# key: mnij
+# --
+\mintinline{java}{$0}
