@@ -162,7 +162,6 @@
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
 (add-hook 'Latex-mode-hook 'turn-on-reftex)
-(setq org-src-fontify-natively t)
 (setq reftex-plug-into-AUCTeX t)
 (eval-after-load "tex"
   '(progn
@@ -214,6 +213,9 @@
                             "~/usr/doc/uninotes/dates.org"))
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (setq org-log-done t)
+(setq org-src-preserve-indentation t)
+(setq org-src-fontify-natively t)
+
 
 
 

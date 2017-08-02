@@ -19,10 +19,11 @@ alias suod='sudo' #becausei'mretarded
 alias nr='sudo nixos-rebuild switch -I nixpkgs=/home/poq/src/nix/nixpkgs'
 alias schleep='systemctl suspend'
 alias guixd='sudo ~root/.guix-profile/bin/guix-daemon --build-users-group=guixbuild'
+alias mpv='mpv --hwdec'
 
 alias eb="edbrowse"
 alias c='cd'
-alias e='emacs -nw' 
+alias e='emacsclient -nw' 
 alias s='ssh'
 alias x='clear'
 alias l='ls'
