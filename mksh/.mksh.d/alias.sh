@@ -22,7 +22,7 @@ alias guixd='sudo ~root/.guix-profile/bin/guix-daemon --build-users-group=guixbu
 
 alias eb="edbrowse"
 alias c='cd'
-alias e='emacs -nw' 
+alias e='emacsclient -nw' 
 alias s='ssh'
 alias x='clear'
 alias l='ls'

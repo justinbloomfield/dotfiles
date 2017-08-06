@@ -76,7 +76,8 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-;;                  (load-file "~/.emacs.d/xresources-theme/xresources-theme.el")
+                  (when (window-system)
+                    (load-theme 'spacegray t))
                   (set-face-attribute 'default nil :foreground "#bbbbbb"))))
   (when (window-system)
     (load-theme 'spacegray t)))
@@ -368,8 +369,8 @@
 
 (eshell)
 ;;; EXWM
-;(require 'exwm)
-;(require 'exwm-config)
-;(exwm-config-default)
-;(exwm-enable t)
+;;(require 'exwm)
+;;(require 'exwm-config)
+;;(exwm-config-default)
+;;(exwm-enable t)
 
