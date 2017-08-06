@@ -1,4 +1,4 @@
-#include "/home/poq/.config/x/colours/dazzle"
+#include "/home/poq/.config/x/colours/vamp_sea_dark"
 
 URxvt*scrollBar:                     false 
 !URxvt*font:                         PxPlus IBM VGA8-12:antialias=true:autohint=true
