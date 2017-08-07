@@ -323,7 +323,8 @@
 (setq ensime-startup-snapshot-notification nil)
 
 ;; emacs-w3m
-(require 'w3m-load)
+(when (eq system-type 'gnu/linux)
+  (require 'w3m-load))
 (setq w3m-use-cookies t)
 
 ;;; MISCBINDS
