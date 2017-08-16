@@ -3,32 +3,41 @@
 # ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
 
 
-fontname "tewi"
+fontname "PxPlus IBM VGA8"
 
 # borderwidth
 borderwidth 2
 
 # make other shit work first
 bind CM-j unmap
+bind CM-h unmap
+bind CM-l unmap
+bind CM-k unmap
 bind 4-s unbind
 bind 4-t unbind
 bind 4-n unbind
-bind M-Return unbind
+bind M-Return unmap
+bind C-slash unmap
+bind M-Right unmap
+bind M-Left unmap
+bind M-Tab unmap
+
 
 # colors
-color activeborder      '#4a4b4c'
-color inactiveborder	''
-color font		        '#4a4b4c'
-color menubg		    '#000000'
-color menufg		    '#a2a2a5'
+color activeborder      '#cf6a4c'
+color inactiveborder	'#5f5a60'
+color font		        '#9b859d'
+color menubg		    '#1e1e1e'
+color menufg		    '#f9ee98'
 color groupborder	    '#0000cc'
 color ungroupborder	    '#7a7aff'
 
 # autogroups
 autogroup 1 Emacs
-autogroup 2 qutebrowser
+autogroup 2 Surf
 autogroup 3 mpv
 autogroup 4 Steam
+autogroup 5 jetbrains-idea-ce
 autogroup 5 .zathura-wrapped_
 autogroup 7 Gimp
 autogroup 8 Firefox
@@ -39,9 +48,9 @@ bigmoveamount 90
 sticky no
 
 #menu
-command term urxvtc
-command brws qutebrowser
-command emcs emacs
+command term st
+command brws surf
+command emcs 'emacsclient -c'
 command steam steam
 
 # gaps
@@ -96,12 +105,15 @@ bind 4S-9 grouponly9
 bind 4-Tab   cycle
 bind 4S-Tab  rcycle
 bind 4-comma label
+#bind 4-bang  rofilauncher
+bind 4-e      'emacsclient -c'
 bind 4-q     delete
 bind 4-g     grouptoggle
 bind 4MC-l   cyclegroup
 bind 4MC-h   rcyclegroup
 
-bind 4-p     rofilauncher
+bind 4-p     dmenu_run
+bind 4-z     surf
 bind 4S-v    dv	
 
 bind 4-v vmaximize
@@ -109,7 +121,7 @@ bind 4-b hmaximize
 bind 4-m maximize
 bind 4-f fullscreen
 
-bind 4-Return urxvtc
+bind 4-Return st
 bind 4M-r    restart
 bind 4M-Escape quit
 

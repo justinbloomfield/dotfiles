@@ -41,6 +41,6 @@ name() {
 #MON=$(xrandr | grep -o "^.* connected" | sed "s/ connected//")
 
 while :; do
-    echo "%{S0}%{l} $(name) %{r}$(div) $(clk) "
+    echo "%{l} $(name) %{r}$(div) $(clk) "
     sleep 1
 done | lemonbar $PANEL_OPTS

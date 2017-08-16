@@ -43,7 +43,7 @@
 
 (defcommand xprint (msg)
     ((:string))
-   (run-shell-command (format nil "seq 3 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
+   (run-shell-command (format nil "seq 3 | xargs -I{} xdotool getwindowfocus windowfocus --sync type --delay 2 'bajo~a '" msg)))
 
 
 ;; macros
@@ -174,7 +174,7 @@
 (run-commands "grename def")
 (make-groups-bg "www" "irc" "dota")
 (run-shell-command "emacs --daemon")
-;;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
+;;(auto-commands "st -e irc" "ibus-daemon -drx")
 
 (in-package :clx-truetype)
 (setq *font-dirs* '("/home/poq/.local/share/fonts"

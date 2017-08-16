@@ -71,6 +71,7 @@
 
 ;;; UI
 ;; theme/modeline
+(setq frame-resize-pixelwise nil)
 (setq custom-safe-themes t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
@@ -78,20 +79,22 @@
                 (with-selected-frame frame
                   (when (window-system)
                     (load-theme 'spacegray t))
+                  (set-face-attribute 'mode-line nil :font "Luxi Mono-11")
                   (set-face-attribute 'default nil :foreground "#bbbbbb"))))
   (when (window-system)
-    (load-theme 'spacegray t)))
+	(load-theme 'spacegray t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
-    (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
-  (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
-(set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
+    (setq default-frame-alist '((font . "Luxi Mono-16:antialias=true")))
+  (setq default-frame-alist '((font . "Luxi Mono-11:antialias=true"))))
+(set-face-attribute 'mode-line nil :font "Luxi Mono-11")
 
-(setq-default mode-line-format nil)
-;;              (list
-;;               " %b "
-;;               " %l,%c "))
+
+(setq-default mode-line-format
+              (list
+               " %b "
+               " %l,%c "))
 
 ;; let the glow flow through you
 ;(global-hl-line-mode nil)
@@ -105,8 +108,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(set-fringe-mode -1)
-
+;(set-fringe-mode -1)
+(fringe-mode 20)
 ;; ibuffer
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
@@ -126,7 +129,7 @@
          ("nix" (or (mode . nix-mode)
                     (name . "\*nix")))
          ("dired" (mode . dired-mode))
-         ("java" (name . "\*java"))
+         ("java" (name . "\.java"))
          ("scheme" (mode . scheme-mode)))))
 
 (setq ibuffer-never-show-predicates
@@ -296,7 +299,7 @@
 
 
 (defun mpv-open (url)
-  (async-shell-command(format "mpv %s" url)))
+  (async-shell-command(format "mpv --hwdec %s" url)))
 
 (defun elfeed-mpv-open ()
   (interactive)
@@ -323,15 +326,16 @@
 (setq ensime-startup-notification nil)
 (setq ensime-startup-snapshot-notification nil)
 
-;; emacs-w3m
-(require 'w3m-load)
-(setq w3m-use-cookies t)
-
 ;;; MISCBINDS
 (global-set-key (kbd "C-c c n")
                 (lambda ()
                   (interactive)
                   (find-file "/sudo::/etc/nixos/configuration.nix")))
+
+(global-set-key (kbd "C-c c d")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/usr/doc/uninotes/dates.org")))
 
 (global-set-key (kbd "C-c c e")
                 (lambda ()
@@ -352,7 +356,7 @@
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-c h") help-map)
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
-
+(global-set-key (kbd "<hiragana-katakana>") 'backward-delete-char-untabify)
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
 
