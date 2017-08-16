@@ -326,6 +326,7 @@
 (setq ensime-startup-notification nil)
 (setq ensime-startup-snapshot-notification nil)
 
+
 ;;; MISCBINDS
 (global-set-key (kbd "C-c c n")
                 (lambda ()
