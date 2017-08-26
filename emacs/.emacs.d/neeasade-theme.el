@@ -564,6 +564,10 @@
    `(helm-separator ((,class (:foreground ,purple))))
    `(helm-source-header ((,class (:weight bold :foreground ,orange :height 1.25)))))
 
+   ;; ivy
+  ;;`(ivy-)
+  
+
   (custom-theme-set-variables
    'neeasade
    `(fci-rule-color ,current-line)

@@ -77,12 +77,10 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (when (window-system)
-                    (load-theme 'spacegray t))
-                  (set-face-attribute 'mode-line nil :font "Luxi Mono-11")
-                  (set-face-attribute 'default nil :foreground "#bbbbbb"))))
-  (when (window-system)
-	(load-theme 'spacegray t)))
+                  (set-face-attribute 'mode-line nil :font "Luxi Mono-11")))))
+;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
+;;  (when (window-system)
+;;	(load-theme 'spacegray t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -136,7 +134,7 @@
       '("\*scratch\*"
         "*tramp*"
         "\*Messages\*"
-        "^\\*"
+;;        "^\\*"
         "\*Help\*"))
 
 (add-hook 'ibuffer-mode-hook

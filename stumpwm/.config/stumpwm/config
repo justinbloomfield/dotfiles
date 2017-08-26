@@ -64,7 +64,7 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-y* 1)
 (setf *mode-line-pad-x* 100)
-(setf *mode-line-foreground-color* "springgreen2")
+(setf *mode-line-foreground-color* "orange")
 (setf *mode-line-background-color* "black")
 (setf *group-format* " %t ")
 (setf *window-format* "%m[%n] %20t ")
@@ -77,17 +77,20 @@
            *time-modeline-string*) t))
 
 (setf *screen-mode-line-format*
-      (list "[^2%g^n] / %W ^>  %N / "
+      (list "[^3%g^n] / %W ^>  %N / "
             '(:eval (get-date-modeline))))
 (mode-line)
 
 
 ;; borders
 (set-unfocus-color "gray5")
-(set-focus-color "seagreen")
+(set-focus-color "lightsalmon")
+(set-float-focus-color "lightsalmon") 
+(set-float-unfocus-color "gray5")
 (setf *maxsize-border-width* 3)
 (setf *normal-border-width* 3)
-(setf *window-border-style* :thin)
+(setf *transient-border-width* 3)
+(setf *window-border-style* :tight)
 
 
 ;; gaps
