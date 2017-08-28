@@ -181,8 +181,8 @@
 
 (in-package :clx-truetype)
 (setq *font-dirs* '("/home/poq/.local/share/fonts"
-                    "/run/current-system/sw/share/X11-fonts"))
+                    "/usr/share/fonts/"))
 (xft:cache-fonts)
 
 (in-package :stumpwm)
-(set-font (make-instance 'xft:font :family "PxPlus IBM VGA8" :subfamily "Regular" :size 12 :antialias nil :hints t))
+(set-font (make-instance 'xft:font :family "Liberation Mono" :subfamily "Regular" :size 11 :antialias t :hints t))

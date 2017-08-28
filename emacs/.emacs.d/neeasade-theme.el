@@ -11,7 +11,7 @@
 (let* ((class '((class color) (min-colors 89)))
        (256color (eq (display-color-cells (selected-frame)) 256))
 
-       (background "#1e1e1e") ;; sidebar-container
+       (background "#000000") ;; sidebar-container
        (current-line "#343d46") ;; tree-row
        (far-background "#1e1e1e") ;; panel-control
        (subtle "#a7adba") ;; tree-row-hover-disclosure-button-control

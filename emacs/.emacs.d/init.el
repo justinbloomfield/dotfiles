@@ -77,16 +77,16 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Luxi Mono-11")))))
+                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11")))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
 ;;  (when (window-system)
 ;;	(load-theme 'spacegray t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
-    (setq default-frame-alist '((font . "Luxi Mono-16:antialias=true")))
-  (setq default-frame-alist '((font . "Luxi Mono-11:antialias=true"))))
-(set-face-attribute 'mode-line nil :font "Luxi Mono-11")
+    (setq default-frame-alist '((font . "Liberation Mono-16:antialias=true")))
+  (setq default-frame-alist '((font . "Liberation Mono-11:antialias=true:autohint=true"))))
+(set-face-attribute 'mode-line nil :font "Liberation Mono-11")
 
 
 (setq-default mode-line-format
@@ -197,6 +197,14 @@
     (setq emms-history-file "~/.emacs.d/emms_hist")
     (emms-history-load)))
 
+;; eww
+(when (fboundp 'eww)
+  (progn
+    (defun eww-rename-hook ()
+      "Rename eww browser's buffer so sites open in new page."
+      (rename-buffer "eww" t))
+    (add-hook 'eww-mode-hook 'eww-rename-hook)))
+
 
 ;; magit
 (setq magit-completing-read-function 'ivy-completing-read)
@@ -243,6 +251,7 @@
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook 'intero-mode)
+(setq haskell-process-type 'stack-ghci)
 
 
 ;; slime
