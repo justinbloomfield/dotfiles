@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-(load "~/.quicklisp/slime-helper.el")
+;;(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -77,10 +77,10 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11")))))
+                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
-;;  (when (window-system)
-;;	(load-theme 'spacegray t)))
+  (when (window-system)
+    (load-theme 'base16-classic-dark t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -119,6 +119,7 @@
          ("org" (mode . org-mode))
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
+         ("crux" (name . "Pkgfile"))
          ("irc-serv" (mode . circe-server-mode))
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))

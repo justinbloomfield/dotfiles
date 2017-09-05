@@ -1,0 +1,9 @@
+#!/bin/sh
+# Launch XMonad with the right package path so it can recompile itself using
+# Stack
+export PREVPATH=$PATH
+GHC_PACKAGE_PATH=$(stack exec env | grep GHC_PACKAGE_PATH | sed s/.\\+=//g 2>/dev/null)
+export GHC_PACKAGE_PATH
+PATH=$(stack exec env | grep ^PATH | sed s/.\\+=//g 2>/dev/null)
+export PATH
+exec $HOME/.local/bin/xmonad "$@"

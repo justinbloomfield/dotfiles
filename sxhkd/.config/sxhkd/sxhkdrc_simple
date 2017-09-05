@@ -1,0 +1,5 @@
+mod4 + d
+  dmenu_run
+
+mod4 + c
+  st

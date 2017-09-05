@@ -1,3 +1,4 @@
+# -*-shell-*-
 # Description:  __DESCRIPTION__
 # URL:  __URL__
 # Maintainer:  __MAINTAINER__
@@ -26,5 +27,5 @@ build() {
 
     make DESTDIR=$PKG PREFIX=/usr MANPREFIX=/usr/man install
 }
-# vim: set ft=sh ts=4 et:
+
 
