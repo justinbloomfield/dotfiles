@@ -4,7 +4,7 @@
 # Create a Pkgfile from simple templates and user input
 
 PKGFILE=$HOME/etc/templates/Pkgfile
-PORTDIR=$CHOME/ports/crux
+PORTDIR=$CHOME/ports/crux/poq
 EDITOR=${EDITOR:-vi}
 
 daddy="poq <jbloomfield at live dot com>"

@@ -3,5 +3,5 @@
 # key: mnbh
 # --
 #+begin_src haskell
-     $0
+$0
 #+end_src

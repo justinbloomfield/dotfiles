@@ -1,5 +1,5 @@
 # -*- mode: snippet -*-
 # name: java new scanner stdin
-# key: scni
+# key: sci
 # --
 Scanner in = new Scanner(System.in);$0

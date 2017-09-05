@@ -19,6 +19,7 @@ in
     magit
     swiper
   ]) ++ (with epkgs.melpaPackages; [
+    abyss-theme
     all-the-icons
     all-the-icons-dired
     base16-theme

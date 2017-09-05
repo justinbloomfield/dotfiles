@@ -1,14 +1,14 @@
 mod4 + d
-	rofilauncher
+	dmenu_run
 
 XF86AudioRaiseVolume
-    pactl set-sink-volume 0 +2%
+    pactrl set-sink-volume 0 +2%
 
 XF86AudioLowerVolume
-    pactl set-sink-volume 0 -2%
+    pactrl set-sink-volume 0 -2%
 
 XF86AudioMute
-    pactl set-sink-mute 0 toggle
+    pactrl set-sink-mute 0 toggle
 
 XF86AudioPlay
     mpc toggle
@@ -19,19 +19,19 @@ XF86AudioStop
 mod4 + Escape
 	pkill -USR1 -x sxhkd
 
-mod4 + {h,j,k,l}
+mod4 + {h,t,n,s}
   waitron window_move {-2 0, 0 2, 0 -2, 2 0}
 
-mod4 + alt + {h,j,k,l}
+mod4 + ctrl + {h,t,n,s}
   waitron window_resize {-2 0, 0 2, 0 -2, 2 0}
 
-mod4 + shift + {h,j,k,l}
+mod4 + shift + {h,t,n,s}
   waitron window_move {-50 0, 0 50, 0 -50, 50 0}
 
-mod4 + shift + alt + {h,j,k,l}
+mod4 + ctrl + shift + {h,t,n,s}
   waitron window_resize {-50 0, 0 50, 0 -50, 50 0}
 
-mod4 + alt + Escape
+mod4 + ctrl + Escape
   waitron wm_quit 0
 
 mod4 + f
@@ -40,7 +40,7 @@ mod4 + f
 mod4 + shift + c
   waitron window_close
 
-mod4 + t
+mod4 + w
   waitron window_hor_maximize
 
 mod4 + v
@@ -52,17 +52,20 @@ mod4 + Tab
 mod4 + shift + Tab
   waitron window_rev_cycle
 
-mod4 + {_,shift +}{1-9}
+mod4 + {_,shift +}{semicolon,comma,period,p}
   waitron {group_toggle,group_add_window} {1-4}
 
 mod4 + ctrl + r
   waitron group_remove_window
 
-mod4 + p
-  st
-
 mod4 +  b
-  surf
+  conkeror file:///home/poq/.config/homepage/index.html
+
+mod4 + Return
+  st
+  
+mod4 + e
+  emacsclient -c
 
 mod4 + {Insert,Prior,Delete,Next,m}
   waitron window_snap {topleft,topright,bottomleft,bottomright,middle}

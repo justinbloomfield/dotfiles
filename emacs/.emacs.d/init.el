@@ -29,7 +29,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-(load "~/.quicklisp/slime-helper.el")
+;;(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -71,21 +71,22 @@
 
 ;;; UI
 ;; theme/modeline
+(setq frame-resize-pixelwise nil)
 (setq custom-safe-themes t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-;;                  (load-file "~/.emacs.d/xresources-theme/xresources-theme.el")
-                  (set-face-attribute 'default nil :foreground "#bbbbbb"))))
+                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11"))))
+;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'spacegray t)))
+    (load-theme 'base16-classic-dark t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
-    (setq default-frame-alist '((font . "PxPlus IBM VGA8-16:antialias=true")))
-  (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
-(set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
+    (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
+  (setq default-frame-alist '((font . "Liberation Mono-11:antialias=true:autohint=true"))))
+(set-face-attribute 'mode-line nil :font "Liberation Mono-11")
 
 (setq-default mode-line-format
               (list
@@ -104,8 +105,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(set-fringe-mode -1)
-
+;(set-fringe-mode -1)
+(fringe-mode 20)
 ;; ibuffer
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
@@ -117,6 +118,7 @@
          ("org" (mode . org-mode))
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
+         ("crux" (name . "Pkgfile"))
          ("irc-serv" (mode . circe-server-mode))
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))
@@ -125,14 +127,14 @@
          ("nix" (or (mode . nix-mode)
                     (name . "\*nix")))
          ("dired" (mode . dired-mode))
-         ("java" (name . "\*java"))
+         ("java" (name . "\.java"))
          ("scheme" (mode . scheme-mode)))))
 
 (setq ibuffer-never-show-predicates
       '("\*scratch\*"
         "*tramp*"
         "\*Messages\*"
-        "^\\*"
+;;        "^\\*"
         "\*Help\*"))
 
 (add-hook 'ibuffer-mode-hook
@@ -195,6 +197,14 @@
     (setq emms-history-file "~/.emacs.d/emms_hist")
     (emms-history-load)))
 
+;; eww
+(when (fboundp 'eww)
+  (progn
+    (defun eww-rename-hook ()
+      "Rename eww browser's buffer so sites open in new page."
+      (rename-buffer "eww" t))
+    (add-hook 'eww-mode-hook 'eww-rename-hook)))
+
 
 ;; magit
 (setq magit-completing-read-function 'ivy-completing-read)
@@ -241,6 +251,7 @@
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook 'intero-mode)
+(setq haskell-process-type 'stack-ghci)
 
 
 ;; slime
@@ -295,7 +306,7 @@
 
 
 (defun mpv-open (url)
-  (async-shell-command(format "mpv %s" url)))
+  (async-shell-command(format "mpv --hwdec %s" url)))
 
 (defun elfeed-mpv-open ()
   (interactive)
@@ -322,16 +333,17 @@
 (setq ensime-startup-notification nil)
 (setq ensime-startup-snapshot-notification nil)
 
-;; emacs-w3m
-(when (eq system-type 'gnu/linux)
-  (require 'w3m-load))
-(setq w3m-use-cookies t)
 
 ;;; MISCBINDS
 (global-set-key (kbd "C-c c n")
                 (lambda ()
                   (interactive)
                   (find-file "/sudo::/etc/nixos/configuration.nix")))
+
+(global-set-key (kbd "C-c c d")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/usr/doc/uninotes/dates.org")))
 
 (global-set-key (kbd "C-c c e")
                 (lambda ()
@@ -352,7 +364,7 @@
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-c h") help-map)
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
-
+(global-set-key (kbd "<hiragana-katakana>") 'backward-delete-char-untabify)
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
 
@@ -371,8 +383,8 @@
 
 (eshell)
 ;;; EXWM
-;(require 'exwm)
-;(require 'exwm-config)
-;(exwm-config-default)
-;(exwm-enable t)
+;;(require 'exwm)
+;;(require 'exwm-config)
+;;(exwm-config-default)
+;;(exwm-enable t)
 

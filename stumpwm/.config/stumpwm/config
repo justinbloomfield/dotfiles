@@ -27,9 +27,23 @@
               (when cmd
                 (eval-command cmd t))))
 
+(defcommand surfsearch (&optional (initial "")) (:rest)
+  (let ((url (read-one-line (current-screen) "search: " :initial-input initial)))
+    (when url
+      (run-shell-command (format nil "surfraw -browser=surf duckduckgo ~a" url)))))
+
+(defcommand surfurl (&optional (initial "")) (:rest)
+  (let ((url (read-one-line (current-screen) "url: " :initial-input initial)))
+    (when url
+      (run-shell-command (format nil "surf ~a" url)))))
+
+(defcommand surflaunch (url)
+    ((:string))
+  (run-shell-command (format nil "surf ~a" url)))
+
 (defcommand xprint (msg)
     ((:string))
-   (run-shell-command (format nil "seq 3 | xargs -I{} xdotool getwindowfocus windowfocus --sync sleep 0.1 type --delay 1 'bajo~a '" msg)))
+   (run-shell-command (format nil "seq 3 | xargs -I{} xdotool getwindowfocus windowfocus --sync type --delay 2 'bajo~a '" msg)))
 
 
 ;; macros
@@ -50,7 +64,7 @@
 (setf *mode-line-border-width* 0)
 (setf *mode-line-pad-y* 1)
 (setf *mode-line-pad-x* 100)
-(setf *mode-line-foreground-color* "deeppink")
+(setf *mode-line-foreground-color* "orange")
 (setf *mode-line-background-color* "black")
 (setf *group-format* " %t ")
 (setf *window-format* "%m[%n] %20t ")
@@ -63,17 +77,20 @@
            *time-modeline-string*) t))
 
 (setf *screen-mode-line-format*
-      (list "[^5%g^n] / %W ^>  %N / "
+      (list "[^3%g^n] / %W ^>  %N / "
             '(:eval (get-date-modeline))))
 (mode-line)
 
 
 ;; borders
 (set-unfocus-color "gray5")
-(set-focus-color "#ef499f")
+(set-focus-color "lightsalmon")
+(set-float-focus-color "lightsalmon") 
+(set-float-unfocus-color "gray5")
 (setf *maxsize-border-width* 3)
 (setf *normal-border-width* 3)
-(setf *window-border-style* :thin)
+(setf *transient-border-width* 3)
+(setf *window-border-style* :tight)
 
 
 ;; gaps
@@ -93,7 +110,7 @@
     (define-key m (kbd "8") "xprint 8bit")
     (define-key m (kbd "q") "xprint Quasarface")
     (define-key m (kbd "z") "xprint Quasar")
-    (define-key m (kbd "t") "xprint Cry")
+    (define-key m (kbd "t") "xprint Sads")
     (define-key m (kbd "d") "xprint Djbj")
     (define-key m (kbd "u") "xprint Milk")
     (define-key m (kbd "r") "xprint Rage")
@@ -112,8 +129,21 @@
     m ; NOTE: this is important
   ))
 
+(defvar *browser-bindings*
+  (let ((m (make-sparse-keymap)))
+    (define-key m (kbd "r") "surflaunch reddit.com")
+    (define-key m (kbd "g") "surflaunch geekhack.com")
+    (define-key m (kbd "n") "surflaunch nixers.net")
+    (define-key m (kbd "f") "surflaunch facebook.com")
+    (define-key m (kbd "p") "surflaunch nhentai.net")
+    (define-key m (kbd "t") "surflaunch twitter.com")
+        (define-key m (kbd "u") "surfurl")
+    m
+))
 
 ;; binds
+(define-key *root-map* (kbd "B") "surfsearch")
+(define-key *root-map* (kbd "b") '*browser-bindings*)
 (define-key *root-map* (kbd "c") "exec st")
 (define-key *root-map* (kbd "e") "exec emacsclient -c")
 (define-key *root-map* (kbd "z") "exec mupdf") ;; make this ask for input
@@ -147,12 +177,12 @@
 (run-commands "grename def")
 (make-groups-bg "www" "irc" "dota")
 (run-shell-command "emacs --daemon")
-;;(auto-commands "st -e irc" "xset -dpms" "xset s off" "ibus-daemon -drx")
+;;(auto-commands "st -e irc" "ibus-daemon -drx")
 
 (in-package :clx-truetype)
 (setq *font-dirs* '("/home/poq/.local/share/fonts"
-                    "/run/current-system/sw/share/X11-fonts"))
+                    "/usr/share/fonts/"))
 (xft:cache-fonts)
 
 (in-package :stumpwm)
-(set-font (make-instance 'xft:font :family "PxPlus IBM VGA8" :subfamily "Regular" :size 12 :antialias nil :hints t))
+(set-font (make-instance 'xft:font :family "Liberation Mono" :subfamily "Regular" :size 11 :antialias t :hints t))

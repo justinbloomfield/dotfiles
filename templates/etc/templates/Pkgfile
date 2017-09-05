@@ -1,3 +1,4 @@
+# -*-shell-*-
 # Description:  __DESCRIPTION__
 # URL:  __URL__
 # Maintainer:  __MAINTAINER__
@@ -17,5 +18,5 @@ build() {
         MANDIR=/usr/man\
         install
 }
-# vim: set ft=sh ts=4 et:
+
 

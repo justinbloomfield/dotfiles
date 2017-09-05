@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: javafx extends
+# key: fxe
+# --
+public class $1 extends javafx.application.Application {
+   @Override
+   public void start(Stage primaryStage) throws Exception {
+      $0
+   }
+}

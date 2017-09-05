@@ -1,8 +1,8 @@
 #define fg      #aabbaa
-#define bg      #0b1012
+#define bg      #000000
 #define lbg     #242424
 #define cc      #20b2aa
-#define c0      #0b1012
+#define c0      #000000
 #define c1      #03c03c
 #define c2      #009e60
 #define c3      #00a550
