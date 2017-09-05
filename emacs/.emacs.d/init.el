@@ -87,10 +87,10 @@
   (setq default-frame-alist '((font . "PxPlus IBM VGA8-11:antialias=true"))))
 (set-face-attribute 'mode-line nil :font "PxPlus IBM VGA8")
 
-(setq-default mode-line-format nil)
-;;              (list
-;;               " %b "
-;;               " %l,%c "))
+(setq-default mode-line-format
+              (list
+               " %b "
+               " %l,%c "))
 
 ;; let the glow flow through you
 ;(global-hl-line-mode nil)
