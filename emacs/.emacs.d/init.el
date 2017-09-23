@@ -252,7 +252,9 @@
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook 'intero-mode)
-(setq haskell-process-type 'stack-ghci)
+(setq haskell-process-type 'ghci)
+(setq haskell-process-args-stack-ghci "")
+(setq haskell-process-args-stack-ghci '("--with-ghc=intero" "--no-build" "--load"))
 
 
 ;; slime
