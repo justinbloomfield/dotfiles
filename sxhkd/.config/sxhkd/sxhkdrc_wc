@@ -37,7 +37,7 @@ mod4 + ctrl + Escape
 mod4 + f
   waitron window_maximize
 
-mod4 + shift + c
+mod4 + x
   waitron window_close
 
 mod4 + w

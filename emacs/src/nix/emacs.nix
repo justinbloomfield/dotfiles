@@ -31,14 +31,13 @@ in
     ensime
     geiser
     intero
-    multi-term
+    mu4e-alert
     neotree
     nix-mode
     pretty-mode
     sbt-mode
     scala-mode
     simple-mpc
-#    slime
     slime-company
     spacegray-theme
     stumpwm-mode
