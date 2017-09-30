@@ -266,32 +266,34 @@
 
 
 ;; mu4e
-;; (require 'mu4e)
-;; (setq mu4e-maildir "/home/poq/var/mail/jbl")
-;; (setq mu4e-sent-folder "/Sent"
-;;       mu4e-drafts-folder "/Drafts"
-;;       mu4e-trash-folder "/Trash")
-;; (setq mu4e-maildir-shortcuts
-;;       '(("/Inbox" . ?i)
-;;         ("/Sent"  . ?s)))
-;; (setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
-;; (setq mu4e-headers-fields
-;;       '((:human-date   .  25)
-;;         (:flags        .   6)
-;;         (:from         .  22)
-;;         (:subject      .  nil)))
+(require 'mu4e)
+(if (eq system-type 'darwin)
+    (setq mu4e-maildir "/Users/j/var/mail/jbl")
+  (setq mu4e-maildir "/home/poq/var/mail/jbl"))
+(setq mu4e-sent-folder "/Sent"
+      mu4e-drafts-folder "/Drafts"
+      mu4e-trash-folder "/Trash")
+(setq mu4e-maildir-shortcuts
+      '(("/Inbox" . ?i)
+        ("/Sent"  . ?s)))
+(setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
+(setq mu4e-headers-fields
+      '((:human-date   .  25)
+        (:flags        .   6)
+        (:from         .  22)
+        (:subject      .  nil)))
 
-;; (setq mu4e-get-mail-command "mbsync jbloo")
-;; (setq mu4e-reply-to-address "jbloomfield@live.com"
-;;       user-mail-address "jbloomfield@live.com"
-;;       user-full-name "Justin Bloomfield")
-;; (setq
-;;  message-send-mail-function 'message-send-mail-with-sendmail
-;;  sendmail-program "msmtp")
-;; (setq message-kill-buffer-on-exit t)
-;; (setq mu4e-use-fancy-chars t)
-;; (global-set-key (kbd "C-c m") 'mu4e)
-;; ;(setq mu4e-view-show-images t)
+(setq mu4e-get-mail-command "mbsync -V jbloo")
+(setq mu4e-reply-to-address "jbloomfield@live.com"
+      user-mail-address "jbloomfield@live.com"
+       user-full-name "Justin Bloomfield")
+(setq
+ message-send-mail-function 'message-send-mail-with-sendmail
+ sendmail-program "msmtp")
+(setq message-kill-buffer-on-exit t)
+(setq mu4e-use-fancy-chars t)
+(global-set-key (kbd "C-c m") 'mu4e)
+;(setq mu4e-view-show-images t)
 
 ;; geiser
 (setq geiser-active-implementations '(guile))
