@@ -11,7 +11,6 @@
   (progn
     (require 'package)
     (setq package-archives nil)
-    (setq package-enable-at-startup nil)
     (package-initialize))
 )
 
@@ -67,7 +66,7 @@
         (replace-match "")))))
 
 ;; electric pairs
-(electric-pair-mode)
+;;(electric-pair-mode)
 
 ;;; UI
 ;; theme/modeline
@@ -77,28 +76,24 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11"))))
+;;                  (set-face-attribute 'mode-line nil :font "boxxy-11")
+                  (load-theme 'spacegray t))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'base16-classic-dark t)))
+    (load-theme 'spacegray t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
     (setq default-frame-alist '((font . "Liberation Mono-16:antialias=true")))
-  (setq default-frame-alist '((font . "Liberation Mono-11:antialias=true:autohint=true"))))
-(set-face-attribute 'mode-line nil :font "Liberation Mono-11")
+  (setq default-frame-alist '((font . "Liberation Mono-12:antialias=true:autohint=true"))))
+(set-face-attribute 'mode-line nil :font "Liberation Mono-12")
+
+;; (setq-default mode-line-format
+;;               (list
+;;                " %b "
+;;                " %l,%c "))
 
 
-(setq-default mode-line-format
-              (list
-               " %b "
-               " %l,%c "))
-
-;; let the glow flow through you
-;(global-hl-line-mode nil)
-
-;; remove modeline 90's box thing
-(set-face-attribute 'mode-line nil :box nil)
 (set-face-attribute 'mode-line-inactive nil :box nil)
 (pretty-mode)
 
@@ -106,8 +101,8 @@
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-;(set-fringe-mode -1)
-(fringe-mode 20)
+(fringe-mode '(10 . 0))
+
 ;; ibuffer
 (setq ibuffer-expert t)
 (setq ibuffer-show-empty-filter-groups nil)
@@ -183,20 +178,42 @@
 (add-hook 'after-init-hook 'global-company-mode)
 
 
+;; circe
+(load-file "~/.emacs.d/private.el")
+(setq circe-network-options
+      '(("Freenode"
+         :tls nil
+         :nick "piecesofquiet"
+         :pass ,irc-pass
+         :channels ("#crux"))
+        ("twitch"
+         :host "irc.chat.twitch.tv"
+         :port 6667
+         :tls nil
+         :nick "piecesofquiet777"
+         :pass "oauth:48giay9nsdgafs9ufhbfv6334x8v9e")))
+(setq circe-reduce-lurker-spam t)
+(setq circe-user-cycle-completion t)
+
+;; erc
+(load-file "~/.emacs.d/.ercrc.el")
+;;(load-file "~/src/pkg/erc-twitch/erc-twitch.el")
+;;(require 'erc-twitch)
+;;(erc-twitch-enable)
+
+
 ;; emms
-(when (eq system-type 'gnu/linux)
-  (progn
-    (emms-standard)
-    (emms-default-players)
-    (setq emms-playlist-buffer-name "EMMS")
-    (require 'emms-info-libtag)
-    (setq emms-info-functions '(emms-info-libtag))
-    (setq emms-source-file-default-directory "/mnt/Music/")
-    (defvar emms-browser-info-title-format "%i%n")
-    (defvar emms-browser-playlist-info-title-format
-      emms-browser-info-title-format)
-    (setq emms-history-file "~/.emacs.d/emms_hist")
-    (emms-history-load)))
+(emms-standard)
+(emms-default-players)
+(setq emms-playlist-buffer-name "EMMS")
+(require 'emms-info-libtag)
+(setq emms-info-functions '(emms-info-libtag))
+(setq emms-source-file-default-directory "/mnt/ext/Music/")
+(defvar emms-browser-info-title-format "%i%n")
+(defvar emms-browser-playlist-info-title-format
+  emms-browser-info-title-format)
+(setq emms-history-file "~/.emacs.d/emms_hist")
+(emms-history-load)
 
 ;; eww
 (when (fboundp 'eww)
@@ -218,6 +235,7 @@
 (require 'ox-latex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook 'pretty-mode)
+(add-hook 'org-mode-hook 'flyspell-mode)
 (setq org-directory "~/var/org")
 (setq org-default-notes-file "~/var/org/notes.org")
 (setq org-agenda-files (list "~/var/org/notes.org"
@@ -226,7 +244,7 @@
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
-
+(setq ispell-program-name "hunspell")
 
 
 
@@ -235,7 +253,7 @@
 (global-set-key (kbd "C-s") 'swiper)
 (global-set-key (kbd "C-x C-f") 'counsel-find-file)
 (ivy-mode 1)
-(setq ivy-use-virtual-buffers t)
+(setq ivy-use-virtual-buffers nil)
 (setq ivy-count-format "(%d/%d) ")
 
 
@@ -252,9 +270,9 @@
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
 (add-hook 'haskell-mode-hook 'intero-mode)
-(setq haskell-process-type 'ghci)
-(setq haskell-process-args-stack-ghci "")
-(setq haskell-process-args-stack-ghci '("--with-ghc=intero" "--no-build" "--load"))
+(setq haskell-process-type 'intero-repl)
+;;(setq haskell-process-args-stack-ghci "")
+;;(setq haskell-process-args-stack-ghci '("--with-ghc=intero" "--no-build" "--load"))
 
 
 ;; slime
@@ -288,7 +306,14 @@
 (setq message-kill-buffer-on-exit t)
 (setq mu4e-use-fancy-chars t)
 (global-set-key (kbd "C-c m") 'mu4e)
-;(setq mu4e-view-show-images t)
+;; (setq mu4e-view-show-images t)
+;; (if (eq system-type 'darwin)
+;;     (mu4e-alert-set-default-style 'growl)
+;;   (mu4e-alert-set-default-style 'libnotify))
+;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+
+
 
 ;; geiser
 (setq geiser-active-implementations '(guile))
@@ -308,8 +333,11 @@
           t)
 
 
-(defun mpv-open (url)
-  (async-shell-command(format "mpv --hwdec %s" url)))
+(if (window-system)
+  (defun mpv-open (url)
+    (async-shell-command(format "mpv %s" url)))
+  (defun mpv-open (url)
+    (async-shell-command(format "mpv --no-video %s"))))
 
 (defun elfeed-mpv-open ()
   (interactive)
@@ -360,10 +388,10 @@
 
 (global-set-key (kbd "C-c c s") 'stumpwm-config)
 (global-set-key (kbd "C-c d") 'dired)
-(global-set-key (kbd "C-x b") 'switch-to-buffer)
+(global-set-key (kbd "C-x b") 'ivy-switch-buffer)
 (global-set-key (kbd "C-c x") 'counsel-M-x)
-(global-set-key (kbd "C-c e b") 'emms-browser)
-(global-set-key (kbd "C-c e p") 'emms)
+(global-set-key (kbd "C-c a b") 'emms-browser)
+(global-set-key (kbd "C-c a p") 'emms)
 (global-set-key (kbd "C-y") 'counsel-yank-pop)
 (global-set-key (kbd "C-c h") help-map)
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
@@ -385,9 +413,60 @@
                   (switch-to-buffer "*eshell*")))
 
 (eshell)
-;;; EXWM
-;;(require 'exwm)
-;;(require 'exwm-config)
-;;(exwm-config-default)
-;;(exwm-enable t)
+(server-start)
 
+;; exwm
+(require 'exwm)
+(require 'exwm-config)
+(require 'exwm-randr)
+
+;;; randr
+(setq exwm-randr-workspace-output-plist '(0 "HDMI-0"))
+(add-hook 'exwm-randr-screen-change-hook
+          (lambda ()
+            (start-process-shell-command
+             "xrandr" nil "xrandr --output HDMI-0 --left-of LVDS-0 --auto")))
+(exwm-randr-enable)
+
+(setq display-time-default-load-average t)
+(setq display-time-mail-string "")
+(display-time-mode t)
+(setq exwm-workspace-number 5)
+
+(add-hook 'exwm-update-class-hook
+          (lambda ()
+            (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+                        (string= "gimp" exwm-instance-name))
+              (exwm-workspace-rename-buffer exwm-class-name))))
+(add-hook 'exwm-update-title-hook
+          (lambda ()
+            (when (or (not exwm-instance-name)
+                      (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+                      (string= "gimp" exwm-instance-name))
+
+              (exwm-workspace-rename-buffer exwm-title))))
+
+(exwm-input-set-key (kbd "s-r") #'exwm-reset)
+(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+(dotimes (i 5)
+  (exwm-input-set-key (kbd (format "s-%d" i))
+                      `(lambda ()
+                         (interactive)
+                         (exwm-workspace-switch-create ,i))))
+
+(exwm-input-set-key (kbd "s-d")
+                    (lambda (command)
+                      (interactive (list (read-shell-command "> ")))
+                      (start-process-shell-command command nil command)))
+
+(exwm-input-set-key (kbd "s-<return>")
+                    (lambda ()
+                      (interactive)
+                      (start-process-shell-command "st" nil "st")))
+
+(exwm-input-set-key (kbd "s-q") 'kill-this-buffer)
+
+(exwm-enable)
+
+(provide 'init)
+;;; init.el ends here
