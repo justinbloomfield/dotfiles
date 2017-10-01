@@ -88,8 +88,8 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "Liberation Mono-11:antialias=true:autohint=true")))
-      (set-face-attribute 'mode-line nil :font "Liberation Mono-12")))
+      (setq default-frame-alist '((font . "Liberation Mono-14:antialias=true:autohint=true")))
+      (set-face-attribute 'mode-line nil :font "Liberation Mono-14")))
 
 (set-face-bold-p 'bold nil)
 
