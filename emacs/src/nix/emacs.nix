@@ -35,6 +35,7 @@ in
     neotree
     nix-mode
     pretty-mode
+    reverse-theme
     sbt-mode
     scala-mode
     simple-mpc

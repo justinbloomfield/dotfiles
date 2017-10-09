@@ -34,7 +34,7 @@
 (defun stumpwm-config ()
   "Open file & connect to slime instance"
   (interactive)
-  (find-file "~/.config/stumpwm/config")
+  (find-file "~/.config/stumpwm/config") ;; make this check if the file is already open to avoid extra REPLS
   (slime-connect "127.0.0.1" "4005"))
 
 
@@ -77,7 +77,7 @@
               (lambda (frame)
                 (with-selected-frame frame
                   (set-face-attribute 'mode-line nil :font "Liberation Mono-11")
-                  (load-theme 'spacegray t))))
+                  (load-theme 'reverse t))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
     (load-theme 'spacegray t)))
@@ -88,8 +88,8 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "Liberation Mono-14:antialias=true:autohint=true")))
-      (set-face-attribute 'mode-line nil :font "Liberation Mono-14")))
+      (setq default-frame-alist '((font . "Liberation Mono-13:antialias=true:autohint=true")))
+      (set-face-attribute 'mode-line nil :font "Liberation Mono-13")))
 
 (set-face-bold-p 'bold nil)
 
@@ -222,7 +222,7 @@
 (setq emms-playlist-buffer-name "EMMS")
 (require 'emms-info-libtag)
 (setq emms-info-functions '(emms-info-libtag))
-(setq emms-source-file-default-directory "/mnt/ext/Music/")
+(setq emms-source-file-default-directory "/mnt/")
 (defvar emms-browser-info-title-format "%i%n")
 (defvar emms-browser-playlist-info-title-format
   emms-browser-info-title-format)
@@ -485,7 +485,7 @@
 
 (exwm-input-set-key (kbd "s-q") 'kill-this-buffer)
 
-(exwm-enable)
+;;(exwm-enable)
 
 (provide 'init)
 ;;; init.el ends here
