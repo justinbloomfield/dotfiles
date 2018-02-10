@@ -1,0 +1,22 @@
+#!/bin/sh
+bggcl=$(xrq color0)
+fccl=$(xrq color1)
+bgcl=$(xrq color5)
+ufccl=$(xrq color17)
+ugcl=$(xrq color4)
+tcl=$(xrq color8)
+
+ed -s ~/.config/herbstluftwm/autostart << EOF
+H
+/theme.active.color
+s/#.*$/$fccl\'/
+/theme.normal.color
+s/#.*$/$ufccl\'/
+
+EOF
+
+ed -s ~/bin/panelsrc << EOF
+
+EOF
+
+herbstclient reload

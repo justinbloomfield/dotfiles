@@ -1,3 +1,4 @@
+
 ;;; poq's emacs config, use at own risk
 
 (if (eq system-type 'darwin)
@@ -10,8 +11,9 @@
     (load-file "~/.emacs.d/custom/macospkg.el"))
   (progn
     (require 'package)
-    (setq package-archives nil)
-    (package-initialize))
+    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+    (package-initialize)
+    (load-file "~/.emacs.d/custom/pkg.el"))
 )
 
 (setq custom-file "~/.emacs.d/custom.el")
@@ -28,7 +30,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-;;(load "~/.quicklisp/slime-helper.el")
+(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -76,8 +78,8 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Liberation Mono-11")
-                  (load-theme 'reverse t))))
+                  (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))))
+                  ;;(load-theme 'seoul256 t))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
     (load-theme 'spacegray t)))
@@ -88,18 +90,13 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "Liberation Mono-13:antialias=true:autohint=true")))
-      (set-face-attribute 'mode-line nil :font "Liberation Mono-13")))
+      (setq default-frame-alist '((font . "Fantasque Sans Mono-13:antialias=true:autohint=true")))
+      (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-13")))
 
 (set-face-bold-p 'bold nil)
 
-;; (setq-default mode-line-format
-;;               (list
-;;                " %b "
-;;                " %l,%c "))
-
 ;; let the glow flow through you
-;;(global-hl-line-mode nil)
+(global-hl-line-mode nil)
 
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
@@ -166,51 +163,55 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
 
-;; auctex
-(setq TeX-auto-save t)
-(setq TeX-parse-self t)
-(setq font-latex-fontify-script 'invisible)
-(add-hook 'LaTeX-mode-hook 'visual-line-mode)
-(add-hook 'LaTeX-mode-hook 'flyspell-mode)
-(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-(add-hook 'Latex-mode-hook 'turn-on-reftex)
-(setq reftex-plug-into-AUCTeX t)
-(eval-after-load "tex"
-  '(progn
-     (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
-     (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
-(setq org-latex-listings 'minted
-      org-latex-packages-alist '(("" "minted"))
-      org-latex-pdf-process
-      '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-        "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; ;; auctex
+;; (setq TeX-auto-save t)
+;; (setq TeX-parse-self t)
+;; (setq font-latex-fontify-script 'invisible)
+;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+;; (add-hook 'Latex-mode-hook 'turn-on-reftex)
+;; (setq reftex-plug-into-AUCTeX t)
+;; (eval-after-load "tex"
+;;   '(progn
+;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
+;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
+;; (setq org-latex-listings 'minted
+;;       org-latex-packages-alist '(("" "minted"))
+;;       org-latex-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;;(add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
 
+;; aurel
+
+(setq aurel-list-download-function 'aurel-download-unpack-eshell)
+(setq aurel-info-download-function 'aurel-download-unpack-eshell)
 
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
 
 
 ;; circe
-(load-file "~/.emacs.d/private.el")
-(setq circe-network-options
-      '(("Freenode"
-         :tls nil
-         :nick "piecesofquiet"
-         :pass ,irc-pass
-         :channels ("#crux"))
-        ("twitch"
-         :host "irc.chat.twitch.tv"
-         :port 6667
-         :tls nil
-         :nick "piecesofquiet777"
-         :pass "oauth:48giay9nsdgafs9ufhbfv6334x8v9e")))
-(setq circe-reduce-lurker-spam t)
-(setq circe-user-cycle-completion t)
+;; (load-file "~/.emacs.d/private.el")
+;; (setq circe-network-options
+;;       '(("Freenode"
+;;          :tls nil
+;;          :nick "piecesofquiet"
+;;          :pass ,irc-pass
+;;          :channels ("#crux"))
+;;         ("twitch"
+;;          :host "irc.chat.twitch.tv"
+;;          :port 6667
+;;          :tls nil
+;;          :nick "piecesofquiet777"
+;;          :pass "oauth:48giay9nsdgafs9ufhbfv6334x8v9e")))
+;; (setq circe-reduce-lurker-spam t)
+;; (setq circe-user-cycle-completion t)
 
 ;; erc
-(load-file "~/.emacs.d/.ercrc.el")
+;;(load-file "~/.emacs.d/.ercrc.el")
 ;;(load-file "~/src/pkg/erc-twitch/erc-twitch.el")
 ;;(require 'erc-twitch)
 ;;(erc-twitch-enable)
@@ -220,9 +221,10 @@
 (emms-standard)
 (emms-default-players)
 (setq emms-playlist-buffer-name "EMMS")
+(require 'emms-player-mpv)
 (require 'emms-info-libtag)
 (setq emms-info-functions '(emms-info-libtag))
-(setq emms-source-file-default-directory "/mnt/")
+(setq emms-source-file-default-directory "/mnt/Music")
 (defvar emms-browser-info-title-format "%i%n")
 (defvar emms-browser-playlist-info-title-format
   emms-browser-info-title-format)
@@ -276,7 +278,7 @@
 
 
 ;; neotree
-(setq neo-theme 'ascii)
+(setq neo-theme 'arrow)
 (global-set-key (kbd "C-c t") 'neotree-toggle)
 
 
@@ -295,44 +297,79 @@
 
 
 ;; mu4e
-(require 'mu4e)
-(if (eq system-type 'darwin)
-    (setq mu4e-maildir "/Users/j/var/mail/jbl")
-  (setq mu4e-maildir "/home/poq/var/mail/jbl"))
-(setq mu4e-sent-folder "/Sent"
-      mu4e-drafts-folder "/Drafts"
-      mu4e-trash-folder "/Trash")
-(setq mu4e-maildir-shortcuts
-      '(("/Inbox" . ?i)
-        ("/Sent"  . ?s)))
-(setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
-(setq mu4e-headers-fields
-      '((:human-date   .  25)
-        (:flags        .   6)
-        (:from         .  22)
-        (:subject      .  nil)))
-
-(setq mu4e-get-mail-command "mbsync -V jbloo")
-(setq mu4e-reply-to-address "jbloomfield@live.com"
-      user-mail-address "jbloomfield@live.com"
-       user-full-name "Justin Bloomfield")
-(setq
- message-send-mail-function 'message-send-mail-with-sendmail
- sendmail-program "msmtp")
-(setq message-kill-buffer-on-exit t)
-(setq mu4e-use-fancy-chars t)
-(global-set-key (kbd "C-c m") 'mu4e)
-;; (setq mu4e-view-show-images t)
+;; (require 'mu4e)
 ;; (if (eq system-type 'darwin)
-;;     (mu4e-alert-set-default-style 'growl)
-;;   (mu4e-alert-set-default-style 'libnotify))
-;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+;;     (setq mu4e-maildir "/Users/j/var/mail/jbl")
+;;   (setq mu4e-maildir "/home/poq/var/mail/jbl"))
+;; (setq mu4e-sent-folder "/Sent"
+;;       mu4e-drafts-folder "/Drafts"
+;;       mu4e-trash-folder "/Trash")
+;; (setq mu4e-maildir-shortcuts
+;;       '(("/Inbox" . ?i)
+;;         ("/Sent"  . ?s)))
+;; (setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
+;; (setq mu4e-headers-fields
+;;       '((:human-date   .  25)
+;;         (:flags        .   6)
+;;         (:from         .  22)
+;;         (:subject      .  nil)))
 
+;; (setq mu4e-get-mail-command "mbsync -V jbloo")
+;; (setq mu4e-reply-to-address "jbloomfield@live.com"
+;;       user-mail-address "jbloomfield@live.com"
+;;        user-full-name "Justin Bloomfield")
+;;
+;; (setq message-kill-buffer-on-exit t)
+;; (setq mu4e-use-fancy-chars t)
+;; (global-set-key (kbd "C-c m") 'mu4e)
+;; ;; (setq mu4e-view-show-images t)
+;; ;; (if (eq system-type 'darwin)
+;; ;;     (mu4e-alert-set-default-style 'growl)
+;; ;;   (mu4e-alert-set-default-style 'libnotify))
+;; ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+
+;; notmuch
+
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "msmtp")
+(global-set-key (kbd "C-c m") 'notmuch)
+;; mark deleted
+(define-key notmuch-show-mode-map "d"
+  (lambda ()
+    "toggle deleted tag for message"
+    (interactive)
+    (if (member "deleted" (notmuch-show-get-tags))
+        (notmuch-show-tag (list "-deleted"))
+      (notmuch-show-tag (list "+deleted")))))
+
+(define-key notmuch-search-mode-map "d"
+  (lambda ()
+    "toggle deleted tag for message"
+    (interactive)
+    (if (member "deleted" (notmuch-search-get-tags))
+        (notmuch-search-tag (list "-deleted"))
+      (notmuch-search-tag (list "+deleted")))))
+
+(define-key notmuch-search-mode-map "u"
+  (lambda ()
+         "toggle unread tag for message"
+         (interactive)
+         (if (member "unread" (notmuch-search-get-tags))
+             (notmuch-search-tag (list "-unread"))
+           (notmuch-search-tag (list "+ead")))))
+
+;; fetch / update
+(define-key notmuch-search-mode-map "U"
+  (lambda ()
+    "update mail index & sync"
+    (interactive)
+    (async-shell-command "mbsync -V jbloo && notmuch new")))
 
 
 ;; geiser
 (setq geiser-active-implementations '(guile))
+
 
 ;; elfeed
 (require 'elfeed)
@@ -349,11 +386,11 @@
           t)
 
 
-(if (window-system)
+;; (if (window-system)
   (defun mpv-open (url)
     (async-shell-command(format "mpv %s" url)))
-  (defun mpv-open (url)
-    (async-shell-command(format "mpv --no-video %s"))))
+;;(defun mpv-open (url)
+;;  (async-shell-command(format "mpv --no-video %s" url)))
 
 (defun elfeed-mpv-open ()
   (interactive)
@@ -376,11 +413,6 @@
 (define-key yas-minor-mode-map (kbd "TAB") nil)
 (define-key yas-minor-mode-map (kbd "C-c e") 'yas-expand)
 				
-;; ensime
-(setq ensime-startup-notification nil)
-(setq ensime-startup-snapshot-notification nil)
-
-
 ;;; MISCBINDS
 (global-set-key (kbd "C-c c n")
                 (lambda ()

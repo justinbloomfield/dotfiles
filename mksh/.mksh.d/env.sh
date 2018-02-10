@@ -18,5 +18,7 @@ GOPATH="/home/poq/src/go"
 SSH_ASKPASS=''
 #PS1=$'\E[36;1m/\E[34;1m$(pwd | sed "s,^$HOME,~,")\E[36;1m/\E[0m '
 PS1=$'\E[36;1m > \E[0m'
+APULSE_PLAYBACK_DEVICE="plugdmix"
+(cat ~/.cache/wal/sequences &)
 JAVA_HOME="/usr/lib/jvm/oracle-jdk"
 export CSC EDITOR PAGER NTFY_FIFO_PATH LC_CTYPE PATH CHOME WM WP_DIR GOPATH TERM GTK_IM_MODULE XMODIFIERS QT_IM_MODULE MAIL PS1 SSH_ASKPASS JAVA_HOME LANG

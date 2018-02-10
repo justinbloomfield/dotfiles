@@ -1,0 +1,6 @@
+#!/bin/sh
+#Assign functions to the various "dead" keys on the HHKB JP
+xmodmap -e "keycode 100 = BackSpace Delete"
+xmodmap -e "keycode 101 = Alt_L"
+xmodmap -e "keycode 102 = Super_L"
+xmodmap -e "keycode 97  = uacute Uacute"

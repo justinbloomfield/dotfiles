@@ -1,5 +1,5 @@
 mod4 + d
-	dmenu_run
+	rofi -show run -m $1
 
 XF86AudioRaiseVolume
     pactrl set-sink-volume 0 +2%

@@ -1,7 +1,7 @@
 #include "/home/poq/.config/x/colours/vamp_sea_dark"
 
 URxvt*scrollBar:                     false 
-!URxvt*font:                         PxPlus IBM VGA8-12:antialias=true:autohint=true
+URxvt*font:                          xft:sq:antialias=true:autohint=true:pixelsize=12
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0

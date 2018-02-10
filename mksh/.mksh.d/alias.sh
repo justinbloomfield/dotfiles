@@ -19,7 +19,10 @@ alias suod='sudo' #becausei'mretarded
 alias nr='sudo nixos-rebuild switch -I nixpkgs=/home/poq/src/nix/nixpkgs'
 alias schleep='systemctl suspend'
 alias guixd='sudo ~root/.guix-profile/bin/guix-daemon --build-users-group=guixbuild'
-alias mpv='mpv --hwdec'
+alias pacaur='EDITOR=zile pacaur'
+alias apulse='APULSE_PLAYBACK_DEVICE=plugdmix'
+alias ff="APULSE_PLAYBACK_DEVICE=plugdmix apulse firefox"
+#alias mpv="APULSE_PLAYBACK_DEVICE=plugdmix apulse mpv --ao=pulse"
 
 alias eb="edbrowse"
 alias c='cd'
@@ -28,5 +31,5 @@ alias s='ssh'
 alias x='clear'
 alias l='ls'
 alias t='tmux'
-alias v='zile'
+alias v='vis'
 alias rm='rm -r'
