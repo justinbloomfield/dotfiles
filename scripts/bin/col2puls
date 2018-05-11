@@ -1,0 +1,18 @@
+#!/bin/sh
+FILE=$1
+OUTPUT=${2:-$HOME/.config/wmrc/$(echo $1 | rev | cut -d '/' -f1 | rev)}
+echo $OUTPUT
+
+if  grep define $FILE 
+then
+    cut -d '#' -f3 $FILE | sed '/^\*/d' > $OUTPUT
+elif grep ! $FILE
+then
+    cut -d '#' -f2 $FILE | sed '/^!/d' > $OUTPUT
+else
+    cut -d '#' -f 2 $1 > $OUTPUT
+fi
+
+echo "$(echo "$(tac $OUTPUT)" | tac)" > $OUTPUT
+sed -i -e 1,2d $OUTPUT
+sed -i 's/^/\#/' $OUTPUT

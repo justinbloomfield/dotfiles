@@ -66,15 +66,15 @@ mod1 + ctrl + q
   pkill xwait
 
 # close window
-mod1 + q
+mod1 + x
   killw  $(pfw)
 
 # fullscreens window
-mod1 + w
+mod1 + f
   fullscreen.sh $(pfw)
 
 # focus window
-mod1 + {h,j,k,l}
+mod1 + {h,t,n,s}
   focus.sh $(closest.sh {h, j, k, l})
 
 # focus next window
@@ -82,18 +82,18 @@ mod1 + Tab
   focus.sh $(closest.sh next)
 
 # move window
-mod2 + {h,j,k,l}
+mod2 + {h,t,n,s}
   wmv {-10 0, 0 10, 0 -10, 10 0} $(pfw)
 
 # move window at warp speed
-mod2 + shift + {h,j,k,l}
+mod2 + shift + {h,t,n,s}
   wmv {-40 0, 0 40, 0 -40, 40 0} $(pfw)
 
 # resize window
-mod1 + {r,s,f,t}
+mod1 + {a,o,e,u}
   wrs {-10 0, 0 10, 0 -10, 10 0} $(pfw)
 
-mod1 + shift + {r,s,f,t}
+mod1 + shift + {a,o,e,u}
   wrs {-40 0, 0 40, 0 -40, 40 0} $(pfw)
 
 # toggle group
@@ -119,7 +119,7 @@ mod1 + mod2 + shift + Return
 #  cornerw {tl,tr, bl, br, md} $(pfw)
 
 # tile windows
-mod1 + ctrl + t
+mod1 + ctrl + i
   tile.sh
 
 mod2 + @button2

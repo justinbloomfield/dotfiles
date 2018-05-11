@@ -1,4 +1,3 @@
-
 ;;; poq's emacs config, use at own risk
 
 (if (eq system-type 'darwin)
@@ -30,7 +29,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-(load "~/.quicklisp/slime-helper.el")
+;(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -74,6 +73,7 @@
 ;; theme/modeline
 (setq frame-resize-pixelwise nil)
 (setq custom-safe-themes t)
+(load-theme 'neeasade t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
@@ -104,14 +104,14 @@
 (pretty-mode)
 
 ;; gross gui shit
-(when (window-system)
-  (progn 
-    (scroll-bar-mode -1)
-    (fringe-mode '(10 . 0))))
+;; (when (window-system)
+;;   (progn 
+;;     (scroll-bar-mode -1)
+;;     (fringe-mode '(10 . 0))))
 (menu-bar-mode -1)
 (tool-bar-mode -1)
-(scroll-bar-mode -1)
-(fringe-mode '(10 . 0))
+;;(scroll-bar-mode -1)
+;;(fringe-mode '(10 . 0))
 
 
 ;; ibuffer
@@ -217,19 +217,19 @@
 ;;(erc-twitch-enable)
 
 
-;; emms
-(emms-standard)
-(emms-default-players)
-(setq emms-playlist-buffer-name "EMMS")
-(require 'emms-player-mpv)
-(require 'emms-info-libtag)
-(setq emms-info-functions '(emms-info-libtag))
-(setq emms-source-file-default-directory "/mnt/Music")
-(defvar emms-browser-info-title-format "%i%n")
-(defvar emms-browser-playlist-info-title-format
-  emms-browser-info-title-format)
-(setq emms-history-file "~/.emacs.d/emms_hist")
-(emms-history-load)
+;; ;; emms
+;; (emms-standard)
+;; (emms-default-players)
+;; (setq emms-playlist-buffer-name "EMMS")
+;; ;; (require 'emms-player-mpv)
+;; (require 'emms-info-libtag)
+;; (setq emms-info-functions '(emms-info-libtag))
+;; (setq emms-source-file-default-directory "/mnt/Music")
+;; (defvar emms-browser-info-title-format "%i%n")
+;; (defvar emms-browser-playlist-info-title-format
+;;   emms-browser-info-title-format)
+;; (setq emms-history-file "~/.emacs.d/emms_hist")
+;; (emms-history-load)
 
 ;; eww
 (when (fboundp 'eww)

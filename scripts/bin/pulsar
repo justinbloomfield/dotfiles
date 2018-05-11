@@ -3,8 +3,8 @@
 FREQ=${FREQ:-0.5}
 
 while :; do
-    COLORS=$(tac < ~/.config/wmrc/colors | cat - ~/.config/wmrc/colors | tr -d '#')
-    for c in $COLORS; do
+    COLOURS=$(tac < ~/.config/wmrc/colours | cat - ~/.config/wmrc/colours | tr -d '#')
+    for c in $COLOURS; do
         CUR=$(pfw)
         test "`wattr wh $CUR`" != "`wattr wh $(lsw -r)`" && chwb -c $c $CUR
         sleep $FREQ
