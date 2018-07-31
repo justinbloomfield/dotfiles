@@ -1,0 +1,61 @@
+# launch a menu
+super + d
+        dmenu_run -b -fn candy -nb black -nf darkgrey -sf black -sb darkgrey
+
+# pop a term
+super + Return
+        tln
+
+# move windows
+super + {a,e,o,u}
+        wmv {-20 0, 0 20, 0 -20, 20 0} $(pfw)
+
+# resize windows
+super + ctrl + {a,e,o,u}
+        wrs {-20 0, 0 20, 0 -20, 20 0} $(pfw)
+
+# switch between windows quickly
+super + Tab
+        wfw next
+
+# kill sxhkd (for config changes, must be manually reopened)
+super + Escape
+        killall sxhkd
+
+# toggle groups
+super + {ampersand,bracketleft,braceright,parenleft,equal}
+        mgfw -t {1,2,3,4,5}
+
+# assign window to group
+super + shift + {ampersand,bracketleft,braceright,parenleft,equal}
+        mgfw -d all; \
+        mgfw -a {1,2,3,4,5}
+
+# remove window from group
+super + shift + Return
+        mgfw -d all
+
+# close window
+super + shift + x
+        killw $(pfw)
+
+# fullscreens window
+super + f
+        fls $(pfw)
+
+# focuses the closest window
+super + {h,t,n,s}
+        cls {left,down,up,right}
+
+# puts window in a corner
+super + shift + {b,w,v,z}
+        crnr {tl,tr,bl,br}
+
+# centers window
+super + shift + space
+        cw $(pfw)
+
+# switches between different layouts
+super + shift + {h,t,n}
+  #      echo "$NOTILE" | grep -q "$(wname $WID)" || dytyl {default,spiral,float}
+  dytyl {default,spiral,float}

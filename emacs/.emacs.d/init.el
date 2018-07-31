@@ -260,7 +260,7 @@
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
-(setq ispell-program-name "hunspell")
+(setq ispell-program-name "aspell")
 
 
 
@@ -295,6 +295,9 @@
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
 
+
+;; python
+(setq python-shell-interpreter "/usr/bin/python3")
 
 ;; mu4e
 ;; (require 'mu4e)

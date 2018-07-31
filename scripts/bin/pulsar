@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FREQ=${FREQ:-0.5}
+FREQ=${FREQ:-0.1}
 
 while :; do
     COLOURS=$(tac < ~/.config/wmrc/colours | cat - ~/.config/wmrc/colours | tr -d '#')
