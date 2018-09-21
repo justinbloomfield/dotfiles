@@ -1,4 +1,3 @@
-
 ;;; poq's emacs config, use at own risk
 
 (if (eq system-type 'darwin)
@@ -30,7 +29,7 @@
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
-(load "~/.quicklisp/slime-helper.el")
+;(load "~/.quicklisp/slime-helper.el")
 (slime-setup '(slime-fancy slime-highlight-edits))
 (setf slime-scratch-file "~/.ql/slime-scratch.lisp")
 (defun stumpwm-config ()
@@ -74,6 +73,7 @@
 ;; theme/modeline
 (setq frame-resize-pixelwise nil)
 (setq custom-safe-themes t)
+(load-theme 'neeasade t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
@@ -123,7 +123,7 @@
   (setq mode-line-format nil))
 (add-hook 'text-mode-hook focus-mode)
 (add-hook 'text-mode-hook visual-line-mode)
-          
+
 
 
 ;; ibuffer
@@ -229,19 +229,19 @@
 ;;(erc-twitch-enable)
 
 
-;; emms
-(emms-standard)
-(emms-default-players)
-(setq emms-playlist-buffer-name "EMMS")
-(require 'emms-player-mpv)
-(require 'emms-info-libtag)
-(setq emms-info-functions '(emms-info-libtag))
-(setq emms-source-file-default-directory "/mnt/Music")
-(defvar emms-browser-info-title-format "%i%n")
-(defvar emms-browser-playlist-info-title-format
-  emms-browser-info-title-format)
-(setq emms-history-file "~/.emacs.d/emms_hist")
-(emms-history-load)
+;; ;; emms
+;; (emms-standard)
+;; (emms-default-players)
+;; (setq emms-playlist-buffer-name "EMMS")
+;; ;; (require 'emms-player-mpv)
+;; (require 'emms-info-libtag)
+;; (setq emms-info-functions '(emms-info-libtag))
+;; (setq emms-source-file-default-directory "/mnt/Music")
+;; (defvar emms-browser-info-title-format "%i%n")
+;; (defvar emms-browser-playlist-info-title-format
+;;   emms-browser-info-title-format)
+;; (setq emms-history-file "~/.emacs.d/emms_hist")
+;; (emms-history-load)
 
 ;; eww
 (when (fboundp 'eww)
@@ -272,7 +272,7 @@
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
-(setq ispell-program-name "hunspell")
+(setq ispell-program-name "aspell")
 
 
 
@@ -307,6 +307,9 @@
 (setq inferior-lisp-program "sbcl")
 (slime-setup '(slime-company))
 
+
+;; python
+(setq python-shell-interpreter "/usr/bin/python3")
 
 ;; mu4e
 ;; (require 'mu4e)
