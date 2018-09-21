@@ -8,7 +8,7 @@
     (package-initialize)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
-    (load-file "~/.emacs.d/custom/macospkg.el"))
+    (load-file "~/.emacs.d/custom/pkg.el"))
   (progn
     (require 'package)
     (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
@@ -68,7 +68,7 @@
         (replace-match "")))))
 
 ;; electric pairs
-;;(electric-pair-mode)
+(electric-pair-mode)
 
 ;;; UI
 ;; theme/modeline
@@ -82,12 +82,12 @@
                   ;;(load-theme 'seoul256 t))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'spacegray t)))
+    (load-theme 'minimal-light t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
     (progn
-      (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
+      (setq default-frame-alist '((font . "Inconsolata-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
       (setq default-frame-alist '((font . "Fantasque Sans Mono-13:antialias=true:autohint=true")))
@@ -96,7 +96,7 @@
 (set-face-bold-p 'bold nil)
 
 ;; let the glow flow through you
-(global-hl-line-mode nil)
+;;(global-hl-line-mode nil)
 
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
@@ -108,10 +108,22 @@
   (progn 
     (scroll-bar-mode -1)
     (fringe-mode '(10 . 0))))
+;;    (set-face-attribute 'fringe nil :background "purple")))
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-(fringe-mode '(10 . 0))
+(fringe-mode '(0 . 0))
+(set-display-table-slot standard-display-table 'wrap ?\ )
+
+
+(defun focus-mode ()
+  "Set margins to work better for centred shit"
+  (setq left-margin-width 20)
+  (setq right-margin-width 20)
+  (setq mode-line-format nil))
+(add-hook 'text-mode-hook focus-mode)
+(add-hook 'text-mode-hook visual-line-mode)
+          
 
 
 ;; ibuffer
