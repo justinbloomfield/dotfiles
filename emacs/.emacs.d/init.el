@@ -121,8 +121,9 @@
   (setq left-margin-width 20)
   (setq right-margin-width 20)
   (setq mode-line-format nil))
-(add-hook 'text-mode-hook focus-mode)
-(add-hook 'text-mode-hook visual-line-mode)
+
+(add-hook 'text-mode-hook 'focus-mode)
+(add-hook 'text-mode-hook 'visual-line-mode)
 
 
 
