@@ -5,6 +5,7 @@
 (use-package company-ghc)
 (use-package counsel)
 (use-package ess)
+(use-package emmet-mode)
 (use-package ghc)
 (use-package go-mode)
 (use-package haskell-mode)
@@ -46,4 +47,6 @@
 (use-package company)
 (use-package csv-mode)
 (use-package exwm)
+(use-package impatient-mode)
+
 

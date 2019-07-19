@@ -122,8 +122,8 @@
   (setq right-margin-width 20)
   (setq mode-line-format nil))
 
-(add-hook 'text-mode-hook 'focus-mode)
-(add-hook 'text-mode-hook 'visual-line-mode)
+;;(add-hook 'text-mode-hook 'focus-mode)
+;;(add-hook 'text-mode-hook 'visual-line-mode)
 
 
 
@@ -176,26 +176,26 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
 
-;; ;; auctex
-;; (setq TeX-auto-save t)
-;; (setq TeX-parse-self t)
-;; (setq font-latex-fontify-script 'invisible)
-;; (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;; (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-;; (add-hook 'Latex-mode-hook 'turn-on-reftex)
-;; (setq reftex-plug-into-AUCTeX t)
+;; auctex
+ (setq TeX-auto-save t)
+ (setq TeX-parse-self t)
+ (setq font-latex-fontify-script 'invisible)
+ (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+ (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+ (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+ (add-hook 'Latex-mode-hook 'turn-on-reftex)
+ (setq reftex-plug-into-AUCTeX t)
 ;; (eval-after-load "tex"
 ;;   '(progn
 ;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
 ;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
-;; (setq org-latex-listings 'minted
-;;       org-latex-packages-alist '(("" "minted"))
-;;       org-latex-pdf-process
-;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-;;(add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
+ (setq org-latex-listings 'minted
+       org-latex-packages-alist '(("" "minted"))
+       org-latex-pdf-process
+       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+(add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
 
 ;; aurel
 
@@ -273,7 +273,7 @@
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
-(setq ispell-program-name "aspell")
+(setq ispell-program-name "hunspell")
 
 
 
@@ -400,6 +400,13 @@
           (elfeed-make-tagger :feed-url "github\\.com"
                               :add '(code git))
           t)
+;; emmet-mode
+(add-hook 'css-mode-hook 'emmet-mode)
+(add-hook 'html-mode-hook 'emmet-mode)
+(setq emmet-move-cursor-between-quotes t)
+
+;; impatient-mode/simple-httpd
+(setq httpd-root "/www")
 
 
 ;; (if (window-system)
@@ -464,7 +471,7 @@
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "<hiragana-katakana>") 'backward-delete-char-untabify)
 (setq disabled-command-function nil)
-(setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin"))
+(setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin:/Library/TeX/texbin"))
 
 ;;; ESHELL
 (setq eshell-aliases-file "~/.emacs.d/alias.el")
