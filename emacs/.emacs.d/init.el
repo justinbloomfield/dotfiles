@@ -73,7 +73,6 @@
 ;; theme/modeline
 (setq frame-resize-pixelwise nil)
 (setq custom-safe-themes t)
-(load-theme 'neeasade t)
 (if (daemonp)
     (add-hook 'after-make-frame-functions
               (lambda (frame)
@@ -181,7 +180,7 @@
  (setq TeX-parse-self t)
  (setq font-latex-fontify-script 'invisible)
  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
- (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
  (add-hook 'Latex-mode-hook 'turn-on-reftex)
  (setq reftex-plug-into-AUCTeX t)
@@ -264,16 +263,18 @@
 (require 'ox-latex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook 'pretty-mode)
-(add-hook 'org-mode-hook 'flyspell-mode)
+;; (add-hook 'org-mode-hook 'flyspell-mode)
 (setq org-directory "~/var/org")
 (setq org-default-notes-file "~/var/org/notes.org")
-(setq org-agenda-files (list "~/var/org/notes.org"
-                            "~/usr/doc/uninotes/dates.org"))
+(setq org-agenda-files (list "~/var/org/todo.org"
+                             "~/var/org/notes.org"))
+                            
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
 (setq ispell-program-name "hunspell")
+(setq ispell-local-dictionary "en_AU")
 
 
 
@@ -347,41 +348,41 @@
 
 ;; notmuch
 
-(setq message-send-mail-function 'message-send-mail-with-sendmail
-      sendmail-program "msmtp")
-(global-set-key (kbd "C-c m") 'notmuch)
-;; mark deleted
-(define-key notmuch-show-mode-map "d"
-  (lambda ()
-    "toggle deleted tag for message"
-    (interactive)
-    (if (member "deleted" (notmuch-show-get-tags))
-        (notmuch-show-tag (list "-deleted"))
-      (notmuch-show-tag (list "+deleted")))))
+;; (setq message-send-mail-function 'message-send-mail-with-sendmail
+;;       sendmail-program "msmtp")
+;; (global-set-key (kbd "C-c m") 'notmuch)
+;; ;; mark deleted
+;; (define-key notmuch-show-mode-map "d"
+;;   (lambda ()
+;;     "toggle deleted tag for message"
+;;     (interactive)
+;;     (if (member "deleted" (notmuch-show-get-tags))
+;;         (notmuch-show-tag (list "-deleted"))
+;;       (notmuch-show-tag (list "+deleted")))))
 
-(define-key notmuch-search-mode-map "d"
-  (lambda ()
-    "toggle deleted tag for message"
-    (interactive)
-    (if (member "deleted" (notmuch-search-get-tags))
-        (notmuch-search-tag (list "-deleted"))
-      (notmuch-search-tag (list "+deleted")))))
+;; (define-key notmuch-search-mode-map "d"
+;;   (lambda ()
+;;     "toggle deleted tag for message"
+;;     (interactive)
+;;     (if (member "deleted" (notmuch-search-get-tags))
+;;         (notmuch-search-tag (list "-deleted"))
+;;       (notmuch-search-tag (list "+deleted")))))
 
-(define-key notmuch-search-mode-map "u"
-  (lambda ()
-         "toggle unread tag for message"
-         (interactive)
-         (if (member "unread" (notmuch-search-get-tags))
-             (notmuch-search-tag (list "-unread"))
-           (notmuch-search-tag (list "+ead")))))
+;; (define-key notmuch-search-mode-map "u"
+;;   (lambda ()
+;;          "toggle unread tag for message"
+;;          (interactive)
+;;          (if (member "unread" (notmuch-search-get-tags))
+;;              (notmuch-search-tag (list "-unread"))
+;;            (notmuch-search-tag (list "+ead")))))
 
-;; fetch / update
-(define-key notmuch-search-mode-map "U"
-  (lambda ()
-    "update mail index & sync"
-    (interactive)
-    (async-shell-command "mbsync -V jbloo && notmuch new")))
-
+;; ;; fetch / update
+;; (define-key notmuch-search-mode-map "U"
+;;   (lambda ()
+;;     "update mail index & sync"
+;;     (interactive)
+;;     (async-shell-command "mbsync -V jbl && notmuch new")))
+;; 
 
 ;; geiser
 (setq geiser-active-implementations '(guile))
@@ -442,20 +443,21 @@
                   (interactive)
                   (find-file "/sudo::/etc/nixos/configuration.nix")))
 
-(global-set-key (kbd "C-c c d")
-                (lambda ()
-                  (interactive)
-                  (find-file "~/usr/doc/uninotes/dates.org")))
-
 (global-set-key (kbd "C-c c e")
                 (lambda ()
                   (interactive)
                   (find-file "~/.emacs.d/init.el")))
 
-(global-set-key (kbd "C-c n")
+(global-set-key (kbd "C-c o n")
                 (lambda ()
                   (interactive)
                   (find-file "~/var/org/notes.org")))
+
+(global-set-key (kbd "C-c o t")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/var/org/todo.org")))
+
 (global-set-key (kbd "S-<insert>") 'clipboard-yank)
 (global-set-key (kbd "C-<insert>") 'clipboard-kill-ring-save)
 (global-set-key (kbd "S-<help>") 'clipboard-yank)
