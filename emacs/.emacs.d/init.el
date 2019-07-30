@@ -86,7 +86,7 @@
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
     (progn
-      (setq default-frame-alist '((font . "Inconsolata-16:antialias=true")))
+      (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
       (setq default-frame-alist '((font . "Fantasque Sans Mono-13:antialias=true:autohint=true")))
@@ -138,7 +138,7 @@
          ("irc-chan" (or (mode . circe-channel-mode)
                          (mode . circe-query-mode)))
          ("crux" (name . "Pkgfile"))
-         ("irc-serv" (mode . circe-server-mode))
+         ("irc" (mode . ERC))
          ("exwm" (mode . exwm-mode))
          ("eww" (mode . eww-mode))
          ("haskell" (mode . haskell-mode))
@@ -267,9 +267,13 @@
 (setq org-directory "~/var/org")
 (setq org-default-notes-file "~/var/org/notes.org")
 (setq org-agenda-files (list "~/var/org/todo.org"
-                             "~/var/org/notes.org"))
+                             "~/var/org/notes.org"
+                             "~/var/org/appointments.org"
+                             "~/var/org/mtb.org"))
                             
 (global-set-key (kbd "C-c o a") 'org-agenda)
+(define-key org-mode-map (kbd "C-c l") 'org-store-link)
+
 (setq org-log-done t)
 (setq org-src-preserve-indentation t)
 (setq org-src-fontify-natively t)
@@ -458,6 +462,11 @@
                   (interactive)
                   (find-file "~/var/org/todo.org")))
 
+(global-set-key (kbd "C-c o m")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/var/org/appointments.org")))
+
 (global-set-key (kbd "S-<insert>") 'clipboard-yank)
 (global-set-key (kbd "C-<insert>") 'clipboard-kill-ring-save)
 (global-set-key (kbd "S-<help>") 'clipboard-yank)
@@ -544,5 +553,6 @@
 
 ;;(exwm-enable)
 
+(setq ring-bell-function 'ignore)
 (provide 'init)
 ;;; init.el ends here

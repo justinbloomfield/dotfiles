@@ -182,12 +182,16 @@ hs.hotkey.bind({"cmd","ctrl"}, "S", function() --Launch Safari
   hs.application.launchOrFocus("Safari")
 end)
 
-hs.hotkey.bind({"cmd","ctrl"}, "T", function() --iTerm2
-  hs.application.launchOrFocus("iTerm2")
+hs.hotkey.bind({"cmd","ctrl"}, "T", function() --Alacritty
+  hs.application.launchOrFocus("Alacritty")
 end)
  
 hs.hotkey.bind({"cmd","ctrl"}, "M", function() --Mail
   hs.application.launchOrFocus("Mail")
+end)
+
+hs.hotkey.bind({"cmd","ctrl"}, "E", function() --Emacs
+  hs.application.launchOrFocus("Emacs")
 end)
 
 hs.hotkey.bind({"cmd","ctrl","alt"}, "F", function() --Pretty Fullscreen
@@ -225,31 +229,25 @@ hs.hotkey.bind({"cmd","alt","shift"}, "C",function()
 	os.execute("say -v Yuri сука блять")
 end
 )
-hs.hotkey.bind({"cmd","alt","shift"}, "F",function()
-	os.execute("say -v Anna Sieg heil mein Führer")
-end)
 
-hs.hotkey.bind({"cmd","alt","shift"}, "I", function()
-	os.execute("say We must secure the existence of our race and a future for white children")
-end)
 
-local caffeine = hs.menubar.new()
-function setCaffeineDisplay(state)
-	if state then
-		caffeine:setTitle("Awake")
-	else
-		caffeine:setTitle("Sleepy")
-	end
-end
+--[[ local caffeine = hs.menubar.new()
+ function setCaffeineDisplay(state)
+ 	if state then
+ 		caffeine:setTitle("Awake")
+ 	else
+ 		caffeine:setTitle("Sleepy")
+ 	end
+ end
 
-function caffeineClicked()
-	setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
-end
+ function caffeineClicked()
+ 	setCaffeineDisplay(hs.caffeinate.toggle("displayIdle"))
+ end
 
-if caffeine then
-	caffeine:setClickCallback(caffeineClicked)
-	setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
-end
+ if caffeine then
+ 	caffeine:setClickCallback(caffeineClicked)
+ 	setCaffeineDisplay(hs.caffeinate.get("displayIdle"))
+ end ]]--
 
 local wifiWatcher = nil
 local homeSSID = "Resnet"
