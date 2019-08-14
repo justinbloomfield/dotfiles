@@ -12,7 +12,7 @@
  '(org-agenda-files (quote ("~/var/org/todo.org" "~/var/org/notes.org")))
  '(package-selected-packages
    (quote
-    (impatient-mode skewer-mode js2-mode simple-httpd emmet-mode emmet adaptive-wrap minimal-theme go-mode notmuch aurel ensime scala-mode csv-mode cdlatex auctex ace-window stumpm-mode sublime-themes spacegray-theme slime-company slime simple-mpc seoul256-theme pretty-mode nix-mode neotree multi-term intero elfeed circe base16-theme all-the-icons-dired all-the-icons magit ghc geiser ess counsel company use-package)))
+    (hemisu-theme hemisu-them impatient-mode skewer-mode js2-mode simple-httpd emmet-mode emmet adaptive-wrap minimal-theme go-mode notmuch aurel ensime scala-mode csv-mode cdlatex auctex ace-window stumpm-mode sublime-themes spacegray-theme slime-company slime simple-mpc seoul256-theme pretty-mode nix-mode neotree multi-term intero elfeed circe base16-theme all-the-icons-dired all-the-icons magit ghc geiser ess counsel company use-package)))
  '(safe-local-variable-values (quote ((hl-sexp-mode) (rainbow-mode . t))))
  '(send-mail-function (quote smtpmail-send-it)))
 

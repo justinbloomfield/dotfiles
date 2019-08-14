@@ -81,7 +81,7 @@
                   ;;(load-theme 'seoul256 t))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'minimal-light t)))
+    (load-theme 'hemisu-light t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -461,6 +461,11 @@
                 (lambda ()
                   (interactive)
                   (find-file "~/var/org/todo.org")))
+
+(global-set-key (kbd "C-c o w")
+                (lambda ()
+                  (interactive)
+                  (find-file "~/var/org/wikify.org")))
 
 (global-set-key (kbd "C-c o m")
                 (lambda ()
