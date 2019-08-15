@@ -1,0 +1,15 @@
+#!/bin/sh
+if [ $1 = "show" ]
+then
+   cat var/org/driving_records
+else   
+   if [ -e "/tmp/drive_start" ]
+   then
+       /Users/admin/.local/bin/sed -i "$ s/$/ \| $1 $(date)/" ~/var/org/driving_records &
+       rm /tmp/drive_start
+   else
+       echo $1 >> ~/var/org/driving_records &
+       touch /tmp/drive_start
+   fi
+fi
+
