@@ -16,7 +16,7 @@
 (use-package all-the-icons)
 (use-package all-the-icons-dired)
 ;;(use-package base16-theme)
-(use-package cdlatex)
+;;(use-package cdlatex)
 (use-package circe)
 (use-package elfeed)
 ;;(use-package emms)
@@ -41,13 +41,13 @@
 (use-package yasnippet)
 (use-package ace-window)
 ;;(use-package auctex)
-(use-package tex
-         :ensure auctex
-	     :ensure cdlatex)
+;;(use-package tex
+;;         :ensure auctex
+;;	     :ensure cdlatex)
 (use-package cl-lib)
 (use-package company)
-(use-package csv-mode)
-(use-package exwm)
+;;(use-package csv-mode)
+;;(use-package exwm)
 (use-package impatient-mode)
 
 

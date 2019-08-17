@@ -3,14 +3,14 @@
 (if (eq system-type 'darwin)
   (progn
     (require 'package)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
     (package-initialize)
     (setenv "PATH" (concat (getenv "PATH") ":/usr/local/bin"))
     (setq exec-path (append exec-path '("/usr/local/bin")))
     (load-file "~/.emacs.d/custom/pkg.el"))
   (progn
     (require 'package)
-    (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+    (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
     (package-initialize)
     (load-file "~/.emacs.d/custom/pkg.el"))
 )
@@ -506,55 +506,55 @@
 (server-start)
 
 ;; exwm
-(require 'exwm)
-(require 'exwm-config)
-(require 'exwm-randr)
+;; (require 'exwm)
+;; (require 'exwm-config)
+;; (require 'exwm-randr)
 
-;;; randr
-(setq exwm-randr-workspace-output-plist '(0 "HDMI-0"))
-(add-hook 'exwm-randr-screen-change-hook
-          (lambda ()
-            (start-process-shell-command
-             "xrandr" nil "xrandr --output HDMI-0 --left-of LVDS-0 --auto")))
-(exwm-randr-enable)
+;; ;;; randr
+;; (setq exwm-randr-workspace-output-plist '(0 "HDMI-0"))
+;; (add-hook 'exwm-randr-screen-change-hook
+;;           (lambda ()
+;;             (start-process-shell-command
+;;              "xrandr" nil "xrandr --output HDMI-0 --left-of LVDS-0 --auto")))
+;; (exwm-randr-enable)
 
-(setq display-time-default-load-average t)
-(setq display-time-mail-string "")
-(display-time-mode t)
-(setq exwm-workspace-number 5)
+;; (setq display-time-default-load-average t)
+;; (setq display-time-mail-string "")
+;; (display-time-mode t)
+;; (setq exwm-workspace-number 5)
 
-(add-hook 'exwm-update-class-hook
-          (lambda ()
-            (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
-                        (string= "gimp" exwm-instance-name))
-              (exwm-workspace-rename-buffer exwm-class-name))))
-(add-hook 'exwm-update-title-hook
-          (lambda ()
-            (when (or (not exwm-instance-name)
-                      (string-prefix-p "sun-awt-X11-" exwm-instance-name)
-                      (string= "gimp" exwm-instance-name))
+;; (add-hook 'exwm-update-class-hook
+;;           (lambda ()
+;;             (unless (or (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+;;                         (string= "gimp" exwm-instance-name))
+;;               (exwm-workspace-rename-buffer exwm-class-name))))
+;; (add-hook 'exwm-update-title-hook
+;;           (lambda ()
+;;             (when (or (not exwm-instance-name)
+;;                       (string-prefix-p "sun-awt-X11-" exwm-instance-name)
+;;                       (string= "gimp" exwm-instance-name))
 
-              (exwm-workspace-rename-buffer exwm-title))))
+;;               (exwm-workspace-rename-buffer exwm-title))))
 
-(exwm-input-set-key (kbd "s-r") #'exwm-reset)
-(exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
-(dotimes (i 5)
-  (exwm-input-set-key (kbd (format "s-%d" i))
-                      `(lambda ()
-                         (interactive)
-                         (exwm-workspace-switch-create ,i))))
+;; (exwm-input-set-key (kbd "s-r") #'exwm-reset)
+;; (exwm-input-set-key (kbd "s-w") #'exwm-workspace-switch)
+;; (dotimes (i 5)
+;;   (exwm-input-set-key (kbd (format "s-%d" i))
+;;                       `(lambda ()
+;;                          (interactive)
+;;                          (exwm-workspace-switch-create ,i))))
 
-(exwm-input-set-key (kbd "s-d")
-                    (lambda (command)
-                      (interactive (list (read-shell-command "> ")))
-                      (start-process-shell-command command nil command)))
+;; (exwm-input-set-key (kbd "s-d")
+;;                     (lambda (command)
+;;                       (interactive (list (read-shell-command "> ")))
+;;                       (start-process-shell-command command nil command)))
 
-(exwm-input-set-key (kbd "s-<return>")
-                    (lambda ()
-                      (interactive)
-                      (start-process-shell-command "st" nil "st")))
+;; (exwm-input-set-key (kbd "s-<return>")
+;;                     (lambda ()
+;;                       (interactive)
+;;                       (start-process-shell-command "st" nil "st")))
 
-(exwm-input-set-key (kbd "s-q") 'kill-this-buffer)
+;; (exwm-input-set-key (kbd "s-q") 'kill-this-buffer)
 
 ;;(exwm-enable)
 
