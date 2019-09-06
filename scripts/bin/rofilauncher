@@ -4,4 +4,4 @@
 #BG="$PANEL_BG"
 #HLBG="$BORD_COL"
 
-rofi -show run -m $1
+rofi -show run

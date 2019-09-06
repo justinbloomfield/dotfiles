@@ -16,13 +16,12 @@
 (use-package all-the-icons)
 (use-package all-the-icons-dired)
 ;;(use-package base16-theme)
-;;(use-package cdlatex)
 (use-package circe)
 (use-package elfeed)
 ;;(use-package emms)
 (use-package ensime)
 (use-package geiser)
-(use-package hemisu-theme)
+;;(use-package hemisu-theme)
 (use-package intero)
 ;;(use-package minimal-theme)
 (use-package neotree)
@@ -36,14 +35,13 @@
 (use-package slime-company)
 ;;(use-package spacegray-theme)
 (use-package stumpwm-mode)
-;;(use-package sublime-themes)
+(use-package sublime-themes)
 (use-package use-package)
 (use-package yasnippet)
 (use-package ace-window)
-;;(use-package auctex)
-;;(use-package tex
-;;         :ensure auctex
-;;	     :ensure cdlatex)
+(use-package tex
+         :ensure auctex
+	     :ensure cdlatex)
 (use-package cl-lib)
 (use-package company)
 ;;(use-package csv-mode)

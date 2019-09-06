@@ -1,7 +1,6 @@
-#include "/home/poq/.config/x/colours/vamp_sea_dark"
-
-URxvt*scrollBar:                     false 
-URxvt*font:                          xft:sq:antialias=true:autohint=true:pixelsize=12
+#include "/home/poq/.config/x/colours/vamp_sea"
+*scrollBar:                          false 
+URxvt*font:                          xft:hack:antialias=true:autohint=true:size=11
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
@@ -9,17 +8,19 @@ URxvt*internalBorder:                5
 URxvt*url-launcher:                  /usr/bin/xdg-open
 
 !Emacs.font:			     boxxy-11
-emacs.reverseVideo:          true
+emacs.reverseVideo:                 true
 
 !st*font:			     PxPlus IBM VGA8-12:antialias=false:autohint=true
 
-rofi.font:                           tewi 10
-rofi.lines: 		                 8
-rofi.width:		                     10
-rofi.borderwidth:	                 3
+rofi.font:                           hack 11
+rofi.lines: 		                 5
+rofi.width:                          100
+rofi.borderwidth:	                 0
 rofi.auto-select:	                 false
 rofi.hide-scrollbar:	             true
-rofi.color-window:	                 bg, c3
-rofi.color-normal:	                 bg, fg, bg, c4, bg 
+!rofi.color-window:	                 bg, c3
+rofi.color-window:                   #99000000 
+!rofi.color-normal:	                 bg, fg, bg, c4, bg
+rofi.color-normal:                   bg, fg, bg, #FF22, bg
 rofi.separator-style:                solid
 

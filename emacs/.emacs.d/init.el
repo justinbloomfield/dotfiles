@@ -77,11 +77,10 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))))
-                  ;;(load-theme 'seoul256 t))))
+                  (set-face-attribute 'mode-line nil :font "Hack-11"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'hemisu-light t)))
+    (load-theme 'base16-horizon-dark t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -89,8 +88,8 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "Fantasque Sans Mono-13:antialias=true:autohint=true")))
-      (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-13")))
+      (setq default-frame-alist '((font . "Hack-11:antialias=true:autohint=true")))
+      (set-face-attribute 'mode-line nil :font "Hack-11")))
 
 (set-face-bold-p 'bold nil)
 
@@ -132,7 +131,7 @@
 (setq ibuffer-saved-filter-groups
       '(("memes"
          ("email" (name . "\*mu4e"))
-         ("emacs-config" (filename . ".emacs.d"))
+
          ("git" (name . "\*magit"))
          ("org" (mode . org-mode))
          ("irc-chan" (or (mode . circe-channel-mode)
@@ -303,7 +302,7 @@
 ;; haskell-mode
 (autoload 'ghc-init "ghc" nil t)
 (autoload 'ghc-debug "ghc" nil t)
-(add-hook 'haskell-mode-hook 'intero-mode)
+;;(add-hook 'haskell-mode-hook 'intero-mode)
 (setq haskell-process-type 'intero-repl)
 ;;(setq haskell-process-args-stack-ghci "")
 ;;(setq haskell-process-args-stack-ghci '("--with-ghc=intero" "--no-build" "--load"))
@@ -472,6 +471,8 @@
                   (interactive)
                   (find-file "~/var/org/appointments.org")))
 
+
+(global-set-key (kbd "C-c o s") 'counsel-git-grep)
 (global-set-key (kbd "S-<insert>") 'clipboard-yank)
 (global-set-key (kbd "C-<insert>") 'clipboard-kill-ring-save)
 (global-set-key (kbd "S-<help>") 'clipboard-yank)

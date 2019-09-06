@@ -5,7 +5,7 @@ then
 else   
    if [ -e "/tmp/drive_start" ]
    then
-       /Users/admin/.local/bin/sed -i "$ s/$/ \| $1 $(date)/" ~/var/org/driving_records &
+       sed -i "$ s/$/ \| $1 $(date)/" ~/var/org/driving_records &
        rm /tmp/drive_start
    else
        echo $1 >> ~/var/org/driving_records &
