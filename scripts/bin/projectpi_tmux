@@ -1,0 +1,7 @@
+#!/bin/sh
+tmux \
+  new-session  "ssh pi@192.168.96.82 ; read" \; \
+  split-window "ssh pi@192.168.96.238 ; read" \; \
+  split-window "ssh pi@192.168.96.136 ; read" \; \
+  split-window "ssh pi@192.168.96.135 ; read" \; \
+  select-layout even-vertical

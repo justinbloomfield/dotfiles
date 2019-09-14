@@ -35,8 +35,8 @@ myFocusFollowsMouse :: Bool
 myModMask :: KeyMask
 myTerminal = "st"
 myBorderWidth = 2
-myNormalBorderColor = ""
-myFocusedBorderColor = "#66666A"
+myNormalBorderColor = "#bf616a"
+myFocusedBorderColor = "#b4eb89"
 myXmobarHlColor = "#AC8AC1"
 myXmobarUrgentColor = "#6F8BBD"
 myXmobarTitleColor = "#34444D"
