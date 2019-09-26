@@ -79,8 +79,8 @@ myStartupHook = do
 --  spawn "emacs"
 -- spawn "ibus-daemon -drx"
 --  spawn "xcape -t 200 -e 'Shift_L=parenleft;Shift_R=parenright"
-  spawn "xsetroot -solid '#102530'"
   spawn "xsetroot -cursor_name left_ptr"
+  spawn "hsetroot -fill /home/poq/usr/dl/powerlines.png"
 --  spawn "vmware-horizon-client"
 --  setWMName "Openbox"
 
