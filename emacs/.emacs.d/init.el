@@ -80,7 +80,7 @@
                   (set-face-attribute 'mode-line nil :font "Hack-11"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'base16-horizon-dark t)))
+    (load-theme 'base16-grayscale-dark t)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)

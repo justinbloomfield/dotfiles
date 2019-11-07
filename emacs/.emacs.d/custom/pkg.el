@@ -15,7 +15,7 @@
 (use-package adaptive-wrap)
 (use-package all-the-icons)
 (use-package all-the-icons-dired)
-;;(use-package base16-theme)
+(use-package base16-theme)
 (use-package circe)
 (use-package elfeed)
 ;;(use-package emms)
