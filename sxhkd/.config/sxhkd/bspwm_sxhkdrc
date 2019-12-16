@@ -4,7 +4,7 @@ n#
 
 # terminal emulator
 super + Return
-	xterm
+	urxvt
 
 # program launcher
 super + @space
