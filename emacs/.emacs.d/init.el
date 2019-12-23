@@ -317,75 +317,75 @@
 (setq python-shell-interpreter "/usr/bin/python3")
 
 ;; mu4e
-(require 'mu4e)
-(if (eq system-type 'darwin)
-    (setq mu4e-maildir "/Users/j/var/mail/jbl")
-  (setq mu4e-maildir "/home/poq/var/mail/jbl"))
-(setq mu4e-sent-folder "/Sent"
-      mu4e-drafts-folder "/Drafts"
-      mu4e-trash-folder "/Trash")
-(setq mu4e-maildir-shortcuts
-      '(("/Inbox" . ?i)
-        ("/Sent"  . ?s)))
-(setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
-(setq mu4e-headers-fields
-      '((:human-date   .  25)
-        (:flags        .   6)
-        (:from         .  22)
-        (:subject      .  nil)))
-
-(setq mu4e-get-mail-command "mbsync -V jbloo")
-(setq mu4e-reply-to-address "jbloomfield@live.com"
-      user-mail-address "jbloomfield@live.com"
-       user-full-name "Justin Bloomfield")
-
-(setq message-kill-buffer-on-exit t)
-(setq mu4e-use-fancy-chars t)
-(global-set-key (kbd "C-c m") 'mu4e)
-;; (setq mu4e-view-show-images t)
+;; (require 'mu4e)
 ;; (if (eq system-type 'darwin)
-;;     (mu4e-alert-set-default-style 'growl)
-;;   (mu4e-alert-set-default-style 'libnotify))
-;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+;;     (setq mu4e-maildir "/Users/j/var/mail/jbl")
+;;   (setq mu4e-maildir "/home/poq/var/mail/jbl"))
+;; (setq mu4e-sent-folder "/Sent"
+;;       mu4e-drafts-folder "/Drafts"
+;;       mu4e-trash-folder "/Trash")
+;; (setq mu4e-maildir-shortcuts
+;;       '(("/Inbox" . ?i)
+;;         ("/Sent"  . ?s)))
+;; (setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
+;; (setq mu4e-headers-fields
+;;       '((:human-date   .  25)
+;;         (:flags        .   6)
+;;         (:from         .  22)
+;;         (:subject      .  nil)))
+
+;; (setq mu4e-get-mail-command "mbsync -V jbloo")
+;; (setq mu4e-reply-to-address "jbloomfield@live.com"
+;;       user-mail-address "jbloomfield@live.com"
+;;        user-full-name "Justin Bloomfield")
+
+;; (setq message-kill-buffer-on-exit t)
+;; (setq mu4e-use-fancy-chars t)
+;; (global-set-key (kbd "C-c m") 'mu4e)
+;; ;; (setq mu4e-view-show-images t)
+;; ;; (if (eq system-type 'darwin)
+;; ;;     (mu4e-alert-set-default-style 'growl)
+;; ;;   (mu4e-alert-set-default-style 'libnotify))
+;; ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
 
 ;; notmuch
 
-;; (setq message-send-mail-function 'message-send-mail-with-sendmail
-;;       sendmail-program "msmtp")
-;; (global-set-key (kbd "C-c m") 'notmuch)
-;; ;; mark deleted
-;; (define-key notmuch-show-mode-map "d"
-;;   (lambda ()
-;;     "toggle deleted tag for message"
-;;     (interactive)
-;;     (if (member "deleted" (notmuch-show-get-tags))
-;;         (notmuch-show-tag (list "-deleted"))
-;;       (notmuch-show-tag (list "+deleted")))))
+(setq message-send-mail-function 'message-send-mail-with-sendmail
+      sendmail-program "msmtp")
+(global-set-key (kbd "C-c m") 'notmuch)
+;; mark deleted
+(define-key notmuch-show-mode-map "d"
+  (lambda ()
+    "toggle deleted tag for message"
+    (interactive)
+    (if (member "deleted" (notmuch-show-get-tags))
+        (notmuch-show-tag (list "-deleted"))
+      (notmuch-show-tag (list "+deleted")))))
 
-;; (define-key notmuch-search-mode-map "d"
-;;   (lambda ()
-;;     "toggle deleted tag for message"
-;;     (interactive)
-;;     (if (member "deleted" (notmuch-search-get-tags))
-;;         (notmuch-search-tag (list "-deleted"))
-;;       (notmuch-search-tag (list "+deleted")))))
+(define-key notmuch-search-mode-map "d"
+  (lambda ()
+    "toggle deleted tag for message"
+    (interactive)
+    (if (member "deleted" (notmuch-search-get-tags))
+        (notmuch-search-tag (list "-deleted"))
+      (notmuch-search-tag (list "+deleted")))))
 
-;; (define-key notmuch-search-mode-map "u"
-;;   (lambda ()
-;;          "toggle unread tag for message"
-;;          (interactive)
-;;          (if (member "unread" (notmuch-search-get-tags))
-;;              (notmuch-search-tag (list "-unread"))
-;;            (notmuch-search-tag (list "+ead")))))
+(define-key notmuch-search-mode-map "u"
+  (lambda ()
+         "toggle unread tag for message"
+         (interactive)
+         (if (member "unread" (notmuch-search-get-tags))
+             (notmuch-search-tag (list "-unread"))
+           (notmuch-search-tag (list "+ead")))))
 
-;; ;; fetch / update
-;; (define-key notmuch-search-mode-map "U"
-;;   (lambda ()
-;;     "update mail index & sync"
-;;     (interactive)
-;;     (async-shell-command "mbsync -V jbl && notmuch new")))
-;; 
+;; fetch / update
+(define-key notmuch-search-mode-map "U"
+  (lambda ()
+    "update mail index & sync"
+    (interactive)
+    (async-shell-command "mbsync -V jbl && notmuch new")))
+
 
 ;; geiser
 (setq geiser-active-implementations '(guile))
