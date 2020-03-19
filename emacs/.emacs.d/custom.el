@@ -12,7 +12,7 @@
  '(org-agenda-files (quote ("~/var/org/todo.org" "~/var/org/notes.org")))
  '(package-selected-packages
    (quote
-    (exwm hemisu-theme hemisu-them impatient-mode skewer-mode js2-mode simple-httpd emmet-mode emmet adaptive-wrap minimal-theme go-mode notmuch aurel ensime scala-mode csv-mode cdlatex auctex ace-window stumpm-mode sublime-themes spacegray-theme slime-company slime simple-mpc seoul256-theme pretty-mode nix-mode neotree multi-term intero elfeed circe base16-theme all-the-icons-dired all-the-icons magit ghc geiser ess counsel company use-package)))
+    (excorporate mu4e-alert mu4e exwm hemisu-theme hemisu-them impatient-mode skewer-mode js2-mode simple-httpd emmet-mode emmet adaptive-wrap minimal-theme go-mode notmuch aurel ensime scala-mode csv-mode cdlatex auctex ace-window stumpm-mode sublime-themes spacegray-theme slime-company slime simple-mpc seoul256-theme pretty-mode nix-mode neotree multi-term intero elfeed circe base16-theme all-the-icons-dired all-the-icons magit ghc geiser ess counsel company use-package)))
  '(safe-local-variable-values (quote ((hl-sexp-mode) (rainbow-mode . t))))
  '(send-mail-function (quote smtpmail-send-it)))
 
@@ -21,6 +21,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil))))
  '(emms-browser-album-face ((t (:foreground "#aaaaff" :height 1.0))))
  '(emms-browser-artist-face ((t (:foreground "#aaaaff" :height 1.0))))
  '(emms-browser-year/genre-face ((t (:foreground "#aaaaff" :height 1.0)))))

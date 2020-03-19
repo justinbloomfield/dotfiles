@@ -3,7 +3,7 @@
 # ░▀░░▀▀▀░▀░▀░▀░▀░▀░▀░▀▀▀
 
 
-fontname "PxPlus IBM VGA8"
+fontname "hack"
 
 # borderwidth
 borderwidth 2
@@ -34,13 +34,11 @@ color ungroupborder	    '#7a7aff'
 
 # autogroups
 autogroup 1 Emacs
-autogroup 2 Surf
+autogroup 2 Firefox
 autogroup 3 mpv
 autogroup 4 Steam
-autogroup 5 jetbrains-idea-ce
 autogroup 5 .zathura-wrapped_
 autogroup 7 Gimp
-autogroup 8 Firefox
 autogroup 9 discord
 
 moveamount 5
@@ -48,7 +46,7 @@ bigmoveamount 90
 sticky no
 
 #menu
-command term st
+command term urxvt
 command brws surf
 command emcs 'emacsclient -c'
 command steam steam
@@ -112,8 +110,8 @@ bind 4-g     grouptoggle
 bind 4MC-l   cyclegroup
 bind 4MC-h   rcyclegroup
 
-bind 4-p     dmenu_run
-bind 4-z     surf
+bind 4-p     rofilauncher
+bind 4-z     firefox
 bind 4S-v    dv	
 
 bind 4-v vmaximize

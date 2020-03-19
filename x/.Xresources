@@ -1,12 +1,12 @@
-#include "/home/poq/.config/x/colours/thlst"
-*scrollBar:                          false 
-!URxvt*font:                          xft:hack:antialias=true:autohint=true:size=11
+#include "/home/poq/.config/x/colours/glacial_urxvt"
+xterm*scrollBar:                     true 
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
-URxvt*font:                               xft:terminus:antialias=false:autohint=false:size=11
+URxvt*font:                          xft:hack:antialias=true:autohint=true:size=11
+xterm*font:                          xft:hack:antialias=true:autohint=true:size=11
 !Emacs.font:			     boxxy-11
 emacs.reverseVideo:                 true
 

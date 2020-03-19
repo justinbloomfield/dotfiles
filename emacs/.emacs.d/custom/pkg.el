@@ -6,6 +6,7 @@
 (use-package counsel)
 (use-package ess)
 (use-package emmet-mode)
+;;(use-package excorporate)
 (use-package ghc)
 (use-package go-mode)
 (use-package haskell-mode)
@@ -24,6 +25,7 @@
 ;;(use-package hemisu-theme)
 (use-package intero)
 ;;(use-package minimal-theme)
+(use-package mu4e-alert)
 (use-package neotree)
 (use-package nix-mode)
 (use-package notmuch)
@@ -39,9 +41,9 @@
 (use-package use-package)
 (use-package yasnippet)
 (use-package ace-window)
-(use-package tex
-         :ensure auctex
-	     :ensure cdlatex)
+;;(use-package tex
+;;         :ensure auctex
+;;	 :ensure cdlatex)
 (use-package cl-lib)
 (use-package company)
 ;;(use-package csv-mode)

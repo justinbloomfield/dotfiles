@@ -23,9 +23,9 @@
   "edit current files as root"
   (interactive "P")
   (if (or arg (not buffer-file-name))
-      (find-file (concat "/sudo:root@localhost:"
+      (find-file (concat "/doas:root@localhost:"
                          (ido-read-file-name "Find file (as root):")))
-    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+    (find-alternate-file (concat "/doas:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
@@ -80,7 +80,7 @@
                   (set-face-attribute 'mode-line nil :font "Hack-11"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'base16-grayscale-dark t)))
+    (load-theme 'base16-classic-light)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -175,25 +175,25 @@
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
 
 ;; auctex
- (setq TeX-auto-save t)
- (setq TeX-parse-self t)
- (setq font-latex-fontify-script 'invisible)
- (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
- (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
- (add-hook 'Latex-mode-hook 'turn-on-reftex)
- (setq reftex-plug-into-AUCTeX t)
-;; (eval-after-load "tex"
-;;   '(progn
-;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
-;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
- (setq org-latex-listings 'minted
-       org-latex-packages-alist '(("" "minted"))
-       org-latex-pdf-process
-       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
-(add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
+;;  (setq TeX-auto-save t)
+;;  (setq TeX-parse-self t)
+;;  (setq font-latex-fontify-script 'invisible)
+;;  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
+;; ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+;;  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+;;  (add-hook 'Latex-mode-hook 'turn-on-reftex)
+;;  (setq reftex-plug-into-AUCTeX t)
+;; ;; (eval-after-load "tex"
+;; ;;   '(progn
+;; ;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
+;; ;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
+;;  (setq org-latex-listings 'minted
+;;        org-latex-packages-alist '(("" "minted"))
+;;        org-latex-pdf-process
+;;        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;; (add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
 
 ;; aurel
 
@@ -317,74 +317,78 @@
 (setq python-shell-interpreter "/usr/bin/python3")
 
 ;; mu4e
-;; (require 'mu4e)
-;; (if (eq system-type 'darwin)
-;;     (setq mu4e-maildir "/Users/j/var/mail/jbl")
-;;   (setq mu4e-maildir "/home/poq/var/mail/jbl"))
-;; (setq mu4e-sent-folder "/Sent"
-;;       mu4e-drafts-folder "/Drafts"
-;;       mu4e-trash-folder "/Trash")
-;; (setq mu4e-maildir-shortcuts
-;;       '(("/Inbox" . ?i)
-;;         ("/Sent"  . ?s)))
-;; (setq mu4e-user-mail-address-list '("jbloomfield@live.com"))
-;; (setq mu4e-headers-fields
-;;       '((:human-date   .  25)
-;;         (:flags        .   6)
-;;         (:from         .  22)
-;;         (:subject      .  nil)))
+(require 'mu4e)
+(if (eq system-type 'darwin)
+    (setq mu4e-maildir "/Users/j/var/mail/jbl")
+  (setq mu4e-maildir "/home/poq/var/mail/"))
+(setq mu4e-sent-folder "/Sent Items"
+      mu4e-drafts-folder "/Drafts"
+      mu4e-trash-folder "/Deleted Items")
+(setq mu4e-maildir-shortcuts
+      '(("/Inbox" . ?i)
+        ("/Sent"  . ?s)))
+(setq mu4e-user-mail-address-list '("justinb@alpineshire.vic.gov.au"))
+(setq mu4e-headers-fields
+      '((:human-date   .  25)
+        (:flags        .   6)
+        (:from         .  22)
+        (:subject      .  nil)))
 
-;; (setq mu4e-get-mail-command "mbsync -V jbloo")
-;; (setq mu4e-reply-to-address "jbloomfield@live.com"
-;;       user-mail-address "jbloomfield@live.com"
-;;        user-full-name "Justin Bloomfield")
+(setq mu4e-get-mail-command "mbsync -V shire")
+(setq mu4e-reply-to-address "justinb@alpineshire.vic.gov.au"
+      user-mail-address "justinb@alpineshire.vic.gov.au"
+      user-full-name "Justin Bloomfield")
 
-;; (setq message-kill-buffer-on-exit t)
-;; (setq mu4e-use-fancy-chars t)
-;; (global-set-key (kbd "C-c m") 'mu4e)
-;; ;; (setq mu4e-view-show-images t)
-;; ;; (if (eq system-type 'darwin)
-;; ;;     (mu4e-alert-set-default-style 'growl)
-;; ;;   (mu4e-alert-set-default-style 'libnotify))
-;; ;; (add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
-;; (add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(setq message-kill-buffer-on-exit t)
+(setq mu4e-use-fancy-chars t)
+(global-set-key (kbd "C-c m") 'mu4e)
+(setq mu4e-view-show-images t)
+(if (eq system-type 'darwin)
+     (mu4e-alert-set-default-style 'growl)
+  (mu4e-alert-set-default-style 'libnotify))
+(add-hook 'after-init-hook #'mu4e-alert-enable-notifications)
+(add-hook 'after-init-hook #'mu4e-alert-enable-mode-line-display)
+(setq mu4e-change-filenames-when-moving t)
+
+(setq mu4e-update-interval 180)
+
 
 ;; notmuch
 
 (setq message-send-mail-function 'message-send-mail-with-sendmail
       sendmail-program "msmtp")
-(global-set-key (kbd "C-c m") 'notmuch)
-;; mark deleted
-(define-key notmuch-show-mode-map "d"
-  (lambda ()
-    "toggle deleted tag for message"
-    (interactive)
-    (if (member "deleted" (notmuch-show-get-tags))
-        (notmuch-show-tag (list "-deleted"))
-      (notmuch-show-tag (list "+deleted")))))
-
-(define-key notmuch-search-mode-map "d"
-  (lambda ()
-    "toggle deleted tag for message"
-    (interactive)
-    (if (member "deleted" (notmuch-search-get-tags))
-        (notmuch-search-tag (list "-deleted"))
-      (notmuch-search-tag (list "+deleted")))))
-
-(define-key notmuch-search-mode-map "u"
-  (lambda ()
-         "toggle unread tag for message"
-         (interactive)
-         (if (member "unread" (notmuch-search-get-tags))
-             (notmuch-search-tag (list "-unread"))
-           (notmuch-search-tag (list "+ead")))))
-
-;; fetch / update
-(define-key notmuch-search-mode-map "U"
-  (lambda ()
-    "update mail index & sync"
-    (interactive)
-    (async-shell-command "mbsync -V jbl && notmuch new")))
+;;(global-set-key (kbd "C-c m") 'notmuch)
+;;;; mark deleted
+;;(define-key notmuch-show-mode-map "d"
+;;  (lambda ()
+;;    "toggle deleted tag for message"
+;;    (interactive)
+;;    (if (member "deleted" (notmuch-show-get-tags))
+;;        (notmuch-show-tag (list "-deleted"))
+;;      (notmuch-show-tag (list "+deleted")))))
+;;
+;;(define-key notmuch-search-mode-map "d"
+;;  (lambda ()
+;;    "toggle deleted tag for message"
+;;    (interactive)
+;;    (if (member "deleted" (notmuch-search-get-tags))
+;;        (notmuch-search-tag (list "-deleted"))
+;;      (notmuch-search-tag (list "+deleted")))))
+;;
+;;(define-key notmuch-search-mode-map "u"
+;;  (lambda ()
+;;         "toggle unread tag for message"
+;;         (interactive)
+;;         (if (member "unread" (notmuch-search-get-tags))
+;;             (notmuch-search-tag (list "-unread"))
+;;           (notmuch-search-tag (list "+ead")))))
+;;
+;;;; fetch / update
+;;(define-key notmuch-search-mode-map "U"
+;;  (lambda ()
+;;    "update mail index & sync"
+;;    (interactive)
+;;    (async-shell-command "mbsync -V jbl && notmuch new")))
 
 
 ;; geiser
