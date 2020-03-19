@@ -1,0 +1,68 @@
+#!/usr/local/bin/bash
+
+Clock() {
+    DATETIME=$(date "+%a %b %d, %T")
+
+    echo -n "$DATETIME"
+}
+
+Battery() {
+    STAT=$(acpi -b)
+    BATT=$(echo $STAT | sed 's/[^%]* \([0-9]\{1,3\}\)%.*/\1/')
+
+    if [[ $STAT =~ "Discharging" ]]
+    then
+        if ((0 <= $BATT && $BATT <= 20))
+        then
+            echo -n "%{F#cc241d}\uf244%{F-}"
+        elif ((20 <= $BATT && $BATT <= 40))
+        then
+            echo -n "\uf243"
+        elif ((40 <= $BATT && $BATT <= 60))
+        then
+            echo -n "\uf242"
+        elif (( 60 <= $BATT && $BATT <= 80))
+        then
+            echo -n "\uf241"
+        elif ((80 <= $BATT && $BATT <= 100))
+        then
+            echo -n "\uf240"
+        fi
+    else
+        echo -n "\uf1e6"
+    fi
+
+    echo -n "$BATT%"
+}
+
+bspwm() {
+    BSPWM=$(bspc query -D)
+    BUSY=$(bspc query -D -d .occupied)
+
+    for DESK in $BSPWM
+    do
+        CHAR="o"
+        echo -n "%{A:bspc desktop $DESK -f:}"
+        if [ $DESK = $(bspc query -D -d) ]
+        then
+            echo -n "%{F#2F9DB5}$CHAR%{F-}"
+        else
+            echo -n "%{F#000000}$CHAR%{F-}"
+        fi
+        echo -n "%{A} "
+    done
+}
+
+Network() {
+    NET=$(netctl-auto list | grep \* | sed 's/\* \(.*\)/\1/')
+
+    if [ -n $NET ]
+    then
+        echo -n "\uf1eb$NET"
+    fi
+}
+
+while true; do
+    echo -e "%{l}$(Clock)%{r}$(bspwm)"
+    sleep 0.5
+done
