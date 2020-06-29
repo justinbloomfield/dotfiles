@@ -25,7 +25,7 @@
   (if (or arg (not buffer-file-name))
       (find-file (concat "/doas:root@localhost:"
                          (ido-read-file-name "Find file (as root):")))
-    (find-alternate-file (concat "/doas:root@localhost:" buffer-file-name))))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 (global-set-key (kbd "C-x C-r") 'sudo-edit)
 
 ;; QL/STUMPWM
@@ -77,10 +77,10 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "Hack-11"))))
+                  (set-face-attribute 'mode-line nil :font "xos4 Terminus-12"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
-    (load-theme 'base16-classic-light)))
+    (load-theme 'base16-ashes)))
 
 (set-face-bold-p 'bold nil)
 (if (eq system-type 'darwin)
@@ -88,13 +88,13 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "Hack-11:antialias=true:autohint=true")))
-      (set-face-attribute 'mode-line nil :font "Hack-11")))
+      (setq default-frame-alist '((font . "xos4 Terminus-12")))
+      (set-face-attribute 'mode-line nil :font "xos4 Terminus-12")))
 
 (set-face-bold-p 'bold nil)
 
-;; let the glow flow through you
-;;(global-hl-line-mode nil)
+;n; let the glow flow through you
+(global-hl-line-mode nil)
 
 ;; remove modeline 90's box thing
 (set-face-attribute 'mode-line nil :box nil)
@@ -112,7 +112,6 @@
 (scroll-bar-mode -1)
 (fringe-mode '(0 . 0))
 (set-display-table-slot standard-display-table 'wrap ?\ )
-
 
 (defun focus-mode ()
   "Set margins to work better for centred shit"
@@ -174,31 +173,27 @@
 (global-set-key (kbd "C-x o") 'ace-window)
 (setq aw-keys '(?a ?o ?e ?u ?h ?t ?n ?s))
 
-;; auctex
-;;  (setq TeX-auto-save t)
-;;  (setq TeX-parse-self t)
-;;  (setq font-latex-fontify-script 'invisible)
-;;  (add-hook 'LaTeX-mode-hook 'visual-line-mode)
-;; ;; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
-;;  (add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
-;;  (add-hook 'Latex-mode-hook 'turn-on-reftex)
-;;  (setq reftex-plug-into-AUCTeX t)
-;; ;; (eval-after-load "tex"
-;; ;;   '(progn
-;; ;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
-;; ;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
-;;  (setq org-latex-listings 'minted
-;;        org-latex-packages-alist '(("" "minted"))
-;;        org-latex-pdf-process
-;;        '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-;;          "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+;;; auctex
+(setq TeX-auto-save t)
+(setq TeX-parse-self t)
+(setq font-latex-fontify-script 'invisible)
+(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+; (add-hook 'LaTeX-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+(add-hook 'Latex-mode-hook 'turn-on-reftex)
+(setq reftex-plug-into-AUCTeX t)
+;; (eval-after-load "tex"
+;;   '(progn
+;;      (add-to-list 'TeX-view-program-list '("my-mupdf" ("mupdf" " %o" (mode-io-correlate " %(outpage)"))))
+;;      (setq TeX-view-program-selection '((output-pdf "my-mupdf")))))
+;; (setq org-latex-listings 'minted
+;;       org-latex-packages-alist '(("" "minted"))
+;;       org-latex-pdf-process
+;;       '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+;;         "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
 ;; (add-to-list 'org-latex-packages-alist '(("" "listingsutf8")))
 
-;; aurel
-
-(setq aurel-list-download-function 'aurel-download-unpack-eshell)
-(setq aurel-info-download-function 'aurel-download-unpack-eshell)
 
 ;; company
 (add-hook 'after-init-hook 'global-company-mode)
@@ -258,7 +253,7 @@
 
 
 
-;; org
+;;; org
 (require 'ox-latex)
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook 'pretty-mode)
@@ -326,7 +321,8 @@
       mu4e-trash-folder "/Deleted Items")
 (setq mu4e-maildir-shortcuts
       '(("/Inbox" . ?i)
-        ("/Sent"  . ?s)))
+        ("/Sent Items"  . ?s)
+        ("/Inbox/IT Requests" . ?r)))
 (setq mu4e-user-mail-address-list '("justinb@alpineshire.vic.gov.au"))
 (setq mu4e-headers-fields
       '((:human-date   .  25)
@@ -351,12 +347,36 @@
 (setq mu4e-change-filenames-when-moving t)
 
 (setq mu4e-update-interval 180)
-
-
-;; notmuch
-
 (setq message-send-mail-function 'message-send-mail-with-sendmail
       sendmail-program "msmtp")
+
+(setq mail-user-agent 'mu4e-user-agent)
+(setq message-cite-function          'message-cite-original)
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+(setq message-cite-reply-position    'above)
+(setq message-yank-prefix            "")
+(setq message-yank-cited-prefix      "")
+(setq message-yank-empty-prefix      "")
+(setq message-citation-line-format   "On %e %B %Y %R, %f wrote:\n")
+
+
+;; ;;; org-msg
+;; (setq org-msg-options "html-postamble:nil H:5 num:nil ^:{} toc:nil"
+;;       org-msg-startup "hidestars indent inlineimages"
+;;       org-msg-greeting-fmt "\nHi %s,\n"
+;;       org-msg-greeting-name-limit 3
+;;       org-msg-text-plain-alternative t
+;;       org-msg-signature "
+
+;; Thanks,
+;; Justin
+;; #+begin_signature
+;; #p+end_signature")
+;; (org-msg-mode)
+
+
+;;; notmuch
+
 ;;(global-set-key (kbd "C-c m") 'notmuch)
 ;;;; mark deleted
 ;;(define-key notmuch-show-mode-map "d"

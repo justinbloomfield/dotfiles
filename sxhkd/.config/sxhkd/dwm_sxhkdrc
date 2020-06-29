@@ -1,0 +1,93 @@
+#
+# wm independent hotkeys
+#
+
+# terminal emulator
+super + Return
+	  urxvtc
+
+# program launcher
+super + space
+	rofi -show run
+
+# make sxhkd reload its configuration files:
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# reload dwm
+super + shift + q
+   	killall dwm
+
+#
+# dwm hotkeys
+#
+
+# quit 
+super + alt + Escape
+	  killall xinit
+
+# close and kill
+super + {_,shift + }x
+	  dwmc {kill,eviscerate}client
+
+# promote window to master 
+super + b
+	  dwmc zoom
+
+# toggle bar
+super + shift + b
+      dwmc togglebar
+
+# screen lock
+super + l
+	  slock
+
+# password
+#super + shift + a
+#      psswd
+      
+# move to next monitor
+super + {_,shift +} z
+      dwmc {focusmon,tagmon} 0
+
+# focus/swap windows up and down the stack
+super + {t,n}
+	  dwmc focusstack {+,-}1
+
+# increase/decrease master size
+super + h
+      dwmc setmfact -0.05
+
+super + s
+      dwmc setmfact +0.05
+
+# increment/decrement master count
+super + {i,d}
+      dwmc incnmaster {-,+}1
+
+# change tags
+super + {_,ctrl +}{_,shift +} {semicolon,comma,period,p,y}
+      dwmc {_,toggle}{viewex,tagex} {0-4}
+
+# set layouts
+super + {a,o,e,u,f}
+      dwmc setlayoutex {0-5}
+
+
+# focus the last node/desktop
+#super + Tab 
+#	  rofi -show windowcd 
+
+XF86MonBrightness{Up,Down}
+      light {-A,-U} 5 
+
+super + m
+    rofi -show drun
+
+# wireless menu
+super + w
+    urxvt -e nmtui
+
+# toggle floating
+super + shift + f
+    dwmc togglefloating

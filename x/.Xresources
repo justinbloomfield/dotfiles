@@ -1,26 +1,26 @@
-#include "/home/poq/.config/x/colours/glacial_urxvt"
-xterm*scrollBar:                     true 
+#include "/home/poq/.config/x/colours/base16-ashes_urxvt"
+*scrollBar:                     false 
 URxvt*imLocale:                      en_AU.UTF-8
 URxvt*imFont:                        xft:ttyp0:pixelsize=11
 URxvt*externalBorder:                0
 URxvt*internalBorder:                5 
 URxvt*url-launcher:                  /usr/bin/xdg-open
-URxvt*font:                          xft:hack:antialias=true:autohint=true:size=11
-xterm*font:                          xft:hack:antialias=true:autohint=true:size=11
-!Emacs.font:			     boxxy-11
+URxvt*font:                          xft:xos4 Terminus:antialias=false:autohint=true:size=10,xft:Hack Nerd Font:hinting=true:size=10
+! xterm*font:                          xft:siji:antialias=false:autohint=true:size=11
+! Emacs.font:			     boxxy-11
 emacs.reverseVideo:                 true
 
 !st*font:			     PxPlus IBM VGA8-12:antialias=false:autohint=true
 
-rofi.font:                           hack 11
-rofi.lines: 		                 5
-rofi.width:                          100
-rofi.borderwidth:	                 0
-rofi.auto-select:	                 false
-rofi.hide-scrollbar:	             true
-!rofi.color-window:	                 bg, c3
-rofi.color-window:                   #99000000 
-!rofi.color-normal:	                 bg, fg, bg, c4, bg
-rofi.color-normal:                   bg, fg, bg, #FF22, bg
-rofi.separator-style:                solid
+! rofi.font:                           terminus 11
+! rofi.lines: 		                 5
+! rofi.width:                          100
+! rofi.borderwidth:	                 0
+! rofi.auto-select:	                 false
+! rofi.hide-scrollbar:	             true
+! !rofi.color-window:	                 bg, c3
+! rofi.color-window:                   #99000000 
+! !rofi.color-normal:	                 bg, fg, bg, c4, bg
+! rofi.color-normal:                   bg, fg, bg, #FF22, bg
+! rofi.separator-style:                solid
 

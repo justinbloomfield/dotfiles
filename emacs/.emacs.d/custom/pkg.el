@@ -3,7 +3,7 @@
 (use-package aurel)
 (use-package company)
 (use-package company-ghc)
-(use-package counsel)
+:(use-package counsel)
 (use-package ess)
 (use-package emmet-mode)
 ;;(use-package excorporate)
@@ -20,7 +20,7 @@
 (use-package circe)
 (use-package elfeed)
 ;;(use-package emms)
-(use-package ensime)
+;;(use-package ensime)
 (use-package geiser)
 ;;(use-package hemisu-theme)
 (use-package intero)
@@ -29,6 +29,7 @@
 (use-package neotree)
 (use-package nix-mode)
 (use-package notmuch)
+(use-package org-msg)
 (use-package pretty-mode)
 ;;(use-package reverse-theme)
 ;;(use-package sbt-mode)
@@ -41,9 +42,9 @@
 (use-package use-package)
 (use-package yasnippet)
 (use-package ace-window)
-;;(use-package tex
-;;         :ensure auctex
-;;	 :ensure cdlatex)
+(use-package tex
+         :ensure auctex
+         :ensure cdlatex)
 (use-package cl-lib)
 (use-package company)
 ;;(use-package csv-mode)

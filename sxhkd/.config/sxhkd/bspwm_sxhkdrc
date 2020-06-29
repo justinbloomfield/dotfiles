@@ -4,10 +4,10 @@
 
 # terminal emulator
 super + Return
-	xterm
+	urxvt
 
 # program launcher
-super + @space
+super + space
 	rofilauncher
 
 # make sxhkd reload its configuration files:
@@ -43,7 +43,7 @@ super + g
 	bspc node -s biggest
 
 super + l
-	xlock
+	slock
 #
 # state/flags
 #
@@ -53,7 +53,7 @@ super + {o,shift + o,shift + f,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {w,v,z}
+super + {w,v,z}
 	bspc node -g {locked,sticky,private}
 
 #
@@ -80,8 +80,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node/desktop
-super + {grave,Tab}
-	bspc {node,desktop} -f last
+super + Tab 
+	WindowSelector
 
 # focus the older or newer node in the focus history
 super + {d,i}
@@ -130,7 +130,7 @@ super + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}
 
 XF86MonBrightness{Up,Down}
-    xbacklight {-inc,-dec} 5
+    light {-A,-U} 5 
 
 #
 # monitor setup 
@@ -149,3 +149,6 @@ super + a
 
 super + shift + a
     bspc node {,$(bspc query -N -n .hidden | tail -n1)} -g hidden=off
+
+super + alt + m
+    rofimenu

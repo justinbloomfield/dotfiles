@@ -1,1 +1,0 @@
-ssh -i ~/etc/ubvps.pem ubuntu@ec2-52-65-74-155.ap-southeast-2.compute.amazonaws.com
