@@ -11,7 +11,7 @@ xset s noblank &
 xset s noexpose & 
 xset c on &
 xset -dpms &
-urxvtd &
+urxvtd -e tmux &
 light -S 25 &
 thunar --daemon &
 #hhbsp &

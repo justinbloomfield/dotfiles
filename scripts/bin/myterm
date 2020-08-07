@@ -1,0 +1,15 @@
+#!/bin/dash
+_trap_exit() 
+{ 
+tmux kill-session -t $$; 
+}
+
+trap _trap_exit EXIT QUIT INT 30
+
+if ! [ -z "$@" ]; then
+    #	xst -t "Sterminal" -f "$font" "$@"
+    	xst "$@"
+else
+	[ -z "$LANG" ] && export LANG="en_US.utf8"
+	xst tmux new-session -s $$
+fi
