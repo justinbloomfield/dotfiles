@@ -1,0 +1,60 @@
+Binary files dwm/drw.o and dwm.patched/drw.o differ
+Binary files dwm/dwm and dwm.patched/dwm differ
+diff -ruN dwm/dwm.c dwm.patched/dwm.c
+--- dwm/dwm.c	2018-05-22 20:05:47.208417141 -0700
++++ dwm.patched/dwm.c	2018-06-20 15:08:07.380496725 -0700
+@@ -147,6 +147,7 @@
+ static void arrange(Monitor *m);
+ static void arrangemon(Monitor *m);
+ static void attach(Client *c);
++static void attachbelow(Client *c);
+ static void attachstack(Client *c);
+ static void buttonpress(XEvent *e);
+ static void checkotherwm(void);
+@@ -407,6 +408,17 @@
+ }
+ 
+ void
++attachbelow(Client *c)
++{
++	Client *below = c->mon->clients;
++	for (; below && below->next; below = below->next);
++	if (below)
++		below->next = c;
++	else
++		c->mon->clients = c;
++}
++
++void
+ attachstack(Client *c)
+ {
+ 	c->snext = c->mon->stack;
+@@ -1065,7 +1077,7 @@
+ 		c->isfloating = c->oldstate = trans != None || c->isfixed;
+ 	if (c->isfloating)
+ 		XRaiseWindow(dpy, c->win);
+-	attach(c);
++	attachbelow(c);
+ 	attachstack(c);
+ 	XChangeProperty(dpy, root, netatom[NetClientList], XA_WINDOW, 32, PropModeAppend,
+ 		(unsigned char *) &(c->win), 1);
+@@ -1420,7 +1432,7 @@
+ 	detachstack(c);
+ 	c->mon = m;
+ 	c->tags = m->tagset[m->seltags]; /* assign tags of target monitor */
+-	attach(c);
++	attachbelow(c);
+ 	attachstack(c);
+ 	focus(NULL);
+ 	arrange(NULL);
+@@ -1900,7 +1912,7 @@
+ 					m->clients = c->next;
+ 					detachstack(c);
+ 					c->mon = mons;
+-					attach(c);
++					attachbelow(c);
+ 					attachstack(c);
+ 				}
+ 				if (m == selmon)
+Binary files dwm/dwm.o and dwm.patched/dwm.o differ
+Binary files dwm/util.o and dwm.patched/util.o differ
