@@ -12,16 +12,22 @@ xset s noexpose &
 xset c on &
 xset -dpms &
 urxvtd -e tmux &
-light -S 25 &
-thunar --daemon &
+#light -S 25 &
+#thunar --daemon &
 #hhbsp &
-devmon &
+#devmon &
 #xrandr --output eDP-1 --off &
 #xrandr --output HDMI-1 --right-of eDP-1 &
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-/usr/lib/mate-notification-daemon/mate-notification-daemon &
-sb &
+#/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+#/usr/lib/mate-notification-daemon/mate-notification-daemon &
+# sb &
 xbanish -t 2000 -s &
+#xrandr --output DVI-I-1 --off &
+#xrandr --output DP-4 --left-of DVI-I-1 &
+#xrandr --output DVI-I-1 --mode 1920x1080 --rate 144 &
+dwmclock &
+cadence-session-start --system-start & 
 while true; do
 	dwm 2> ~/.dwm.log
+	
 done

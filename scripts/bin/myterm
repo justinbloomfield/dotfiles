@@ -10,6 +10,6 @@ if ! [ -z "$@" ]; then
     #	xst -t "Sterminal" -f "$font" "$@"
     	xst "$@"
 else
-	[ -z "$LANG" ] && export LANG="en_US.utf8"
+	[ -z "$LANG" ] && export LANG="en_AU.utf8"
 	xst tmux new-session -s $$
 fi
