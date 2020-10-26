@@ -262,8 +262,8 @@
 (setq org-default-notes-file "~/var/org/notes.org")
 (setq org-agenda-files (list "~/var/org/todo.org"
                              "~/var/org/notes.org"
-                             "~/var/org/appointments.org"
-                             "~/var/org/mtb.org"))
+                             "~/var/org/appointments.org"))
+                             
                             
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (define-key org-mode-map (kbd "C-c l") 'org-store-link)
