@@ -4,7 +4,7 @@ xrdb ~/.Xresources &
 hsetroot -solid '#1c2023' &
 xsetroot -cursor_name left_ptr &
 setxkbmap us -variant dvp -option ctrl:nocaps &
-sxhkd -c ~/.config/sxhkd/dwm_sxhkdrc -m -1 &
+#sxhkd -c ~/.config/sxhkd/dwm_sxhkdrc -m -1 &
 picom --config ~/.config/picom.conf &
 xset s off &
 xset s noblank &
@@ -12,7 +12,7 @@ xset s noexpose &
 xset c on &
 xset -dpms &
 urxvtd -e tmux &
-light -S 25 &
+light -S 50 &
 thunar --daemon &
 #hhbsp &
 devmon &
@@ -22,6 +22,8 @@ devmon &
 /usr/lib/mate-notification-daemon/mate-notification-daemon &
 sb &
 xbanish -t 2000 -s &
-while true; do
-	dwm 2> ~/.dwm.log
-done
+#while true; do
+#	dwm 2> ~/.dwm.log
+#done
+exec xmonad
+

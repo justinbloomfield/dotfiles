@@ -14,6 +14,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.PerScreen
 import XMonad.Layout.ResizableTile
 import XMonad.Layout.Spacing
+import XMonad.Layout.SubLayouts
 import XMonad.Prompt
 import XMonad.Util.Run(spawnPipe)
 -- import XMonad.Util.Scratchpad
@@ -69,9 +70,12 @@ myStartupHook = do
   spawn "export GTK_IM_MODULE=ibus"
   spawn "export XMODIFIERS=@im=ibus"
   spawn "export QT_IM_MODULE=ibus"
-  spawn "xcape -t 200 -e 'Shift_L=parenleft;Shift_R=parenright"
+--  spawn "export DBUS_SYSTEM_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket"
+--  spawn "export DBUS_SESSION_BUS_ADDRESS=unix:path=/run/dbus/system_bus_socket"
+  spawn "xcape -t 300 -e 'Shift_L=parenleft;Shift_R=parenright'"
   spawn "xsetroot -cursor_name left_ptr"
---  setWMName "Openbox"
+  spawn "dbus-launch"
+  --  setWMName "Openbox"
 
 myLayout =
   noBorders (fullscreenFull Full) ||| avoidStruts emptyBSP
@@ -105,6 +109,10 @@ newKeys conf@(XConfig {XMonad.modMask = modMask}) =
   , ((modMask .|. shiftMask, xK_f), withFocused $ windows . W.sink)
 
   -- BSP Keys
+  , ((modMask, xK_r), sendMessage Swap)
+  , ((modMask, xK_o), sendMessage  FocusParent)
+  , ((modMask .|. shiftMask, xK_r), sendMessage Rotate)
+  , ((modMask .|. shiftMask, xK_o), sendMessage MoveNode)
   , ((modMask .|. shiftMask, xK_s), sendMessage $ ExpandTowards R)
   , ((modMask .|. shiftMask, xK_h), sendMessage $ ExpandTowards L)
   , ((modMask .|. shiftMask, xK_n), sendMessage $ ExpandTowards U)
@@ -113,8 +121,7 @@ newKeys conf@(XConfig {XMonad.modMask = modMask}) =
   , ((modMask .|. controlMask, xK_h), sendMessage $ ShrinkFrom L)
   , ((modMask .|. controlMask, xK_n), sendMessage $ ShrinkFrom U)
   , ((modMask .|. controlMask, xK_t), sendMessage $ ShrinkFrom D)
-  , ((modMask .|. controlMask, xK_r), sendMessage $ Rotate)
-  , ((modMask, xK_r), sendMessage $ Swap)
+  , ((modMask .|. controlMask, xK_o), sendMessage SelectNode)
 
   -- Audio
   , ((0, xF86XK_AudioRaiseVolume), spawn "amixer sset Master 1%+ unmute")
@@ -133,7 +140,7 @@ newKeys conf@(XConfig {XMonad.modMask = modMask}) =
         , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]]
   ++
   [((m .|. modMask, k), windows $ onCurrentScreen f i) 
-      | (i, k) <- zip (workspaces' conf) [xK_semicolon, xK_comma, xK_period, xK_p, xK_a, xK_o, xK_e, xK_u]
+      | (i, k) <- zip (workspaces' conf) [xK_semicolon, xK_comma, xK_period, xK_p]
       , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
   
@@ -145,7 +152,7 @@ main = do
 --  unsetEnv "GHC_PACKAGE_PATH"
 --  getEnv "PREVPATH" >>= setEnv "PATH"
 --  unsetEnv "PREVPATH"
-  xmobar  <- spawnPipe "xmobar /home/poq/.xmonad/xmobar.conf"
+  xmobar  <- spawnPipe "xmobar /home/poq/.xmonadrc"
 --  xmobar2 <- spawnPipe "xmobar /home/poq/.xmonad/xmobar2.conf"
   xmonad $ ewmh def
     { borderWidth = myBorderWidth
