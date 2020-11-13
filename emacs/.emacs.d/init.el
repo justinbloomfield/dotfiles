@@ -77,7 +77,7 @@
     (add-hook 'after-make-frame-functions
               (lambda (frame)
                 (with-selected-frame frame
-                  (set-face-attribute 'mode-line nil :font "xos4 Terminus-12"))))
+                  (set-face-attribute 'mode-line nil :font "Terminus"))))
 ;;                  (set-face-attribute 'default nil :foreground "#bbbbbb")
   (when (window-system)
     (load-theme 'base16-ashes)))
@@ -88,8 +88,8 @@
       (setq default-frame-alist '((font . "Fantasque Sans Mono-16:antialias=true")))
       (set-face-attribute 'mode-line nil :font "Fantasque Sans Mono-11"))
     (progn
-      (setq default-frame-alist '((font . "xos4 Terminus-12")))
-      (set-face-attribute 'mode-line nil :font "xos4 Terminus-12")))
+      (setq default-frame-alist '((font . "Terminus")))
+      (set-face-attribute 'mode-line nil :font "Terminus")))
 
 (set-face-bold-p 'bold nil)
 
@@ -258,13 +258,13 @@
 (add-hook 'org-mode-hook 'turn-on-org-cdlatex)
 (add-hook 'org-mode-hook 'pretty-mode)
 ;; (add-hook 'org-mode-hook 'flyspell-mode)
-(setq org-directory "~/var/org")
+(setq org-directory "~/var/org/")
 (setq org-default-notes-file "~/var/org/notes.org")
-(setq org-agenda-files (list "~/var/org/todo.org"
-                             "~/var/org/notes.org"
-                             "~/var/org/appointments.org"))
-                             
-                            
+(setq org-agenda-files (list (concat org-directory "todo.org")
+                             (concat org-directory "notes.org")
+                             (concat org-directory "appointments.org")
+                             (concat org-directory "notes_toadd.org")
+                             (concat org-directory "mtb.org")))
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (define-key org-mode-map (kbd "C-c l") 'org-store-link)
 

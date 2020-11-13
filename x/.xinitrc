@@ -12,18 +12,15 @@ xset s noexpose &
 xset c on &
 xset -dpms &
 urxvtd -e tmux &
-light -S 50 &
-thunar --daemon &
 #hhbsp &
-devmon &
+#devmon &
 #xrandr --output eDP-1 --off &
 #xrandr --output HDMI-1 --right-of eDP-1 &
-/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-/usr/lib/mate-notification-daemon/mate-notification-daemon &
-sb &
+#/usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+#/usr/lib/mate-notification-daemon/mate-notification-daemon &
+# sb &
 xbanish -t 2000 -s &
 #while true; do
 #	dwm 2> ~/.dwm.log
 #done
 exec xmonad
-

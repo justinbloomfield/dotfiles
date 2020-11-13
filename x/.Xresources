@@ -2,14 +2,14 @@
 *scrollBar:                     false 
 *imLocale:                      en_AU.UTF-8
 *imFont:                        xft:ttyp0:pixelsize=11
-*externalBorder:                0
-*internalBorder:                5 
+!*externalBorder:                0
+!*internalBorder:                10 
 *url-launcher:                  /usr/bin/xdg-open
-!*font:                          xft:xos4 Terminus:antialias=false:autohint=true:size=10,xft:Hack Nerd Font:hinting=true:size=10
-*font:                           xos4 Terminus:size=12
+!*font:                          xft:Terminus:antialias=false:autohint=true:pixelsize=12,xft:Hack Nerd Font:hinting=true:size=10
+!*font:                           Terminus:size=12
 ! xterm*font:                          xft:siji:antialias=false:autohint=true:size=11
 ! Emacs.font:			     boxxy-11
-emacs.reverseVideo:                 true
+!emacs.reverseVideo:                 true
 
 !st*font:			     PxPlus IBM VGA8-12:antialias=false:autohint=true
 
