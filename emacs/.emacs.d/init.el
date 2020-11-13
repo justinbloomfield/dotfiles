@@ -262,9 +262,8 @@
 (setq org-default-notes-file "~/var/org/notes.org")
 (setq org-agenda-files (list (concat org-directory "todo.org")
                              (concat org-directory "notes.org")
-                             (concat org-directory "appointments.org")
-                             (concat org-directory "notes_toadd.org")
-                             (concat org-directory "mtb.org")))
+                             (concat org-directory "appointments.org")))
+
 
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (define-key org-mode-map (kbd "C-c l") 'org-store-link)
@@ -284,7 +283,7 @@
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers nil)
 (setq ivy-count-format "(%d/%d) ")
-
+(setq ivy-use-selectable-prompt t)
 
 ;; multi-term
 (setq multi-term-program "mksh")
@@ -512,6 +511,7 @@
 (global-set-key (kbd "C-c h") help-map)
 (global-set-key (kbd "C-h") 'backward-delete-char-untabify)
 (global-set-key (kbd "<hiragana-katakana>") 'backward-delete-char-untabify)
+(global-set-key (kbd "C-<return>") 'ivy-immediate-done)
 (setq disabled-command-function nil)
 (setenv "PATH" (concat (getenv "PATH") ":/run/current-system/sw/bin:/Library/TeX/texbin"))
 
