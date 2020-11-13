@@ -4,14 +4,13 @@ xrdb ~/.Xresources &
 hsetroot -solid '#1c2023' &
 xsetroot -cursor_name left_ptr &
 setxkbmap us -variant dvp -option ctrl:nocaps &
-sxhkd -c ~/.config/sxhkd/dwm_sxhkdrc -m -1 &
+#sxhkd -c ~/.config/sxhkd/dwm_sxhkdrc -m -1 &
 picom --config ~/.config/picom.conf &
 xset s off &
 xset s noblank &
 xset s noexpose & 
 xset c on &
 xset -dpms &
-#urxvtd -e tmux &
 #light -S 25 &
 #thunar --daemon &
 #hhbsp &
@@ -25,9 +24,4 @@ xbanish -t 2000 -s &
 #xrandr --output DVI-I-1 --off &
 #xrandr --output DP-4 --left-of DVI-I-1 &
 #xrandr --output DVI-I-1 --mode 1920x1080 --rate 144 &
-dwmclock &
-#cadence-session-start --system-start & 
-while true; do
-	dwm 2> ~/.dwm.log
-	
-done
+exec xmonad

@@ -263,8 +263,6 @@
 (setq org-agenda-files (list (concat org-directory "todo.org")
                              (concat org-directory "notes.org")
                              (concat org-directory "appointments.org")))
-
-
 (global-set-key (kbd "C-c o a") 'org-agenda)
 (define-key org-mode-map (kbd "C-c l") 'org-store-link)
 
